@@ -329,7 +329,7 @@ paBtn.addEventListener('click',function(){if(seq!==null){stopSeq();return;}seq=0
 document.addEventListener('click',function(e){
   var p=e.target.closest('.play');
   if(p){e.stopPropagation();stopSeq();if(curBtn===p&&cur&&!cur.ended){stopCur();return;}playOne(p);return;}
-  var q=e.target.closest('.qa .q'); if(q){q.parentNode.classList.toggle('open');return;}
+  var q=e.target.closest('.qa .q'); if(q){q.closest('.qa').classList.toggle('open');return;}
   var ko=e.target.closest('.ko'); if(ko&&document.body.classList.contains('hide-ko')){ko.classList.toggle('reveal');return;}
   var vko=e.target.closest('.vko'); if(vko&&document.body.classList.contains('hide-vko')){vko.classList.toggle('reveal');return;}
   var ven=e.target.closest('.ven'); if(ven&&document.body.classList.contains('hide-ven')){ven.classList.toggle('reveal');}
