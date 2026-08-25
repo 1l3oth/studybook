@@ -130,6 +130,8 @@ body.hide-fen .fen,body.hide-fen .fqe,body.hide-fen .fae,body.hide-fen .fven{dis
 .tbtn{font-family:var(--f-ui);font-size:.83rem;font-weight:500;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.42rem .95rem;cursor:pointer}
 .tbtn.on{background:var(--accent);color:var(--on-accent);border-color:transparent}
 .tbtn.play-all{color:var(--accent);border-color:var(--accent);font-weight:600} .tbtn.play-all.on{color:var(--on-accent)}
+.homebtn{display:inline-flex;align-items:center;gap:.35rem;text-decoration:none;color:var(--ink-2);flex:none}
+.homebtn:hover{color:var(--accent);border-color:var(--accent)}
 .tbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 footer{text-align:center;color:var(--ink-3);font-size:.8rem;margin-top:2.4rem;line-height:1.7}
 @media (max-width:640px){.card{grid-template-columns:1fr} .pic img{aspect-ratio:16/9} .spine{grid-template-columns:repeat(2,1fr);gap:.7rem} .step:nth-child(2)::after,.step:last-child::after{content:none} .surv .sen{display:none} .qa .a{padding-left:1.05rem}
@@ -294,6 +296,7 @@ footer{text-align:center;color:var(--ink-3);font-size:.8rem;margin-top:2.4rem;li
 </div>
 
 <div class="bar">
+  <a class="tbtn homebtn" href="../" title="Studybook home"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
   <div class="acts" id="acts-cards">
     <button class="tbtn play-all" id="playAll" type="button">▶ Play all</button>
     <button class="tbtn" id="tKo" type="button">Hide Korean</button>
