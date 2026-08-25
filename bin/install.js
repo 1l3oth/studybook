@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /*
- * Installer for the "studybook" Claude skill.
- * Copies skill/studybook/ into the target Claude skills directory.
+ * Installer for the "studybook" Claude skill + the /teach-me command.
+ * Copies skill/studybook/ -> <base>/skills/studybook and command/teach-me.md -> <base>/commands/teach-me.md.
  *
- *   npx github:1l3oth/studybook            -> global (~/.claude/skills, or $CLAUDE_CONFIG_DIR/skills)
- *   npx github:1l3oth/studybook --project  -> this project (./.claude/skills)
- *   npx github:1l3oth/studybook --dir X    -> a skills dir you name
+ *   npx github:1l3oth/studybook            -> global   (~/.claude, or $CLAUDE_CONFIG_DIR)
+ *   npx github:1l3oth/studybook --project  -> project  (./.claude)
+ *   npx github:1l3oth/studybook --dir X    -> a .claude directory you name
  *
  * No dependencies; runs on any Node >= 14.
  */
@@ -18,11 +18,10 @@ const args = process.argv.slice(2);
 const has = (f) => args.includes(f);
 const dirArg = (() => { const i = args.indexOf('--dir'); return i >= 0 ? args[i + 1] : null; })();
 
-function skillsDir() {
+function claudeBase() {
   if (dirArg) return path.resolve(dirArg);
-  if (has('--project') || has('-p')) return path.join(process.cwd(), '.claude', 'skills');
-  const base = process.env.CLAUDE_CONFIG_DIR || path.join(os.homedir(), '.claude');
-  return path.join(base, 'skills');
+  if (has('--project') || has('-p')) return path.join(process.cwd(), '.claude');
+  return process.env.CLAUDE_CONFIG_DIR || path.join(os.homedir(), '.claude');
 }
 
 function copyDir(src, dest) {
@@ -36,22 +35,30 @@ function copyDir(src, dest) {
 }
 
 function main() {
-  const source = path.join(__dirname, '..', 'skill', 'studybook');
-  if (!fs.existsSync(path.join(source, 'SKILL.md'))) {
-    console.error('error: skill payload not found at ' + source);
+  const root = path.join(__dirname, '..');
+  const skillSrc = path.join(root, 'skill', 'studybook');
+  const cmdSrc = path.join(root, 'command', 'teach-me.md');
+  if (!fs.existsSync(path.join(skillSrc, 'SKILL.md'))) {
+    console.error('error: skill payload not found at ' + skillSrc);
     process.exit(1);
   }
-  const target = skillsDir();
-  const dest = path.join(target, 'studybook');
-  const existed = fs.existsSync(dest);
-  copyDir(source, dest);
 
-  console.log((existed ? 'Updated' : 'Installed') + ' the "studybook" skill:');
-  console.log('  ' + dest);
+  const base = claudeBase();
+  const skillDest = path.join(base, 'skills', 'studybook');
+  const cmdDest = path.join(base, 'commands', 'teach-me.md');
+  const existed = fs.existsSync(skillDest);
+
+  copyDir(skillSrc, skillDest);
+  fs.mkdirSync(path.dirname(cmdDest), { recursive: true });
+  fs.copyFileSync(cmdSrc, cmdDest);
+
+  console.log((existed ? 'Updated' : 'Installed') + ' studybook:');
+  console.log('  skill:   ' + skillDest);
+  console.log('  command: ' + cmdDest);
   console.log('');
-  console.log('Restart Claude Code (or your agent) so it picks up the skill, then just ask:');
-  console.log('  "make a studybook unit for <your material>"');
-  console.log('  "add a study page to my studybook"');
+  console.log('Restart Claude Code so it loads them, then just type:');
+  console.log('  /teach-me                 (it will ask what you want to learn)');
+  console.log('  /teach-me <topic>         or paste your text / a link after it');
   console.log('');
   console.log('Sample to copy from: https://1l3oth.github.io/studybook/  (feed: /feed.xml)');
 }

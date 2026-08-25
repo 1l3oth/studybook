@@ -35,24 +35,40 @@ active recall), not folklore.
 No file transfer. From any machine with Node:
 
 ```bash
-# install globally (~/.claude/skills) — usable in every project
+# install globally (~/.claude) — usable in every project
 npx github:1l3oth/studybook
 
-# or install into just the current project (./.claude/skills)
+# or install into just the current project (./.claude)
 npx github:1l3oth/studybook --project
 
-# or a directory you name
-npx github:1l3oth/studybook --dir /path/to/.claude/skills
+# or a .claude directory you name
+npx github:1l3oth/studybook --dir /path/to/.claude
 ```
 
-Restart Claude Code (or your agent) so it picks up the skill, then simply ask:
+This installs two things: the **`studybook` skill** and a **`/teach-me` command**. Restart Claude
+Code so it loads them.
 
-> "make a studybook unit for this speech"
-> "add a study page to my studybook and deploy it"
+### The easy way: `/teach-me`
 
-The skill is a **router**: it dispatches the AI to the right step-by-step reference for creating the
-site, building a unit, generating media, hosting, and the feed — so units come out consistent instead
-of improvised.
+Just type the command:
+
+```
+/teach-me                       it asks what you want to learn
+/teach-me Korean weather small talk
+/teach-me <paste your text, or a link>
+```
+
+`/teach-me` first asks whether you have a couple of minutes or are short on time (if short, it asks
+only the one essential question), reads any text or link you paste, then builds the whole unit for
+you. It also reminds you to grab a snack or a drink to sip while you study — tying new words to a
+taste gives your brain an extra way to recall them.
+
+### Or just ask
+
+The skill also works from a plain request, e.g. *"make a studybook unit for this speech"* or *"add a
+study page to my studybook and deploy it"*. Either way the skill is a **router**: it dispatches the AI
+to the right step-by-step reference (site, unit, media, hosting, feed, style) so units come out
+consistent instead of improvised.
 
 ---
 
@@ -108,7 +124,8 @@ studybook/
   korean-summer-speech/      the sample unit
     index.html  img/  audio/
   package.json               npx installer manifest
-  bin/install.js             copies the skill into your Claude skills dir
+  bin/install.js             copies the skill + command into your .claude dir
+  command/teach-me.md        the /teach-me command (interview, then build)
   skill/studybook/           the skill payload
     SKILL.md                 the router
     references/              step-by-step sub-guides (site, unit, media, hosting, feed, style)
