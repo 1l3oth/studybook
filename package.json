@@ -1,0 +1,22 @@
+{
+  "name": "studybook-skill",
+  "version": "1.0.0",
+  "description": "Installer for the 'studybook' Claude skill — build interactive, memory-first language-study sites (picture cards with audio, Q&A, vocab, full read-through) hosted on GitHub Pages with an AI-readable RSS feed.",
+  "bin": {
+    "studybook-skill": "bin/install.js"
+  },
+  "files": [
+    "bin",
+    "skill"
+  ],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skill",
+    "language-learning",
+    "study",
+    "github-pages"
+  ],
+  "homepage": "https://1l3oth.github.io/studybook/",
+  "license": "MIT"
+}
