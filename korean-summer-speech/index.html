@@ -35,6 +35,10 @@ h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);
 .chapters button.on:hover{background:var(--accent)}
 .chapters button.on .cko,.chapters button.on .cnum{color:var(--on-accent)}
 .chapters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chtoggle{font-family:var(--f-ui);font-weight:700;font-size:1.05rem;color:var(--ink-2);background:transparent;border:none;border-radius:12px;padding:.4rem;cursor:pointer;width:3rem;display:flex;align-items:center;justify-content:center}
+.chtoggle:hover{background:var(--sunken)}
+.chtoggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chapters.collapsed button[data-tab]{display:none}
 /* the book */
 .book{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:4px 14px 14px 4px;box-shadow:var(--shadow),5px 5px 0 -1px var(--sunken),6px 6px 0 -1px var(--line),10px 9px 0 -2px var(--sunken),11px 10px 0 -2px var(--line);padding:1.3rem 1.5rem 1rem 2.2rem;margin:1.3rem 12px 1.9rem 0;overflow:hidden}
 .book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1.25rem;background:linear-gradient(90deg,color-mix(in srgb,var(--ink) 13%,transparent),transparent 85%);border-right:1px solid var(--line);pointer-events:none}
@@ -318,7 +322,8 @@ footer{text-align:center;color:var(--ink-3);font-size:.8rem;margin-top:2.4rem;li
   <footer>Pictures generated for study · every line and answer has shane_ko audio.</footer>
 </div>
 
-<nav class="chapters" role="tablist">
+<nav class="chapters collapsed" role="tablist">
+  <button class="chtoggle" id="chToggle" type="button" aria-label="Chapters menu">☰</button>
   <button data-tab="cards" class="on"><span class="cnum">I</span><span class="cko">그림 카드</span><span class="cen">Speech</span></button>
   <button data-tab="qa"><span class="cnum">II</span><span class="cko">예상 질문</span><span class="cen">Q&amp;A</span></button>
   <button data-tab="voc"><span class="cnum">III</span><span class="cko">단어</span><span class="cen">Vocab</span></button>
@@ -383,12 +388,16 @@ var ROMAN=['I','II','III','IV'];
 var SHORT={cards:'Speech',qa:'Q&A',voc:'Vocab',full:'Full'};
 var runCh=document.getElementById('runCh'),pageNo=document.getElementById('pageNo'),pageInd=document.getElementById('pageInd'),prevB=document.getElementById('prevPage'),nextB=document.getElementById('nextPage');
 var curTab='cards';
-function showTab(name){stopSeq();stopCur();curTab=name;var idx=ORDER.indexOf(name);for(var k in panels){panels[k].classList.toggle('on',k===name);acts[k].hidden=(k!==name);}tabs.forEach(function(t){t.classList.toggle('on',t.getAttribute('data-tab')===name);});if(runCh)runCh.textContent=NAMES[name];if(pageNo)pageNo.textContent=(idx+1);if(pageInd)pageInd.textContent=ROMAN[idx]+' · '+SHORT[name];if(prevB)prevB.disabled=(idx<=0);if(nextB)nextB.disabled=(idx>=ORDER.length-1);window.scrollTo({top:0,behavior:'smooth'});}
+function showTab(name){stopSeq();stopCur();curTab=name;var idx=ORDER.indexOf(name);for(var k in panels){panels[k].classList.toggle('on',k===name);acts[k].hidden=(k!==name);}tabs.forEach(function(t){t.classList.toggle('on',t.getAttribute('data-tab')===name);});if(runCh)runCh.textContent=NAMES[name];if(pageNo)pageNo.textContent=(idx+1);if(pageInd)pageInd.textContent=ROMAN[idx]+' · '+SHORT[name];if(prevB)prevB.disabled=(idx<=0);if(nextB)nextB.disabled=(idx>=ORDER.length-1);var rl=document.querySelector('.chapters');if(rl)rl.classList.add('collapsed');setChIcon();window.scrollTo({top:0,behavior:'smooth'});}
 tabs.forEach(function(t){t.addEventListener('click',function(){showTab(t.getAttribute('data-tab'));});});
 function flip(d){var i=ORDER.indexOf(curTab)+d;if(i>=0&&i<ORDER.length)showTab(ORDER[i]);}
 if(prevB)prevB.addEventListener('click',function(){flip(-1);});
 if(nextB)nextB.addEventListener('click',function(){flip(1);});
 showTab('cards');
+function setChIcon(){var r=document.querySelector('.chapters'),t=document.getElementById('chToggle');if(r&&t)t.textContent=r.classList.contains('collapsed')?'☰':'✕';}
+var chToggle=document.getElementById('chToggle');
+if(chToggle)chToggle.addEventListener('click',function(){document.querySelector('.chapters').classList.toggle('collapsed');setChIcon();});
+setChIcon();
 // auto-hide the bar while reading; a small handle brings it back
 var barEl=document.querySelector('.bar'),barPeek=document.getElementById('barPeek'),lastY=window.scrollY;
 if(barPeek)barPeek.addEventListener('click',function(){barEl.classList.remove('hidden');});
