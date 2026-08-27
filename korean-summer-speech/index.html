@@ -18,14 +18,14 @@
   --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.34);
 }}
 *{box-sizing:border-box}html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 1.1rem 6rem}
+body{background:var(--bg);background-image:radial-gradient(125% 85% at 50% -12%,color-mix(in srgb,var(--surface) 62%,transparent),transparent 62%);background-attachment:fixed;color:var(--ink);font-family:var(--f-ui);line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 1.1rem 6.5rem}
 .wrap{max-width:900px;margin:0 auto}
 header{padding:2rem 0 .7rem;text-align:center}
 .eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
 h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);margin:.45rem 0 .3rem;letter-spacing:-.01em}
 .sub{color:var(--ink-2);max-width:46ch;margin:0 auto;font-size:.95rem}
 /* floating chapter rail (right edge, upper area) */
-.chapters{position:fixed;right:.55rem;top:32%;z-index:61;display:flex;flex-direction:column;gap:.28rem;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:.35rem;box-shadow:var(--shadow)}
+.chapters{position:fixed;right:.55rem;top:32%;z-index:61;display:flex;flex-direction:column;gap:.28rem;background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 96%,#fff),color-mix(in srgb,var(--surface) 88%,transparent));backdrop-filter:blur(12px) saturate(1.1);border:1px solid var(--line);border-radius:18px;padding:.35rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 12px 30px rgba(60,46,28,.17)}
 .chapters button{font-family:var(--f-ui);color:var(--ink-2);background:transparent;border:none;border-radius:12px;padding:.38rem .4rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.03rem;width:3rem}
 .chapters button .cnum{font-size:.64rem;letter-spacing:.05em;color:var(--ink-3);font-weight:700}
 .chapters button .cko{font-family:var(--f-ko);font-weight:700;font-size:.72rem;line-height:1.12;text-align:center;word-break:keep-all}
@@ -35,9 +35,12 @@ h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);
 .chapters button.on:hover{background:var(--accent)}
 .chapters button.on .cko,.chapters button.on .cnum{color:var(--on-accent)}
 .chapters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.chtoggle{font-family:var(--f-ui);font-weight:700;font-size:1.05rem;color:var(--ink-2);background:transparent;border:none;border-radius:12px;padding:.4rem;cursor:pointer;width:3rem;display:flex;align-items:center;justify-content:center}
+.chtoggle{font-family:var(--f-ui);font-weight:700;font-size:1.05rem;color:var(--ink-2);background:transparent;border:none;border-radius:12px;padding:.4rem;cursor:pointer;width:3rem;height:2.6rem;display:flex;align-items:center;justify-content:center;transition:background .18s,color .18s,filter .18s}
 .chtoggle:hover{background:var(--sunken)}
 .chtoggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chapters.collapsed{padding:.16rem;border-radius:50%;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 9px 24px color-mix(in srgb,var(--accent) 28%,rgba(60,46,28,.16))}
+.chapters.collapsed .chtoggle{background:var(--accent);color:var(--on-accent);border-radius:50%;width:2.9rem;height:2.9rem;font-size:1.15rem}
+.chapters.collapsed .chtoggle:hover{filter:brightness(1.06)}
 .chapters.collapsed button[data-tab]{display:none}
 /* the book */
 .book{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:4px 14px 14px 4px;box-shadow:var(--shadow),5px 5px 0 -1px var(--sunken),6px 6px 0 -1px var(--line),10px 9px 0 -2px var(--sunken),11px 10px 0 -2px var(--line);padding:1.3rem 1.5rem 1rem 2.2rem;margin:1.3rem 12px 1.9rem 0;overflow:hidden}
@@ -76,8 +79,8 @@ h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);
 .chip.hook{color:var(--ink-2);background:var(--sunken);border:1px solid var(--line);font-family:var(--f-ko);font-weight:700}
 .ko{font-family:var(--f-ko);font-weight:700;font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.55;margin:.1rem 0 0;word-break:keep-all}
 .en{color:var(--ink-2);font-size:.9rem;margin:0}
-.play{align-self:flex-start;margin-top:.35rem;display:inline-flex;align-items:center;gap:.45rem;font-family:var(--f-ui);font-size:.85rem;font-weight:600;color:var(--on-accent);background:var(--accent);border:none;border-radius:999px;padding:.5rem .95rem;cursor:pointer}
-.play:hover{filter:brightness(1.05)} .play:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.play{align-self:flex-start;margin-top:.35rem;display:inline-flex;align-items:center;gap:.45rem;font-family:var(--f-ui);font-size:.85rem;font-weight:600;color:var(--on-accent);background:var(--accent);border:none;border-radius:999px;padding:.5rem .95rem;cursor:pointer;box-shadow:0 4px 13px color-mix(in srgb,var(--accent) 28%,transparent);transition:transform .12s ease,filter .18s ease,box-shadow .18s ease}
+.play:hover{filter:brightness(1.05);transform:translateY(-1px)} .play:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .play.playing{background:var(--warn);animation:plpulse 1s ease-in-out infinite}
 @keyframes plpulse{0%,100%{box-shadow:0 0 0 2px color-mix(in srgb,var(--warn) 45%,transparent)}50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--warn) 6%,transparent)}}
 body.hide-ko .ko{filter:blur(7px);opacity:.55;cursor:pointer;transition:filter .15s,opacity .15s}
@@ -142,15 +145,17 @@ body.hide-fen .fen,body.hide-fen .fqe,body.hide-fen .fae,body.hide-fen .fven{dis
   .fsec{border-color:#000} .fh{color:#333}
 }
 /* fixed bottom bar */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:center;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:.6rem .8rem;box-shadow:0 -6px 22px rgba(40,30,20,.12);transition:transform .28s ease}
-.bar.hidden{transform:translateY(120%)}
-.barpeek{position:fixed;left:50%;bottom:0;transform:translateX(-50%);z-index:59;padding:.2rem 1.1rem .5rem;cursor:pointer;color:var(--ink-3);font-size:1rem;line-height:1;opacity:0;pointer-events:none;transition:opacity .28s ease}
+.bar{position:fixed;left:50%;bottom:.9rem;transform:translateX(-50%);z-index:60;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;justify-content:center;max-width:calc(100% - 1.3rem);background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 97%,#ffffff),color-mix(in srgb,var(--surface) 90%,transparent));backdrop-filter:blur(14px) saturate(1.15);border:1px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:20px;padding:.5rem .6rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 14px 36px rgba(60,46,28,.18),0 3px 10px rgba(60,46,28,.10);transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .3s ease}
+.bar.hidden{transform:translateX(-50%) translateY(175%);opacity:0}
+.barpeek{position:fixed;left:50%;bottom:.6rem;transform:translateX(-50%);z-index:59;width:2.7rem;height:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:999px;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line);box-shadow:0 5px 14px rgba(60,46,28,.15);cursor:pointer;color:var(--ink-3);font-size:.9rem;line-height:1;opacity:0;pointer-events:none;transition:opacity .28s ease}
 .bar.hidden + .barpeek{opacity:1;pointer-events:auto}
 .acts{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:center}
 .acts[hidden]{display:none}
-.tbtn{font-family:var(--f-ui);font-size:.83rem;font-weight:500;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.42rem .95rem;cursor:pointer}
-.tbtn.on{background:var(--accent);color:var(--on-accent);border-color:transparent}
-.tbtn.play-all{color:var(--accent);border-color:var(--accent);font-weight:600} .tbtn.play-all.on{color:var(--on-accent)}
+.tbtn{font-family:var(--f-ui);font-size:.82rem;font-weight:600;letter-spacing:.005em;color:var(--ink-2);background:color-mix(in srgb,var(--sunken) 55%,var(--surface));border:1px solid var(--line);border-radius:12px;padding:.5rem .9rem;cursor:pointer;transition:transform .12s ease,background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.tbtn:hover{color:var(--ink);background:color-mix(in srgb,var(--accent) 13%,var(--surface));border-color:color-mix(in srgb,var(--accent) 45%,var(--line));transform:translateY(-1px)}
+.tbtn:active{transform:translateY(0);box-shadow:inset 0 2px 5px rgba(60,46,28,.14)}
+.tbtn.on{background:var(--accent);color:var(--on-accent);border-color:transparent;box-shadow:0 5px 14px color-mix(in srgb,var(--accent) 34%,transparent)}
+.tbtn.play-all{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))} .tbtn.play-all.on{color:var(--on-accent)}
 .homebtn{display:inline-flex;align-items:center;gap:.35rem;text-decoration:none;color:var(--ink-2);flex:none}
 .homebtn:hover{color:var(--accent);border-color:var(--accent)}
 .flipnav{gap:.5rem} .tbtn.nav{padding:.4rem .75rem;font-size:.95rem;line-height:1}
@@ -161,7 +166,9 @@ footer{text-align:center;color:var(--ink-3);font-size:.8rem;margin-top:2.4rem;li
 @media (max-width:640px){.card{grid-template-columns:1fr} .pic img{aspect-ratio:16/9} .spine{grid-template-columns:repeat(2,1fr);gap:.7rem} .step:nth-child(2)::after,.step:last-child::after{content:none} .surv .sen{display:none} .qa .a{padding-left:1.05rem}
   .chapters{top:26%;right:.4rem} .chapters button{width:2.85rem;padding:.32rem .35rem} .chapters button .cko{font-size:.68rem}
   .book{box-shadow:var(--shadow);border-radius:4px 10px 10px 4px;padding:1.1rem 1.05rem .9rem 1.7rem;margin-right:0}
-  body{padding-bottom:6rem}
+  .bar{left:.55rem;right:.55rem;transform:none;max-width:none;bottom:.6rem;padding:.45rem .5rem} .bar.hidden{transform:translateY(185%)}
+  .tbtn{padding:.45rem .75rem;font-size:.8rem}
+  body{padding-bottom:7.5rem}
   .vocgrid{grid-template-columns:1fr 1fr} .fvoc{grid-template-columns:1fr} header{padding-top:1.6rem} h1{margin-bottom:.25rem}}
 @media (max-width:400px){.spine{grid-template-columns:1fr} .step:not(:last-child)::after{content:none} .vocgrid{grid-template-columns:1fr}}
 </style></head>
