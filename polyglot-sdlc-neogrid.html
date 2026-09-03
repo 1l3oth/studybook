@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polyglot — An AI-Native SDLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* ===========================================
+   CSS CUSTOM PROPERTIES — Neo-Grid Bold
+   =========================================== */
+:root{
+  --paper:#F5F4EF;
+  --bg:#ECECE8;
+  --ink:#0A0A0A;
+  --lemon:#E6FF3D;
+  --muted:#8A8A85;
+  --stage-bg:#1A1A1A;
+  --font-display:'Space Grotesk',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* ===========================================
+   FIXED 16:9 STAGE — MANDATORY BASE STYLES
+   =========================================== */
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--paper);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+.deck-controls{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;}
+@media print{
+  html,body{width:1920px;height:auto;overflow:visible;background:#fff;}
+  .deck-viewport{position:static;overflow:visible;background:#fff;}
+  .deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none;}
+  .slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always;}
+  .slide:last-child{break-after:auto;page-break-after:auto;}
+  .deck-controls{display:none!important;}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important;}}
+
+/* ===========================================
+   REVEAL ANIMATION
+   =========================================== */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease-out-expo),transform .5s var(--ease-out-expo);}
+.slide.visible .reveal{opacity:1;transform:translateY(0);}
+.reveal:nth-child(1){transition-delay:.04s;}
+.reveal:nth-child(2){transition-delay:.09s;}
+.reveal:nth-child(3){transition-delay:.14s;}
+.reveal:nth-child(4){transition-delay:.19s;}
+.reveal:nth-child(5){transition-delay:.24s;}
+
+body{font-family:var(--font-display);}
+
+/* ===========================================
+   THE UNIVERSAL FRAME — 12 x 8 grid, 40px inset
+   =========================================== */
+.frame{position:absolute;inset:40px;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(8,1fr);gap:12px;}
+.panel{position:relative;overflow:hidden;padding:28px 32px;}
+.p-paper{background:var(--paper);color:var(--ink);}
+.p-ink{background:var(--ink);color:var(--paper);}
+.p-lemon{background:var(--lemon);color:var(--ink);}
+
+/* typography tokens */
+.mono{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;}
+.label{font-family:var(--font-mono);font-size:16px;text-transform:uppercase;letter-spacing:.08em;opacity:.8;}
+.label-xs{font-family:var(--font-mono);font-size:13px;text-transform:uppercase;letter-spacing:.1em;opacity:.75;}
+.display{font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:.94;}
+.title{font-weight:700;text-transform:uppercase;letter-spacing:-.015em;line-height:.98;font-size:66px;}
+.subtitle{font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:1;font-size:38px;}
+.card-headline{font-weight:700;text-transform:uppercase;letter-spacing:-.008em;line-height:1.05;font-size:30px;}
+.body-txt{font-weight:400;line-height:1.4;font-size:19px;}
+.body-sm{font-weight:400;line-height:1.42;font-size:16px;}
+mark{background:var(--lemon);color:var(--ink);padding:0 6px;}
+em{color:var(--lemon);font-style:normal;}
+.p-lemon mark, .p-lemon em{background:transparent;color:var(--ink);text-decoration:underline;}
+
+/* section ordinal */
+.ordinal{font-size:200px;font-weight:700;letter-spacing:-.04em;line-height:.85;}
+
+/* pagenum, corner mark */
+.pagenum{position:absolute;left:0;bottom:0;background:var(--paper);color:var(--ink);padding:10px 16px;font-family:var(--font-mono);font-size:16px;letter-spacing:.04em;}
+.pagenum.invert{background:var(--ink);color:var(--paper);}
+.pagenum.lemon{background:var(--lemon);color:var(--ink);}
+.corner{position:absolute;top:18px;right:18px;width:26px;height:26px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;}
+.corner span{background:currentColor;}
+.corner span:nth-child(2),.corner span:nth-child(3){background:transparent;}
+
+/* nav crumbs (mono, top strip) */
+.crumbs{display:flex;gap:14px;font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
+.crumb{opacity:.35;}
+.crumb.on{opacity:1;}
+
+/* bullets */
+ul.bl{list-style:none;display:flex;flex-direction:column;gap:14px;}
+ul.bl li{display:flex;gap:14px;align-items:flex-start;font-size:19px;line-height:1.42;font-weight:400;}
+ul.bl li .sq{width:9px;height:9px;background:var(--ink);margin-top:8px;flex-shrink:0;}
+.p-ink ul.bl li .sq{background:var(--lemon);}
+ul.bl li b{font-weight:700;}
+
+/* comparison table */
+table.cmp{border-collapse:collapse;width:100%;font-size:17px;}
+table.cmp th{text-align:left;font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:14px 18px;}
+table.cmp td{padding:16px 18px;border-bottom:1.5px solid var(--ink);border-right:1.5px solid var(--ink);vertical-align:top;}
+table.cmp td:last-child{border-right:none;}
+table.cmp td.owner{font-weight:700;white-space:nowrap;}
+table.cmp td.mono{font-family:var(--font-mono);font-size:14px;}
+
+/* pills */
+.pill{display:inline-block;font-family:var(--font-mono);font-size:15px;letter-spacing:.04em;padding:10px 18px;background:var(--paper);color:var(--ink);border:1.5px solid var(--ink);margin:5px 8px 5px 0;}
+.pill b{color:inherit;}
+.p-ink .pill{background:var(--ink);color:var(--paper);border-color:var(--paper);}
+
+/* stat */
+.stat-num{font-weight:700;letter-spacing:-.03em;line-height:.88;font-size:132px;}
+.stat-num-sm{font-weight:700;letter-spacing:-.03em;line-height:.9;font-size:80px;}
+
+/* edit affordance */
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:16px;left:16px;z-index:10001;opacity:0;pointer-events:none;transition:opacity .3s ease;background:var(--ink);border:none;width:34px;height:34px;font-size:16px;color:var(--paper);cursor:pointer;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}
+[contenteditable="true"]{outline:1.5px dashed var(--ink);outline-offset:3px;}
+
+/* deck controls */
+.deck-controls{display:flex;align-items:center;gap:14px;background:var(--ink);border-radius:0;padding:8px 16px;}
+.deck-controls button{background:none;border:none;color:var(--paper);font-family:var(--font-mono);font-size:14px;cursor:pointer;padding:4px 8px;}
+.deck-controls button:hover{color:var(--lemon);}
+.deck-controls .count{font-family:var(--font-mono);font-size:13px;color:var(--paper);opacity:.7;min-width:64px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="edit-hotzone"></div>
+<button class="edit-toggle" id="editToggle" title="Edit mode (E)">✏️</button>
+
+<div class="deck-viewport">
+  <main class="deck-stage" id="deckStage">
+
+    <!-- ============ 01 · TITLE ============ -->
+    <section class="slide active">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 8;grid-row:1/span 5;display:flex;flex-direction:column;justify-content:flex-end;">
+          <div class="label reveal" style="color:var(--lemon);margin-bottom:18px;">An AI-Native SDLC</div>
+          <div class="display reveal" style="font-size:150px;">Polyglot</div>
+        </div>
+        <div class="panel p-lemon reveal" style="grid-column:9/span 4;grid-row:1/span 2;display:flex;flex-direction:column;justify-content:space-between;">
+          <div class="corner" style="color:var(--ink);"><span></span><span></span><span></span><span></span></div>
+          <div class="mono" style="font-size:15px;">Build Walkthrough</div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:9/span 4;grid-row:3/span 3;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+          <div class="stat-num-sm">03</div>
+          <div class="label-xs">Agent roles</div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 8;grid-row:6/span 3;display:flex;flex-direction:column;justify-content:space-between;">
+          <div class="body-txt" style="max-width:820px;">No duplicate strings, no duplicate work — one shared catalog, built end to end by three AI agents.</div>
+          <div class="crumbs"><span class="crumb on">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div>
+        </div>
+        <div class="panel p-ink reveal" style="grid-column:9/span 4;grid-row:6/span 3;"></div>
+      </div>
+      <div class="pagenum">01 / 25</div>
+    </section>
+
+    <!-- ============ 02 · THE WHOLE POINT ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 4;grid-row:1/span 2;display:flex;flex-direction:column;justify-content:space-between;">
+          <div class="label" style="color:var(--lemon);">The Whole Point</div>
+          <div class="crumbs"><span class="crumb on">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 8;grid-row:1/span 2;display:flex;align-items:center;">
+          <div class="title">One catalog. Every product. <mark>Reuse before create.</mark></div>
+        </div>
+        <div class="panel p-lemon reveal" style="grid-column:1/span 2;grid-row:3/span 6;display:flex;flex-direction:column;justify-content:center;"><div class="ordinal" style="font-size:110px;">01</div></div>
+        <div class="panel p-paper reveal" style="grid-column:3/span 5;grid-row:3/span 3;"><div class="card-headline">Versioned</div><div class="body-sm" style="margin-top:10px;">Every string change is a numbered version, with one-click rollback.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:8/span 5;grid-row:3/span 3;"><div class="card-headline">Safe editing</div><div class="body-sm" style="margin-top:10px;">Concurrent edits are protected — nobody's work silently overwrites anyone else's.</div></div>
+        <div class="panel p-ink reveal" style="grid-column:3/span 5;grid-row:6/span 3;"><div class="card-headline">Layered wording</div><div class="body-sm" style="margin-top:10px;">Each product overrides only where it differs. No copies, no drift.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:8/span 5;grid-row:6/span 3;"><div class="card-headline">Instant publish</div><div class="body-sm" style="margin-top:10px;">An approved change goes live in seconds. No redeploy for a word.</div></div>
+      </div>
+      <div class="pagenum">02 / 25</div>
+    </section>
+
+    <!-- ============ 03 · THE SCOREBOARD ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;justify-content:space-between;">
+          <div><div class="label" style="color:var(--lemon);margin-bottom:8px;">The Scoreboard</div><div class="title">17 features, <mark>4 areas</mark></div></div>
+          <div class="crumbs"><span class="crumb on">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div>
+        </div>
+        <div class="panel p-lemon reveal" style="grid-column:1/span 3;grid-row:3/span 6;"><div class="stat-num" style="font-size:110px;">5</div><div class="card-headline" style="margin-top:8px;">Store &amp; History</div><div class="body-sm" style="margin-top:10px;">Central store, version history, rollback, layered wording, coverage view.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:4/span 3;grid-row:3/span 6;"><div class="stat-num" style="font-size:110px;">7</div><div class="card-headline" style="margin-top:8px;">Working Together</div><div class="body-sm" style="margin-top:10px;">Web editor, deploy requests, approval gate, conflict &amp; duplicate protection, AI assistant, live preview.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:7/span 3;grid-row:3/span 6;"><div class="stat-num" style="font-size:110px;">3</div><div class="card-headline" style="margin-top:8px;">Formats &amp; Delivery</div><div class="body-sm" style="margin-top:10px;">Every output format from one source, instant publish, auto sync.</div></div>
+        <div class="panel p-ink reveal" style="grid-column:10/span 3;grid-row:3/span 6;"><div class="stat-num" style="font-size:110px;color:var(--lemon);">2</div><div class="card-headline" style="margin-top:8px;">Excel Migration</div><div class="body-sm" style="margin-top:10px;">Import/export and an import health check — moving off spreadsheets safely.</div></div>
+      </div>
+      <div class="pagenum">03 / 25</div>
+    </section>
+
+    <!-- ============ 04 · BEFORE ANY CODE ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-lemon reveal" style="grid-column:1/span 4;grid-row:1/span 3;display:flex;flex-direction:column;justify-content:space-between;">
+          <div class="label">Before Any Code</div>
+          <div class="title" style="font-size:52px;">Data model, screens, <em>then stack</em></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 8;grid-row:1/span 3;"><div class="card-headline">Data model</div><div class="body-txt" style="margin-top:10px;">A 23-entity ERD: language → sheet → code → base string, with products, overrides, deploy requests and versions as first-class collections.</div></div>
+        <div class="panel p-ink reveal" style="grid-column:1/span 6;grid-row:4/span 5;"><div class="card-headline" style="color:var(--lemon);">Screen map</div><div class="body-txt" style="margin-top:10px;">Every screen and popup numbered against the 17 features, so a task always traces back to a feature and a screen.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:7/span 6;grid-row:4/span 5;"><div class="card-headline">Lifecycle flows</div><div class="body-txt" style="margin-top:10px;">How a product onboards, and how a string moves from draft to published pack. Stack selection follows this model — not the other way around.</div></div>
+      </div>
+      <div class="pagenum">04 / 25</div>
+    </section>
+
+    <!-- ============ 05 · SPEC BEFORE CODE ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;justify-content:space-between;">
+          <div><div class="label" style="color:var(--lemon);margin-bottom:8px;">Spec Before Code</div><div class="title">The spec is <mark>generated</mark>, not written by hand</div></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 3;grid-row:3/span 4;"><div class="card-headline">Clickable prototype</div><div class="body-sm" style="margin-top:10px;">Every screen in the map, wired for click-through review before a component exists.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:4/span 3;grid-row:3/span 4;"><div class="card-headline">Architecture diagram</div><div class="body-sm" style="margin-top:10px;">Services, queues and data flow, rendered as one reference page.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:7/span 3;grid-row:3/span 4;"><div class="card-headline">Blueprint</div><div class="body-sm" style="margin-top:10px;">The 17 features mapped to modules and milestones.</div></div>
+        <div class="panel p-lemon reveal" style="grid-column:10/span 3;grid-row:3/span 4;"><div class="card-headline">DDL &amp; DBML</div><div class="body-sm" style="margin-top:10px;">The 23-entity schema, in the exact shape the database will take.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 12;grid-row:7/span 2;display:flex;align-items:center;"><div class="body-txt">All four generated directly by Claude Code from the data model and screen map — reviewable HTML, before a single application line is written.</div></div>
+      </div>
+      <div class="pagenum">05 / 25</div>
+    </section>
+
+    <!-- ============ 06 · FRONTEND ARSENAL ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-lemon reveal" style="grid-column:1/span 4;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:space-between;">
+          <div><div class="label">The Frontend Arsenal</div><div class="title" style="font-size:56px;margin-top:14px;">Next.js, the modern <em>React</em> way</div></div>
+          <div class="crumbs" style="opacity:.85;"><span class="crumb on">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 8;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:center;flex-wrap:wrap;">
+          <div>
+            <span class="pill"><b>Next.js 16</b> — App Router, RSC</span>
+            <span class="pill"><b>React 19</b></span>
+            <span class="pill"><b>Tailwind CSS 4</b></span>
+            <span class="pill"><b>Zustand</b> — client state</span><br/>
+            <span class="pill"><b>TanStack Query</b> — server state</span>
+            <span class="pill"><b>TanStack Table</b> — data grids</span>
+            <span class="pill"><b>shadcn/ui</b> — new-york</span><br/>
+            <span class="pill"><b>Magic UI</b> — motion</span>
+            <span class="pill"><b>React Hook Form</b></span>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">06 / 25</div>
+    </section>
+
+    <!-- ============ 07 · BACKEND ENGINE ROOM ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 4;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:space-between;">
+          <div><div class="label" style="color:var(--lemon);">The Backend Engine Room</div><div class="title" style="font-size:56px;margin-top:14px;">NestJS, MongoDB, a <em>real</em> queue</div></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 8;grid-row:1/span 5;display:flex;flex-direction:column;justify-content:center;">
+          <span class="pill"><b>NestJS 11</b></span>
+          <span class="pill"><b>Mongoose / MongoDB</b></span>
+          <span class="pill"><b>BullMQ</b> — background jobs</span><br/>
+          <span class="pill"><b>JWT auth</b></span>
+          <span class="pill"><b>Scalar</b> — OpenAPI docs UI</span>
+        </div>
+        <div class="panel p-lemon reveal" style="grid-column:5/span 8;grid-row:6/span 3;display:flex;align-items:center;"><div class="body-txt">Translation-fill, embedding and publish jobs all run through BullMQ — nothing that matters happens synchronously inside a request.</div></div>
+      </div>
+      <div class="pagenum">07 / 25</div>
+    </section>
+
+    <!-- ============ 08 · SPIN IT UP ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label" style="color:var(--lemon);margin-bottom:8px;">Spin It Up</div><div class="title">One command, the <mark>whole dev stack</mark></div></div></div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 4;grid-row:3/span 6;"><div class="card-headline">mongo:8</div><div class="body-sm" style="margin-top:10px;">Single-node replica set — the multi-document transactions the model needs.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 4;grid-row:3/span 6;"><div class="card-headline">redis:7</div><div class="body-sm" style="margin-top:10px;">Backs every BullMQ queue.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:9/span 4;grid-row:3/span 3;"><div class="card-headline">api / web / worker</div><div class="body-sm" style="margin-top:10px;">Containerized dev images, hot-reloading, always up.</div></div>
+        <div class="panel p-lemon reveal" style="grid-column:9/span 4;grid-row:6/span 3;"><div class="card-headline">docker compose up</div><div class="body-sm" style="margin-top:10px;">Every service, one command, same shape as production.</div></div>
+      </div>
+      <div class="pagenum">08 / 25</div>
+    </section>
+
+    <!-- ============ 09 · ONE REPO, ZERO CHAOS ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-lemon reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label">One Repo, Zero Chaos</div><div class="title" style="margin-top:8px;">One repo, four workspaces, one outsider</div></div></div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 2;grid-row:3/span 6;"><div class="card-headline">apps/api</div><div class="body-sm" style="margin-top:8px;">NestJS + queue producer.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:3/span 2;grid-row:3/span 6;"><div class="card-headline">apps/web</div><div class="body-sm" style="margin-top:8px;">Next.js frontend.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 3;grid-row:3/span 6;"><div class="card-headline">packages/shared</div><div class="body-sm" style="margin-top:8px;">Types &amp; utilities, built first.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:8/span 2;grid-row:3/span 6;"><div class="card-headline">packages/client</div><div class="body-sm" style="margin-top:8px;">Generated API client.</div></div>
+        <div class="panel p-ink reveal" style="grid-column:10/span 3;grid-row:3/span 6;"><div class="card-headline" style="color:var(--lemon);">clients/java</div><div class="body-sm" style="margin-top:8px;">Own Gradle build — outside the pnpm workspace on purpose.</div></div>
+      </div>
+      <div class="pagenum">09 / 25</div>
+    </section>
+
+    <!-- ============ 10 · BRAINS & MEMORY ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-paper reveal" style="grid-column:1/span 7;grid-row:1/span 8;">
+          <div class="label">Brains &amp; Memory</div>
+          <div class="title" style="margin-top:12px;">Claude writes it. <mark>2048 dims</mark> find it again.</div>
+          <ul class="bl" style="margin-top:26px;">
+            <li class="reveal"><span class="sq"></span><span><b>Claude</b> drafts wording, behind a provider interface — swappable, never hard-wired.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>OpenAI text-embedding-3-large</b> at <b>2048 dimensions</b> — the Matryoshka reduction that keeps near-full match quality for a third less storage.</span></li>
+            <li class="reveal"><span class="sq"></span><span>English and Korean are the two <b>source</b> languages — where new wording is actually written first.</span></li>
+          </ul>
+        </div>
+        <div class="panel p-ink reveal" style="grid-column:8/span 5;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:center;gap:4px;">
+          <div class="label" style="color:var(--lemon);">Embedding dims</div>
+          <div class="stat-num" style="color:var(--lemon);">2048</div>
+          <div class="body-sm">from a 3072 default</div>
+        </div>
+      </div>
+      <div class="pagenum">10 / 25</div>
+    </section>
+
+    <!-- ============ 11 · THE SECOND BRAIN ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label" style="color:var(--lemon);margin-bottom:8px;">The Second Brain</div><div class="title">Two graphs: <mark>personal</mark> and <mark>project</mark></div></div></div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 6;grid-row:3/span 6;"><div class="card-headline">Obsidian — general knowledge</div><div class="body-txt" style="margin-top:12px;">A second-brain vault of interlinked notes: people, tools, decisions, projects — the world the work happens in.</div></div>
+        <div class="panel p-lemon reveal" style="grid-column:7/span 6;grid-row:3/span 6;"><div class="card-headline">Graphify — project knowledge</div><div class="body-txt" style="margin-top:12px;">Turns the codebase and docs themselves into a queryable graph: architecture, file relationships, how the pieces connect.</div></div>
+      </div>
+      <div class="pagenum">11 / 25</div>
+    </section>
+
+    <!-- ============ 12 · ONE FILE, ONE MISSION ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-lemon reveal" style="grid-column:1/span 4;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:space-between;">
+          <div><div class="label">One File, One Mission</div><div class="title" style="font-size:54px;margin-top:14px;">Every agent reads <em>GOAL.md</em> first</div></div>
+          <div class="crumbs" style="opacity:.85;"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 8;grid-row:1/span 8;">
+          <ul class="bl" style="font-size:20px;">
+            <li class="reveal"><span class="sq"></span><span><b>The why —</b> the mission statement every feature is tested against, in one sentence.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>The what —</b> the data model, in prose, so an agent can reason about it without opening the schema.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>The order of work —</b> the lifecycle a string moves through, so agents build in the sequence that makes each stage real.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>Standing decisions —</b> stack, model, dimensions, auth mode — settled once, referenced everywhere.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">12 / 25</div>
+    </section>
+
+    <!-- ============ 13 · MEET THE CREW ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label" style="color:var(--lemon);margin-bottom:8px;">Meet The Crew</div><div class="title">Three agents. <mark>One product.</mark></div></div></div>
+        <div class="panel p-lemon reveal" style="grid-column:1/span 4;grid-row:3/span 6;"><div class="card-headline">Max — api</div><div class="body-txt" style="margin-top:10px;">Owns apps/api, packages/shared, packages/client. The contract originates here.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 4;grid-row:3/span 6;"><div class="card-headline">Ivy — web</div><div class="body-txt" style="margin-top:10px;">Owns apps/web. Consumes shared, never edits it — needs a type, files a task.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:9/span 4;grid-row:3/span 6;"><div class="card-headline">Sam — qa</div><div class="body-txt" style="margin-top:10px;">Owns the test suites. Tests and reviews; failures go back to the owner.</div></div>
+      </div>
+      <div class="pagenum">13 / 25</div>
+    </section>
+
+    <!-- ============ 14 · LANES, NOT OVERLAPS ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-lemon reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label">Lanes, Not Overlaps</div><div class="title" style="margin-top:8px;">One owner per surface, no overlap</div></div></div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 12;grid-row:3/span 6;display:flex;align-items:center;">
+          <table class="cmp" style="width:100%;">
+            <thead><tr><th>Agent</th><th>Owns</th><th>Never touches</th></tr></thead>
+            <tbody>
+              <tr><td class="owner">Max · api</td><td class="mono">apps/api/**, packages/shared/**, packages/client/**</td><td class="mono">apps/web/**</td></tr>
+              <tr><td class="owner">Ivy · web</td><td class="mono">apps/web/** (except e2e)</td><td class="mono">packages/shared/**</td></tr>
+              <tr><td class="owner">Sam · qa</td><td class="mono">apps/api/test/**, apps/web/e2e/**, fixtures/**</td><td class="mono">application code, anywhere</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pagenum">14 / 25</div>
+    </section>
+
+    <!-- ============ 15 · WHY NOT TEN ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-paper reveal" style="grid-column:1/span 8;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:center;">
+          <div class="label">Why Not Ten</div>
+          <div class="title" style="margin:16px 0 22px;">Three, not ten: <mark>one hand-off to watch</mark></div>
+          <div class="body-txt" style="font-size:22px;max-width:800px;">A wide team of narrow specialists means many hand-offs, and one missed hand-off stalls the whole chain. Three agents on disjoint paths means exactly one route to watch — builder to qa — with the main session as the last check.</div>
+        </div>
+        <div class="panel p-ink reveal" style="grid-column:9/span 4;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:center;gap:4px;">
+          <div class="label" style="color:var(--lemon);">Hand-offs to watch</div>
+          <div class="stat-num" style="color:var(--lemon);">01</div>
+          <div class="body-sm">builder → qa</div>
+        </div>
+      </div>
+      <div class="pagenum">15 / 25</div>
+    </section>
+
+    <!-- ============ 16 · ORBIT — WHAT IT IS ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 4;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:space-between;">
+          <div><div class="label" style="color:var(--lemon);">AI Agent Workspaces</div><div class="title" style="font-size:60px;margin-top:14px;">Orbit</div><div class="body-sm" style="margin-top:10px;color:var(--paper);opacity:.8;">a task API built for machines</div></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 8;grid-row:1/span 8;">
+          <ul class="bl" style="font-size:20px;">
+            <li class="reveal"><span class="sq"></span><span>An MCP-native tool from the ground up — an agent talks to it the same way it talks to any other tool call, not through a UI built for humans first.</span></li>
+            <li class="reveal"><span class="sq"></span><span>The primitive is the <b>task claim</b>: <span class="mono" style="font-size:15px;">tasks.claim / next / renew / release / comment / create</span>, plus dependency edges between cards.</span></li>
+            <li class="reveal"><span class="sq"></span><span>Goal-scoped API keys — an agent's access is exactly one project's queue, nothing wider.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">16 / 25</div>
+    </section>
+
+    <!-- ============ 17 · ORBIT — WHAT IT'S GOOD AT ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-lemon reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label">Orbit</div><div class="title" style="margin-top:8px;">Built for a loop <mark>running unattended</mark></div></div></div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 4;grid-row:3/span 6;"><div class="card-headline">Atomic claiming</div><div class="body-txt" style="margin-top:10px;">Two agents can never grab the same card — the claim is the coordination primitive.</div></div>
+        <div class="panel p-ink reveal" style="grid-column:5/span 4;grid-row:3/span 6;"><div class="card-headline" style="color:var(--lemon);">Gates</div><div class="body-txt" style="margin-top:10px;">A milestone holds until every card under it is done, then the next milestone unlocks.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:9/span 4;grid-row:3/span 6;"><div class="card-headline">Self-pacing</div><div class="body-txt" style="margin-top:10px;">An agent reads its own queue and paces itself — no human has to dispatch each step.</div></div>
+      </div>
+      <div class="pagenum">17 / 25</div>
+    </section>
+
+    <!-- ============ 18 · FLOW — WHAT IT IS ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-lemon reveal" style="grid-column:1/span 4;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:space-between;">
+          <div><div class="label">AI Agent Workspaces</div><div class="title" style="font-size:60px;margin-top:14px;">Flow</div><div class="body-sm" style="margin-top:10px;">the shared workspace</div></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 8;grid-row:1/span 8;">
+          <ul class="bl" style="font-size:20px;">
+            <li class="reveal"><span class="sq"></span><span>The team's own project &amp; wiki platform — task boards, wiki pages, comments, calendar-backed schedules, all in one place people already work.</span></li>
+            <li class="reveal"><span class="sq"></span><span>Agents and humans read the same board. A card doesn't need translating between "the agent's system" and "the team's system" — there's one system.</span></li>
+            <li class="reveal"><span class="sq"></span><span>Specs live as wiki pages next to the work itself, not in a separate knowledge silo.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">18 / 25</div>
+    </section>
+
+    <!-- ============ 19 · FLOW — WHAT IT'S GOOD AT ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label" style="color:var(--lemon);">Flow</div><div class="title" style="margin-top:8px;">Built for a <mark>human-and-agent</mark> team</div></div></div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 4;grid-row:3/span 6;"><div class="card-headline">Schedules that hold a thread</div><div class="body-txt" style="margin-top:10px;">A meeting is one object — a real calendar entry that also carries its own comment thread.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 4;grid-row:3/span 6;"><div class="card-headline">Wiki beside the board</div><div class="body-txt" style="margin-top:10px;">The living spec sits next to the tasks that implement it — one click apart.</div></div>
+        <div class="panel p-lemon reveal" style="grid-column:9/span 4;grid-row:3/span 6;"><div class="card-headline">Everyone sees status</div><div class="body-txt" style="margin-top:10px;">Not just the agents — the whole team reads the same board, the same comments.</div></div>
+      </div>
+      <div class="pagenum">19 / 25</div>
+    </section>
+
+    <!-- ============ 20 · WHAT'S DIFFERENT ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-lemon reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label">AI Agent Workspaces</div><div class="title" style="margin-top:8px;">Different jobs, <em>not a ranking</em></div></div></div>
+        <div class="panel p-ink reveal" style="grid-column:1/span 6;grid-row:3/span 6;">
+          <div class="card-headline" style="color:var(--lemon);">Orbit</div>
+          <div class="label-xs" style="color:var(--paper);opacity:.7;margin:6px 0 16px;">Machine-first</div>
+          <ul class="bl"><li><span class="sq"></span><span>Built for an autonomous loop with no one watching</span></li><li><span class="sq"></span><span>Minimal surface: claim, comment, done</span></li><li><span class="sq"></span><span>Goal-scoped keys, one queue per agent</span></li></ul>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:7/span 6;grid-row:3/span 6;">
+          <div class="card-headline">Flow</div>
+          <div class="label-xs" style="opacity:.7;margin:6px 0 16px;">Human + agent</div>
+          <ul class="bl"><li><span class="sq"></span><span>Built for a shared, visible workspace</span></li><li><span class="sq"></span><span>Rich surface: wiki, schedules, comments, board</span></li><li><span class="sq"></span><span>One place the whole team already lives</span></li></ul>
+        </div>
+      </div>
+      <div class="pagenum">20 / 25</div>
+    </section>
+
+    <!-- ============ 21 · THE PLAYBOOK — /work ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 4;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:space-between;">
+          <div><div class="label" style="color:var(--lemon);">The Playbook</div><div class="title" style="font-size:56px;margin-top:14px;"><mark>/work</mark></div><div class="body-sm" style="margin-top:10px;color:var(--paper);opacity:.8;">the loop itself</div></div>
+          <div class="crumbs" style="opacity:.85;"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 8;grid-row:1/span 8;">
+          <ul class="bl" style="font-size:20px;">
+            <li class="reveal"><span class="sq"></span><span><b>Read the mission —</b> GOAL.md, every cycle, so context never drifts.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>Claim the next card —</b> from the agent's own queue, atomically.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>Do the work, verify it —</b> against the owned surface only.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>Report and repeat —</b> comment the result, move the card, claim the next one.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">21 / 25</div>
+    </section>
+
+    <!-- ============ 22 · THE PLAYBOOK — meeting & instrument ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-lemon reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label">The Playbook</div><div class="title" style="margin-top:8px;">When to <mark>sync</mark>, what to reach for</div></div></div>
+        <div class="panel p-paper reveal" style="grid-column:1/span 6;grid-row:3/span 6;"><div class="card-headline">team-meeting</div><div class="body-txt" style="margin-top:12px;">Schedules a real check-in — a Flow calendar entry with its own thread — when all three finish a beat together, or all three are blocked on the same thing.</div></div>
+        <div class="panel p-ink reveal" style="grid-column:7/span 6;grid-row:3/span 6;"><div class="card-headline" style="color:var(--lemon);">choose-the-instrument</div><div class="body-txt" style="margin-top:12px;">Picks the right tool for a given step, so an agent reaches for the correct instrument instead of improvising one.</div></div>
+      </div>
+      <div class="pagenum">22 / 25</div>
+    </section>
+
+    <!-- ============ 22b · CONTROL ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 4;grid-row:1/span 8;display:flex;flex-direction:column;justify-content:space-between;">
+          <div><div class="label" style="color:var(--lemon);">Hands On The Wheel</div><div class="title" style="font-size:52px;margin-top:14px;">One command. <em>Zero</em> micromanagement.</div></div>
+        </div>
+        <div class="panel p-paper reveal" style="grid-column:5/span 8;grid-row:1/span 8;">
+          <ul class="bl" style="font-size:20px;">
+            <li class="reveal"><span class="sq"></span><span><b>Start it —</b> <span class="mono" style="font-size:15px;">/loop /work api</span> (or web, qa) and Max, Ivy or Sam takes it from there.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>It paces itself —</b> checks back every 60 to 900 seconds depending on what it finds. It never stops on its own — only the user does.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>Questions land on the card, not in chat —</b> an @main comment with the default it's taking, answered whenever it's convenient.</span></li>
+            <li class="reveal"><span class="sq"></span><span><b>Gates stay human —</b> an agent can finish every task under a milestone and still can't open the next one. Only main closes the gate.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">23 / 25</div>
+    </section>
+
+    <!-- ============ 23 · PASSING THE BATON ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-paper reveal" style="grid-column:1/span 12;grid-row:1/span 2;display:flex;align-items:center;"><div><div class="label">Passing The Baton</div><div class="title" style="margin-top:8px;">The card <mark>is</mark> the hand-off</div></div></div>
+        <div class="panel p-ink reveal" style="grid-column:1/span 3;grid-row:3/span 6;"><div class="card-headline" style="color:var(--lemon);">01</div><div class="body-txt" style="margin-top:12px;">One card, one unit of work — nothing changes hands off the board.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:4/span 3;grid-row:3/span 6;"><div class="card-headline">02</div><div class="body-txt" style="margin-top:12px;"><b>@mention</b> routes a question straight to the owner, on the card itself.</div></div>
+        <div class="panel p-paper reveal" style="grid-column:7/span 3;grid-row:3/span 6;"><div class="card-headline">03</div><div class="body-txt" style="margin-top:12px;">The comment thread carries the back-and-forth — the record stays with the work.</div></div>
+        <div class="panel p-lemon reveal" style="grid-column:10/span 3;grid-row:3/span 6;"><div class="card-headline">04</div><div class="body-txt" style="margin-top:12px;">Status moves the card forward — no side channel to keep in sync.</div></div>
+      </div>
+      <div class="pagenum">24 / 25</div>
+    </section>
+
+    <!-- ============ 24 · CLOSING ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="panel p-ink reveal" style="grid-column:1/span 12;grid-row:1/span 3;display:flex;flex-direction:column;justify-content:center;">
+          <div class="label" style="color:var(--lemon);">Built End to End</div>
+          <div class="display" style="font-size:120px;margin-top:14px;">The AI-native <mark>way</mark></div>
+        </div>
+        <div class="panel p-lemon reveal" style="grid-column:1/span 3;grid-row:4/span 5;display:flex;flex-direction:column;justify-content:center;"><div class="stat-num" style="font-size:100px;">17</div><div class="card-headline" style="margin-top:8px;">Features</div></div>
+        <div class="panel p-paper reveal" style="grid-column:4/span 3;grid-row:4/span 5;display:flex;flex-direction:column;justify-content:center;"><div class="stat-num" style="font-size:100px;">03</div><div class="card-headline" style="margin-top:8px;">Agents</div></div>
+        <div class="panel p-paper reveal" style="grid-column:7/span 3;grid-row:4/span 5;display:flex;flex-direction:column;justify-content:center;"><div class="stat-num" style="font-size:100px;">01</div><div class="card-headline" style="margin-top:8px;">Shared catalog</div></div>
+        <div class="panel p-ink reveal" style="grid-column:10/span 3;grid-row:4/span 5;display:flex;flex-direction:column;justify-content:center;"><div class="stat-num" style="font-size:82px;color:var(--lemon);">2048</div><div class="card-headline" style="margin-top:8px;">Vector dims</div></div>
+      </div>
+      <div class="pagenum lemon">25 / 25</div>
+    </section>
+
+  </main>
+</div>
+
+<div class="deck-controls">
+  <button id="prevBtn">&larr;</button>
+  <span class="count" id="slideCount">01 / 24</span>
+  <button id="nextBtn">&rarr;</button>
+</div>
+
+<script>
+class SlidePresentation{
+  constructor(){
+    this.slides=document.querySelectorAll('.slide');
+    this.currentSlide=0;
+    this.stage=document.getElementById('deckStage');
+    this.countEl=document.getElementById('slideCount');
+    this.setupStageScale();
+    this.setupKeyboardNav();
+    this.setupTouchNav();
+    this.setupWheelNav();
+    this.setupButtons();
+    this.showSlide(0);
+  }
+  setupStageScale(){
+    const scale=()=>{
+      const f=Math.min(window.innerWidth/1920,window.innerHeight/1080);
+      const x=(window.innerWidth-1920*f)/2, y=(window.innerHeight-1080*f)/2;
+      this.stage.style.transform=`translate(${x}px,${y}px) scale(${f})`;
+    };
+    scale();
+    window.addEventListener('resize',scale);
+  }
+  setupKeyboardNav(){
+    document.addEventListener('keydown',(e)=>{
+      if(e.target.getAttribute && e.target.getAttribute('contenteditable')) return;
+      if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){this.showSlide(this.currentSlide+1);e.preventDefault();}
+      if(e.key==='ArrowLeft'||e.key==='PageUp'){this.showSlide(this.currentSlide-1);e.preventDefault();}
+      if((e.key==='e'||e.key==='E')) editor.toggleEditMode();
+    });
+  }
+  setupTouchNav(){
+    let sx=0;
+    document.addEventListener('touchstart',(e)=>{sx=e.touches[0].clientX;});
+    document.addEventListener('touchend',(e)=>{
+      const dx=e.changedTouches[0].clientX-sx;
+      if(dx>60) this.showSlide(this.currentSlide-1);
+      if(dx<-60) this.showSlide(this.currentSlide+1);
+    });
+  }
+  setupWheelNav(){
+    let locked=false;
+    window.addEventListener('wheel',(e)=>{
+      if(locked) return;
+      if(Math.abs(e.deltaY)<24) return;
+      locked=true;
+      if(e.deltaY>0) this.showSlide(this.currentSlide+1); else this.showSlide(this.currentSlide-1);
+      setTimeout(()=>locked=false,500);
+    },{passive:true});
+  }
+  setupButtons(){
+    document.getElementById('nextBtn').addEventListener('click',()=>this.showSlide(this.currentSlide+1));
+    document.getElementById('prevBtn').addEventListener('click',()=>this.showSlide(this.currentSlide-1));
+  }
+  showSlide(index){
+    this.currentSlide=Math.max(0,Math.min(index,this.slides.length-1));
+    this.slides.forEach((slide,i)=>{
+      slide.classList.toggle('active',i===this.currentSlide);
+      slide.classList.toggle('visible',i===this.currentSlide);
+    });
+    this.countEl.textContent=String(this.currentSlide+1).padStart(2,'0')+' / '+this.slides.length;
+  }
+}
+
+class InlineEditor{
+  constructor(){
+    this.isActive=false;
+    this.hotzone=document.querySelector('.edit-hotzone');
+    this.toggle=document.getElementById('editToggle');
+    let hideTimeout=null;
+    this.hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideTimeout);this.toggle.classList.add('show');});
+    this.hotzone.addEventListener('mouseleave',()=>{hideTimeout=setTimeout(()=>{if(!this.isActive)this.toggle.classList.remove('show');},400);});
+    this.toggle.addEventListener('mouseenter',()=>clearTimeout(hideTimeout));
+    this.toggle.addEventListener('mouseleave',()=>{hideTimeout=setTimeout(()=>{if(!this.isActive)this.toggle.classList.remove('show');},400);});
+    this.hotzone.addEventListener('click',()=>this.toggleEditMode());
+    this.toggle.addEventListener('click',()=>this.toggleEditMode());
+    this.restore();
+  }
+  toggleEditMode(){
+    this.isActive=!this.isActive;
+    this.toggle.classList.toggle('active',this.isActive);
+    document.querySelectorAll('.slide .display,.slide .title,.slide .card-headline,.slide .body-txt,.slide .body-sm,.slide li,.slide td,.slide th').forEach(el=>{
+      el.setAttribute('contenteditable',this.isActive?'true':'false');
+    });
+    if(!this.isActive) this.save();
+  }
+  save(){
+    const data={};
+    document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);
+    try{localStorage.setItem('polyglot-deck-b-edits',JSON.stringify(data));}catch(e){}
+  }
+  restore(){
+    try{
+      const data=JSON.parse(localStorage.getItem('polyglot-deck-b-edits')||'{}');
+      Object.keys(data).forEach(id=>{
+        const el=document.querySelector(`[data-eid="${id}"]`);
+        if(el) el.innerHTML=data[id];
+      });
+    }catch(e){}
+  }
+}
+
+new SlidePresentation();
+const editor=new InlineEditor();
+</script>
+</body>
+</html>

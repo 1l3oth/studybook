@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polyglot — An AI-Native SDLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* ===========================================
+   CSS CUSTOM PROPERTIES — Bold Signal (dark, confident)
+   =========================================== */
+:root{
+  --bg-primary:#1a1a1a;
+  --bg-gradient:linear-gradient(135deg,#1a1a1a 0%,#2b2b2b 45%,#161616 100%);
+  --card-bg:#FF5722;
+  --card-bg-2:#ffb17a;
+  --text-primary:#ffffff;
+  --text-secondary:#c9c9c9;
+  --text-muted:#8a8a8a;
+  --text-on-card:#1a1a1a;
+  --line:#333333;
+  --ok:#3ddc97;
+  --stage-bg:#000;
+  --slide-bg:#1a1a1a;
+  --font-display:'Archivo Black',sans-serif;
+  --font-body:'Space Grotesk',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* ===========================================
+   FIXED 16:9 STAGE — MANDATORY BASE STYLES
+   =========================================== */
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg);}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg);}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg);}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg);}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1;}
+img,video,canvas,svg{max-width:100%;max-height:100%;}
+.deck-controls{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000;}
+@media print{
+  html,body{width:1920px;height:auto;overflow:visible;background:#fff;}
+  .deck-viewport{position:static;overflow:visible;background:#fff;}
+  .deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none;}
+  .slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always;}
+  .slide:last-child{break-after:auto;page-break-after:auto;}
+  .deck-controls{display:none!important;}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important;}}
+
+/* ===========================================
+   REVEAL ANIMATION
+   =========================================== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out-expo),transform .6s var(--ease-out-expo);}
+.slide.visible .reveal{opacity:1;transform:translateY(0);}
+.reveal:nth-child(1){transition-delay:.05s;}
+.reveal:nth-child(2){transition-delay:.12s;}
+.reveal:nth-child(3){transition-delay:.19s;}
+.reveal:nth-child(4){transition-delay:.26s;}
+.reveal:nth-child(5){transition-delay:.33s;}
+.reveal:nth-child(6){transition-delay:.4s;}
+.reveal:nth-child(7){transition-delay:.47s;}
+.reveal:nth-child(8){transition-delay:.54s;}
+
+/* ===========================================
+   SLIDE SCAFFOLD — shared across every slide
+   =========================================== */
+body{font-family:var(--font-body);}
+.slide{background:var(--bg-gradient);color:var(--text-primary);}
+.frame{position:absolute;inset:0;padding:64px 76px 56px;display:flex;flex-direction:column;}
+.top-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px;}
+.section-num{font-family:var(--font-body);font-size:24px;font-weight:500;color:var(--text-muted);letter-spacing:.04em;}
+.crumbs{display:flex;gap:16px;font-size:14px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--font-mono);}
+.crumb{color:var(--text-muted);opacity:.4;}
+.crumb.on{color:var(--card-bg);opacity:1;}
+.kicker{font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:var(--card-bg);font-weight:600;margin-bottom:20px;font-family:var(--font-mono);}
+h1.h{font-family:var(--font-display);font-size:74px;line-height:1;letter-spacing:-.01em;margin-bottom:20px;}
+h1.h mark{background:var(--card-bg);color:var(--text-on-card);padding:0 10px;font-family:var(--font-display);}
+.sub{font-size:22px;line-height:1.55;color:var(--text-secondary);max-width:1120px;font-weight:400;}
+.body-area{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;}
+.bottom-row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px;}
+.tag{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-family:var(--font-mono);}
+
+/* cards & bullets */
+.cards{display:grid;gap:20px;}
+.cards.c2{grid-template-columns:repeat(2,1fr);}
+.cards.c3{grid-template-columns:repeat(3,1fr);}
+.cards.c4{grid-template-columns:repeat(4,1fr);}
+.cards.c5{grid-template-columns:repeat(5,1fr);}
+.card{background:#232323;border:1px solid var(--line);border-radius:8px;padding:28px 26px;}
+.card .num{font-family:var(--font-display);font-size:36px;color:var(--card-bg);margin-bottom:14px;}
+.card h3{font-size:22px;font-weight:600;margin-bottom:10px;line-height:1.25;}
+.card p{font-size:16px;line-height:1.5;color:var(--text-secondary);}
+.card.solid{background:var(--card-bg);color:var(--text-on-card);}
+.card.solid p{color:#3a1a10;}
+.card.solid h3{color:var(--text-on-card);}
+
+.spot{display:flex;align-items:center;gap:64px;}
+.spot .stat-card{background:var(--card-bg);color:var(--text-on-card);width:420px;height:420px;border-radius:6px;padding:44px;display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;}
+.spot .stat-card .kicker2{font-size:16px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;font-family:var(--font-mono);}
+.spot .stat-card .stat{font-family:var(--font-display);font-size:150px;line-height:1;}
+.spot .stat-card .stat-label{font-size:18px;font-weight:500;font-family:var(--font-body);}
+.spot .copy{flex:1;}
+
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px;}
+.bullets li{display:flex;gap:20px;align-items:flex-start;font-size:22px;line-height:1.5;}
+.bullets li .dot{width:10px;height:10px;border-radius:50%;background:var(--card-bg);margin-top:10px;flex-shrink:0;}
+.bullets li b{color:var(--text-primary);}
+.bullets li span{color:var(--text-secondary);}
+
+table.cmp{border-collapse:collapse;width:100%;font-size:19px;}
+table.cmp th{text-align:left;font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);padding:0 20px 16px 0;border-bottom:1px solid var(--line);}
+table.cmp td{padding:18px 20px 18px 0;border-bottom:1px solid var(--line);vertical-align:top;}
+table.cmp td.owner{color:var(--card-bg);font-weight:600;white-space:nowrap;}
+table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-secondary);}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;}
+.split .pane{background:#212121;border:1px solid var(--line);border-radius:10px;padding:36px 38px;display:flex;flex-direction:column;}
+.split .pane.lit{border-color:var(--card-bg);}
+.split .pane h3{font-family:var(--font-display);font-size:32px;margin-bottom:6px;}
+.split .pane .role{font-family:var(--font-mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--card-bg);margin-bottom:20px;}
+.split .pane ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.split .pane li{font-size:17px;line-height:1.5;color:var(--text-secondary);padding-left:18px;position:relative;}
+.split .pane li::before{content:"—";position:absolute;left:0;color:var(--card-bg);}
+
+.stack-row{display:flex;flex-wrap:wrap;gap:12px;}
+.pill{background:#232323;border:1px solid var(--line);border-radius:999px;padding:12px 22px;font-family:var(--font-mono);font-size:16px;color:var(--text-primary);}
+.pill b{color:var(--card-bg);}
+
+.pagenum{position:absolute;left:76px;bottom:32px;font-family:var(--font-mono);font-size:14px;color:var(--text-muted);letter-spacing:.06em;}
+
+/* edit affordance */
+.edit-hotzone{position:fixed;top:0;left:0;width:80px;height:80px;z-index:10000;cursor:pointer;}
+.edit-toggle{position:fixed;top:16px;left:16px;z-index:10001;opacity:0;pointer-events:none;transition:opacity .3s ease;background:#232323;border:1px solid var(--line);border-radius:6px;width:34px;height:34px;font-size:16px;color:#fff;cursor:pointer;}
+.edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto;}
+[contenteditable="true"]{outline:1px dashed var(--card-bg);outline-offset:4px;}
+
+/* deck controls */
+.deck-controls{display:flex;align-items:center;gap:14px;background:rgba(20,20,20,.85);border:1px solid var(--line);border-radius:999px;padding:8px 16px;backdrop-filter:blur(6px);}
+.deck-controls button{background:none;border:none;color:#fff;font-family:var(--font-mono);font-size:14px;cursor:pointer;padding:4px 8px;}
+.deck-controls button:hover{color:var(--card-bg);}
+.deck-controls .count{font-family:var(--font-mono);font-size:13px;color:var(--text-muted);min-width:64px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="edit-hotzone"></div>
+<button class="edit-toggle" id="editToggle" title="Edit mode (E)">✏️</button>
+
+<div class="deck-viewport">
+  <main class="deck-stage" id="deckStage">
+
+    <!-- ============ 01 · TITLE ============ -->
+    <section class="slide active">
+      <div class="frame">
+        <div class="top-row">
+          <div class="section-num reveal">00</div>
+          <div class="crumbs reveal">
+            <span class="crumb on">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span>
+          </div>
+        </div>
+        <div class="body-area">
+          <div class="spot">
+            <div class="copy">
+              <div class="kicker reveal">An AI-Native SDLC</div>
+              <h1 class="h reveal" style="font-size:118px;">Polyglot</h1>
+              <p class="sub reveal">No duplicate strings, no duplicate work — one shared catalog, built end to end by three AI agents.</p>
+            </div>
+            <div class="stat-card reveal">
+              <div class="kicker2">Agents shipping</div>
+              <div class="stat">03</div>
+              <div class="stat-label">roles, one product</div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-row">
+          <div class="tag">Build Walkthrough</div>
+        </div>
+      </div>
+      <div class="pagenum">01 / 25</div>
+    </section>
+
+    <!-- ============ 02 · WHAT IT DELIVERS ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">01</div><div class="crumbs reveal"><span class="crumb on">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">The Whole Point</div>
+        <h1 class="h reveal">One catalog. Every product. <mark>Reuse before create.</mark></h1>
+        <div class="body-area">
+          <div class="cards c5">
+            <div class="card reveal"><div class="num">01</div><h3>Versioned</h3><p>Every string change is a numbered version, with one-click rollback.</p></div>
+            <div class="card reveal"><div class="num">02</div><h3>Safe editing</h3><p>Concurrent edits are protected — nobody's work silently overwrites anyone else's.</p></div>
+            <div class="card reveal"><div class="num">03</div><h3>Layered wording</h3><p>Each product overrides only where it differs. No copies, no drift.</p></div>
+            <div class="card reveal"><div class="num">04</div><h3>Direct editing</h3><p>Translators and planners fix wording themselves — no engineering ticket.</p></div>
+            <div class="card reveal"><div class="num">05</div><h3>Instant publish</h3><p>An approved change goes live in seconds. No redeploy for a word.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">02 / 25</div>
+    </section>
+
+    <!-- ============ 03 · SCOPE / 17 FEATURES ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">02</div><div class="crumbs reveal"><span class="crumb on">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">The Scoreboard</div>
+        <h1 class="h reveal">17 features, <mark>4 areas</mark></h1>
+        <div class="body-area">
+          <div class="cards c4">
+            <div class="card reveal"><div class="num">5</div><h3>Store &amp; History</h3><p>Central store, version history, rollback, layered wording, coverage view.</p></div>
+            <div class="card reveal"><div class="num">7</div><h3>Working Together</h3><p>Web editor, deploy requests, approval gate, conflict &amp; duplicate protection, AI assistant, live preview.</p></div>
+            <div class="card reveal"><div class="num">3</div><h3>Formats &amp; Delivery</h3><p>Every output format from one source, instant publish, auto sync.</p></div>
+            <div class="card reveal"><div class="num">2</div><h3>Excel Migration</h3><p>Import/export and an import health check — moving off spreadsheets safely.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">03 / 25</div>
+    </section>
+
+    <!-- ============ 04 · ARCHITECTURE ANALYSIS ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">03</div><div class="crumbs reveal"><span class="crumb on">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">Before Any Code</div>
+        <h1 class="h reveal">Data model, screens, <mark>then stack</mark></h1>
+        <div class="body-area">
+          <ul class="bullets">
+            <li class="reveal"><span class="dot"></span><span><b>Data model —</b> a 23-entity ERD: language → sheet → code → base string, with products, overrides, deploy requests and versions as first-class collections.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Screen map —</b> every screen and popup numbered against the 17 features, so a task always traces back to a feature and a screen.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Onboarding &amp; lifecycle flows —</b> how a product joins the catalog and how a string moves from draft to published pack.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Stack selection —</b> chosen against that model, not the other way around.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">04 / 25</div>
+    </section>
+
+    <!-- ============ 05 · SPEC GENERATED WITH CLAUDE CODE ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">04</div><div class="crumbs reveal"><span class="crumb on">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">Spec Before Code</div>
+        <h1 class="h reveal">The spec is <mark>generated</mark>, not written by hand</h1>
+        <div class="body-area">
+          <div class="cards c4">
+            <div class="card reveal"><h3>Clickable prototype</h3><p>Every screen in the map, wired for click-through review before a component exists.</p></div>
+            <div class="card reveal"><h3>Architecture diagram</h3><p>Services, queues and data flow, rendered as one reference page.</p></div>
+            <div class="card reveal"><h3>Blueprint</h3><p>The 17 features mapped to modules and milestones.</p></div>
+            <div class="card reveal"><h3>DDL &amp; DBML</h3><p>The 23-entity schema, in the exact shape the database will take.</p></div>
+          </div>
+        </div>
+        <div class="sub reveal" style="margin-top:24px;">All four are generated directly by Claude Code from the data model and screen map — reviewable HTML, before a single application line is written.</div>
+      </div>
+      <div class="pagenum">05 / 25</div>
+    </section>
+
+    <!-- ============ 06 · STACK — FRONTEND ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">05</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">The Frontend Arsenal</div>
+        <h1 class="h reveal">Next.js, and the <mark>modern React</mark> layer around it</h1>
+        <div class="body-area">
+          <div class="stack-row">
+            <div class="pill reveal"><b>Next.js 16</b> — App Router, RSC</div>
+            <div class="pill reveal"><b>React 19</b></div>
+            <div class="pill reveal"><b>Tailwind CSS 4</b></div>
+            <div class="pill reveal"><b>Zustand</b> — client state</div>
+            <div class="pill reveal"><b>TanStack Query</b> — server state</div>
+            <div class="pill reveal"><b>TanStack Table</b> — data grids</div>
+            <div class="pill reveal"><b>shadcn/ui</b> — new-york style</div>
+            <div class="pill reveal"><b>Magic UI</b> — motion components</div>
+            <div class="pill reveal"><b>React Hook Form</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">06 / 25</div>
+    </section>
+
+    <!-- ============ 07 · STACK — BACKEND ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">06</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">The Backend Engine Room</div>
+        <h1 class="h reveal">NestJS, MongoDB, and a <mark>real queue</mark></h1>
+        <div class="body-area">
+          <div class="stack-row">
+            <div class="pill reveal"><b>NestJS 11</b></div>
+            <div class="pill reveal"><b>Mongoose / MongoDB</b></div>
+            <div class="pill reveal"><b>BullMQ</b> — background jobs</div>
+            <div class="pill reveal"><b>JWT auth</b></div>
+            <div class="pill reveal"><b>Scalar</b> — OpenAPI docs UI</div>
+          </div>
+          <p class="sub reveal" style="margin-top:32px;">Translation-fill, embedding and publish jobs all run through BullMQ — nothing that matters happens synchronously inside a request.</p>
+        </div>
+      </div>
+      <div class="pagenum">07 / 25</div>
+    </section>
+
+    <!-- ============ 08 · INFRASTRUCTURE — DOCKER ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">07</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">Spin It Up</div>
+        <h1 class="h reveal">One command, the <mark>whole dev stack</mark></h1>
+        <div class="body-area">
+          <div class="cards c4">
+            <div class="card reveal"><h3>mongo:8</h3><p>Single-node replica set — the multi-document transactions the model needs.</p></div>
+            <div class="card reveal"><h3>redis:7</h3><p>Backs every BullMQ queue.</p></div>
+            <div class="card reveal"><h3>api / web / worker</h3><p>Containerized dev images (node:20-bookworm), hot-reloading, always up.</p></div>
+            <div class="card solid reveal"><h3>docker compose up</h3><p>Every service, one command, same shape as production.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">08 / 25</div>
+    </section>
+
+    <!-- ============ 09 · MONOREPO STRUCTURE ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">08</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">One Repo, Zero Chaos</div>
+        <h1 class="h reveal">One repo, <mark>four workspaces</mark>, one outsider</h1>
+        <div class="body-area">
+          <div class="cards c5">
+            <div class="card reveal"><h3>apps/api</h3><p>NestJS service + BullMQ producer.</p></div>
+            <div class="card reveal"><h3>apps/web</h3><p>Next.js frontend.</p></div>
+            <div class="card reveal"><h3>packages/shared</h3><p>Types &amp; utilities, built first.</p></div>
+            <div class="card reveal"><h3>packages/client</h3><p>Generated API client.</p></div>
+            <div class="card reveal" style="border-style:dashed;"><h3>clients/java</h3><p>Its own Gradle build — outside the pnpm workspace on purpose.</p></div>
+          </div>
+          <p class="sub reveal" style="margin-top:28px;">pnpm workspaces link the four; Turborepo orders and caches every task between them.</p>
+        </div>
+      </div>
+      <div class="pagenum">09 / 25</div>
+    </section>
+
+    <!-- ============ 10 · AI MODEL & VECTOR STRATEGY ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">09</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">Brains &amp; Memory</div>
+        <h1 class="h reveal">Claude writes it. <mark>2048 dimensions</mark> find it again.</h1>
+        <div class="body-area">
+          <div class="spot">
+            <div class="copy">
+              <ul class="bullets">
+                <li class="reveal"><span class="dot"></span><span><b>Claude</b> drafts wording, behind a provider interface — swappable, never hard-wired.</span></li>
+                <li class="reveal"><span class="dot"></span><span><b>OpenAI text-embedding-3-large</b> at <b>2048 dimensions</b> — the Matryoshka reduction that keeps near-full match quality for a third less storage.</span></li>
+                <li class="reveal"><span class="dot"></span><span>English and Korean are the two <b>source</b> languages — where new wording is actually written first.</span></li>
+              </ul>
+            </div>
+            <div class="stat-card reveal">
+              <div class="kicker2">Embedding dims</div>
+              <div class="stat">2048</div>
+              <div class="stat-label">from a 3072 default</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">10 / 25</div>
+    </section>
+
+    <!-- ============ 11 · KNOWLEDGE LAYER ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">10</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">The Second Brain</div>
+        <h1 class="h reveal">Two graphs: <mark>personal</mark> and <mark>project</mark></h1>
+        <div class="body-area">
+          <div class="cards c2">
+            <div class="card reveal"><h3>Obsidian — general knowledge</h3><p>A second-brain vault of interlinked notes: people, tools, decisions, projects — the world the work happens in.</p></div>
+            <div class="card reveal"><h3>Graphify — project knowledge</h3><p>Turns the codebase and docs themselves into a queryable graph: architecture, file relationships, how the pieces connect.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">11 / 25</div>
+    </section>
+
+    <!-- ============ 12 · GOAL.md ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">11</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">One File, One Mission</div>
+        <h1 class="h reveal">Every agent reads <mark>GOAL.md</mark> first</h1>
+        <div class="body-area">
+          <ul class="bullets">
+            <li class="reveal"><span class="dot"></span><span><b>The why —</b> the mission statement every feature is tested against, in one sentence.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>The what —</b> the data model, in prose, so an agent can reason about it without opening the schema.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>The order of work —</b> the lifecycle a string moves through, so agents build in the sequence that makes each stage real.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Standing decisions —</b> stack, model, dimensions, auth mode — settled once, referenced everywhere.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">12 / 25</div>
+    </section>
+
+    <!-- ============ 13 · THREE-AGENT HARNESS ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">12</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">Meet The Crew</div>
+        <h1 class="h reveal">Three agents. <mark>One product.</mark></h1>
+        <div class="body-area">
+          <div class="cards c3">
+            <div class="card solid reveal"><h3>Max — api</h3><p>Owns apps/api, packages/shared, packages/client. The contract originates here.</p></div>
+            <div class="card reveal"><h3>Ivy — web</h3><p>Owns apps/web. Consumes shared, never edits it — needs a type, files a task.</p></div>
+            <div class="card reveal"><h3>Sam — qa</h3><p>Owns the test suites. Tests and reviews; failures go back to the owner.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">13 / 25</div>
+    </section>
+
+    <!-- ============ 14 · OWNERSHIP TABLE ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">13</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">Lanes, Not Overlaps</div>
+        <h1 class="h reveal">One owner per surface, <mark>no overlap</mark></h1>
+        <div class="body-area">
+          <table class="cmp reveal">
+            <thead><tr><th>Agent</th><th>Owns</th><th>Never touches</th></tr></thead>
+            <tbody>
+              <tr><td class="owner">Max · api</td><td class="mono">apps/api/**, packages/shared/**, packages/client/**</td><td class="mono">apps/web/**</td></tr>
+              <tr><td class="owner">Ivy · web</td><td class="mono">apps/web/** (except e2e)</td><td class="mono">packages/shared/**</td></tr>
+              <tr><td class="owner">Sam · qa</td><td class="mono">apps/api/test/**, apps/web/e2e/**, fixtures/**</td><td class="mono">application code, anywhere</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pagenum">14 / 25</div>
+    </section>
+
+    <!-- ============ 15 · WHY THREE ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">14</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">Why Not Ten</div>
+        <h1 class="h reveal">Three, not ten: <mark>one hand-off to watch</mark></h1>
+        <div class="body-area">
+          <div class="spot">
+            <div class="copy">
+              <p class="sub reveal" style="font-size:26px;">A wide team of narrow specialists means many hand-offs, and one missed hand-off stalls the whole chain. Three agents on disjoint paths means exactly one route to watch — builder to qa — with the main session as the last check.</p>
+            </div>
+            <div class="stat-card reveal">
+              <div class="kicker2">Hand-offs to watch</div>
+              <div class="stat">01</div>
+              <div class="stat-label">builder → qa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">15 / 25</div>
+    </section>
+
+    <!-- ============ 16 · ORBIT — WHAT IT IS ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">15</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">AI Agent Workspaces · Orbit</div>
+        <h1 class="h reveal">Orbit: a task API <mark>built for machines</mark></h1>
+        <div class="body-area">
+          <ul class="bullets">
+            <li class="reveal"><span class="dot"></span><span>An MCP-native tool from the ground up — an agent talks to it the same way it talks to any other tool call, not through a UI built for humans first.</span></li>
+            <li class="reveal"><span class="dot"></span><span>The primitive is the <b>task claim</b>: <span style="font-family:var(--font-mono);">tasks.claim / next / renew / release / comment / create</span>, plus dependency edges between cards.</span></li>
+            <li class="reveal"><span class="dot"></span><span>Goal-scoped API keys — an agent's access is exactly one project's queue, nothing wider.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">16 / 25</div>
+    </section>
+
+    <!-- ============ 17 · ORBIT — WHAT IT'S GOOD AT ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">16</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">AI Agent Workspaces · Orbit</div>
+        <h1 class="h reveal">Built for a loop <mark>running unattended</mark></h1>
+        <div class="body-area">
+          <div class="cards c3">
+            <div class="card reveal"><h3>Atomic claiming</h3><p>Two agents can never grab the same card — the claim is the coordination primitive.</p></div>
+            <div class="card reveal"><h3>Gates</h3><p>A milestone holds until every card under it is done, then the next milestone unlocks.</p></div>
+            <div class="card reveal"><h3>Self-pacing</h3><p>An agent reads its own queue and paces itself — no human has to dispatch each step.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">17 / 25</div>
+    </section>
+
+    <!-- ============ 18 · FLOW — WHAT IT IS ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">17</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">AI Agent Workspaces · Flow</div>
+        <h1 class="h reveal">Flow: the <mark>shared</mark> workspace</h1>
+        <div class="body-area">
+          <ul class="bullets">
+            <li class="reveal"><span class="dot"></span><span>The team's own project &amp; wiki platform — task boards, wiki pages, comments, calendar-backed schedules, all in one place people already work.</span></li>
+            <li class="reveal"><span class="dot"></span><span>Agents and humans read the same board. A card doesn't need translating between "the agent's system" and "the team's system" — there's one system.</span></li>
+            <li class="reveal"><span class="dot"></span><span>Specs live as wiki pages next to the work itself, not in a separate knowledge silo.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">18 / 25</div>
+    </section>
+
+    <!-- ============ 19 · FLOW — WHAT IT'S GOOD AT ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">18</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">AI Agent Workspaces · Flow</div>
+        <h1 class="h reveal">Built for a <mark>human-and-agent</mark> team</h1>
+        <div class="body-area">
+          <div class="cards c3">
+            <div class="card reveal"><h3>Schedules that hold a thread</h3><p>A meeting is one object — a real calendar entry that also carries its own comment thread.</p></div>
+            <div class="card reveal"><h3>Wiki beside the board</h3><p>The living spec sits next to the tasks that implement it — one click apart.</p></div>
+            <div class="card reveal"><h3>Everyone sees status</h3><p>Not just the agents — the whole team reads the same board, the same comments.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">19 / 25</div>
+    </section>
+
+    <!-- ============ 20 · WHAT'S DIFFERENT ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">19</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="kicker reveal">AI Agent Workspaces</div>
+        <h1 class="h reveal">Different jobs, <mark>not a ranking</mark></h1>
+        <div class="split">
+          <div class="pane lit reveal">
+            <h3>Orbit</h3>
+            <div class="role">Machine-first</div>
+            <ul>
+              <li>Built for an autonomous loop with no one watching</li>
+              <li>Minimal surface: claim, comment, done</li>
+              <li>Goal-scoped keys, one queue per agent</li>
+            </ul>
+          </div>
+          <div class="pane reveal">
+            <h3>Flow</h3>
+            <div class="role">Human + agent</div>
+            <ul>
+              <li>Built for a shared, visible workspace</li>
+              <li>Rich surface: wiki, schedules, comments, board</li>
+              <li>One place the whole team already lives</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">20 / 25</div>
+    </section>
+
+    <!-- ============ 21 · SKILLS — /work ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">20</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="kicker reveal">The Playbook</div>
+        <h1 class="h reveal"><mark>/work</mark> — the loop itself</h1>
+        <div class="body-area">
+          <ul class="bullets">
+            <li class="reveal"><span class="dot"></span><span><b>Read the mission —</b> GOAL.md, every cycle, so context never drifts.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Claim the next card —</b> from the agent's own queue, atomically.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Do the work, verify it —</b> against the owned surface only.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Report and repeat —</b> comment the result, move the card, claim the next one.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">21 / 25</div>
+    </section>
+
+    <!-- ============ 22 · SKILLS — team-meeting & choose-the-instrument ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">21</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="kicker reveal">The Playbook</div>
+        <h1 class="h reveal">When to <mark>sync</mark>, and what to reach for</h1>
+        <div class="body-area">
+          <div class="cards c2">
+            <div class="card reveal"><h3>team-meeting</h3><p>Schedules a real check-in — a Flow calendar entry with its own thread — when all three finish a beat together, or all three are blocked on the same thing.</p></div>
+            <div class="card reveal"><h3>choose-the-instrument</h3><p>Picks the right tool for a given step, so an agent reaches for the correct instrument instead of improvising one.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">22 / 25</div>
+    </section>
+
+    <!-- ============ 22b · CONTROL ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">22</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="kicker reveal">Hands On The Wheel</div>
+        <h1 class="h reveal">One command. <mark>Zero micromanagement.</mark></h1>
+        <div class="body-area">
+          <ul class="bullets">
+            <li class="reveal"><span class="dot"></span><span><b>Start it —</b> <span style="font-family:var(--font-mono);">/loop /work api</span> (or web, qa) and Max, Ivy or Sam takes it from there.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>It paces itself —</b> checks back every 60 to 900 seconds depending on what it finds. It never stops on its own — only the user does.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Questions land on the card, not in chat —</b> an @main comment with the default it's taking, answered whenever it's convenient.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Gates stay human —</b> an agent can finish every task under a milestone and still can't open the next one. Only main closes the gate.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">23 / 25</div>
+    </section>
+
+    <!-- ============ 23 · HAND-OFF PATTERN ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">23</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="kicker reveal">Passing The Baton</div>
+        <h1 class="h reveal">The card <mark>is</mark> the hand-off</h1>
+        <div class="body-area">
+          <ul class="bullets">
+            <li class="reveal"><span class="dot"></span><span><b>One card, one unit of work —</b> nothing changes hands off the board.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>@mention</b> routes a question straight to the owner, on the card itself.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>The comment thread</b> carries the back-and-forth — the record stays with the work.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Status moves the card forward —</b> no side channel, no separate status to keep in sync.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pagenum">24 / 25</div>
+    </section>
+
+    <!-- ============ 24 · CLOSING ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">24</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="body-area">
+          <div class="kicker reveal">Built End to End</div>
+          <h1 class="h reveal" style="font-size:96px;">The AI-native <mark>way</mark></h1>
+          <div class="cards c4" style="margin-top:36px;">
+            <div class="card solid reveal"><div class="num">17</div><h3>Features</h3></div>
+            <div class="card solid reveal"><div class="num">03</div><h3>Agents</h3></div>
+            <div class="card solid reveal"><div class="num">01</div><h3>Shared catalog</h3></div>
+            <div class="card solid reveal"><div class="num">2048</div><h3>Vector dims</h3></div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">25 / 25</div>
+    </section>
+
+  </main>
+</div>
+
+<div class="deck-controls">
+  <button id="prevBtn">&larr;</button>
+  <span class="count" id="slideCount">01 / 24</span>
+  <button id="nextBtn">&rarr;</button>
+</div>
+
+<script>
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   =========================================== */
+class SlidePresentation{
+  constructor(){
+    this.slides=document.querySelectorAll('.slide');
+    this.currentSlide=0;
+    this.stage=document.getElementById('deckStage');
+    this.countEl=document.getElementById('slideCount');
+    this.setupStageScale();
+    this.setupKeyboardNav();
+    this.setupTouchNav();
+    this.setupWheelNav();
+    this.setupButtons();
+    this.showSlide(0);
+  }
+  setupStageScale(){
+    const scale=()=>{
+      const f=Math.min(window.innerWidth/1920,window.innerHeight/1080);
+      const x=(window.innerWidth-1920*f)/2, y=(window.innerHeight-1080*f)/2;
+      this.stage.style.transform=`translate(${x}px,${y}px) scale(${f})`;
+    };
+    scale();
+    window.addEventListener('resize',scale);
+  }
+  setupKeyboardNav(){
+    document.addEventListener('keydown',(e)=>{
+      if(e.target.getAttribute && e.target.getAttribute('contenteditable')) return;
+      if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){this.showSlide(this.currentSlide+1);e.preventDefault();}
+      if(e.key==='ArrowLeft'||e.key==='PageUp'){this.showSlide(this.currentSlide-1);e.preventDefault();}
+      if((e.key==='e'||e.key==='E')) editor.toggleEditMode();
+    });
+  }
+  setupTouchNav(){
+    let sx=0;
+    document.addEventListener('touchstart',(e)=>{sx=e.touches[0].clientX;});
+    document.addEventListener('touchend',(e)=>{
+      const dx=e.changedTouches[0].clientX-sx;
+      if(dx>60) this.showSlide(this.currentSlide-1);
+      if(dx<-60) this.showSlide(this.currentSlide+1);
+    });
+  }
+  setupWheelNav(){
+    let locked=false;
+    window.addEventListener('wheel',(e)=>{
+      if(locked) return;
+      if(Math.abs(e.deltaY)<24) return;
+      locked=true;
+      if(e.deltaY>0) this.showSlide(this.currentSlide+1); else this.showSlide(this.currentSlide-1);
+      setTimeout(()=>locked=false,500);
+    },{passive:true});
+  }
+  setupButtons(){
+    document.getElementById('nextBtn').addEventListener('click',()=>this.showSlide(this.currentSlide+1));
+    document.getElementById('prevBtn').addEventListener('click',()=>this.showSlide(this.currentSlide-1));
+  }
+  showSlide(index){
+    this.currentSlide=Math.max(0,Math.min(index,this.slides.length-1));
+    this.slides.forEach((slide,i)=>{
+      slide.classList.toggle('active',i===this.currentSlide);
+      slide.classList.toggle('visible',i===this.currentSlide);
+    });
+    this.countEl.textContent=String(this.currentSlide+1).padStart(2,'0')+' / '+this.slides.length;
+  }
+}
+
+/* ===========================================
+   INLINE EDIT MODE (JS-based hover, no CSS ~ hack)
+   =========================================== */
+class InlineEditor{
+  constructor(){
+    this.isActive=false;
+    this.hotzone=document.querySelector('.edit-hotzone');
+    this.toggle=document.getElementById('editToggle');
+    let hideTimeout=null;
+    this.hotzone.addEventListener('mouseenter',()=>{clearTimeout(hideTimeout);this.toggle.classList.add('show');});
+    this.hotzone.addEventListener('mouseleave',()=>{hideTimeout=setTimeout(()=>{if(!this.isActive)this.toggle.classList.remove('show');},400);});
+    this.toggle.addEventListener('mouseenter',()=>clearTimeout(hideTimeout));
+    this.toggle.addEventListener('mouseleave',()=>{hideTimeout=setTimeout(()=>{if(!this.isActive)this.toggle.classList.remove('show');},400);});
+    this.hotzone.addEventListener('click',()=>this.toggleEditMode());
+    this.toggle.addEventListener('click',()=>this.toggleEditMode());
+    this.restore();
+  }
+  toggleEditMode(){
+    this.isActive=!this.isActive;
+    this.toggle.classList.toggle('active',this.isActive);
+    document.querySelectorAll('.slide h1,.slide p,.slide h3,.slide li,.slide td,.slide th,.slide div.stat,.slide div.tag,.slide div.kicker').forEach(el=>{
+      el.setAttribute('contenteditable',this.isActive?'true':'false');
+    });
+    if(!this.isActive) this.save();
+  }
+  save(){
+    const data={};
+    document.querySelectorAll('[data-eid]').forEach(el=>data[el.dataset.eid]=el.innerHTML);
+    try{localStorage.setItem('polyglot-deck-a-edits',JSON.stringify(data));}catch(e){}
+  }
+  restore(){
+    try{
+      const data=JSON.parse(localStorage.getItem('polyglot-deck-a-edits')||'{}');
+      Object.keys(data).forEach(id=>{
+        const el=document.querySelector(`[data-eid="${id}"]`);
+        if(el) el.innerHTML=data[id];
+      });
+    }catch(e){}
+  }
+}
+
+new SlidePresentation();
+const editor=new InlineEditor();
+</script>
+</body>
+</html>
