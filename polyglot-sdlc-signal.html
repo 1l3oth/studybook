@@ -117,6 +117,24 @@ table.cmp td{padding:18px 20px 18px 0;border-bottom:1px solid var(--line);vertic
 table.cmp td.owner{color:var(--card-bg);font-weight:600;white-space:nowrap;}
 table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-secondary);}
 
+/* meeting thread + task card mockups */
+.thread{display:flex;flex-direction:column;gap:12px;}
+.msg{background:#212121;border:1px solid var(--line);border-radius:8px;padding:14px 20px;}
+.msg .idline{font-family:var(--font-mono);font-size:13px;color:var(--card-bg);}
+.msg .status{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin:2px 0 8px;}
+.msg p{font-size:15px;line-height:1.5;color:var(--text-secondary);margin:0;}
+.msg.closed{border-color:var(--card-bg);background:#241a15;}
+.msg.closed .idline{color:var(--card-bg);font-weight:600;}
+
+.taskcard{background:#212121;border:1px solid var(--line);border-radius:10px;padding:22px 26px;}
+.taskcard .tbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;}
+.taskcard .ttitle{font-family:var(--font-mono);font-size:16px;color:var(--text-primary);}
+.badges{display:flex;gap:8px;flex-shrink:0;}
+.badge{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--text-secondary);white-space:nowrap;}
+.badge.on{background:var(--card-bg);color:var(--text-on-card);border-color:transparent;}
+.taskcard .desc{font-size:14px;color:var(--text-secondary);line-height:1.5;margin:0 0 14px;padding-bottom:14px;border-bottom:1px dashed var(--line);}
+.taskcard .desc b{color:var(--text-primary);}
+
 .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;}
 .split .pane{background:#212121;border:1px solid var(--line);border-radius:10px;padding:36px 38px;display:flex;flex-direction:column;}
 .split .pane.lit{border-color:var(--card-bg);}
@@ -179,7 +197,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           <div class="tag">Build Walkthrough</div>
         </div>
       </div>
-      <div class="pagenum">01 / 26</div>
+      <div class="pagenum">01 / 28</div>
     </section>
 
     <!-- ============ 02 · WHAT IT DELIVERS ============ -->
@@ -198,7 +216,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">02 / 26</div>
+      <div class="pagenum">02 / 28</div>
     </section>
 
     <!-- ============ 03 · SCOPE / 17 FEATURES ============ -->
@@ -216,7 +234,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">03 / 26</div>
+      <div class="pagenum">03 / 28</div>
     </section>
 
     <!-- ============ 04 · ARCHITECTURE ANALYSIS ============ -->
@@ -234,7 +252,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">04 / 26</div>
+      <div class="pagenum">04 / 28</div>
     </section>
 
     <!-- ============ 05 · SPEC GENERATED WITH CLAUDE CODE ============ -->
@@ -253,7 +271,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
         </div>
         <div class="sub reveal" style="margin-top:24px;">All four are generated directly by Claude Code from the data model and screen map — reviewable HTML, before a single application line is written.</div>
       </div>
-      <div class="pagenum">05 / 26</div>
+      <div class="pagenum">05 / 28</div>
     </section>
 
     <!-- ============ 06 · STACK — FRONTEND ============ -->
@@ -276,7 +294,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">06 / 26</div>
+      <div class="pagenum">06 / 28</div>
     </section>
 
     <!-- ============ 07 · STACK — BACKEND ============ -->
@@ -296,7 +314,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           <p class="sub reveal" style="margin-top:32px;">Translation-fill, embedding and publish jobs all run through BullMQ — nothing that matters happens synchronously inside a request.</p>
         </div>
       </div>
-      <div class="pagenum">07 / 26</div>
+      <div class="pagenum">07 / 28</div>
     </section>
 
     <!-- ============ 08 · INFRASTRUCTURE — DOCKER ============ -->
@@ -314,7 +332,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">08 / 26</div>
+      <div class="pagenum">08 / 28</div>
     </section>
 
     <!-- ============ 09 · MONOREPO STRUCTURE ============ -->
@@ -334,7 +352,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           <p class="sub reveal" style="margin-top:28px;">pnpm workspaces link the four; Turborepo orders and caches every task between them.</p>
         </div>
       </div>
-      <div class="pagenum">09 / 26</div>
+      <div class="pagenum">09 / 28</div>
     </section>
 
     <!-- ============ 10 · AI MODEL & VECTOR STRATEGY ============ -->
@@ -360,7 +378,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">10 / 26</div>
+      <div class="pagenum">10 / 28</div>
     </section>
 
     <!-- ============ 11 · KNOWLEDGE LAYER ============ -->
@@ -376,7 +394,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">11 / 26</div>
+      <div class="pagenum">11 / 28</div>
     </section>
 
     <!-- ============ 12 · GOAL.md ============ -->
@@ -394,7 +412,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">12 / 26</div>
+      <div class="pagenum">12 / 28</div>
     </section>
 
     <!-- ============ 13 · THREE-AGENT HARNESS ============ -->
@@ -411,7 +429,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">13 / 26</div>
+      <div class="pagenum">13 / 28</div>
     </section>
 
     <!-- ============ 14 · OWNERSHIP TABLE ============ -->
@@ -431,7 +449,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </table>
         </div>
       </div>
-      <div class="pagenum">14 / 26</div>
+      <div class="pagenum">14 / 28</div>
     </section>
 
     <!-- ============ 15 · WHY THREE ============ -->
@@ -453,7 +471,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">15 / 26</div>
+      <div class="pagenum">15 / 28</div>
     </section>
 
     <!-- ============ 16 · ORBIT — WHAT IT IS ============ -->
@@ -470,7 +488,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">16 / 26</div>
+      <div class="pagenum">16 / 28</div>
     </section>
 
     <!-- ============ 17 · ORBIT — WHAT IT'S GOOD AT ============ -->
@@ -487,7 +505,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">17 / 26</div>
+      <div class="pagenum">17 / 28</div>
     </section>
 
     <!-- ============ 18 · FLOW — WHAT IT IS ============ -->
@@ -504,7 +522,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">18 / 26</div>
+      <div class="pagenum">18 / 28</div>
     </section>
 
     <!-- ============ 19 · FLOW — WHAT IT'S GOOD AT ============ -->
@@ -521,7 +539,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">19 / 26</div>
+      <div class="pagenum">19 / 28</div>
     </section>
 
     <!-- ============ 20 · WHAT'S DIFFERENT ============ -->
@@ -551,7 +569,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">20 / 26</div>
+      <div class="pagenum">20 / 28</div>
     </section>
 
     <!-- ============ 21 · SKILLS — /work ============ -->
@@ -569,7 +587,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">21 / 26</div>
+      <div class="pagenum">21 / 28</div>
     </section>
 
     <!-- ============ 22 · SKILLS — team-meeting & choose-the-instrument ============ -->
@@ -585,7 +603,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">22 / 26</div>
+      <div class="pagenum">22 / 28</div>
     </section>
 
     <!-- ============ 22a · A2A ============ -->
@@ -603,13 +621,47 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">23 / 26</div>
+      <div class="pagenum">23 / 28</div>
+    </section>
+
+    <!-- ============ 22a2 · TEAM SYNC SAMPLE ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">23</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="kicker reveal">A2A, In The Wild</div>
+        <h1 class="h reveal">Inside a <mark>Team Sync</mark></h1>
+        <div class="body-area">
+          <div class="thread">
+            <div class="msg reveal">
+              <div class="idline">--- Max (api) ---</div>
+              <div class="status">Status: just finished the deploy-request endpoint</div>
+              <p>Batching pending overrides into one request was the trickiest part — ended up sorting by product first, then by code, so the reviewer sees one product at a time instead of a random mix.</p>
+            </div>
+            <div class="msg reveal">
+              <div class="idline">--- Ivy (web) ---</div>
+              <div class="status">Status: just finished the deploy-requests screen</div>
+              <p>Same batching logic, mirrored. One thing I'd do differently: I built the review dialog before checking what fields the endpoint actually returns, and had to redo two of them.</p>
+            </div>
+            <div class="msg reveal">
+              <div class="idline">--- Sam (qa) ---</div>
+              <div class="status">Status: just finished reviewing both</div>
+              <p>Both PASS. One real gap: neither of you handles a product with zero pending overrides — the endpoint 500s instead of returning an empty list. Filed as a card.</p>
+            </div>
+            <div class="msg closed reveal">
+              <div class="idline">MEETING CLOSED: --- Sam (qa) ---</div>
+              <div class="status">Status: closing</div>
+              <p>Decided: fix the empty-overrides 500 before the M2 gate closes. Nothing here worth a new skill.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">24 / 28</div>
     </section>
 
     <!-- ============ 22b · CONTROL ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">23</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">24</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="kicker reveal">Hands On The Wheel</div>
         <h1 class="h reveal">One command. <mark>Zero micromanagement.</mark></h1>
         <div class="body-area">
@@ -621,13 +673,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">24 / 26</div>
+      <div class="pagenum">25 / 28</div>
     </section>
 
     <!-- ============ 23 · HAND-OFF PATTERN ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">24</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">25</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="kicker reveal">Passing The Baton</div>
         <h1 class="h reveal">The card <mark>is</mark> the hand-off</h1>
         <div class="body-area">
@@ -639,13 +691,37 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">25 / 26</div>
+      <div class="pagenum">26 / 28</div>
+    </section>
+
+    <!-- ============ 23a · TASK CARD SAMPLE ============ -->
+    <section class="slide">
+      <div class="frame">
+        <div class="top-row"><div class="section-num reveal">26</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="kicker reveal">A Card, End To End</div>
+        <h1 class="h reveal">What actually <mark>moves through</mark> the board</h1>
+        <div class="body-area">
+          <div class="taskcard reveal">
+            <div class="tbar">
+              <div class="ttitle">[api] M2: Deploy request endpoint</div>
+              <div class="badges"><span class="badge">Agent: API Agent</span><span class="badge on">In Review</span></div>
+            </div>
+            <p class="desc">Add <b>POST /deploy-requests</b> — batches pending string_overrides into one reviewable request. <b>Done when:</b> endpoint validates ownership, returns a request id, unit tests cover the empty-batch case.</p>
+            <div class="thread">
+              <div class="msg reveal"><div class="idline">Max (api)</div><p>starting. plan: build the batch query, then the endpoint, then tests.</p></div>
+              <div class="msg reveal"><div class="idline">Max (api)</div><p>ready for qa. changed: apps/api/src/deploy-requests/*. verified: unit tests pass, curl against seed data returns a real id. please check: empty-batch rejection.</p></div>
+              <div class="msg reveal"><div class="idline">Sam (qa)</div><p>PASS. ran: full suite + manual curl against 3 products. risk: low.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagenum">27 / 28</div>
     </section>
 
     <!-- ============ 24 · CLOSING ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">25</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">27</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="body-area">
           <div class="kicker reveal">Built End to End</div>
           <h1 class="h reveal" style="font-size:96px;">The AI-native <mark>way</mark></h1>
@@ -657,7 +733,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">26 / 26</div>
+      <div class="pagenum">28 / 28</div>
     </section>
 
   </main>
