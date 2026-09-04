@@ -120,19 +120,19 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
 /* meeting thread + task card mockups */
 .thread{display:flex;flex-direction:column;gap:12px;}
 .msg{background:#212121;border:1px solid var(--line);border-radius:8px;padding:14px 20px;}
-.msg .idline{font-family:var(--font-mono);font-size:13px;color:var(--card-bg);}
-.msg .status{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin:2px 0 8px;}
-.msg p{font-size:15px;line-height:1.5;color:var(--text-secondary);margin:0;}
+.msg .idline{font-family:var(--font-mono);font-size:17px;color:var(--card-bg);}
+.msg .status{font-family:var(--font-mono);font-size:15px;color:var(--text-muted);margin:4px 0 10px;}
+.msg p{font-size:19px;line-height:1.5;color:var(--text-secondary);margin:0;}
 .msg.closed{border-color:var(--card-bg);background:#241a15;}
 .msg.closed .idline{color:var(--card-bg);font-weight:600;}
 
 .taskcard{background:#212121;border:1px solid var(--line);border-radius:10px;padding:22px 26px;}
 .taskcard .tbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;}
-.taskcard .ttitle{font-family:var(--font-mono);font-size:16px;color:var(--text-primary);}
+.taskcard .ttitle{font-family:var(--font-mono);font-size:22px;color:var(--text-primary);}
 .badges{display:flex;gap:8px;flex-shrink:0;}
-.badge{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--text-secondary);white-space:nowrap;}
+.badge{font-family:var(--font-mono);font-size:14px;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;border-radius:999px;border:1px solid var(--line);color:var(--text-secondary);white-space:nowrap;}
 .badge.on{background:var(--card-bg);color:var(--text-on-card);border-color:transparent;}
-.taskcard .desc{font-size:14px;color:var(--text-secondary);line-height:1.5;margin:0 0 14px;padding-bottom:14px;border-bottom:1px dashed var(--line);}
+.taskcard .desc{font-size:18px;color:var(--text-secondary);line-height:1.5;margin:0 0 16px;padding-bottom:16px;border-bottom:1px dashed var(--line);}
 .taskcard .desc b{color:var(--text-primary);}
 
 .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;}
@@ -197,7 +197,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           <div class="tag">Build Walkthrough</div>
         </div>
       </div>
-      <div class="pagenum">01 / 28</div>
+      <div class="pagenum">01 / 25</div>
     </section>
 
     <!-- ============ 02 · WHAT IT DELIVERS ============ -->
@@ -216,7 +216,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">02 / 28</div>
+      <div class="pagenum">02 / 25</div>
     </section>
 
     <!-- ============ 03 · SCOPE / 17 FEATURES ============ -->
@@ -234,7 +234,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">03 / 28</div>
+      <div class="pagenum">03 / 25</div>
     </section>
 
     <!-- ============ 04 · ARCHITECTURE ANALYSIS ============ -->
@@ -252,7 +252,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">04 / 28</div>
+      <div class="pagenum">04 / 25</div>
     </section>
 
     <!-- ============ 05 · SPEC GENERATED WITH CLAUDE CODE ============ -->
@@ -271,74 +271,31 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
         </div>
         <div class="sub reveal" style="margin-top:24px;">All four are generated directly by Claude Code from the data model and screen map — reviewable HTML, before a single application line is written.</div>
       </div>
-      <div class="pagenum">05 / 28</div>
+      <div class="pagenum">05 / 25</div>
     </section>
 
-    <!-- ============ 06 · STACK — FRONTEND ============ -->
+    <!-- ============ 06 · THE FULL STACK ============ -->
     <section class="slide">
       <div class="frame">
         <div class="top-row"><div class="section-num reveal">05</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
-        <div class="kicker reveal">The Frontend Arsenal</div>
-        <h1 class="h reveal">Next.js, and the <mark>modern React</mark> layer around it</h1>
-        <div class="body-area">
-          <div class="stack-row">
-            <div class="pill reveal"><b>Next.js 16</b> — App Router, RSC</div>
-            <div class="pill reveal"><b>React 19</b></div>
-            <div class="pill reveal"><b>Tailwind CSS 4</b></div>
-            <div class="pill reveal"><b>Zustand</b> — client state</div>
-            <div class="pill reveal"><b>TanStack Query</b> — server state</div>
-            <div class="pill reveal"><b>TanStack Table</b> — data grids</div>
-            <div class="pill reveal"><b>shadcn/ui</b> — new-york style</div>
-            <div class="pill reveal"><b>Magic UI</b> — motion components</div>
-            <div class="pill reveal"><b>React Hook Form</b></div>
-          </div>
-        </div>
-      </div>
-      <div class="pagenum">06 / 28</div>
-    </section>
-
-    <!-- ============ 07 · STACK — BACKEND ============ -->
-    <section class="slide">
-      <div class="frame">
-        <div class="top-row"><div class="section-num reveal">06</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
-        <div class="kicker reveal">The Backend Engine Room</div>
-        <h1 class="h reveal">NestJS, MongoDB, and a <mark>real queue</mark></h1>
-        <div class="body-area">
-          <div class="stack-row">
-            <div class="pill reveal"><b>NestJS 11</b></div>
-            <div class="pill reveal"><b>Mongoose / MongoDB</b></div>
-            <div class="pill reveal"><b>BullMQ</b> — background jobs</div>
-            <div class="pill reveal"><b>JWT auth</b></div>
-            <div class="pill reveal"><b>Scalar</b> — OpenAPI docs UI</div>
-          </div>
-          <p class="sub reveal" style="margin-top:32px;">Translation-fill, embedding and publish jobs all run through BullMQ — nothing that matters happens synchronously inside a request.</p>
-        </div>
-      </div>
-      <div class="pagenum">07 / 28</div>
-    </section>
-
-    <!-- ============ 08 · INFRASTRUCTURE — DOCKER ============ -->
-    <section class="slide">
-      <div class="frame">
-        <div class="top-row"><div class="section-num reveal">07</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
-        <div class="kicker reveal">Spin It Up</div>
-        <h1 class="h reveal">One command, the <mark>whole dev stack</mark></h1>
+        <div class="kicker reveal">The Full Stack</div>
+        <h1 class="h reveal">Frontend, backend, infra, model — <mark>at a glance</mark></h1>
         <div class="body-area">
           <div class="cards c4">
-            <div class="card reveal"><h3>mongo:8</h3><p>Single-node replica set — the multi-document transactions the model needs.</p></div>
-            <div class="card reveal"><h3>redis:7</h3><p>Backs every BullMQ queue.</p></div>
-            <div class="card reveal"><h3>api / web / worker</h3><p>Containerized dev images (node:20-bookworm), hot-reloading, always up.</p></div>
-            <div class="card solid reveal"><h3>docker compose up</h3><p>Every service, one command, same shape as production.</p></div>
+            <div class="card reveal"><h3>Frontend</h3><p>Next.js 16 (App Router, RSC), React 19, Tailwind CSS 4. State and data: Zustand, TanStack Query + Table. UI: shadcn/ui (new-york), Magic UI, React Hook Form.</p></div>
+            <div class="card reveal"><h3>Backend</h3><p>NestJS 11, Mongoose/MongoDB, JWT auth, Scalar for OpenAPI docs. BullMQ runs every background job — translation-fill, embed, publish — nothing synchronous inside a request.</p></div>
+            <div class="card reveal"><h3>Infra</h3><p>mongo:8 single-node replica set, redis:7 backing those three queues. Containerized api/web/worker images, hot-reloading, one <span style="font-family:var(--font-mono);">docker compose up</span> for the whole stack.</p></div>
+            <div class="card solid reveal"><h3>AI Model</h3><p>Claude drafts wording, mocked behind a provider interface. OpenAI text-embedding-3-large at <b>2048 dimensions</b> — a Matryoshka reduction from the 3072 default, near-full match quality for a third less storage. English and Korean are the two source languages.</p></div>
           </div>
         </div>
       </div>
-      <div class="pagenum">08 / 28</div>
+      <div class="pagenum">06 / 25</div>
     </section>
 
     <!-- ============ 09 · MONOREPO STRUCTURE ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">08</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">06</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">One Repo, Zero Chaos</div>
         <h1 class="h reveal">One repo, <mark>four workspaces</mark>, one outsider</h1>
         <div class="body-area">
@@ -352,39 +309,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           <p class="sub reveal" style="margin-top:28px;">pnpm workspaces link the four; Turborepo orders and caches every task between them.</p>
         </div>
       </div>
-      <div class="pagenum">09 / 28</div>
-    </section>
-
-    <!-- ============ 10 · AI MODEL & VECTOR STRATEGY ============ -->
-    <section class="slide">
-      <div class="frame">
-        <div class="top-row"><div class="section-num reveal">09</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
-        <div class="kicker reveal">Brains &amp; Memory</div>
-        <h1 class="h reveal">Claude writes it. <mark>2048 dimensions</mark> find it again.</h1>
-        <div class="body-area">
-          <div class="spot">
-            <div class="copy">
-              <ul class="bullets">
-                <li class="reveal"><span class="dot"></span><span><b>Claude</b> drafts wording, behind a provider interface — swappable, never hard-wired.</span></li>
-                <li class="reveal"><span class="dot"></span><span><b>OpenAI text-embedding-3-large</b> at <b>2048 dimensions</b> — the Matryoshka reduction that keeps near-full match quality for a third less storage.</span></li>
-                <li class="reveal"><span class="dot"></span><span>English and Korean are the two <b>source</b> languages — where new wording is actually written first.</span></li>
-              </ul>
-            </div>
-            <div class="stat-card reveal">
-              <div class="kicker2">Embedding dims</div>
-              <div class="stat">2048</div>
-              <div class="stat-label">from a 3072 default</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="pagenum">10 / 28</div>
+      <div class="pagenum">07 / 25</div>
     </section>
 
     <!-- ============ 11 · KNOWLEDGE LAYER ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">10</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">07</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb on">Build</span><span class="crumb">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">The Second Brain</div>
         <h1 class="h reveal">Two graphs: <mark>personal</mark> and <mark>project</mark></h1>
         <div class="body-area">
@@ -394,13 +325,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">11 / 28</div>
+      <div class="pagenum">08 / 25</div>
     </section>
 
     <!-- ============ 12 · GOAL.md ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">11</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">08</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">One File, One Mission</div>
         <h1 class="h reveal">Every agent reads <mark>GOAL.md</mark> first</h1>
         <div class="body-area">
@@ -409,16 +340,17 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
             <li class="reveal"><span class="dot"></span><span><b>The what —</b> the data model, in prose, so an agent can reason about it without opening the schema.</span></li>
             <li class="reveal"><span class="dot"></span><span><b>The order of work —</b> the lifecycle a string moves through, so agents build in the sequence that makes each stage real.</span></li>
             <li class="reveal"><span class="dot"></span><span><b>Standing decisions —</b> stack, model, dimensions, auth mode — settled once, referenced everywhere.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Definition of done —</b> all 17 features work end to end against the screen map, <span style="font-family:var(--font-mono);">pnpm test</span> and <span style="font-family:var(--font-mono);">pnpm build</span> are green in CI, and one real product consumes a published pack through the client library.</span></li>
           </ul>
         </div>
       </div>
-      <div class="pagenum">12 / 28</div>
+      <div class="pagenum">09 / 25</div>
     </section>
 
     <!-- ============ 13 · THREE-AGENT HARNESS ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">12</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">09</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">Meet The Crew</div>
         <h1 class="h reveal">Three agents. <mark>One product.</mark></h1>
         <div class="body-area">
@@ -429,13 +361,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">13 / 28</div>
+      <div class="pagenum">10 / 25</div>
     </section>
 
     <!-- ============ 14 · OWNERSHIP TABLE ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">13</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">10</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">Lanes, Not Overlaps</div>
         <h1 class="h reveal">One owner per surface, <mark>no overlap</mark></h1>
         <div class="body-area">
@@ -449,13 +381,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </table>
         </div>
       </div>
-      <div class="pagenum">14 / 28</div>
+      <div class="pagenum">11 / 25</div>
     </section>
 
     <!-- ============ 15 · WHY THREE ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">14</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">11</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">Why Not Ten</div>
         <h1 class="h reveal">Three, not ten: <mark>one hand-off to watch</mark></h1>
         <div class="body-area">
@@ -471,30 +403,31 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">15 / 28</div>
+      <div class="pagenum">12 / 25</div>
     </section>
 
     <!-- ============ 16 · ORBIT — WHAT IT IS ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">15</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">12</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">AI Agent Workspaces · Orbit</div>
         <h1 class="h reveal">Orbit: a task API <mark>built for machines</mark></h1>
         <div class="body-area">
           <ul class="bullets">
             <li class="reveal"><span class="dot"></span><span>An MCP-native tool from the ground up — an agent talks to it the same way it talks to any other tool call, not through a UI built for humans first.</span></li>
             <li class="reveal"><span class="dot"></span><span>The primitive is the <b>task claim</b>: <span style="font-family:var(--font-mono);">tasks.claim / next / renew / release / comment / create</span>, plus dependency edges between cards.</span></li>
-            <li class="reveal"><span class="dot"></span><span>Goal-scoped API keys — an agent's access is exactly one project's queue, nothing wider.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Goal-scoped, but not only —</b> Polyglot's key is goal-scoped, exactly one project's queue. Orbit itself also runs a <b>global scope</b>: create notes, goals, tasks and comments across the whole account, plus one global note not tied to any single project.</span></li>
+            <li class="reveal"><span class="dot"></span><span><b>Talks to its own AI —</b> a separate server lets an agent consult Gojo, Orbit's shipped AI assistant, not just its task store.</span></li>
           </ul>
         </div>
       </div>
-      <div class="pagenum">16 / 28</div>
+      <div class="pagenum">13 / 25</div>
     </section>
 
     <!-- ============ 17 · ORBIT — WHAT IT'S GOOD AT ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">16</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">13</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">AI Agent Workspaces · Orbit</div>
         <h1 class="h reveal">Built for a loop <mark>running unattended</mark></h1>
         <div class="body-area">
@@ -505,13 +438,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">17 / 28</div>
+      <div class="pagenum">14 / 25</div>
     </section>
 
     <!-- ============ 18 · FLOW — WHAT IT IS ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">17</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">14</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">AI Agent Workspaces · Flow</div>
         <h1 class="h reveal">Flow: the <mark>shared</mark> workspace</h1>
         <div class="body-area">
@@ -522,13 +455,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">18 / 28</div>
+      <div class="pagenum">15 / 25</div>
     </section>
 
     <!-- ============ 19 · FLOW — WHAT IT'S GOOD AT ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">18</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">15</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">AI Agent Workspaces · Flow</div>
         <h1 class="h reveal">Built for a <mark>human-and-agent</mark> team</h1>
         <div class="body-area">
@@ -539,13 +472,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">19 / 28</div>
+      <div class="pagenum">16 / 25</div>
     </section>
 
     <!-- ============ 20 · WHAT'S DIFFERENT ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">19</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">16</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb on">Squad</span><span class="crumb">Ship</span></div></div>
         <div class="kicker reveal">AI Agent Workspaces</div>
         <h1 class="h reveal">Different jobs, <mark>not a ranking</mark></h1>
         <div class="split">
@@ -556,6 +489,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
               <li>Built for an autonomous loop with no one watching</li>
               <li>Minimal surface: claim, comment, done</li>
               <li>Goal-scoped keys, one queue per agent</li>
+              <li>Dependency edges enforce milestone order (wire-gates)</li>
             </ul>
           </div>
           <div class="pane reveal">
@@ -565,17 +499,18 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
               <li>Built for a shared, visible workspace</li>
               <li>Rich surface: wiki, schedules, comments, board</li>
               <li>One place the whole team already lives</li>
+              <li>No compare-and-swap — meeting formation routes through one coordinator to avoid races</li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="pagenum">20 / 28</div>
+      <div class="pagenum">17 / 25</div>
     </section>
 
     <!-- ============ 21 · SKILLS — /work ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">20</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">17</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="kicker reveal">The Playbook</div>
         <h1 class="h reveal"><mark>/work</mark> — the loop itself</h1>
         <div class="body-area">
@@ -587,29 +522,29 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">21 / 28</div>
+      <div class="pagenum">18 / 25</div>
     </section>
 
     <!-- ============ 22 · SKILLS — team-meeting & choose-the-instrument ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">21</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">18</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="kicker reveal">The Playbook</div>
         <h1 class="h reveal">When to <mark>sync</mark>, and what to reach for</h1>
         <div class="body-area">
           <div class="cards c2">
-            <div class="card reveal"><h3>team-meeting</h3><p>Schedules a real check-in — a Flow calendar entry with its own thread — when all three finish a beat together, or all three are blocked on the same thing.</p></div>
-            <div class="card reveal"><h3>choose-the-instrument</h3><p>Picks the right tool for a given step, so an agent reaches for the correct instrument instead of improvising one.</p></div>
+            <div class="card reveal"><h3>team-meeting</h3><p>Two triggers: a <b>Team Sync</b> once all three have a Done task since the last one, or a <b>Blocker Sync</b> when all three read as blocked on the same or a related cause. Either way, an agent only <i>requests</i> it — main checks everyone's actually free and opens the room.</p></div>
+            <div class="card reveal"><h3>choose-the-instrument</h3><p>Picks the right tool for a given step — the axis that actually discriminates, not just whatever field is easiest to query — so an agent reaches for the correct instrument instead of improvising one that only looks like it answers the question.</p></div>
           </div>
         </div>
       </div>
-      <div class="pagenum">22 / 28</div>
+      <div class="pagenum">19 / 25</div>
     </section>
 
     <!-- ============ 22a · A2A ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">22</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">19</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="kicker reveal">A2A</div>
         <h1 class="h reveal">How they actually <mark>talk</mark> to each other</h1>
         <div class="body-area">
@@ -621,13 +556,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">23 / 28</div>
+      <div class="pagenum">20 / 25</div>
     </section>
 
     <!-- ============ 22a2 · TEAM SYNC SAMPLE ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">23</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">20</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="kicker reveal">A2A, In The Wild</div>
         <h1 class="h reveal">Inside a <mark>Team Sync</mark></h1>
         <div class="body-area">
@@ -655,31 +590,46 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">24 / 28</div>
+      <div class="pagenum">21 / 25</div>
     </section>
 
     <!-- ============ 22b · CONTROL ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">24</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">21</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="kicker reveal">Hands On The Wheel</div>
         <h1 class="h reveal">One command. <mark>Zero micromanagement.</mark></h1>
         <div class="body-area">
-          <ul class="bullets">
-            <li class="reveal"><span class="dot"></span><span><b>Start it —</b> <span style="font-family:var(--font-mono);">/loop /work api</span> (or web, qa) and Max, Ivy or Sam takes it from there.</span></li>
-            <li class="reveal"><span class="dot"></span><span><b>It paces itself —</b> checks back every 60 to 900 seconds depending on what it finds. It never stops on its own — only the user does.</span></li>
-            <li class="reveal"><span class="dot"></span><span><b>Questions land on the card, not in chat —</b> an @main comment with the default it's taking, answered whenever it's convenient.</span></li>
-            <li class="reveal"><span class="dot"></span><span><b>Gates stay human —</b> an agent can finish every task under a milestone and still can't open the next one. Only main closes the gate.</span></li>
-          </ul>
+          <div class="spot" style="align-items:flex-start;">
+            <ul class="bullets" style="flex:1.1;">
+              <li class="reveal"><span class="dot"></span><span><b>Start it —</b> <span style="font-family:var(--font-mono);">/loop /work api</span> (or web, qa) and Max, Ivy or Sam takes it from there.</span></li>
+              <li class="reveal"><span class="dot"></span><span><b>It paces itself —</b> checks back on its own schedule, never stops on its own. Only the user does.</span></li>
+              <li class="reveal"><span class="dot"></span><span><b>Questions land on the card, not in chat —</b> an @main comment with the default it's taking, answered whenever it's convenient.</span></li>
+              <li class="reveal"><span class="dot"></span><span><b>Gates stay human —</b> an agent can finish every task under a milestone and still can't open the next one. Only main closes the gate.</span></li>
+            </ul>
+            <div class="taskcard reveal" style="flex:1;">
+              <div class="ttitle" style="margin-bottom:12px;">How it paces itself</div>
+              <table class="cmp" style="font-size:16px;">
+                <thead><tr><th>situation</th><th class="num">next check</th></tr></thead>
+                <tbody>
+                  <tr><td>finished, another task ready</td><td class="mono">60s</td></tr>
+                  <tr><td>finished, queue empty</td><td class="mono">300s</td></tr>
+                  <tr><td>idle, nothing ready</td><td class="mono">600s</td></tr>
+                  <tr><td>waiting on a hand-off</td><td class="mono">600s</td></tr>
+                  <tr><td>blocked on @main</td><td class="mono">900s</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="pagenum">25 / 28</div>
+      <div class="pagenum">22 / 25</div>
     </section>
 
     <!-- ============ 23 · HAND-OFF PATTERN ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">25</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">22</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="kicker reveal">Passing The Baton</div>
         <h1 class="h reveal">The card <mark>is</mark> the hand-off</h1>
         <div class="body-area">
@@ -691,13 +641,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </ul>
         </div>
       </div>
-      <div class="pagenum">26 / 28</div>
+      <div class="pagenum">23 / 25</div>
     </section>
 
     <!-- ============ 23a · TASK CARD SAMPLE ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">26</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">23</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="kicker reveal">A Card, End To End</div>
         <h1 class="h reveal">What actually <mark>moves through</mark> the board</h1>
         <div class="body-area">
@@ -715,13 +665,13 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">27 / 28</div>
+      <div class="pagenum">24 / 25</div>
     </section>
 
     <!-- ============ 24 · CLOSING ============ -->
     <section class="slide">
       <div class="frame">
-        <div class="top-row"><div class="section-num reveal">27</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
+        <div class="top-row"><div class="section-num reveal">24</div><div class="crumbs reveal"><span class="crumb">Spark</span><span class="crumb">Build</span><span class="crumb">Squad</span><span class="crumb on">Ship</span></div></div>
         <div class="body-area">
           <div class="kicker reveal">Built End to End</div>
           <h1 class="h reveal" style="font-size:96px;">The AI-native <mark>way</mark></h1>
@@ -733,7 +683,7 @@ table.cmp td.mono{font-family:var(--font-mono);font-size:15px;color:var(--text-s
           </div>
         </div>
       </div>
-      <div class="pagenum">28 / 28</div>
+      <div class="pagenum">25 / 25</div>
     </section>
 
   </main>
