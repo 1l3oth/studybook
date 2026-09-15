@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>감정 사전 · Emotion Words</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@400;500;600;700&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#EFE7D6;--surface:#FBF7EF;--sunken:#F2EADB;--ink:#2C2620;--ink-2:#6B5F50;--ink-3:#948674;
+  --line:#E4D9C6;--accent:#C4703A;--on-accent:#fff;--warn:#B0603F;
+  --f-ko:'Gowun Batang','Hahmlet',serif;--f-disp:'Hahmlet',serif;--f-ui:'IBM Plex Sans',system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(60,46,28,.06),0 8px 24px rgba(60,46,28,.08);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#211D18;--surface:#2A241D;--sunken:#241F19;--ink:#F1EADC;--ink-2:#C3B7A3;--ink-3:#8E8271;
+  --line:#3A3227;--accent:#E0965F;--on-accent:#241f19;--warn:#E0965F;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.34);
+}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);background-image:radial-gradient(125% 85% at 50% -12%,color-mix(in srgb,var(--surface) 62%,transparent),transparent 62%);background-attachment:fixed;color:var(--ink);font-family:var(--f-ui);line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 1.1rem 6.5rem}
+.wrap{max-width:900px;margin:0 auto}
+header{padding:2rem 0 .7rem;text-align:center}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);margin:.45rem 0 .3rem;letter-spacing:-.01em}
+.sub{color:var(--ink-2);max-width:46ch;margin:0 auto;font-size:.95rem}
+/* floating chapter rail (right edge, upper area) */
+.chapters{position:fixed;right:.55rem;top:32%;z-index:61;display:flex;flex-direction:column;gap:.28rem;background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 96%,#fff),color-mix(in srgb,var(--surface) 88%,transparent));backdrop-filter:blur(12px) saturate(1.1);border:1px solid var(--line);border-radius:18px;padding:.35rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 12px 30px rgba(60,46,28,.17)}
+.chapters button{font-family:var(--f-ui);color:var(--ink-2);background:transparent;border:none;border-radius:12px;padding:.38rem .4rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.03rem;width:3rem}
+.chapters button .cnum{font-size:.64rem;letter-spacing:.05em;color:var(--ink-3);font-weight:700}
+.chapters button .cko{font-family:var(--f-ko);font-weight:700;font-size:.72rem;line-height:1.12;text-align:center;word-break:keep-all}
+.chapters button .cen{display:none}
+.chapters button:hover{background:var(--sunken)}
+.chapters button.on{background:var(--accent)}
+.chapters button.on:hover{background:var(--accent)}
+.chapters button.on .cko,.chapters button.on .cnum{color:var(--on-accent)}
+.chapters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chtoggle{font-family:var(--f-ui);font-weight:700;font-size:1.05rem;color:var(--ink-2);background:transparent;border:none;border-radius:12px;padding:.4rem;cursor:pointer;width:3rem;height:2.6rem;display:flex;align-items:center;justify-content:center;transition:background .18s,color .18s,filter .18s}
+.chtoggle:hover{background:var(--sunken)}
+.chtoggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chapters.collapsed{padding:.16rem;border-radius:50%;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 9px 24px color-mix(in srgb,var(--accent) 28%,rgba(60,46,28,.16))}
+.chapters.collapsed .chtoggle{background:var(--accent);color:var(--on-accent);border-radius:50%;width:2.9rem;height:2.9rem;font-size:1.15rem}
+.chapters.collapsed .chtoggle:hover{filter:brightness(1.06)}
+.chapters.collapsed button[data-tab]{display:none}
+/* the book */
+.book{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:4px 14px 14px 4px;box-shadow:var(--shadow),5px 5px 0 -1px var(--sunken),6px 6px 0 -1px var(--line),10px 9px 0 -2px var(--sunken),11px 10px 0 -2px var(--line);padding:1.3rem 1.5rem 1rem 2.2rem;margin:1.3rem 12px 1.9rem 0;overflow:hidden}
+.book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1.25rem;background:linear-gradient(90deg,color-mix(in srgb,var(--ink) 13%,transparent),transparent 85%);border-right:1px solid var(--line);pointer-events:none}
+.runhead{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:.5rem;margin-bottom:1.1rem;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.runhead .rh-ch{color:var(--accent);font-weight:700}
+.pages{position:relative;min-height:40vh}
+.pagefoot{text-align:center;color:var(--ink-3);font-size:.82rem;letter-spacing:.35em;margin-top:1.1rem;padding-top:.6rem;border-top:1px solid var(--line)}
+.panel{display:none} .panel.on{display:block;animation:pageturn .42s cubic-bezier(.2,.7,.2,1)}
+@keyframes pageturn{from{opacity:0;transform:perspective(1200px) rotateY(-9deg) translateX(16px);transform-origin:left center}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.panel.on{animation:none}}
+/* spine */
+.spine-wrap{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.15rem 1.1rem 1.25rem;box-shadow:var(--shadow);margin:0 0 1.6rem}
+.spine-hd{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 .2rem .9rem}
+.spine-hd h2{font-family:var(--f-disp);font-size:1.02rem;margin:0;font-weight:600}
+.spine-hd .note{color:var(--ink-2);font-size:.82rem}
+.spine{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}
+.step{position:relative;background:var(--sunken);border:1px solid var(--line);border-top:3px solid var(--pc);border-radius:13px;padding:.85rem .6rem;text-align:center;display:flex;flex-direction:column;gap:.15rem}
+.step .emoji{font-size:1.5rem;line-height:1.1}
+.step .s-ko{font-family:var(--f-ko);font-weight:700;font-size:1.06rem;color:var(--pc)}
+.step .s-en{font-size:.74rem;color:var(--ink-2);font-weight:500}
+.step .s-day{font-size:.7rem;color:var(--ink-3);margin-top:.15rem;font-style:italic}
+.step:not(:last-child)::after{content:"→";position:absolute;right:-.46rem;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:.9rem;z-index:2}
+.spine-foot{display:flex;align-items:center;gap:.7rem;margin:1rem .2rem 0;color:var(--ink-2);font-size:.85rem}
+.method{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:center;align-items:center;margin:0 0 1.3rem;color:var(--ink-2);font-size:.86rem}
+.method b{color:var(--ink)} .method .n{display:inline-grid;place-items:center;width:1.35rem;height:1.35rem;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:.72rem;font-weight:700;margin-right:.42rem}
+/* cards */
+.cards{display:flex;flex-direction:column;gap:1.15rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,38%) 1fr;transition:box-shadow .25s,transform .25s}
+.card.now{box-shadow:0 0 0 3px var(--accent),var(--shadow);transform:translateY(-2px)}
+.pic{position:relative;background:var(--sunken)} .pic img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.body{padding:1.15rem 1.25rem 1.2rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{font-size:.68rem;font-weight:600;border-radius:999px;padding:.16rem .6rem}
+.chip.part{color:#fff;background:var(--pc)}
+.chip.hook{color:var(--ink-2);background:var(--sunken);border:1px solid var(--line);font-family:var(--f-ko);font-weight:700}
+.ko{font-family:var(--f-ko);font-weight:700;font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.55;margin:.1rem 0 0;word-break:keep-all}
+.en{color:var(--ink-2);font-size:.9rem;margin:0}
+.play{align-self:flex-start;margin-top:.35rem;display:inline-flex;align-items:center;gap:.45rem;font-family:var(--f-ui);font-size:.85rem;font-weight:600;color:var(--on-accent);background:var(--accent);border:none;border-radius:999px;padding:.5rem .95rem;cursor:pointer;box-shadow:0 4px 13px color-mix(in srgb,var(--accent) 28%,transparent);transition:transform .12s ease,filter .18s ease,box-shadow .18s ease}
+.play:hover{filter:brightness(1.05);transform:translateY(-1px)} .play:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.play.playing{background:var(--warn);animation:plpulse 1s ease-in-out infinite}
+@keyframes plpulse{0%,100%{box-shadow:0 0 0 2px color-mix(in srgb,var(--warn) 45%,transparent)}50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--warn) 6%,transparent)}}
+body.hide-ko .ko{filter:blur(7px);opacity:.55;cursor:pointer;transition:filter .15s,opacity .15s}
+body.hide-ko .ko.reveal{filter:none;opacity:1} body.hide-en .en{display:none}
+/* qa */
+.strategy{background:var(--sunken);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:.85rem 1rem;margin:0 0 1.4rem;color:var(--ink-2);font-size:.9rem}
+.strategy b{color:var(--ink)}
+h2.sec{font-family:var(--f-disp);font-size:1.15rem;margin:2rem 0 .4rem;display:flex;align-items:baseline;gap:.5rem}
+h2.sec .cnt{font-family:var(--f-ui);font-size:.75rem;color:var(--ink-3);font-weight:500}
+.secnote{color:var(--ink-2);font-size:.85rem;margin:0 0 1rem}
+h3.grp{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:1.5rem 0 .55rem}
+.qa{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin:0 0 .7rem;overflow:hidden}
+.qhead{display:flex;align-items:flex-start}
+.qa .q{flex:1;min-width:0;text-align:left;background:none;border:none;cursor:pointer;display:flex;align-items:flex-start;gap:.65rem;padding:.95rem 1.05rem;font-family:inherit}
+.qa .qm{flex:none;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:.78rem;font-weight:700;display:grid;place-items:center;margin-top:.05rem}
+.qa.trap .qm{background:var(--warn)}
+.qa .qtext{flex:1;min-width:0;display:flex;flex-direction:column;gap:.14rem}
+.qa .qko{font-family:var(--f-ko);font-weight:700;font-size:1.08rem;color:var(--ink);line-height:1.45;word-break:keep-all}
+.qa .qen{font-size:.82rem;color:var(--ink-2);line-height:1.4}
+.qa .tw{flex:none;font-size:.66rem;color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:.05rem .45rem;margin-top:.2rem}
+.qa.open .tw{display:none}
+.qplay{flex:none;margin:.85rem .85rem 0 0}
+.qa .a{display:none;padding:0 1.05rem 1.05rem 3.2rem;border-top:1px solid var(--line);padding-top:.8rem}
+.qa.open .a,body.reveal .qa .a{display:block}
+.ako{font-family:var(--f-ko);font-weight:700;font-size:1.05rem;line-height:1.6;margin:.15rem 0 .3rem;word-break:keep-all}
+.confirm{font-family:var(--f-ui);font-size:.62rem;font-weight:700;color:var(--warn);border:1px solid var(--warn);border-radius:999px;padding:.05rem .4rem;margin-left:.5rem;vertical-align:middle}
+.aen{color:var(--ink-2);font-size:.88rem;margin:0 0 .35rem}
+.why{color:var(--warn);font-size:.82rem;font-style:italic;margin:.2rem 0 .35rem;line-height:1.5}
+.surv{display:flex;align-items:center;gap:.6rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;margin:0 0 .5rem;box-shadow:var(--shadow)}
+.surv .sko{font-family:var(--f-ko);font-weight:700;font-size:.98rem;flex:1;word-break:keep-all}
+.surv .sen{color:var(--ink-3);font-size:.78rem;flex:none;max-width:42%}
+.play.mini{padding:.35rem;border-radius:50%;margin-top:0}
+/* vocab */
+.vocgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.5rem;margin:0 0 1.3rem}
+.voc{display:flex;align-items:center;gap:.55rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.5rem .65rem;box-shadow:var(--shadow)}
+.voc .vplay{flex:none;margin:0}
+.voc .vko{font-family:var(--f-ko);font-weight:700;font-size:1.08rem;color:var(--ink);word-break:keep-all}
+.voc .ven{color:var(--ink-2);font-size:.8rem;margin-left:auto;text-align:right;padding-left:.4rem}
+body.hide-vko .voc .vko{filter:blur(6px);opacity:.5;cursor:pointer} body.hide-vko .voc .vko.reveal{filter:none;opacity:1}
+body.hide-ven .voc .ven{filter:blur(6px);opacity:.5;cursor:pointer} body.hide-ven .voc .ven.reveal{filter:none;opacity:1}
+/* full (continuous document) */
+.fsec{font-family:var(--f-disp);font-size:1.35rem;margin:2rem 0 .5rem;padding-bottom:.3rem;border-bottom:2px solid var(--accent)}
+.fsec:first-of-type{margin-top:.6rem}
+.fh{font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:1.3rem 0 .4rem}
+.fko{font-family:var(--f-ko);font-size:1.12rem;line-height:1.95;margin:0 0 .35rem;word-break:keep-all}
+.fen{color:var(--ink-2);font-size:.9rem;line-height:1.6;margin:0 0 .7rem}
+.fqa{margin:0 0 .85rem}
+.fq{font-family:var(--f-ko);font-weight:700;font-size:1.02rem;margin:0;word-break:keep-all}
+.fqe{color:var(--ink-3);font-size:.82rem;margin:.05rem 0 .15rem}
+.fa{font-family:var(--f-ko);font-size:1rem;line-height:1.6;margin:.1rem 0 0;word-break:keep-all}
+.fae{color:var(--ink-2);font-size:.84rem;margin:.05rem 0 0}
+.fvoc{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0 1rem;margin:0 0 .5rem}
+.fv{display:flex;gap:.5rem;align-items:baseline;padding:.2rem 0;border-bottom:1px dotted var(--line)}
+.fvko{font-family:var(--f-ko);font-weight:700;font-size:1rem;flex:none;min-width:5.5rem}
+.fven{color:var(--ink-2);font-size:.85rem;margin-left:auto;text-align:right}
+body.hide-fen .fen,body.hide-fen .fqe,body.hide-fen .fae,body.hide-fen .fven{display:none}
+@media print{
+  .chapters,.bar,.method,.spine-wrap,header .eyebrow,.runhead,.pagefoot{display:none!important}
+  body{padding:0} .panel{display:none!important} #panel-full{display:block!important}
+  .book{box-shadow:none;border:none;padding:0;margin:0} .book::before{display:none}
+  .fko,.fen,.fa,.fae,.fq,.fqe,.fvko,.fven{color:#000}
+  .fsec{border-color:#000} .fh{color:#333}
+}
+/* fixed bottom bar */
+.bar{position:fixed;left:50%;bottom:.9rem;transform:translateX(-50%);z-index:60;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;justify-content:center;max-width:calc(100% - 1.3rem);background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 97%,#ffffff),color-mix(in srgb,var(--surface) 90%,transparent));backdrop-filter:blur(14px) saturate(1.15);border:1px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:20px;padding:.5rem .6rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 14px 36px rgba(60,46,28,.18),0 3px 10px rgba(60,46,28,.10);transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .3s ease}
+.bar.hidden{transform:translateX(-50%) translateY(175%);opacity:0}
+.barpeek{position:fixed;left:50%;bottom:.6rem;transform:translateX(-50%);z-index:59;width:2.7rem;height:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:999px;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line);box-shadow:0 5px 14px rgba(60,46,28,.15);cursor:pointer;color:var(--ink-3);font-size:.9rem;line-height:1;opacity:0;pointer-events:none;transition:opacity .28s ease}
+.bar.hidden + .barpeek{opacity:1;pointer-events:auto}
+.acts{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:center}
+.acts[hidden]{display:none}
+.tbtn{font-family:var(--f-ui);font-size:.82rem;font-weight:600;letter-spacing:.005em;color:var(--ink-2);background:color-mix(in srgb,var(--sunken) 55%,var(--surface));border:1px solid var(--line);border-radius:12px;padding:.5rem .9rem;cursor:pointer;transition:transform .12s ease,background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.tbtn:hover{color:var(--ink);background:color-mix(in srgb,var(--accent) 13%,var(--surface));border-color:color-mix(in srgb,var(--accent) 45%,var(--line));transform:translateY(-1px)}
+.tbtn:active{transform:translateY(0);box-shadow:inset 0 2px 5px rgba(60,46,28,.14)}
+.tbtn.on{background:var(--accent);color:var(--on-accent);border-color:transparent;box-shadow:0 5px 14px color-mix(in srgb,var(--accent) 34%,transparent)}
+.tbtn.play-all{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))} .tbtn.play-all.on{color:var(--on-accent)}
+.homebtn{display:inline-flex;align-items:center;gap:.35rem;text-decoration:none;color:var(--ink-2);flex:none}
+.homebtn:hover{color:var(--accent);border-color:var(--accent)}
+.flipnav{gap:.5rem} .tbtn.nav{padding:.4rem .75rem;font-size:.95rem;line-height:1}
+.tbtn.nav:disabled{opacity:.35;cursor:default}
+.pageind{font-family:var(--f-ui);font-size:.78rem;font-weight:600;color:var(--ink-2);min-width:5rem;text-align:center;letter-spacing:.03em}
+.tbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{text-align:center;color:var(--ink-3);font-size:.8rem;margin-top:2.4rem;line-height:1.7}
+@media (max-width:640px){.card{grid-template-columns:1fr} .pic img{aspect-ratio:16/9} .spine{grid-template-columns:repeat(2,1fr);gap:.7rem} .step:nth-child(2)::after,.step:last-child::after{content:none} .surv .sen{display:none} .qa .a{padding-left:1.05rem}
+  .chapters{top:26%;right:.4rem} .chapters button{width:2.85rem;padding:.32rem .35rem} .chapters button .cko{font-size:.68rem}
+  .book{box-shadow:var(--shadow);border-radius:4px 10px 10px 4px;padding:1.1rem 1.05rem .9rem 1.7rem;margin-right:0}
+  .bar{left:.55rem;right:.55rem;transform:none;max-width:none;bottom:.6rem;padding:.45rem .5rem} .bar.hidden{transform:translateY(185%)}
+  .tbtn{padding:.45rem .75rem;font-size:.8rem}
+  body{padding-bottom:7.5rem}
+  .vocgrid{grid-template-columns:1fr 1fr} .fvoc{grid-template-columns:1fr} header{padding-top:1.6rem} h1{margin-bottom:.25rem}}
+@media (max-width:400px){.spine{grid-template-columns:1fr} .step:not(:last-child)::after{content:none} .vocgrid{grid-template-columns:1fr}}
+</style>
+
+<style>
+/* ---- dictionary layout (unit 03) ---- */
+.dict-hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1rem;margin:0 0 1rem}
+.dict-hd .count{font-family:var(--f-ui);font-size:.8rem;color:var(--ink-3)}
+.thumb{position:sticky;top:0;z-index:40;display:flex;flex-wrap:wrap;gap:.25rem;padding:.5rem 0;
+  background:linear-gradient(var(--bg) 70%,transparent);margin:0 0 1rem}
+.thumb a{font-family:var(--f-ko);font-weight:700;font-size:.9rem;text-decoration:none;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:8px;padding:.15rem .5rem;background:var(--surface)}
+.thumb a:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.filters{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.4rem}
+.filters button{font-family:var(--f-ui);font-size:.78rem;font-weight:600;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:.25rem .8rem}
+.filters button.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.grp{margin:0 0 1.6rem}
+.jamo{font-family:var(--f-ko);font-size:1.5rem;font-weight:700;color:var(--accent);
+  margin:.2rem 0 .7rem;padding-bottom:.3rem;border-bottom:2px solid var(--line)}
+.ent{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:.9rem 1rem 1rem;margin:0 0 .7rem;box-shadow:var(--shadow)}
+.ent-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem}
+.hw{font-family:var(--f-ko);font-weight:700;font-size:1.45rem;margin:0;letter-spacing:-.01em}
+.pron{font-family:var(--f-ko);font-size:.85rem;color:var(--ink-3)}
+.pos{font-size:.72rem;color:var(--ink-2);background:var(--sunken);border:1px solid var(--line);
+  border-radius:999px;padding:.1rem .5rem}
+.irr{font-family:var(--f-ko);font-size:.72rem;color:var(--warn);border:1px solid var(--warn);
+  border-radius:999px;padding:.1rem .5rem}
+.tone{font-family:var(--f-ko);font-size:.72rem;color:#fff;background:var(--tc);border-radius:999px;
+  padding:.1rem .55rem;margin-left:auto}
+.gloss{font-size:1rem;color:var(--ink);margin:.5rem 0 .7rem;font-weight:500}
+.ex{display:flex;gap:.6rem;align-items:flex-start;background:var(--sunken);border:1px solid var(--line);
+  border-radius:10px;padding:.6rem .7rem}
+.ex-body{min-width:0;flex:1}
+.exko{font-family:var(--f-ko);font-size:1.02rem;line-height:1.6;margin:0;word-break:keep-all}
+.exen{font-size:.85rem;color:var(--ink-2);margin:.25rem 0 0}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:.2rem .7rem;margin:.7rem 0 0;font-size:.82rem}
+.meta dt{color:var(--ink-3);font-family:var(--f-ko);white-space:nowrap}
+.meta dd{margin:0;color:var(--ink-2);font-family:var(--f-ko)}
+.note{font-size:.84rem;color:var(--ink-2);margin:.7rem 0 0;padding-left:.7rem;
+  border-left:3px solid var(--accent);line-height:1.55}
+/* hide/recall */
+body.hide-hw .hw{background:var(--sunken);color:transparent;border-radius:6px;cursor:pointer}
+body.hide-hw .hw.reveal{background:none;color:var(--ink)}
+body.hide-en .gloss,body.hide-en .exen{background:var(--sunken);color:transparent;border-radius:6px;cursor:pointer}
+body.hide-en .gloss.reveal,body.hide-en .exen.reveal{background:none}
+body.hide-en .gloss.reveal{color:var(--ink)}
+body.hide-en .exen.reveal{color:var(--ink-2)}
+.ent.dim{display:none}
+@media print{.thumb,.filters,.bar,.barpeek,.play{display:none!important}
+  .ent{break-inside:avoid;box-shadow:none}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Dictionary &middot; 2000 Essential Korean Words</div>
+    <h1>감정 사전</h1>
+    <p class="sub">Every feeling word from the 감정 section, in 가나다 order. Tap a word to hear it, tap the sentence to hear it used.</p>
+  </header>
+
+  <div class="book">
+    <div class="runhead"><span class="rh-ch">감정 &middot; Emotions</span><span class="rh-book">23 words</span></div>
+    <div class="pages">
+
+    <div class="thumb"><a href="#gㄱ" lang="ko">ㄱ</a><a href="#gㄴ" lang="ko">ㄴ</a><a href="#gㄷ" lang="ko">ㄷ</a><a href="#gㅁ" lang="ko">ㅁ</a><a href="#gㅂ" lang="ko">ㅂ</a><a href="#gㅅ" lang="ko">ㅅ</a><a href="#gㅇ" lang="ko">ㅇ</a><a href="#gㅈ" lang="ko">ㅈ</a><a href="#gㅊ" lang="ko">ㅊ</a><a href="#gㅍ" lang="ko">ㅍ</a><a href="#gㅎ" lang="ko">ㅎ</a></div>
+
+    <div class="filters">
+      <button data-tone="all" class="on">전체 All 23</button>
+      <button data-tone="pos">긍정 Positive 7</button>
+      <button data-tone="neg">부정 Negative 13</button>
+      <button data-tone="react">반응 Reaction 3</button>
+    </div>
+
+    <section class="grp" id="gㄱ"><h2 class="jamo" lang="ko">ㄱ</h2><article class="ent" data-tone="neg" id="e01"><div class="ent-head"><button class="play mini wplay" data-au="audio/w01.mp3" aria-label="Listen to 걱정"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">걱정</h3><span class="pron" lang="ko">[걱쩡]</span><span class="pos">명사 noun</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">anxiety, worry</p><div class="ex"><button class="play mini splay" data-au="audio/s01.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">피터 씨는 하숙집을 못 구해서 걱정입니다.</p><p class="exen">Peter is worried because he can&#x27;t find a boarding house.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">걱정하다 to worry</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 걱정이다 / 걱정(이) 되다 · -을/를 걱정하다</dd></dl></article><article class="ent" data-tone="react" id="e02"><div class="ent-head"><button class="play mini wplay" data-au="audio/w02.mp3" aria-label="Listen to 그립다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">그립다</h3><span class="pron" lang="ko">[그립따]</span><span class="pos">형용사 adjective</span><span class="irr" title="irregular conjugation">'ㅂ' 불규칙</span><span class="tone" style="--tc:#5b7fa6">반응</span></div><p class="gloss">to be missed, to be longed for</p><div class="ex"><button class="play mini splay" data-au="audio/s02.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">안나 씨는 1년 전에 한국에 왔습니다. 그래서 지금 고향이 그립습니다.</p><p class="exen">Anna came to Korea a year ago, so now she misses her hometown.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">그리워하다 to long for · 그리움 longing</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 그립다 · -이/가 -을/를 그리워하다</dd></dl><p class="note">Stronger and wider than 보고 싶다: works for places and times, not only people.</p></article><article class="ent" data-tone="react" id="e03"><div class="ent-head"><button class="play mini wplay" data-au="audio/w03.mp3" aria-label="Listen to 기분"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">기분</h3><span class="pron" lang="ko">[기분]</span><span class="pos">명사 noun</span><span class="tone" style="--tc:#5b7fa6">반응</span></div><p class="gloss">feeling, mood</p><div class="ex"><button class="play mini splay" data-au="audio/s03.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">상을 받았는데 기분이 어때요?</p><p class="exen">You received an award, so how do you feel?</p></div></div><dl class="meta"><dt>문형 patterns</dt><dd lang="ko">기분이 좋다 / 나쁘다</dd></dl></article><article class="ent" data-tone="pos" id="e04"><div class="ent-head"><button class="play mini wplay" data-au="audio/w04.mp3" aria-label="Listen to 기쁘다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">기쁘다</h3><span class="pron" lang="ko">[기쁘다]</span><span class="pos">형용사 adjective</span><span class="irr" title="irregular conjugation">'으' 불규칙</span><span class="tone" style="--tc:#4f7a6f">긍정</span></div><p class="gloss">to be glad, to be happy</p><div class="ex"><button class="play mini splay" data-au="audio/s04.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">여러분을 알게 되어서 참 기쁩니다.</p><p class="exen">I am very glad to have met you all.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">기뻐하다 to be pleased · 기쁨 joy</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 기쁘다 · -이/가 -을/를 기뻐하다</dd><dt>반대 opposite</dt><dd lang="ko">슬프다</dd></dl></article></section><section class="grp" id="gㄴ"><h2 class="jamo" lang="ko">ㄴ</h2><article class="ent" data-tone="react" id="e06"><div class="ent-head"><button class="play mini wplay" data-au="audio/w06.mp3" aria-label="Listen to 놀라다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">놀라다</h3><span class="pron" lang="ko">[놀:라다]</span><span class="pos">동사 verb</span><span class="tone" style="--tc:#5b7fa6">반응</span></div><p class="gloss">to be surprised, to be amazed</p><div class="ex"><button class="play mini splay" data-au="audio/s06.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">처음 본 외국 사람이 한국말을 잘해서 놀랐어요.</p><p class="exen">I was surprised that a foreigner I met for the first time spoke Korean well.</p></div></div><dl class="meta"><dt>문형 patterns</dt><dd lang="ko">-이/가 (깜짝) 놀라다</dd></dl></article></section><section class="grp" id="gㄷ"><h2 class="jamo" lang="ko">ㄷ</h2><article class="ent" data-tone="neg" id="e08"><div class="ent-head"><button class="play mini wplay" data-au="audio/w08.mp3" aria-label="Listen to 답답하다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">답답하다</h3><span class="pron" lang="ko">[답따파다]</span><span class="pos">형용사 adjective</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be stuffy, to feel helpless</p><div class="ex"><button class="play mini splay" data-au="audio/s08.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">하숙방이 좁고 창문이 없어서 답답해요.</p><p class="exen">The boarding room is small and has no window, so it feels stuffy.</p></div></div><dl class="meta"><dt>문형 patterns</dt><dd lang="ko">-이/가 답답하다</dd></dl><p class="note">Physical stuffiness and the frustrated, blocked feeling. The book&#x27;s second example: 한국말을 잘 못해서 답답해요.</p></article></section><section class="grp" id="gㅁ"><h2 class="jamo" lang="ko">ㅁ</h2><article class="ent" data-tone="neg" id="e09"><div class="ent-head"><button class="play mini wplay" data-au="audio/w09.mp3" aria-label="Listen to 무섭다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">무섭다</h3><span class="pron" lang="ko">[무섭따]</span><span class="pos">형용사 adjective</span><span class="irr" title="irregular conjugation">'ㅂ' 불규칙</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be scary</p><div class="ex"><button class="play mini splay" data-au="audio/s09.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">저는 무서운 영화를 싫어해요.</p><p class="exen">I don&#x27;t like scary movies.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">무서워하다 to be afraid of</dd><dt>문형 patterns</dt><dd lang="ko">-은/는 -이/가 무섭다 · -은/는 -을/를 무서워하다</dd></dl></article></section><section class="grp" id="gㅂ"><h2 class="jamo" lang="ko">ㅂ</h2><article class="ent" data-tone="neg" id="e10"><div class="ent-head"><button class="play mini wplay" data-au="audio/w10.mp3" aria-label="Listen to 부럽다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">부럽다</h3><span class="pron" lang="ko">[부럽따]</span><span class="pos">형용사 adjective</span><span class="irr" title="irregular conjugation">'ㅂ' 불규칙</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be envious</p><div class="ex"><button class="play mini splay" data-au="audio/s10.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">저는 한국말을 잘하는 안나 씨가 부러워요.</p><p class="exen">I envy Anna, who speaks Korean well.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">부러워하다 to envy</dd><dt>문형 patterns</dt><dd lang="ko">-은/는 -이/가 부럽다 · -은/는 -을/를 부러워하다</dd></dl></article><article class="ent" data-tone="neg" id="e11"><div class="ent-head"><button class="play mini wplay" data-au="audio/w11.mp3" aria-label="Listen to 불안"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">불안</h3><span class="pron" lang="ko">[부란]</span><span class="pos">명사 noun</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">uneasiness, restlessness</p><div class="ex"><button class="play mini splay" data-au="audio/s11.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">시험 때문에 불안해서 잠을 못 잤어요.</p><p class="exen">I was uneasy because of the exam, so I couldn&#x27;t sleep.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">불안하다 to be uneasy · 불안해하다 to feel uneasy</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 불안하다</dd></dl></article></section><section class="grp" id="gㅅ"><h2 class="jamo" lang="ko">ㅅ</h2><article class="ent" data-tone="pos" id="e12"><div class="ent-head"><button class="play mini wplay" data-au="audio/w12.mp3" aria-label="Listen to 사랑"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">사랑</h3><span class="pron" lang="ko">[사랑]</span><span class="pos">명사 noun</span><span class="tone" style="--tc:#4f7a6f">긍정</span></div><p class="gloss">love</p><div class="ex"><button class="play mini splay" data-au="audio/s12.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">저는 사랑하는 사람과 결혼하고 싶어요.</p><p class="exen">I want to marry the person I love.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">사랑하다 to love</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 -을/를 사랑하다</dd></dl></article><article class="ent" data-tone="pos" id="e13"><div class="ent-head"><button class="play mini wplay" data-au="audio/w13.mp3" aria-label="Listen to 상쾌하다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">상쾌하다</h3><span class="pron" lang="ko">[상쾌하다]</span><span class="pos">형용사 adjective</span><span class="tone" style="--tc:#4f7a6f">긍정</span></div><p class="gloss">to be refreshing</p><div class="ex"><button class="play mini splay" data-au="audio/s13.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">운동한 후에 샤워를 하면 기분이 상쾌해요.</p><p class="exen">When I shower after exercising, I feel refreshed.</p></div></div><dl class="meta"><dt>문형 patterns</dt><dd lang="ko">-이/가 상쾌하다</dd></dl></article><article class="ent" data-tone="neg" id="e14"><div class="ent-head"><button class="play mini wplay" data-au="audio/w14.mp3" aria-label="Listen to 섭섭하다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">섭섭하다</h3><span class="pron" lang="ko">[섭써파다]</span><span class="pos">형용사 adjective</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be sad at parting, to be regretful</p><div class="ex"><button class="play mini splay" data-au="audio/s14.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">고향에 돌아가는 것은 기쁘지만, 친구들과 헤어져서 섭섭해요.</p><p class="exen">I&#x27;m glad to go back to my hometown, but I&#x27;m sad to part from my friends.</p></div></div><dl class="meta"><dt>문형 patterns</dt><dd lang="ko">-이/가 섭섭하다</dd></dl><p class="note">No clean English word. The sadness of parting, usually mixed with something good.</p></article><article class="ent" data-tone="neg" id="e15"><div class="ent-head"><button class="play mini wplay" data-au="audio/w15.mp3" aria-label="Listen to 슬프다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">슬프다</h3><span class="pron" lang="ko">[슬프다]</span><span class="pos">형용사 adjective</span><span class="irr" title="irregular conjugation">'으' 불규칙</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be sad</p><div class="ex"><button class="play mini splay" data-au="audio/s15.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">어제 본 드라마가 너무 슬펐어요.</p><p class="exen">The drama I watched yesterday was so sad.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">슬퍼하다 to grieve · 슬픔 sadness</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 슬프다</dd><dt>반대 opposite</dt><dd lang="ko">기쁘다</dd></dl></article><article class="ent" data-tone="pos" id="e16"><div class="ent-head"><button class="play mini wplay" data-au="audio/w16.mp3" aria-label="Listen to 신나다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">신나다</h3><span class="pron" lang="ko">[신나다]</span><span class="pos">형용사 adjective</span><span class="tone" style="--tc:#4f7a6f">긍정</span></div><p class="gloss">to be excited</p><div class="ex"><button class="play mini splay" data-au="audio/s16.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">아이들이 놀이 공원에서 신나게 놀았습니다.</p><p class="exen">The children played excitedly at the amusement park.</p></div></div><dl class="meta"><dt>문형 patterns</dt><dd lang="ko">-이/가 신나다</dd></dl></article><article class="ent" data-tone="neg" id="e17"><div class="ent-head"><button class="play mini wplay" data-au="audio/w17.mp3" aria-label="Listen to 심심하다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">심심하다</h3><span class="pron" lang="ko">[심심하다]</span><span class="pos">형용사 adjective</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be bored (from having too much time)</p><div class="ex"><button class="play mini splay" data-au="audio/s17.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">리에 씨는 어제 약속이 없어서 하루 종일 집에 혼자 있었어요. 그래서 너무 심심했어요.</p><p class="exen">Rie had no plans yesterday and was home alone all day, so she was very bored.</p></div></div><dl class="meta"><dt>문형 patterns</dt><dd lang="ko">-이/가 심심하다</dd></dl><p class="note">You have nothing to do. Compare 지루하다, where the thing itself is tedious.</p></article></section><section class="grp" id="gㅇ"><h2 class="jamo" lang="ko">ㅇ</h2><article class="ent" data-tone="neg" id="e18"><div class="ent-head"><button class="play mini wplay" data-au="audio/w18.mp3" aria-label="Listen to 외롭다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">외롭다</h3><span class="pron" lang="ko">[외롭따/웨롭따]</span><span class="pos">형용사 adjective</span><span class="irr" title="irregular conjugation">'ㅂ' 불규칙</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be lonely</p><div class="ex"><button class="play mini splay" data-au="audio/s18.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">리에 씨는 혼자 살아서 가끔 외롭습니다.</p><p class="exen">Rie lives alone, so she is sometimes lonely.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">외로워하다 to feel lonely · 외로움 loneliness</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 외롭다</dd></dl></article><article class="ent" data-tone="neg" id="e19"><div class="ent-head"><button class="play mini wplay" data-au="audio/w19.mp3" aria-label="Listen to 우울하다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">우울하다</h3><span class="pron" lang="ko">[우울하다]</span><span class="pos">형용사 adjective</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be depressed</p><div class="ex"><button class="play mini splay" data-au="audio/s19.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">저는 취직 시험에 계속 떨어져서 우울합니다.</p><p class="exen">I keep failing job exams, so I feel depressed.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">우울해하다 to feel depressed · 우울증 depression (the condition)</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 우울하다</dd></dl></article></section><section class="grp" id="gㅈ"><h2 class="jamo" lang="ko">ㅈ</h2><article class="ent" data-tone="pos" id="e22"><div class="ent-head"><button class="play mini wplay" data-au="audio/w22.mp3" aria-label="Listen to 즐겁다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">즐겁다</h3><span class="pron" lang="ko">[즐겁따]</span><span class="pos">형용사 adjective</span><span class="irr" title="irregular conjugation">'ㅂ' 불규칙</span><span class="tone" style="--tc:#4f7a6f">긍정</span></div><p class="gloss">to be enjoyable, to be cheerful</p><div class="ex"><button class="play mini splay" data-au="audio/s22.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">저는 한국 생활이 즐겁습니다.</p><p class="exen">I find life in Korea enjoyable.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">즐거워하다 to enjoy</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 즐겁다</dd></dl></article><article class="ent" data-tone="neg" id="e23"><div class="ent-head"><button class="play mini wplay" data-au="audio/w23.mp3" aria-label="Listen to 지루하다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">지루하다</h3><span class="pron" lang="ko">[지루하다]</span><span class="pos">형용사 adjective</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be bored, to be tedious</p><div class="ex"><button class="play mini splay" data-au="audio/s23.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">매일 똑같은 일을 하면 지루해요.</p><p class="exen">If you do the same work every day, it gets boring.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">지루해하다 to find tedious</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 지루하다</dd></dl><p class="note">The thing itself is dull. Compare 심심하다, where you simply have nothing to do.</p></article></section><section class="grp" id="gㅊ"><h2 class="jamo" lang="ko">ㅊ</h2><article class="ent" data-tone="neg" id="e24"><div class="ent-head"><button class="play mini wplay" data-au="audio/w24.mp3" aria-label="Listen to 창피하다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">창피하다</h3><span class="pron" lang="ko">[창피하다]</span><span class="pos">형용사 adjective</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">to be embarrassed, to be ashamed</p><div class="ex"><button class="play mini splay" data-au="audio/s24.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">길에서 넘어져서 창피했어요.</p><p class="exen">I fell over in the street, so I was embarrassed.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">창피해하다 to feel ashamed</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 창피하다</dd></dl></article></section><section class="grp" id="gㅍ"><h2 class="jamo" lang="ko">ㅍ</h2><article class="ent" data-tone="pos" id="e25"><div class="ent-head"><button class="play mini wplay" data-au="audio/w25.mp3" aria-label="Listen to 편안하다"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">편안하다</h3><span class="pron" lang="ko">[펴난하다]</span><span class="pos">형용사 adjective</span><span class="tone" style="--tc:#4f7a6f">긍정</span></div><p class="gloss">to be at ease, free from anxiety</p><div class="ex"><button class="play mini splay" data-au="audio/s25.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">시험이 끝나서 마음이 편안해요.</p><p class="exen">The exam is over, so my mind is at ease.</p></div></div><dl class="meta"><dt>문형 patterns</dt><dd lang="ko">-이/가 편안하다</dd><dt>반대 opposite</dt><dd lang="ko">불편하다</dd></dl></article></section><section class="grp" id="gㅎ"><h2 class="jamo" lang="ko">ㅎ</h2><article class="ent" data-tone="pos" id="e26"><div class="ent-head"><button class="play mini wplay" data-au="audio/w26.mp3" aria-label="Listen to 행복"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">행복</h3><span class="pron" lang="ko">[행복]</span><span class="pos">명사 noun</span><span class="tone" style="--tc:#4f7a6f">긍정</span></div><p class="gloss">happiness</p><div class="ex"><button class="play mini splay" data-au="audio/s26.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">사랑하는 사람과 결혼해서 행복해요.</p><p class="exen">I married the person I love, so I am happy.</p></div></div><dl class="meta"><dt>파생 forms</dt><dd lang="ko">행복하다 to be happy · 행복해하다 to feel happy · 행복을 느끼다 to feel happiness</dd><dt>문형 patterns</dt><dd lang="ko">-이/가 행복하다</dd></dl></article><article class="ent" data-tone="neg" id="e27"><div class="ent-head"><button class="play mini wplay" data-au="audio/w27.mp3" aria-label="Listen to 화"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><h3 class="hw" lang="ko">화</h3><span class="pron" lang="ko">[화]</span><span class="pos">명사 noun</span><span class="tone" style="--tc:#b0603f">부정</span></div><p class="gloss">anger</p><div class="ex"><button class="play mini splay" data-au="audio/s27.mp3" aria-label="Listen to the example"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><div class="ex-body"><p class="exko" lang="ko">친구가 저한테 거짓말을 해서 화가 났어요.</p><p class="exen">My friend lied to me, so I got angry.</p></div></div><dl class="meta"><dt>문형 patterns</dt><dd lang="ko">화가 나다 to get angry · 화를 내다 to show anger · 화를 풀다 to let anger go · 화를 참다 to hold anger in</dd></dl></article></section>
+
+    </div>
+    <div class="pagefoot">감정 &middot; EMOTIONS</div>
+  </div>
+
+  <footer>From 2000 Essential Korean Words for Beginners (Darakwon), Ch.1 People &sect;2 Emotions, pp.25&ndash;31. Words, readings and example sentences are the book's. Audio generated with the shane_ko Korean voice.</footer>
+</div>
+
+<div class="bar">
+  <a class="tbtn homebtn" href="../" title="Studybook home"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+  <div class="acts">
+    <button class="tbtn" id="tKo" type="button">Hide Korean</button>
+    <button class="tbtn" id="tEn" type="button">Hide English</button>
+    <button class="tbtn" id="fPrint" type="button">Print / Save PDF</button>
+  </div>
+</div>
+
+
+<script>
+var cur=null,curBtn=null;
+function mark(b,on){if(b)b.classList.toggle('playing',on);}
+function stopCur(){if(cur){cur.pause();}mark(curBtn,false);cur=null;curBtn=null;}
+function playOne(btn){stopCur();cur=new Audio(btn.getAttribute('data-au'));curBtn=btn;mark(btn,true);
+  cur.onended=function(){mark(btn,false);};cur.play().catch(function(){mark(btn,false);});}
+document.addEventListener('click',function(e){
+  var p=e.target.closest('.play');
+  if(p){e.preventDefault();if(curBtn===p&&cur&&!cur.ended){stopCur();return;}playOne(p);return;}
+  var h=e.target.closest('.hw'); if(h&&document.body.classList.contains('hide-hw')){h.classList.toggle('reveal');return;}
+  var g=e.target.closest('.gloss,.exen'); if(g&&document.body.classList.contains('hide-en')){g.classList.toggle('reveal');}
+});
+function tog(id,cls,onL,offL){var b=document.getElementById(id);if(!b)return;
+  b.addEventListener('click',function(){var on=document.body.classList.toggle(cls);
+    b.classList.toggle('on',on);b.textContent=on?offL:onL;
+    if(!on)[].forEach.call(document.querySelectorAll('.reveal'),function(x){x.classList.remove('reveal');});});}
+tog('tKo','hide-hw','Hide Korean','Show Korean');
+tog('tEn','hide-en','Hide English','Show English');
+var pb=document.getElementById('fPrint'); if(pb)pb.addEventListener('click',function(){window.print();});
+// tone filter
+var fbtns=[].slice.call(document.querySelectorAll('.filters button[data-tone]'));
+fbtns.forEach(function(b){b.addEventListener('click',function(){
+  var t=b.getAttribute('data-tone');
+  fbtns.forEach(function(x){x.classList.toggle('on',x===b);});
+  [].forEach.call(document.querySelectorAll('.ent'),function(en){
+    en.classList.toggle('dim', t!=='all' && en.getAttribute('data-tone')!==t);});
+  [].forEach.call(document.querySelectorAll('.grp'),function(g){
+    var any=g.querySelector('.ent:not(.dim)'); g.style.display=any?'':'none';});
+});});
+</script>
+
+</body></html>

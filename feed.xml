@@ -6,7 +6,39 @@
 <atom:link href="https://1l3oth.github.io/studybook/feed.xml" rel="self" type="application/rss+xml"/>
 <description>A Korean study notebook. Each item is a self-study unit with its full text (speech, Q&amp;A, vocabulary) so it can be read directly. See it, hear it, say it.</description>
 <language>ko</language>
-<lastBuildDate>Mon, 14 Sep 2026 12:00:00 +0000</lastBuildDate>
+<lastBuildDate>Tue, 15 Sep 2026 12:00:00 +0000</lastBuildDate>
+<item>
+<title>감정 사전 (Korean Emotion Words)</title>
+<link>https://1l3oth.github.io/studybook/korean-emotion-words/</link>
+<guid isPermaLink="true">https://1l3oth.github.io/studybook/korean-emotion-words/</guid>
+<pubDate>Tue, 15 Sep 2026 12:00:00 +0000</pubDate>
+<description>A dictionary of 23 Korean feeling words with readings, parts of speech, irregular markers, example sentences and native audio on every entry. Sourced from 2000 Essential Korean Words for Beginners.</description>
+<content:encoded><![CDATA[<h2>감정 사전 (Emotion Words)</h2>
+<p>A dictionary of 23 Korean feeling words taken from 2000 Essential Korean Words for Beginners (Darakwon), Chapter 1 People, section 2 Emotions, pages 25 to 31. Each entry carries the reading, part of speech, irregular type, the book's example sentence, derived forms and grammar patterns.</p>
+<p><strong>걱정</strong> [걱쩡] &mdash; anxiety, worry<br>피터 씨는 하숙집을 못 구해서 걱정입니다.<br>Peter is worried because he can't find a boarding house.<br>forms: 걱정하다 to worry<br>patterns: -이/가 걱정이다 / 걱정(이) 되다 &middot; -을/를 걱정하다</p>
+<p><strong>그립다</strong> [그립따] &mdash; to be missed, to be longed for (&#39;ㅂ&#39; irregular)<br>안나 씨는 1년 전에 한국에 왔습니다. 그래서 지금 고향이 그립습니다.<br>Anna came to Korea a year ago, so now she misses her hometown.<br>forms: 그리워하다 to long for &middot; 그리움 longing<br>patterns: -이/가 그립다 &middot; -이/가 -을/를 그리워하다<br><em>Stronger and wider than 보고 싶다: works for places and times, not only people.</em></p>
+<p><strong>기분</strong> [기분] &mdash; feeling, mood<br>상을 받았는데 기분이 어때요?<br>You received an award, so how do you feel?<br>patterns: 기분이 좋다 / 나쁘다</p>
+<p><strong>기쁘다</strong> [기쁘다] &mdash; to be glad, to be happy (&#39;으&#39; irregular)<br>여러분을 알게 되어서 참 기쁩니다.<br>I am very glad to have met you all.<br>forms: 기뻐하다 to be pleased &middot; 기쁨 joy<br>patterns: -이/가 기쁘다 &middot; -이/가 -을/를 기뻐하다</p>
+<p><strong>놀라다</strong> [놀:라다] &mdash; to be surprised, to be amazed<br>처음 본 외국 사람이 한국말을 잘해서 놀랐어요.<br>I was surprised that a foreigner I met for the first time spoke Korean well.<br>patterns: -이/가 (깜짝) 놀라다</p>
+<p><strong>답답하다</strong> [답따파다] &mdash; to be stuffy, to feel helpless<br>하숙방이 좁고 창문이 없어서 답답해요.<br>The boarding room is small and has no window, so it feels stuffy.<br>patterns: -이/가 답답하다<br><em>Physical stuffiness and the frustrated, blocked feeling. The book's second example: 한국말을 잘 못해서 답답해요.</em></p>
+<p><strong>무섭다</strong> [무섭따] &mdash; to be scary (&#39;ㅂ&#39; irregular)<br>저는 무서운 영화를 싫어해요.<br>I don't like scary movies.<br>forms: 무서워하다 to be afraid of<br>patterns: -은/는 -이/가 무섭다 &middot; -은/는 -을/를 무서워하다</p>
+<p><strong>부럽다</strong> [부럽따] &mdash; to be envious (&#39;ㅂ&#39; irregular)<br>저는 한국말을 잘하는 안나 씨가 부러워요.<br>I envy Anna, who speaks Korean well.<br>forms: 부러워하다 to envy<br>patterns: -은/는 -이/가 부럽다 &middot; -은/는 -을/를 부러워하다</p>
+<p><strong>불안</strong> [부란] &mdash; uneasiness, restlessness<br>시험 때문에 불안해서 잠을 못 잤어요.<br>I was uneasy because of the exam, so I couldn't sleep.<br>forms: 불안하다 to be uneasy &middot; 불안해하다 to feel uneasy<br>patterns: -이/가 불안하다</p>
+<p><strong>사랑</strong> [사랑] &mdash; love<br>저는 사랑하는 사람과 결혼하고 싶어요.<br>I want to marry the person I love.<br>forms: 사랑하다 to love<br>patterns: -이/가 -을/를 사랑하다</p>
+<p><strong>상쾌하다</strong> [상쾌하다] &mdash; to be refreshing<br>운동한 후에 샤워를 하면 기분이 상쾌해요.<br>When I shower after exercising, I feel refreshed.<br>patterns: -이/가 상쾌하다</p>
+<p><strong>섭섭하다</strong> [섭써파다] &mdash; to be sad at parting, to be regretful<br>고향에 돌아가는 것은 기쁘지만, 친구들과 헤어져서 섭섭해요.<br>I'm glad to go back to my hometown, but I'm sad to part from my friends.<br>patterns: -이/가 섭섭하다<br><em>No clean English word. The sadness of parting, usually mixed with something good.</em></p>
+<p><strong>슬프다</strong> [슬프다] &mdash; to be sad (&#39;으&#39; irregular)<br>어제 본 드라마가 너무 슬펐어요.<br>The drama I watched yesterday was so sad.<br>forms: 슬퍼하다 to grieve &middot; 슬픔 sadness<br>patterns: -이/가 슬프다</p>
+<p><strong>신나다</strong> [신나다] &mdash; to be excited<br>아이들이 놀이 공원에서 신나게 놀았습니다.<br>The children played excitedly at the amusement park.<br>patterns: -이/가 신나다</p>
+<p><strong>심심하다</strong> [심심하다] &mdash; to be bored (from having too much time)<br>리에 씨는 어제 약속이 없어서 하루 종일 집에 혼자 있었어요. 그래서 너무 심심했어요.<br>Rie had no plans yesterday and was home alone all day, so she was very bored.<br>patterns: -이/가 심심하다<br><em>You have nothing to do. Compare 지루하다, where the thing itself is tedious.</em></p>
+<p><strong>외롭다</strong> [외롭따/웨롭따] &mdash; to be lonely (&#39;ㅂ&#39; irregular)<br>리에 씨는 혼자 살아서 가끔 외롭습니다.<br>Rie lives alone, so she is sometimes lonely.<br>forms: 외로워하다 to feel lonely &middot; 외로움 loneliness<br>patterns: -이/가 외롭다</p>
+<p><strong>우울하다</strong> [우울하다] &mdash; to be depressed<br>저는 취직 시험에 계속 떨어져서 우울합니다.<br>I keep failing job exams, so I feel depressed.<br>forms: 우울해하다 to feel depressed &middot; 우울증 depression (the condition)<br>patterns: -이/가 우울하다</p>
+<p><strong>즐겁다</strong> [즐겁따] &mdash; to be enjoyable, to be cheerful (&#39;ㅂ&#39; irregular)<br>저는 한국 생활이 즐겁습니다.<br>I find life in Korea enjoyable.<br>forms: 즐거워하다 to enjoy<br>patterns: -이/가 즐겁다</p>
+<p><strong>지루하다</strong> [지루하다] &mdash; to be bored, to be tedious<br>매일 똑같은 일을 하면 지루해요.<br>If you do the same work every day, it gets boring.<br>forms: 지루해하다 to find tedious<br>patterns: -이/가 지루하다<br><em>The thing itself is dull. Compare 심심하다, where you simply have nothing to do.</em></p>
+<p><strong>창피하다</strong> [창피하다] &mdash; to be embarrassed, to be ashamed<br>길에서 넘어져서 창피했어요.<br>I fell over in the street, so I was embarrassed.<br>forms: 창피해하다 to feel ashamed<br>patterns: -이/가 창피하다</p>
+<p><strong>편안하다</strong> [펴난하다] &mdash; to be at ease, free from anxiety<br>시험이 끝나서 마음이 편안해요.<br>The exam is over, so my mind is at ease.<br>patterns: -이/가 편안하다</p>
+<p><strong>행복</strong> [행복] &mdash; happiness<br>사랑하는 사람과 결혼해서 행복해요.<br>I married the person I love, so I am happy.<br>forms: 행복하다 to be happy &middot; 행복해하다 to feel happy &middot; 행복을 느끼다 to feel happiness<br>patterns: -이/가 행복하다</p>
+<p><strong>화</strong> [화] &mdash; anger<br>친구가 저한테 거짓말을 해서 화가 났어요.<br>My friend lied to me, so I got angry.<br>patterns: 화가 나다 to get angry &middot; 화를 내다 to show anger &middot; 화를 풀다 to let anger go &middot; 화를 참다 to hold anger in</p>]]></content:encoded>
+</item>
 <item>
 <title>연애 단어 (Korean Dating Words)</title>
 <link>https://1l3oth.github.io/studybook/korean-dating-words/</link>
