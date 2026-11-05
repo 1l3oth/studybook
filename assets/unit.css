@@ -288,3 +288,7 @@ body.hide-fen .fen,body.hide-fen .fsub,body.hide-fen .fv span{display:none}
   .card .en{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;line-clamp:1;overflow:hidden}
   body.hide-ko .card .ko:not(.shown){display:block;height:1.5em}
 }
+
+/* source and attribution line under the cards and the full text */
+.credit{font-size:.8rem;color:var(--ink-2);margin:1.6rem 0 0;padding-top:.8rem;border-top:1px solid var(--rule)}
+#p-cards .credit{order:3}

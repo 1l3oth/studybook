@@ -2,10 +2,10 @@
 // offline study. It exists so the app installs cleanly and shows a clear page, not the browser's
 // error, when there is no signal.
 const OFFLINE = 'offline.html';
-const CACHE = 'studybook-offline-v1';
+const CACHE = 'studybook-offline-v2';
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll([OFFLINE, 'assets/line.css'])).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll([OFFLINE])).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (e) => {

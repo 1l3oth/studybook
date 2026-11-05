@@ -45,4 +45,4 @@ whole unit's content.
 - Real focus states on buttons and links.
 
 `templates/hub_index.html` is the sample hub verbatim — adapt its title and unit cards. The unit page
-CSS lives inside `build_study.py`; keep its tokens and structure when you adapt content.
+CSS lives in the shared `assets/line.css` and `assets/unit.css` (see `DESIGN.example.md`); units never carry their own styles.

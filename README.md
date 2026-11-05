@@ -101,11 +101,13 @@ You do **not** need: any server, a database, a paid host, a build server, or npm
   target-language voice.
 - **Active recall** — hide the target / translation / meaning / word and reveal on tap; Play-all runs
   the whole thing hands-free with auto-scroll.
-- **Memory-first layout** — image-left cards, a structural spine mapped to a real-world order,
-  color-coded sections, consistent spatial layout.
-- **Three build modes** — self-contained single file (offline/email), `lite` (claude.ai artifact),
-  and `web` (separate `img/`+`audio/` assets for Pages, ~100 KB page, clips load on demand).
-- **Notebook-style hub** — a table of contents that lists every unit as a numbered card.
+- **Memory-first layout** — flat 2D picture cards, big picture tiles, a line map of the sections in a
+  real-world order; a card feed on phones and a platform display (one big stage plus the route list)
+  on desktop.
+- **One data file per unit** — `unit.json` holds every line, answer, word and audio path;
+  `tools/render_unit.py` builds the page with the shared `assets/` styles and script.
+- **Subway-line hub** — the homepage lists every unit as a station on one line, with a Continue panel;
+  installable as an app (PWA, online only).
 - **AI-readable RSS feed** — `feed.xml` carries each unit's full text in `content:encoded`, so an AI
   or feed reader ingests the material without running the app; auto-discoverable from the site root.
 - **Print / Save-PDF** of the full document.
@@ -129,7 +131,7 @@ studybook/
   skill/studybook/           the skill payload
     SKILL.md                 the router
     references/              step-by-step sub-guides (site, unit, media, hosting, feed, style)
-    templates/               build_study.py, build_feed.py, hub_index.html, example data
+    templates/               render_unit.py, gen_audio.py, build_stations.py, build_feed.py, assets/, pwa/, hub_index.html, unit.example.json
 ```
 
 ---

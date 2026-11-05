@@ -1,3 +1,7 @@
 
 # impeccable working files (local only; never served)
 .impeccable/
+
+# Python build output
+__pycache__/
+*.pyc

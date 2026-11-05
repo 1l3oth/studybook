@@ -66,7 +66,7 @@ def main():
     qa_html = panel('qa')
     blocks, group = [], None
     for m in re.finditer(r'<h2 class="sec">(.*?)</h2>(?:\s*<p class="secnote">(.*?)</p>)?|<h3 class="grp">(.*?)</h3>|'
-                         r'<article class="(qa(?: trap)?)">(.*?)</article>|<div class="surv">(.*?)</div>', qa_html, re.S):
+                         r'<article class="(qa(?: trap| open)?)">(.*?)</article>|<div class="surv">(.*?)</div>', qa_html, re.S):
         if m.group(1) is not None:
             title = txt(re.sub(r'<span class="cnt">.*?</span>', '', m.group(1), flags=re.S))
             small = txt(first(r'<span class="cnt">(.*?)</span>', m.group(1)))
@@ -78,6 +78,14 @@ def main():
             group = None
         elif m.group(3) is not None:
             group = txt(m.group(3))
+        elif m.group(4) is not None and m.group(4).endswith('open'):
+            # always-open phrase cards (newer pages): survival lines under an h3 group heading
+            if not blocks or blocks[-1]['kind'] != 'surv' or blocks[-1]['title'] != group:
+                blocks.append({'title': group or '막힐 때', 'small': '', 'note': '', 'kind': 'surv', 'items': []})
+            a = m.group(5)
+            blocks[-1]['items'].append({'ko': txt(first(r'<p class="ako"[^>]*>(.*?)</p>', a)),
+                                        'en': txt(first(r'<p class="aen">(.*?)</p>', a)),
+                                        'audio': first(r'data-au="([^"]+)"', a) or None})
         elif m.group(4) is not None:
             if not blocks:  # pages without block headings: one default block
                 blocks.append({'title': '예상 질문 · Questions', 'small': '', 'kind': 'qa', 'items': [],

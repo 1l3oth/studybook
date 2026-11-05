@@ -85,7 +85,7 @@ def render(u):
             f'<p class="en">{e(c["en"])}</p></div>{cplay(c.get("audio"), i + 1, "rplay")}</article>')
 
     # ---- Q&A ----
-    qh = []
+    qh = [f'<p class="note">{e(u["qa_note"])}</p>'] if u.get('qa_note') else []
     n = 0
     for b in u['qa']:
         small = f' <small>{e(b["small"])}</small>' if b.get('small') else ''
@@ -149,6 +149,9 @@ def render(u):
         fh.append(f'<h3>{e(g["title"])}</h3><div class="fvoc">'
                   + ''.join(f'<div class="fv"><b lang="ko">{e(it["ko"])}</b><span>{e(it["en"])}</span></div>' for it in g['items'])
                   + '</div>')
+
+    credit = f'<p class="credit">{e(u["credit"])}</p>' if u.get('credit') else ''
+    fh.append(credit)
 
     ICON = {
         'play': '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>',
@@ -217,6 +220,7 @@ def render(u):
       </section>
       <div class="cards" role="list" aria-label="All lines">{"".join(ch)}</div>
     </div>
+    {credit}
   </section>
   <section class="panel" id="p-qa" role="tabpanel">{"".join(qh)}</section>
   <section class="panel" id="p-voc" role="tabpanel">

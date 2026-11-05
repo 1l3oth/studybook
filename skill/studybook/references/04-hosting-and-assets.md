@@ -1,10 +1,10 @@
 # 04 · Hosting and assets (GitHub Pages)
 
 GitHub Pages is a real web server, so a unit should **not** be one giant self-contained file there.
-Use the `web` build: a light HTML page plus separate `img/` and `audio/` folders that load on demand.
+Each unit is a light HTML page plus separate `img/` and `audio/` folders that load on demand.
 
-## The `web` build
-`build_study.py` in `web` mode writes, into the unit's folder:
+## The unit folder
+`render_unit.py` writes the page from `unit.json`; the unit's folder holds:
 ```
 <unit-slug>/
   index.html     ~100 KB (references assets by relative path: img/..., audio/...)

@@ -40,7 +40,7 @@ unit's full text so an AI can read the notebook without running it.
 ## Capabilities and Constraints
 
 - Static site on GitHub Pages: plain HTML/CSS/JS, no framework, no build tooling beyond the Python
-  standard-library builders (`build_study.py`, `build_feed.py`).
+  standard-library builders (`tools/render_unit.py` from each `unit.json`, `build_stations.py`, `build_feed.py`).
 - Units: `/<unit-slug>/index.html` with `img/` and `audio/` beside it (web build).
 - Korean and English text; Korean needs a proper Korean face and `word-break: keep-all`.
 - Audio: per-line MP3 clips, native Korean voice.

@@ -62,7 +62,7 @@ def main():
                           'alt': f'A face for {x["hw"]}: {x["gloss"].split(",")[0]}',
                           'hook': x['hw'], 'ko': x['exko'], 'en': x['exen'], 'audio': x['sau']})
         vocab.append({'title': f'{ko} · {en}', 'color': c, 'items': [
-            {'ko': x['hw'], 'en': f'{x["gloss"]} · {x["pos_en"]} {x["pron"]}' + (f' · {x["irr"]}' if x['irr'] else ''),
+            {'ko': x['hw'], 'en': f'{x["gloss"]} · {x["pos"]} {x["pos_en"]} {x["pron"]}' + (f' · {x["irr"]}' if x['irr'] else ''),
              'audio': x['wau']} for x in group]})
         for x in group:
             extra = ' · '.join(p for p in [x['forms'], ('반대 ' + x['opp']) if x['opp'] else ''] if p)
@@ -98,6 +98,9 @@ def main():
         'full_title': '예문 · The sentences',
         'full': full,
         'published': '2026-09-15',
+        'station_en': "23 feeling words from 2000 Essential Korean Words, with the book's sentences.",
+        'credit': 'From 2000 Essential Korean Words for Beginners (Darakwon), Ch.1 People §2 Emotions, pp.25–31. '
+                  "Words, readings and example sentences are the book's. Faces are flat drawings for study.",
     }
     io.open(os.path.join(d, 'unit.json'), 'w', encoding='utf-8', newline='\n').write(json.dumps(unit, ensure_ascii=False, indent=1) + '\n')
     print(f'{SLUG}: {len(ents)} words, {len(cards)} cards, counts {counts}')

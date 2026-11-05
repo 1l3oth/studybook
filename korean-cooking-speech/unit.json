@@ -1,7 +1,7 @@
 {
  "slug": "korean-cooking-speech",
- "title_ko": "나의 새 습관, 요리",
- "title_en": "My New Habit: Cooking",
+ "title_ko": "나의 새 취미, 요리",
+ "title_en": "My New Hobby: Cooking",
  "subtitle": "K-Specialist 6회 · 2026-11-28 13:00",
  "description": "My habit since coming to Korea: cooking the food I missed, too salty for anyone else. Topic 3 of the 6th interview, written in my own plain 습니다체.",
  "sections": [
@@ -105,10 +105,10 @@
    "sec": "s1",
    "img": "img/k02-habit.svg",
    "alt": "A wok of stir-fry with a tag that says new",
-   "hook": "습관",
-   "ko": "오늘은 한국에 온 후에 새로 생긴 습관에 대해 말씀드리겠습니다. 제 새로운 습관은 요리입니다.",
-   "en": "Today I will talk about a new habit I picked up after coming to Korea. My new habit is cooking.",
-   "audio": "audio/k6d8bf389.mp3",
+   "hook": "취미",
+   "ko": "오늘은 한국에 온 후에 새로 생긴 취미에 대해 말씀드리겠습니다. 제 새로운 취미는 요리입니다.",
+   "en": "Today I will talk about a new hobby I picked up after coming to Korea. My new hobby is cooking.",
+   "audio": "audio/c02-hobby.mp3",
    "flat": true
   },
   {
@@ -216,9 +216,9 @@
    "img": "img/k13-best.svg",
    "alt": "A gold medal with the number 1 and a small wok",
    "hook": "제 생각에는",
-   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 습관입니다. 왜냐하면 돈도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다.",
-   "en": "In my opinion, cooking is the best habit I picked up in Korea, because I can save money and also taste home.",
-   "audio": "audio/k7c7901f9.mp3",
+   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 취미입니다. 왜냐하면 돈도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다.",
+   "en": "In my opinion, cooking is the best hobby I picked up in Korea, because I can save money and also taste home.",
+   "audio": "audio/c13-hobby.mp3",
    "flat": true
   },
   {
@@ -313,15 +313,15 @@
      "audio": "audio/k4c56baf0.mp3"
     },
     {
-     "group": "습관 · Habits",
-     "q": "요리 말고 또 새로 생긴 습관이 있습니까?",
-     "qen": "Any other new habits besides cooking?",
+     "group": "취미 · Hobbies",
+     "q": "요리 말고 또 새로 생긴 취미가 있습니까?",
+     "qen": "Any other new hobbies besides cooking?",
      "a": "네, 두 가지가 더 있습니다. 하나는 책을 읽는 것이고, 다른 하나는 AI를 공부하는 것입니다.",
      "aen": "Yes, two more. One is reading books and the other is studying AI.",
      "audio": "audio/k34851943.mp3"
     },
     {
-     "group": "습관 · Habits",
+     "group": "취미 · Hobbies",
      "q": "왜 AI를 공부합니까?",
      "qen": "Why do you study AI?",
      "a": "회사 일에 도움이 많이 되기 때문입니다.",
@@ -365,6 +365,34 @@
     }
    ],
    "note": "The notice says questions go wide and memorizing alone will not score well. Answer in your head, then tap to compare. Answers marked 확인 use a detail I could not confirm, so change them to the truth."
+  },
+  {
+   "title": "질문을 못 들었을 때 · If you did not catch the question",
+   "small": "",
+   "note": "",
+   "kind": "surv",
+   "items": [
+    {
+     "ko": "죄송합니다. 다시 한 번 말씀해 주시겠습니까?",
+     "en": "Sorry, could you say that once more?",
+     "audio": "audio/k11caf7bd.mp3"
+    },
+    {
+     "ko": "죄송합니다. 조금 천천히 말씀해 주시겠습니까?",
+     "en": "Sorry, could you say that a little more slowly?",
+     "audio": "audio/k892b72be.mp3"
+    },
+    {
+     "ko": "좋은 질문입니다. 잠깐만 생각해 보겠습니다.",
+     "en": "Good question. Let me think for a moment.",
+     "audio": "audio/k79014ee9.mp3"
+    },
+    {
+     "ko": "죄송합니다. 그건 잘 모르겠습니다.",
+     "en": "Sorry, I am not sure about that.",
+     "audio": "audio/k35e7f7ab.mp3"
+    }
+   ]
   },
   {
    "title": "문법 · Grammar",
@@ -711,8 +739,8 @@
  "full": [
   {
    "title": "시작 · Opening",
-   "ko": "안녕하십니까? 저는 마드라스체크 SaaS개발1팀에서 일하고 있는 다라봇이라고 합니다. 오늘은 한국에 온 후에 새로 생긴 습관에 대해 말씀드리겠습니다. 제 새로운 습관은 요리입니다.",
-   "en": "Hello. My name is Daraboth and I work in SaaS Development Team 1 at Madras Check. Today I will talk about a new habit I picked up after coming to Korea. My new habit is cooking."
+   "ko": "안녕하십니까? 저는 마드라스체크 SaaS개발1팀에서 일하고 있는 다라봇이라고 합니다. 오늘은 한국에 온 후에 새로 생긴 취미에 대해 말씀드리겠습니다. 제 새로운 취미는 요리입니다.",
+   "en": "Hello. My name is Daraboth and I work in SaaS Development Team 1 at Madras Check. Today I will talk about a new hobby I picked up after coming to Korea. My new hobby is cooking."
   },
   {
    "title": "이유 · Why I started",
@@ -736,10 +764,11 @@
   },
   {
    "title": "마무리 · Closing",
-   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 습관입니다. 왜냐하면 돈도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다. 다음에는 소금을 조금 덜 넣어서 다른 사람들도 같이 먹을 수 있게 만들고 싶습니다. 이상으로 발표를 마치겠습니다. 들어주셔서 감사합니다.",
-   "en": "In my opinion, cooking is the best habit I picked up in Korea, because I can save money and also taste home. Next time I want to use a little less salt, so other people can eat it with me. That concludes my presentation. Thank you for listening."
+   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 취미입니다. 왜냐하면 돈도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다. 다음에는 소금을 조금 덜 넣어서 다른 사람들도 같이 먹을 수 있게 만들고 싶습니다. 이상으로 발표를 마치겠습니다. 들어주셔서 감사합니다.",
+   "en": "In my opinion, cooking is the best hobby I picked up in Korea, because I can save money and also taste home. Next time I want to use a little less salt, so other people can eat it with me. That concludes my presentation. Thank you for listening."
   }
  ],
  "published": "2026-11-03",
- "station_en": "My new habit: cooking. Your K-Specialist talk on 2026-11-28."
+ "station_en": "My new hobby: cooking. Your K-Specialist talk on 2026-11-28.",
+ "credit": "Script built from my own answers on 2026-11-03, updated 2026-11-04 (습관 to 취미). Pictures are flat drawings for study; every line, answer, pattern and word has native Korean audio."
 }
