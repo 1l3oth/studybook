@@ -9,6 +9,8 @@
   function get(k, d) { try { var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } }
   function put(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   var desk = window.matchMedia('(min-width: 960px)');
+  // A control's label: Korean in Korean mode, English in English and Lyric (see assets/line.css).
+  function L(ko, en) { return '<span class="ui-ko">' + ko + '</span><span class="ui-en">' + en + '</span>'; }
 
   // ---- remember this unit for the homepage ----
   put('sb:last', slug);
@@ -29,8 +31,8 @@
     btn.classList.toggle('playing', on);
     var label = btn.querySelector('span');
     if (label) {
-      if (on) { if (!btn.dataset.l) btn.dataset.l = label.textContent; label.textContent = '재생 중'; }
-      else if (btn.dataset.l) label.textContent = btn.dataset.l;
+      if (on) { if (!btn.dataset.l) btn.dataset.l = label.innerHTML; label.innerHTML = L('재생 중', 'Playing'); }
+      else if (btn.dataset.l) label.innerHTML = btn.dataset.l;
     }
   }
   function setOwner(el) {
@@ -91,7 +93,7 @@
     sPic.className = $('.pic', c).className;
     sImg.src = img.getAttribute('src'); sImg.alt = img.alt;
     sTop.innerHTML = $('.ctop', c).innerHTML;
-    sKo.textContent = $('.ko', c).textContent; sEn.textContent = $('.en', c).textContent;
+    sKo.innerHTML = $('.ko', c).innerHTML; sEn.innerHTML = $('.en', c).innerHTML;
     if (body.classList.contains('hide-ko')) { sKo.classList.add('hidden'); sKo.classList.remove('shown'); sKo.setAttribute('role', 'button'); } else stageReveal();
     sCount.textContent = (sel + 1) + ' / ' + cards.length;
     sPrev.disabled = sel === 0; sNext.disabled = sel === cards.length - 1;
@@ -129,7 +131,7 @@
   function stopSeq() {
     if (seq === null) return;
     seq = null; stop(); setNow(-1); mark(sPlay, false);
-    playAll.setAttribute('aria-pressed', 'false'); $('span', playAll).textContent = '전체 듣기';
+    playAll.setAttribute('aria-pressed', 'false'); $('span', playAll).innerHTML = L('전체 듣기', 'Play all');
   }
   function step() {
     if (seq === null) return;
@@ -146,7 +148,7 @@
   }
   if (playAll) playAll.addEventListener('click', function () {
     if (seq !== null) { stopSeq(); return; }
-    seq = desk.matches ? sel : 0; playAll.setAttribute('aria-pressed', 'true'); $('span', playAll).textContent = '멈추기'; step();
+    seq = desk.matches ? sel : 0; playAll.setAttribute('aria-pressed', 'true'); $('span', playAll).innerHTML = L('멈추기', 'Stop'); step();
   });
 
   // ---- clicks: audio, reveal, Q&A ----
@@ -234,13 +236,13 @@
       fPic.src = img.getAttribute('src'); fPic.alt = img.alt;
       fPicBox.className = $('.pic', c).className;
       fTop.innerHTML = $('.ctop', c).innerHTML;
-      fKo.textContent = $('.ko', c).textContent; fEn.textContent = $('.en', c).textContent;
+      fKo.innerHTML = $('.ko', c).innerHTML; fEn.innerHTML = $('.en', c).innerHTML;
       fKo.classList.add('hidden'); fKo.setAttribute('role', 'button'); fKo.setAttribute('tabindex', '0');
-      fKo.setAttribute('aria-label', 'Reveal the Korean'); fHint.hidden = false;
+      fKo.setAttribute('aria-label', 'Reveal the text'); fHint.hidden = false;
       fCount.textContent = (fi + 1) + ' / ' + cards.length;
       segs.forEach(function (s, j) { s.classList.toggle('done', j <= fi); });
       dot.style.left = ((fi + 0.5) / cards.length * 100) + '%';
-      fPrev.disabled = fi === 0; $('span', fNext).textContent = fi === cards.length - 1 ? '끝 · Done' : '다음 · Next';
+      fPrev.disabled = fi === 0; $('span', fNext).innerHTML = fi === cards.length - 1 ? L('끝 · Done', 'Done') : L('다음 · Next', 'Next');
     }
     function open() {
       stopSeq(); stop();

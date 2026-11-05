@@ -292,3 +292,9 @@ body.hide-fen .fen,body.hide-fen .fsub,body.hide-fen .fv span{display:none}
 /* source and attribution line under the cards and the full text */
 .credit{font-size:.8rem;color:var(--ink-2);margin:1.6rem 0 0;padding-top:.8rem;border-top:1px solid var(--rule)}
 #p-cards .credit{order:3}
+
+/* focus bar with the text switch: the progress line takes its own row on narrow screens */
+.f-top{flex-wrap:wrap}
+.f-top .script{margin-left:auto}
+.f-top .f-track{flex:1 1 100%}
+@media (min-width:720px){.f-top{flex-wrap:nowrap}.f-top .f-track{flex:1 1 0;order:3}}

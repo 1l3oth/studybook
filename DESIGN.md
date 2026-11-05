@@ -76,3 +76,22 @@ station title 1.32rem 800; body 0.9rem; meta 0.8rem with tabular numerals.
 - **Every unit uses this system** (Rex, 2026-11-05: "from now we adopt the new UI"): five units, all
   rendered from `unit.json`, all pictures flat SVG drawn by each unit's `draw.py`. Grammar and word
   pattern items reuse the Q&A card with the mark 문 instead of Q.
+
+## Text switch (English, 한국어, Lyric)
+
+- **Lyric** is Korean in English letters, spelled the way it sounds, so someone who cannot read Hangul
+  can read it out loud (Rex, 2026-11-05). `tools/romanize.py` writes it at render time from every
+  Korean string; nothing is stored in `unit.json`. A word that reads wrong goes in `SPOKEN` there.
+- The switch sits in the sign band on every page and in the focus bar. `assets/script.js` sets
+  `<html data-script="en|ko|ro">` before first paint and remembers the choice; `assets/line.css` holds
+  the rules. Korean is the default.
+- **Korean**: Hangul and English, as before. **Lyric**: Lyric and English, controls in English.
+  **English**: English only; Korean with no translation falls back to Lyric, never to blank. Audio is
+  always Korean.
+
+## App icons and link covers
+
+`tools/build_images.py` builds them with headless Chromium. Sources: `icons/icon.svg` (rounded, for
+"any") and `icons/icon-maskable.svg` (full-bleed, drawing inside Android's safe circle; also used for
+Apple icons, because iOS rounds corners itself and paints transparency black). Covers are
+`og/<slug>.png`, 1200x630: the sign navy, the line, the title, and the unit's first big-picture tile.

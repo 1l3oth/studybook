@@ -16,7 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800&display=swap">
-<link rel="stylesheet" href="assets/line.css">
+<link rel="stylesheet" href="assets/line.css?v=lyric1">
+<script src="assets/script.js?v=lyric1"></script>
 <style>
 /* ---------- sign band ---------- */
 .sign{background:var(--sign);color:var(--on-sign);padding:calc(env(safe-area-inset-top) + 1.4rem) 0 1.1rem}
@@ -37,7 +38,7 @@
 .now .ring{grid-row:span 2;width:16px;height:16px;border-radius:50%;background:var(--surface);border:7px solid var(--here)}
 .now .where{margin:0;font-size:.8rem;color:var(--ink-2);font-weight:700}
 .now .title{margin:0;font-size:1.32rem;font-weight:800;letter-spacing:-.01em;line-height:1.25;word-break:keep-all}
-.now .title span{display:block;font-size:.86rem;font-weight:500;color:var(--ink-2);letter-spacing:0;margin-top:.1rem}
+.now .title .sub{display:block;font-size:.86rem;font-weight:500;color:var(--ink-2);letter-spacing:0;margin-top:.1rem}
 .go{grid-column:1/-1;margin-top:.85rem;display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;
   background:var(--line-ink);color:#fff;border-radius:12px;text-decoration:none;font-weight:800;font-size:1.02rem}
 .go svg{width:18px;height:18px}
@@ -87,6 +88,7 @@ footer h2{font-size:.86rem;margin:0 0 .3rem;color:var(--ink);font-weight:800}
 footer ul{list-style:none;margin:0;padding:0}
 footer a{color:var(--ink);text-underline-offset:3px;text-decoration-thickness:1px}
 
+.sign-script{margin-top:.8rem}
 @media (min-width:720px){
   .now{grid-template-columns:auto 1fr auto;padding:1.2rem 1.3rem}
   .now .ring{grid-row:1/3}
@@ -107,6 +109,7 @@ footer a{color:var(--ink);text-underline-offset:3px;text-decoration-thickness:1p
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>앱 설치
     </button>
   </div>
+  <div class="wrap sign-script"><div class="script" role="group" aria-label="Show text in"><button type="button" data-set="en" aria-pressed="false">English</button><button type="button" data-set="ko" aria-pressed="true" lang="ko">한국어</button><button type="button" data-set="ro" aria-pressed="false">Lyric</button></div></div>
   <p class="ios-hint wrap" id="iosHint" hidden>On iPhone: tap <b>Share</b>, then <b>Add to Home Screen</b>.</p>
 </header>
 <div class="stripe" aria-hidden="true"></div>
@@ -175,8 +178,8 @@ footer a{color:var(--ink);text-underline-offset:3px;text-decoration-thickness:1p
   var last=get(KEY_LAST,null), here=null;
   live.forEach(function(s){if(s.dataset.unit===last)here=s;});
   if(here){
-    var t=document.getElementById('nowTitle');t.textContent=here.querySelector('.st-ko').textContent;
-    var sp=document.createElement('span');sp.textContent=here.dataset.en||'';t.appendChild(sp);
+    var t=document.getElementById('nowTitle');t.innerHTML=here.querySelector('.st-ko').innerHTML;
+    var sp=document.createElement('span');sp.className='sub not-en';sp.textContent=here.dataset.en||'';t.appendChild(sp);
     var pos=get('sb:pos:'+here.dataset.unit,null);
     document.getElementById('nowWhere').textContent=pos&&pos.n?'You are here · card '+(pos.i+1)+' of '+pos.n:'You are here';
     document.getElementById('nowGo').href=here.querySelector('a.station').getAttribute('href');

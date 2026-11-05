@@ -62,7 +62,8 @@ Working code lives in `templates/` (the live site uses the same files under `too
 - `DESIGN.example.md` records the visual system (Seoul Metro wayfinding). Follow it.
 
 Unit build, in order: write `unit.json` -> draw `img/*.svg` -> `python tools/gen_audio.py <slug>` ->
-`python tools/render_unit.py <slug>` -> `python tools/build_stations.py` -> `python tools/build_feed.py`.
+`python tools/render_unit.py <slug>` -> `python tools/build_stations.py` -> `python tools/build_feed.py` -> `python tools/build_images.py` (app icons and the link cover).
+Every page gets the English, 한국어, Lyric switch automatically; Lyric comes from `romanize.py` (fix a misread word in its `SPOKEN` list).
 For real-life topics, find the phrases Koreans actually use with the agent-reach skill (web search of
 Korean sites) before writing the lines; do not invent wording.
 

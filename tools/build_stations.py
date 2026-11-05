@@ -13,12 +13,22 @@ import io
 import json
 import os
 import re
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from romanize import romanize  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def e(s):
     return html.escape(s or '', quote=True)
+
+
+def t(s):
+    if not re.search('[가-힣]', s or ''):
+        return e(s)
+    return f'<span class="t-ko">{e(s)}</span><span class="t-ro" lang="ko-Latn">{e(romanize(s))}</span>'
 
 
 def main():
@@ -39,8 +49,8 @@ def main():
             f'    <li class="stop" data-unit="{e(u["slug"])}" data-en="{e(u["title_en"])}">\n'
             f'      <a class="station" href="{e(u["slug"])}/">\n'
             f'        <span class="st-top"><span class="badge">{i + 1:02d}</span>{new}</span>\n'
-            f'        <p class="st-ko" lang="ko">{e(u["title_ko"])}</p>\n'
-            f'        <p class="st-en">{e(u.get("station_en") or u.get("description", ""))}</p>\n'
+            f'        <p class="st-ko" lang="ko"><span class="mk">{t(u["title_ko"])}</span><span class="only-en">{e(u["title_en"])}</span></p>\n'
+            f'        <p class="st-en">{t(u.get("station_en") or u.get("description", ""))}</p>\n'
             f'        <p class="st-meta"><span><b>{cards}</b> cards</span><span><b>{qs}</b> {e(qlabel)}</span>'
             f'<span><b>{words}</b> words</span></p>\n'
             f'      </a>\n'

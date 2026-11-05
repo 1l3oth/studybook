@@ -52,3 +52,23 @@ body{background:var(--ground);color:var(--ink);font-family:var(--f);line-height:
 :focus-visible{outline:3px solid var(--here);outline-offset:3px;border-radius:6px}
 a{color:inherit}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* ---------- text switch: English, Korean, Lyric (set on <html data-script> by assets/script.js) ---------- */
+.t-ro,.ui-en,.only-en,.only-ro{display:none}
+html[data-script="ro"] .t-ko,html[data-script="en"] .t-ko,
+html[data-script="ro"] .ui-ko,html[data-script="en"] .ui-ko{display:none}
+html[data-script="ro"] .t-ro,html[data-script="en"] .t-ro,
+html[data-script="ro"] .ui-en,html[data-script="en"] .ui-en,
+html[data-script="en"] .only-en{display:inline}
+html[data-script="ro"] p.only-ro{display:block}
+html[data-script="en"] .not-en,html[data-script="en"] .mk,html[data-script="en"] .hook,
+html[data-script="en"] .has-en,html[data-script="en"] .not-ko-end,html[data-script="en"] .f-hint,
+html[data-script="en"] [data-toggle="hide-ko"],html[data-script="en"] [data-toggle="hide-vko"]{display:none!important}
+.t-ro{word-break:normal;overflow-wrap:anywhere}
+.script{display:inline-flex;flex:none;gap:2px;padding:2px;background:rgba(255,255,255,.13);border-radius:10px}
+.script button{appearance:none;border:0;background:none;color:var(--on-sign-2);font:700 .78rem/1 var(--f);min-height:38px;
+  padding:0 .58rem;border-radius:8px;cursor:pointer}
+.script button:hover{color:var(--on-sign)}
+.script button[aria-pressed="true"]{background:var(--on-sign);color:#1C2A4A}
+.script button:focus-visible{outline:3px solid var(--here);outline-offset:1px}
+@media print{.script{display:none!important}}
