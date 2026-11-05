@@ -1,3 +1,16 @@
+# 06 · Style and the live sample
+
+**Current system (2026-11-05): Seoul Metro wayfinding.** The homepage is a subway line, each unit a
+station; inside a unit the sections are transfer lines in Seoul line colours. Tokens live in
+`assets/line.css`, unit components in `assets/unit.css`, rules in `templates/DESIGN.example.md`.
+One family, Gothic A1, for Korean and English. Light and dark follow the system. Phone first (390px).
+
+Do not bring back the old look below (cream paper, serif, terracotta): it was replaced on purpose.
+
+---
+
+Older notes, kept for history:
+
 # 06 · Style template and the live sample
 
 Keep every studybook recognizably one family. Read the sample, then match it.

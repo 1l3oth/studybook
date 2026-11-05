@@ -44,23 +44,35 @@ loci, active recall, and the honest caveat about NLP "eye-accessing cues"), also
 **`language-study-page`** skill — this router's `02` reference is the operational summary of it.
 
 ## Reference implementation (bundled)
-Working, adaptable code lives in `templates/`:
-- `build_study.py` — builds one unit's HTML in three modes: default (self-contained single file),
-  `lite` (smaller, for a claude.ai artifact), `web` (separate `img/`+`audio/`, for GitHub Pages).
-- `build_feed.py` — builds `feed.xml` with each unit's full text in `content:encoded`.
-- `qa_data.example.py`, `vocab_data.example.py` — the data shapes the builder consumes.
-- `hub_index.html` — the notebook-style hub landing page to adapt per studybook.
+Working code lives in `templates/` (the live site uses the same files under `tools/` and `assets/`):
+- `unit.example.json` is the data shape of one unit: sections (each a Seoul line colour), an optional
+  `explain` block (eli5 style: big flat pictures, a few words each), cards, Q&A blocks
+  (`trap` / `qa` / `surv`), vocab groups and full text. Write this file first.
+- `gen_audio.py` gives every line, answer and word a native Korean voice (edge-tts, free, no key) and
+  fills the Full text from the cards. Re-runnable; existing clips are kept.
+- `render_unit.py` writes `<unit>/index.html` from `unit.json`. The page links the shared
+  `assets/line.css`, `assets/unit.css`, `assets/unit.js`; never inline a per-unit design.
+- `build_feed.py` builds `feed.xml` from every `*/unit.json`, newest `published` first.
+- `draw_flat_objects.example.py` shows how unit pictures are drawn: flat 2D object SVGs, no image model.
+- `hub_index.html` is the homepage (a subway line, one station per unit); `pwa/` holds the manifest,
+  service worker, offline page and icon sources that make the site an installable app.
+- `DESIGN.example.md` records the visual system (Seoul Metro wayfinding). Follow it.
+
+Unit build, in order: write `unit.json` -> draw `img/*.svg` -> `python tools/gen_audio.py <slug>` ->
+`python tools/render_unit.py <slug>` -> add a station to the homepage -> `python tools/build_feed.py`.
 
 ## What the user needs on their side
 Do not assume these exist — check, and tell the user what is missing (full list in the repo README):
 - **Python 3** (the builders are Python, standard library only).
-- **`genmedia` CLI + a fal.ai API key** for images (`fal-ai/flux/schnell`) and audio
-  (`fal-ai/bytedance/seed-speech/tts/v2`) — or the user supplies their own images/audio.
+- **`edge-tts`** (`pip install -U edge-tts`) for the native voice. Keep it updated: old versions get
+  HTTP 403 from the speech service. fal.ai (`genmedia`) is optional, not required.
 - **git + a GitHub account + `gh` CLI** to host on GitHub Pages.
 
 ## Non-negotiables (every unit)
 - `<meta charset="utf-8">` first in the file, always (or non-Latin text becomes mojibake).
 - A native voice in the target language, not a multilingual voice with a language flag.
 - The **Hide / active-recall** toggle — never ship a unit without it.
-- One HTML file with in-page tabs, never separate pages per tab.
-- On GitHub Pages, prefer the `web` build (separate assets) so the page stays light.
+- One HTML file with in-page tabs, never separate pages per tab; audio and images as files beside it.
+- Focus mode (one card at a time, Korean hidden until tapped) and the shared dock stay on every unit.
+- Never ask the learner to speak aloud: recall happens in their head (they study at work).
+- Pictures are flat 2D objects, drawn as SVG.

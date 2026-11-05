@@ -1,49 +1,35 @@
 # 02 · Build a study unit (book page)
 
-One unit = one HTML page with four in-page tabs sharing one audio engine and a fixed bottom control
-bar. Build it with `templates/build_study.py`; this doc is the structure it must produce. For the
-memory rationale behind each choice, load the `language-study-page` skill.
+One unit = one folder `<slug>/` with `unit.json`, `img/`, `audio/` and the rendered `index.html`.
+Never hand-write the page: write `unit.json` and run `render_unit.py`. Design rules: `DESIGN.md`.
 
-## The four tabs
-1. **Speech (그림 카드).** Split the material into ~8–14 **beats** (one idea each, not one per
-   sentence). Each card: **image on the left (~38%)**, a color chip for its section, the target line
-   **large in a warm serif**, the translation muted, a one-word **keyword** bridge, and a **Listen**
-   button. Above the cards, a **spine**: the sections as ordered, labeled steps mapped onto a
-   real-world sequence the learner already owns (e.g. the parts run in the order of an ordinary day).
-2. **Q&A.** Anticipated questions; question shown, answer hidden, tap to reveal, audio on answers.
-   **Lead with traps and gaps** — places the script implies something it never states (an unnamed
-   item, a shaky claim, an unkept promise); a real examiner probes exactly there. Flag any answer
-   that asserts an unconfirmed personal fact so the learner verifies it.
-3. **Vocab.** The topic words grouped by theme, audio each, and two-way hide (hide meaning / hide the
-   word) for recall both directions.
-4. **Full.** The whole speech, then all Q&A, then all vocab, as one continuous printable document
-   (add a Print / Save-PDF button). This is also what feeds the RSS `content:encoded` (see 05).
+## The page (rendered from unit.json)
+- **Sign band** (sticky): back to the homepage, unit title, then four tabs:
+  그림 카드 (cards), 예상 질문 (Q&A), 단어 (vocab), 전체 (full text). The hash (`#qa`) opens a tab.
+- **한눈에 · The big picture** (`explain`, optional but recommended): eli5 style. A one-line `why`,
+  then 4 to 6 tiles, each a big flat picture, a short Korean word and at most ~7 English words.
+  Explain *why* things are done, not the steps the cards already teach.
+- **노선도 line map** (`spine`): the unit's sections drawn as stations on a line, each in its own
+  Seoul line colour, mapped onto a real sequence the learner already owns (a day, a visit).
+  Tapping a station jumps to its first card; the yellow ring follows the scroll.
+- **Cards**: one idea each (5 to 14). Picture, number badge ringed in the section colour, section
+  chip, one-word hook, the Korean line, the English, a Listen button.
+- **Dock** (fixed bottom): 집중 (focus mode), 전체 듣기 (play all), hide Korean, hide English on cards;
+  show all answers on Q&A; hide either side on vocab; hide English and print on full.
+- **Focus mode**: one card at a time, Korean hidden until tapped, Listen, Back/Next, swipe and arrow
+  keys, progress line. It remembers the card, so the homepage can say "card 3 of 7".
+- **Q&A** blocks in this order: `trap` (what the learner gets wrong or worries about, with a `why`),
+  `qa` (the questions someone will really ask), `surv` (lines for when stuck). Mark any answer that
+  asserts a personal fact the learner must confirm with `"check": true`.
+- **Vocab** groups with a colour each; two-way hide.
+- **Full**: every line, Q&A and word as one printable document; also what `feed.xml` carries.
 
-## Fixed bottom control bar (docked, never scrolls away)
-`position:fixed;bottom:0`, blurred surface, and `padding-bottom` on `body` so the last card clears
-it. Per-tab controls: **Play all** (auto-advances, scrolls each card into view, highlights current),
-**Hide target**, **Hide translation** on Speech; **Reveal all** on Q&A; **Hide meaning / Hide word**
-on Vocab; **Hide English / Print** on Full. Add a **Home** button (links to `../`) on the web build.
-The **Hide / active-recall** toggle is the single most important feature — never ship without it.
+## Copy rules
+- Easy, natural 해요체 unless the material is a formal speech (then 습니다체).
+- Never tell the learner to say anything aloud; write "in your head".
+- Few words everywhere outside the Korean lines. A note is one sentence.
 
-## Data the builder consumes
-- **Lines + audio.** If a source/drill HTML already holds the lines (e.g. a `DATA=[{ko,k,en}]` array
-  and an index-aligned `AUDIO=[{b:base64}]` array), parse both and reuse the audio so the voice
-  matches what the learner shadows. Otherwise generate TTS per line (see 03).
-- **Q&A** and **vocab** as small Python lists — see `templates/qa_data.example.py` and
-  `templates/vocab_data.example.py` for the exact shapes.
-- **Images** one per beat, `img/beatNN.jpg` (see 03).
-
-## Build modes (in `build_study.py`)
-- default → one self-contained HTML (images + audio embedded as base64). Good for offline / email.
-- `lite` → smaller build for a claude.ai artifact (artifacts time out above ~6 MB, so Q&A audio is
-  dropped to text there).
-- `web` → separate `img/` + `audio/` files, ~100 KB HTML; **use this for GitHub Pages** (see 04).
-
-## Must-dos
-- `<meta charset="utf-8">` first in the file; `<!doctype html>`.
-- When concatenating MP3 clips into one, strip each clip's ID3v2 header (and ID3v1 trailer) first, or
-  players hiccup mid-stream. (`build_study.py` already does this.)
-- Theme-aware (light + dark via tokens); target-language serif for the lines; Google Fonts with real
-  fallbacks. See `06-style-and-sample.md`.
-- Make ONE sample card first, confirm the image style with the user, then batch the rest.
+## After rendering
+Add a station to the homepage (`index.html`): badge number, title, one-line English, counts, and
+`<span class="tag new" hidden>NEW</span>` for a new unit. Then run `build_feed.py`.
+Check every `img/` and `audio/` reference exists, and look at the page at 390px wide in light and dark.

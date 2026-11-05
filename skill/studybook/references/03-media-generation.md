@@ -1,41 +1,18 @@
-# 03 · Media generation (images + voice)
+# 03 · Media (pictures + voice)
 
-Both run through the `genmedia` CLI (fal.ai). Needs a configured fal.ai key. If the user has no key
-or would rather supply their own media, skip generation and drop their files into `img/` and
-`audio/` with the same names the builder expects.
+## Pictures: flat 2D object drawings (SVG)
+- One object per card that stands for the idea: an envelope, a flower, a phone, a bowl. No people
+  scenes, no photos, no image model (the learner asked for flat objects, 2026-11-05).
+- Draw them in code: see `templates/draw_flat_objects.example.py`. ViewBox `0 0 160 100`,
+  transparent background, the palette from DESIGN.md, the same stroke grey `#C9CED8` everywhere.
+- Set `"flat": true` on the card so the page shows it contained on a light tint of the section colour.
+- Render a contact sheet and look at all of them together before building the page.
+- Existing raster units (old jpg pictures) keep their pictures; leave `flat` off for those.
 
-## Images (one per beat)
-- Endpoint: **`fal-ai/flux/schnell`** — fast, about $0.003/image, so ~12 images is a few cents.
-- Use **one reusable style suffix** for every image (a consistent style is a stronger memory anchor
-  than mixed stock photos). Depict the exact scene of the line.
-- **Always append** `no text, no words, no letters, no logos` — diffusion models scribble gibberish
-  text otherwise.
-- Command:
-  ```
-  genmedia run fal-ai/flux/schnell --prompt "<STYLE>. Scene: <scene>" \
-    --image_size landscape_4_3 --download img/beatNN.jpg --json
-  ```
-- Make ONE image first, show the user, lock the style, then batch the rest.
-- Structural/labeled art (the spine) is built in **HTML**, not generated — diffusion can't carry
-  reliable labels.
-
-## Voice (per line, and per Q&A answer / per vocab word)
-- Endpoint: **`fal-ai/bytedance/seed-speech/tts/v2`**.
-- Use a **native voice in the target language**, not a multilingual voice with a language flag —
-  native sounds far better. For Korean the sample uses voice `shane_ko`.
-- Command:
-  ```
-  genmedia run fal-ai/bytedance/seed-speech/tts/v2 --text "<line>" \
-    --voice <native_voice> --language <lang> --speed 0.95 \
-    --output_format mp3 --sample_rate 24000 --download audio/<id>.mp3 --json
-  ```
-- These calls are ~5 s each. For dozens of clips, run the batch in the background and poll, or expect
-  a 2-minute foreground tool to time out partway (the builder/gen loop is safe to re-run — it skips
-  files that already exist).
-- 24 kHz is a good default. Only drop to 8 kHz if you must shrink for the artifact `lite` build.
-- Keep clip filenames deterministic (index- or id-based) so the builder can find and, in `web` mode,
-  emit them.
-
-## If reusing existing audio
-When a drill HTML already carries index-aligned base64 audio, reuse it rather than regenerating — it
-keeps the voice identical to what the learner already shadows, and costs nothing.
+## Voice: native Korean neural voice (edge-tts)
+- `python tools/gen_audio.py <slug>`: male `ko-KR-InJoonNeural` by default, `--voice
+  ko-KR-SunHiNeural` for female. Rate -5%. One clip per card line, question, answer, survival line
+  and word. Files under 1 KB count as missing and are regenerated.
+- If it fails with HTTP 403, update the package: `pip install -U edge-tts`.
+- fal.ai (`fal-ai/bytedance/seed-speech/tts/v2`, voice `shane_ko`) is the older paid route; use it
+  only when the user asks and the account has balance.

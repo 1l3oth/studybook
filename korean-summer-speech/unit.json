@@ -1,0 +1,1109 @@
+{
+ "slug": "korean-summer-speech",
+ "title_ko": "여름 발표 스튜디오",
+ "title_en": "Korean Summer Speech",
+ "subtitle": "K-Specialist · 2026-08-28",
+ "description": "Study the talk from pictures, then drill the questions the judges may ask.",
+ "sections": [
+  {
+   "id": "s1",
+   "ko": "시작",
+   "en": "Opening",
+   "color": "#6B7488"
+  },
+  {
+   "id": "s2",
+   "ko": "옷",
+   "en": "Clothes",
+   "color": "#00A84D"
+  },
+  {
+   "id": "s3",
+   "ko": "날씨",
+   "en": "Weather",
+   "color": "#00A5DE"
+  },
+  {
+   "id": "s4",
+   "ko": "음식",
+   "en": "Food",
+   "color": "#EF7C1C"
+  },
+  {
+   "id": "s5",
+   "ko": "더위 피하기",
+   "en": "Escaping the heat",
+   "color": "#996CAC"
+  },
+  {
+   "id": "s6",
+   "ko": "마무리",
+   "en": "Closing",
+   "color": "#6B7488"
+  }
+ ],
+ "spine": {
+  "title": "노선도 · 하루의 순서",
+  "note": "Your four parts run like one day: 옷 (Get dressed), 날씨 (Check the sky), 음식 (Eat), 더위 피하기 (Go out).",
+  "audio": "audio/ln4.mp3",
+  "caption": "옷 → 날씨 → 음식 → 더위. Get dressed, check the sky, eat, go out."
+ },
+ "explain": {
+  "title": "한눈에 · The big picture",
+  "why": "A short speech comparing summer in Korea and Cambodia. Each part is one difference, then one shared feeling at the end.",
+  "tiles": [
+   {
+    "img": "img/s03-shorts.svg",
+    "ko": "옷",
+    "en": "Shorts here, uniform there",
+    "color": "#00A84D"
+   },
+   {
+    "img": "img/s05-lotion.svg",
+    "ko": "날씨",
+    "en": "Humid, but dry skin",
+    "color": "#00A5DE"
+   },
+   {
+    "img": "img/s07-aircon.svg",
+    "ko": "24도",
+    "en": "Cool for Koreans, cold for Cambodians",
+    "color": "#00A5DE"
+   },
+   {
+    "img": "img/s08-soup.svg",
+    "ko": "뜨거운 국물",
+    "en": "Hot soup even in summer",
+    "color": "#EF7C1C"
+   },
+   {
+    "img": "img/s10-pool.svg",
+    "ko": "더위 피하기",
+    "en": "A pool here, a mountain there",
+    "color": "#996CAC"
+   },
+   {
+    "img": "img/s12-fans.svg",
+    "ko": "마음은 비슷",
+    "en": "Different ways, same wish",
+    "color": "#6B7488"
+   }
+  ]
+ },
+ "cards": [
+  {
+   "sec": "s1",
+   "img": "img/s01-route.svg",
+   "alt": "A subway-style route from Busan to Seoul under a summer sun",
+   "hook": "인사 · 이름",
+   "ko": "안녕하십니까? 저는 다라봇이라고 합니다. 저는 부산에서 2년 동안 살았고 지금은 서울에서 살고 있어서 한국의 여름 날씨에 많이 익숙해졌습니다.",
+   "en": "Hello. My name is Daraboth. I lived in Busan for two years and now live in Seoul, so I have become used to Korean summer weather.",
+   "audio": "audio/ln0_3.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s2",
+   "img": "img/s03-shorts.svg",
+   "alt": "Blue shorts and a company ID badge",
+   "hook": "한국 회사 · 반바지 · 다른 사람들도 · 마음이 편함",
+   "ko": "한국 회사에서는 날씨가 더울 때 남자도 반바지를 입고 출근할 수 있는데, 다른 사람들도 다 반바지를 입고 있어서 저도 마음이 편합니다.",
+   "en": "At Korean companies men can wear shorts to work when it is hot, and since everyone else is in shorts too, I feel comfortable.",
+   "audio": "audio/ln7.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s2",
+   "img": "img/s04-uniform.svg",
+   "alt": "A long-sleeved white uniform shirt under a hot sun",
+   "hook": "캄보디아 · 유니폼 · 조금 힘듦",
+   "ko": "하지만 캄보디아 회사에서는 날씨가 더워도 항상 유니폼을 입어야 해서 여름에는 조금 힘듭니다. 회사 밖에서도 다릅니다. 캄보디아 사람들은 햇빛을 싫어해서 날씨가 더워도 긴팔 옷과 긴바지를 많이 입습니다.",
+   "en": "But at Cambodian companies you must wear the uniform however hot it is, so summer is a little hard. Outside work it differs too. Cambodians dislike the sun, so even when it is hot they often wear long sleeves and long trousers.",
+   "audio": "audio/ln8_9.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s3",
+   "img": "img/s05-lotion.svg",
+   "alt": "A lotion bottle beside a patch of dry, cracked skin",
+   "hook": "습하지만 · 바람 없는 날 · 피부 건조",
+   "ko": "한국 여름은 보통 습하지만, 바람이 없는 날에는 공기가 건조해서 피부도 같이 건조해집니다. 그래서 저는 로션을 바르는데, 가끔 잊어버려서 피부가 건조할 때가 많습니다.",
+   "en": "Korean summer is usually humid, but on windless days the air is dry, so my skin dries out with it. So I use lotion, but I often forget, and then my skin is dry.",
+   "audio": "audio/ln12_13.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s3",
+   "img": "img/s06-sleep.svg",
+   "alt": "A sweaty pillow, the moon and a hot thermometer",
+   "hook": "잠 · 더우면 잘 못 잠 · 여름밤이 제일 힘듦",
+   "ko": "더운 날씨는 잠에도 영향을 줍니다. 저는 더우면 잠을 잘 못 자서 여름에는 밤이 제일 힘듭니다.",
+   "en": "Hot weather affects sleep too. When it is hot I cannot sleep well, so summer nights are the hardest part for me.",
+   "audio": "audio/ln14.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s3",
+   "img": "img/s07-aircon.svg",
+   "alt": "An air conditioner set to 24 degrees: cool for one, cold for the other",
+   "hook": "에어컨 · 24도 · 시원 ↔ 추움",
+   "ko": "에어컨도 다릅니다. 실내 온도가 24도면 한국 사람들은 시원하다고 하지만, 캄보디아 사람들은 춥다고 합니다. 캄보디아 사람들은 그만큼 추위를 많이 느끼는데, 저는 이것이 재미있습니다.",
+   "en": "AC is different too. At 24 degrees indoors Koreans say it is cool, but Cambodians say it is cold. Cambodians feel cold that easily, and I find that interesting.",
+   "audio": "audio/ln16_17.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s4",
+   "img": "img/s08-soup.svg",
+   "alt": "A steaming bowl of noodle soup with chopsticks",
+   "hook": "꾸이띠아우 · 삼러꺼꼬 · 뜨겁지만 여름에도",
+   "ko": "꾸이띠아우와 삼러꺼꼬는 캄보디아의 유명한 국물 음식인데, 아주 뜨겁지만 여름에도 평소처럼 먹습니다.",
+   "en": "Kuy Teav and Samlor Korko are famous Cambodian soup dishes, and although they are very hot we eat them in summer as usual.",
+   "audio": "audio/ln21.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s4",
+   "img": "img/s09-drink.svg",
+   "alt": "A bowl of hot soup and a red energy drink can",
+   "hook": "저도 먹음 · 스팅 · 계절과 상관없이",
+   "ko": "저도 여름에 이 음식을 먹고, 스팅 에너지 음료도 계절과 상관없이 항상 마십니다.",
+   "en": "I eat them in summer too, and I drink Sting energy drink all year regardless of the season.",
+   "audio": "audio/ln22.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s5",
+   "img": "img/s10-pool.svg",
+   "alt": "An outdoor pool with a swim ring and a ladder",
+   "hook": "한강공원 수영장 · 물 · 더위 사라짐",
+   "ko": "한국에서는 여름에 친구들과 한강공원 수영장에 가는데, 물에 들어가면 하루 종일 더웠던 것이 금방 사라집니다.",
+   "en": "In Korea I go to the Han River park pool with friends, and once I am in the water a whole hot day disappears at once.",
+   "audio": "audio/ln25.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s5",
+   "img": "img/s11-camp.svg",
+   "alt": "A tent between pine trees with wind above",
+   "hook": "끼리롬 · 나무 많음 · 캠핑",
+   "ko": "캄보디아에서는 친구들과 나무가 많은 끼리롬 같은 곳에 캠핑을 갑니다. 산 위의 바람이 더위를 다 날려 보내는 것 같았고, 저는 그날을 지금도 기억합니다.",
+   "en": "In Cambodia I go camping with friends to places like Kirirom, which has many trees. It felt as if the wind at the top blew all the heat away, and I still remember that day.",
+   "audio": "audio/ln26_28.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s6",
+   "img": "img/s12-fans.svg",
+   "alt": "A round fan and a folding fan with a heart between them",
+   "hook": "각자의 방식 · 마음은 비슷",
+   "ko": "하지만 각자의 방식으로 더위를 이겨내려는 마음은 비슷하다고 생각합니다. 이상으로 발표를 마치겠습니다. 들어주셔서 감사합니다.",
+   "en": "But I think the wish to get through the heat, each in their own way, is similar. That concludes my presentation. Thank you for listening.",
+   "audio": "audio/ln30_31.mp3",
+   "flat": true
+  }
+ ],
+ "qa": [
+  {
+   "title": "초급 · 핵심 질문",
+   "small": "Beginner · the basics, with audio",
+   "note": "The nine from the drill. Answer in your head, then tap Listen to compare.",
+   "kind": "qa",
+   "items": [
+    {
+     "q": "한국에서 얼마나 사셨습니까?",
+     "qen": "How long have you lived in Korea?",
+     "qaudio": "audio/ln36.mp3",
+     "a": "부산에서 2년 동안 살았고, 지금은 서울에서 살고 있습니다.",
+     "aen": "I lived in Busan for two years, and now I live in Seoul.",
+     "audio": "audio/ln37.mp3"
+    },
+    {
+     "q": "한국 여름에서 무엇이 제일 힘듭니까?",
+     "qen": "What is the hardest part of Korean summer?",
+     "qaudio": "audio/ln38.mp3",
+     "a": "저는 더우면 잠을 잘 못 자서 여름에는 밤이 제일 힘듭니다.",
+     "aen": "When it is hot I cannot sleep well, so summer nights are hardest for me.",
+     "audio": "audio/ln39.mp3"
+    },
+    {
+     "q": "끼리롬은 어떤 곳입니까?",
+     "qen": "What kind of place is Kirirom?",
+     "qaudio": "audio/ln40.mp3",
+     "a": "캄보디아에 있는 산인데, 나무가 많아서 시원하고 캠핑하기 좋습니다.",
+     "aen": "It is a mountain in Cambodia, and since it has many trees it is cool and good for camping.",
+     "audio": "audio/ln41.mp3"
+    },
+    {
+     "q": "꾸이띠아우는 어떤 음식입니까?",
+     "qen": "What kind of food is Kuy Teav?",
+     "qaudio": "audio/ln42.mp3",
+     "a": "국수와 국물이 있는 음식인데, 캄보디아에서는 아침에도 자주 먹습니다.",
+     "aen": "It is a noodle and broth dish, and in Cambodia we often eat it at breakfast too.",
+     "audio": "audio/ln43.mp3"
+    },
+    {
+     "q": "삼러꺼꼬는 어떤 음식입니까?",
+     "qen": "What kind of food is Samlor Korko?",
+     "qaudio": "audio/ln44.mp3",
+     "a": "여러 가지 채소와 고기를 넣고 끓인 국물 음식입니다.",
+     "aen": "It is a soup boiled with various vegetables and meat.",
+     "audio": "audio/ln45.mp3"
+    },
+    {
+     "q": "스팅은 무엇입니까?",
+     "qen": "What is Sting?",
+     "qaudio": "audio/ln46.mp3",
+     "a": "에너지 음료인데, 저는 계절과 상관없이 매일 마십니다.",
+     "aen": "It is an energy drink, and I drink it every day regardless of the season.",
+     "audio": "audio/ln47.mp3"
+    },
+    {
+     "q": "캄보디아 회사에서는 왜 유니폼을 입습니까?",
+     "qen": "Why do Cambodian companies wear uniforms?",
+     "qaudio": "audio/ln48.mp3",
+     "a": "회사 규정이라서 날씨와 상관없이 입어야 합니다.",
+     "aen": "It is a company rule, so you have to wear it regardless of the weather.",
+     "audio": "audio/ln49.mp3"
+    },
+    {
+     "q": "한국 여름과 캄보디아 여름 중에서 어느 쪽이 더 좋습니까?",
+     "qen": "Which do you prefer, Korean or Cambodian summer?",
+     "qaudio": "audio/ln50.mp3",
+     "a": "두 나라 여름은 서로 다르게 힘들어서 고르기 어렵습니다. 하지만 밤에 잠을 잘 잘 수 있는 여름이 더 좋습니다.",
+     "aen": "The two summers are hard in different ways, so it is difficult to choose. But I prefer the summer where I can sleep well at night.",
+     "audio": "audio/ln51.mp3"
+    },
+    {
+     "q": "이 주제를 왜 골랐습니까?",
+     "qen": "Why did you choose this topic?",
+     "qaudio": "audio/ln52.mp3",
+     "a": "저는 두 나라에서 모두 여름을 보내 봐서, 그 차이를 이야기하고 싶었습니다.",
+     "aen": "I have spent summers in both countries, so I wanted to talk about the difference.",
+     "audio": "audio/ln53.mp3"
+    }
+   ]
+  },
+  {
+   "title": "중급 · 심화 꼬리 질문",
+   "small": "Intermediate · deeper follow-ups, by section",
+   "note": "“확인 필요 · check” means confirm it is true for you before you rely on it.",
+   "kind": "qa",
+   "items": [
+    {
+     "group": "옷 · Clothes",
+     "q": "다라봇 씨 회사에서도 반바지를 입습니까?",
+     "qen": "Does your company also allow shorts?",
+     "qaudio": "audio/qa_qd0.mp3",
+     "a": "네, 저희 회사도 날씨가 더울 때는 반바지를 입을 수 있습니다.",
+     "check": true,
+     "aen": "Yes, my company also lets us wear shorts when it is hot.",
+     "audio": "audio/qa_d0.mp3"
+    },
+    {
+     "group": "옷 · Clothes",
+     "q": "한국 여자들도 반바지를 입고 출근합니까?",
+     "qen": "Do Korean women also wear shorts to work?",
+     "qaudio": "audio/qa_qd1.mp3",
+     "a": "여자들은 반바지보다 시원한 치마나 원피스를 더 많이 입는 것 같습니다.",
+     "aen": "Women seem to wear cool skirts or dresses more than shorts.",
+     "audio": "audio/qa_d1.mp3"
+    },
+    {
+     "group": "옷 · Clothes",
+     "q": "캄보디아 사람들은 왜 더위보다 햇빛을 싫어합니까?",
+     "qen": "Why do Cambodians dislike the sun more than the heat?",
+     "qaudio": "audio/qa_qd2.mp3",
+     "a": "피부가 타는 것을 싫어해서, 그늘을 찾고 긴팔을 입습니다.",
+     "aen": "They dislike getting tanned, so they seek shade and wear long sleeves.",
+     "audio": "audio/qa_d2.mp3"
+    },
+    {
+     "group": "날씨 · Weather",
+     "q": "한국의 장마를 압니까?",
+     "qen": "Do you know Korea’s rainy season (jangma)?",
+     "qaudio": "audio/qa_qd3.mp3",
+     "a": "네, 여름에 비가 많이 오는 장마가 있는데, 그때는 아주 습합니다.",
+     "aen": "Yes, there is a rainy season with heavy rain, and it is very humid then.",
+     "audio": "audio/qa_d3.mp3"
+    },
+    {
+     "group": "날씨 · Weather",
+     "q": "어떤 로션을 사용합니까?",
+     "qen": "What lotion do you use?",
+     "qaudio": "audio/qa_qd4.mp3",
+     "a": "특별한 것은 아니고, 평범한 수분 로션을 사용합니다.",
+     "aen": "Nothing special, just an ordinary moisturizing lotion.",
+     "audio": "audio/qa_d4.mp3"
+    },
+    {
+     "group": "날씨 · Weather",
+     "q": "밤에 너무 더울 때는 어떻게 합니까?",
+     "qen": "What do you do when it is too hot at night?",
+     "qaudio": "audio/qa_qd5.mp3",
+     "a": "에어컨이나 선풍기를 켜고 시원하게 하고 잡니다.",
+     "check": true,
+     "aen": "I turn on the AC or a fan to cool down, then sleep.",
+     "audio": "audio/qa_d5.mp3"
+    },
+    {
+     "group": "날씨 · Weather",
+     "q": "몇 도를 제일 좋아합니까?",
+     "qen": "What temperature do you like most?",
+     "qaudio": "audio/qa_qd6.mp3",
+     "a": "저는 25도나 26도가 제일 편합니다.",
+     "check": true,
+     "aen": "I am most comfortable at 25 or 26 degrees.",
+     "audio": "audio/qa_d6.mp3"
+    },
+    {
+     "group": "음식 · Food",
+     "q": "한국에는 여름에 어떤 음식을 먹습니까?",
+     "qen": "What food do people eat in summer in Korea?",
+     "qaudio": "audio/qa_qd7.mp3",
+     "a": "냉면이나 삼계탕을 많이 먹습니다. 저도 냉면을 좋아합니다.",
+     "check": true,
+     "aen": "People eat naengmyeon or samgyetang a lot. I like naengmyeon too.",
+     "audio": "audio/qa_d7.mp3"
+    },
+    {
+     "group": "음식 · Food",
+     "q": "삼계탕이 무엇입니까?",
+     "qen": "What is samgyetang?",
+     "qaudio": "audio/qa_qd8.mp3",
+     "a": "닭과 인삼을 넣고 끓인 국물 음식인데, 여름에 힘을 내려고 먹습니다.",
+     "aen": "A soup boiled with chicken and ginseng, eaten in summer for energy.",
+     "audio": "audio/qa_d8.mp3"
+    },
+    {
+     "group": "음식 · Food",
+     "q": "꾸이띠아우는 어떤 맛입니까?",
+     "qen": "What does Kuy Teav taste like?",
+     "qaudio": "audio/qa_qd9.mp3",
+     "a": "국물이 시원하고 깔끔한 맛입니다.",
+     "aen": "The broth has a clean, refreshing taste.",
+     "audio": "audio/qa_d9.mp3"
+    },
+    {
+     "group": "음식 · Food",
+     "q": "스팅은 건강에 괜찮습니까?",
+     "qen": "Is Sting okay for your health?",
+     "qaudio": "audio/qa_qd10.mp3",
+     "a": "매일 마시지만 하루에 한 캔만 마셔서 괜찮다고 생각합니다.",
+     "check": true,
+     "aen": "I drink it daily but only one can a day, so I think it is fine.",
+     "audio": "audio/qa_d10.mp3"
+    },
+    {
+     "group": "더위 피하기 · Escaping the heat",
+     "q": "한강 수영장에 자주 갑니까?",
+     "qen": "Do you go to the Han River pool often?",
+     "qaudio": "audio/qa_qd11.mp3",
+     "a": "여름에 친구들과 가끔 갑니다.",
+     "aen": "I go sometimes with friends in summer.",
+     "audio": "audio/qa_d11.mp3"
+    },
+    {
+     "group": "더위 피하기 · Escaping the heat",
+     "q": "끼리롬까지 어떻게 갑니까?",
+     "qen": "How do you get to Kirirom?",
+     "qaudio": "audio/qa_qd12.mp3",
+     "a": "프놈펜에서 차로 두세 시간쯤 걸립니다.",
+     "aen": "It takes about two or three hours by car from Phnom Penh.",
+     "audio": "audio/qa_d12.mp3"
+    },
+    {
+     "group": "더위 피하기 · Escaping the heat",
+     "q": "캠핑을 좋아합니까?",
+     "qen": "Do you like camping?",
+     "qaudio": "audio/qa_qd13.mp3",
+     "a": "네, 친구들과 자연에서 쉬는 것을 좋아합니다.",
+     "aen": "Yes, I like relaxing in nature with friends.",
+     "audio": "audio/qa_d13.mp3"
+    },
+    {
+     "group": "전체 내용 · About the talk",
+     "q": "두 나라 여름의 가장 큰 차이는 무엇입니까?",
+     "qen": "What is the biggest difference between the two summers?",
+     "qaudio": "audio/qa_qd14.mp3",
+     "a": "캄보디아는 일 년 내내 덥지만, 한국은 여름에만 덥고 습합니다.",
+     "aen": "Cambodia is hot all year, but Korea is hot and humid only in summer.",
+     "audio": "audio/qa_d14.mp3"
+    },
+    {
+     "group": "전체 내용 · About the talk",
+     "q": "한국에 와서 여름 습관이 바뀌었습니까?",
+     "qen": "Have your summer habits changed since coming to Korea?",
+     "qaudio": "audio/qa_qd15.mp3",
+     "a": "네, 이제는 로션도 바르고, 더위를 피하는 방법도 배웠습니다.",
+     "aen": "Yes, now I use lotion and have learned ways to escape the heat.",
+     "audio": "audio/qa_d15.mp3"
+    },
+    {
+     "group": "전체 내용 · About the talk",
+     "q": "캄보디아 여름이 그립습니까?",
+     "qen": "Do you miss Cambodian summer?",
+     "qaudio": "audio/qa_qd16.mp3",
+     "a": "친구들과 끼리롬에 캠핑 가던 것이 그립습니다.",
+     "aen": "I miss going camping at Kirirom with friends.",
+     "audio": "audio/qa_d16.mp3"
+    }
+   ]
+  },
+  {
+   "title": "고급 · 함정과 빈틈",
+   "small": "Advanced · traps & gaps",
+   "note": "The hardest ones: doors the script opens but never walks through. A returning judge will find them.",
+   "kind": "trap",
+   "items": [
+    {
+     "q": "한국 여름 음식이 뭔데요?",
+     "qen": "So what is Korean summer food?",
+     "qaudio": "audio/qa_qt0.mp3",
+     "a": "한국에서는 여름에 냉면이나 삼계탕을 많이 먹습니다. 삼계탕은 닭과 인삼을 넣고 끓인 국물 음식인데, 여름에 더위를 이기려고 먹습니다.",
+     "why": "The script says Korea has summer food but never names one. Name 냉면 / 삼계탕.",
+     "audio": "audio/qa_t0.mp3"
+    },
+    {
+     "q": "습한데 왜 피부가 건조해요?",
+     "qen": "It is humid, so why does your skin get dry?",
+     "qaudio": "audio/qa_qt1.mp3",
+     "a": "보통은 습하지만, 실내에서 에어컨을 오래 켜면 공기가 건조해져서 피부도 건조해집니다.",
+     "why": "The windless-day dry-air claim is weak. Reframe as AC + personal experience, do not defend it as fact.",
+     "audio": "audio/qa_t1.mp3"
+    },
+    {
+     "q": "건강에 미치는 영향은요?",
+     "qen": "And the effect on health?",
+     "qaudio": "audio/qa_qt2.mp3",
+     "a": "더우면 잠을 잘 못 자고, 공기가 건조하면 피부가 나빠집니다. 그래서 물을 많이 마시고 로션을 바릅니다.",
+     "why": "Your opening promises 건강 (health). Be ready to pay it off.",
+     "audio": "audio/qa_t2.mp3"
+    }
+   ]
+  },
+  {
+   "title": "막힐 때",
+   "small": "Survival lines · when you get stuck",
+   "note": "",
+   "kind": "surv",
+   "items": [
+    {
+     "ko": "죄송합니다. 다시 한 번 말씀해 주시겠습니까?",
+     "en": "Sorry, could you say that once more?",
+     "audio": "audio/ln32.mp3"
+    },
+    {
+     "ko": "죄송합니다. 조금 천천히 말씀해 주시겠습니까?",
+     "en": "Sorry, could you speak a little more slowly?",
+     "audio": "audio/ln33.mp3"
+    },
+    {
+     "ko": "좋은 질문입니다. 잠깐만 생각해 보겠습니다.",
+     "en": "Good question. Let me think for a moment.",
+     "audio": "audio/ln34.mp3"
+    },
+    {
+     "ko": "죄송합니다. 그건 잘 모르겠습니다. 나중에 찾아보겠습니다.",
+     "en": "Sorry, I do not know that. I will look it up later.",
+     "audio": "audio/ln35.mp3"
+    }
+   ]
+  }
+ ],
+ "vocab": [
+  {
+   "title": "날씨 · Weather",
+   "items": [
+    {
+     "ko": "여름",
+     "en": "summer",
+     "audio": "audio/voc_v0.mp3"
+    },
+    {
+     "ko": "날씨",
+     "en": "weather",
+     "audio": "audio/voc_v1.mp3"
+    },
+    {
+     "ko": "덥다",
+     "en": "to be hot",
+     "audio": "audio/voc_v2.mp3"
+    },
+    {
+     "ko": "습하다",
+     "en": "to be humid",
+     "audio": "audio/voc_v3.mp3"
+    },
+    {
+     "ko": "건조하다",
+     "en": "to be dry",
+     "audio": "audio/voc_v4.mp3"
+    },
+    {
+     "ko": "바람",
+     "en": "wind",
+     "audio": "audio/voc_v5.mp3"
+    },
+    {
+     "ko": "장마",
+     "en": "the rainy season",
+     "audio": "audio/voc_v6.mp3"
+    },
+    {
+     "ko": "온도",
+     "en": "temperature",
+     "audio": "audio/voc_v7.mp3"
+    },
+    {
+     "ko": "에어컨",
+     "en": "air conditioner",
+     "audio": "audio/voc_v8.mp3"
+    },
+    {
+     "ko": "선풍기",
+     "en": "electric fan",
+     "audio": "audio/voc_v9.mp3"
+    },
+    {
+     "ko": "시원하다",
+     "en": "to be cool",
+     "audio": "audio/voc_v10.mp3"
+    },
+    {
+     "ko": "춥다",
+     "en": "to be cold",
+     "audio": "audio/voc_v11.mp3"
+    }
+   ]
+  },
+  {
+   "title": "옷 · Clothes",
+   "items": [
+    {
+     "ko": "옷",
+     "en": "clothes",
+     "audio": "audio/voc_v12.mp3"
+    },
+    {
+     "ko": "반바지",
+     "en": "shorts",
+     "audio": "audio/voc_v13.mp3"
+    },
+    {
+     "ko": "긴팔",
+     "en": "long sleeves",
+     "audio": "audio/voc_v14.mp3"
+    },
+    {
+     "ko": "긴바지",
+     "en": "long pants",
+     "audio": "audio/voc_v15.mp3"
+    },
+    {
+     "ko": "유니폼",
+     "en": "uniform",
+     "audio": "audio/voc_v16.mp3"
+    },
+    {
+     "ko": "출근하다",
+     "en": "to go to work",
+     "audio": "audio/voc_v17.mp3"
+    },
+    {
+     "ko": "햇빛",
+     "en": "sunlight",
+     "audio": "audio/voc_v18.mp3"
+    },
+    {
+     "ko": "편하다",
+     "en": "to be comfortable",
+     "audio": "audio/voc_v19.mp3"
+    }
+   ]
+  },
+  {
+   "title": "음식 · Food",
+   "items": [
+    {
+     "ko": "음식",
+     "en": "food",
+     "audio": "audio/voc_v20.mp3"
+    },
+    {
+     "ko": "국물",
+     "en": "broth, soup",
+     "audio": "audio/voc_v21.mp3"
+    },
+    {
+     "ko": "국수",
+     "en": "noodles",
+     "audio": "audio/voc_v22.mp3"
+    },
+    {
+     "ko": "냉면",
+     "en": "cold noodles",
+     "audio": "audio/voc_v23.mp3"
+    },
+    {
+     "ko": "삼계탕",
+     "en": "ginseng chicken soup",
+     "audio": "audio/voc_v24.mp3"
+    },
+    {
+     "ko": "뜨겁다",
+     "en": "to be hot (to the touch)",
+     "audio": "audio/voc_v25.mp3"
+    },
+    {
+     "ko": "채소",
+     "en": "vegetables",
+     "audio": "audio/voc_v26.mp3"
+    },
+    {
+     "ko": "고기",
+     "en": "meat",
+     "audio": "audio/voc_v27.mp3"
+    },
+    {
+     "ko": "끓이다",
+     "en": "to boil",
+     "audio": "audio/voc_v28.mp3"
+    },
+    {
+     "ko": "계절",
+     "en": "season",
+     "audio": "audio/voc_v29.mp3"
+    },
+    {
+     "ko": "맛",
+     "en": "taste, flavor",
+     "audio": "audio/voc_v30.mp3"
+    }
+   ]
+  },
+  {
+   "title": "더위 피하기 · Escaping the heat",
+   "items": [
+    {
+     "ko": "더위",
+     "en": "the heat",
+     "audio": "audio/voc_v31.mp3"
+    },
+    {
+     "ko": "피하다",
+     "en": "to avoid, escape",
+     "audio": "audio/voc_v32.mp3"
+    },
+    {
+     "ko": "수영장",
+     "en": "swimming pool",
+     "audio": "audio/voc_v33.mp3"
+    },
+    {
+     "ko": "강",
+     "en": "river",
+     "audio": "audio/voc_v34.mp3"
+    },
+    {
+     "ko": "공원",
+     "en": "park",
+     "audio": "audio/voc_v35.mp3"
+    },
+    {
+     "ko": "캠핑",
+     "en": "camping",
+     "audio": "audio/voc_v36.mp3"
+    },
+    {
+     "ko": "산",
+     "en": "mountain",
+     "audio": "audio/voc_v37.mp3"
+    },
+    {
+     "ko": "나무",
+     "en": "tree",
+     "audio": "audio/voc_v38.mp3"
+    },
+    {
+     "ko": "친구",
+     "en": "friend",
+     "audio": "audio/voc_v39.mp3"
+    }
+   ]
+  },
+  {
+   "title": "발표 · Talking about it",
+   "items": [
+    {
+     "ko": "발표",
+     "en": "presentation",
+     "audio": "audio/voc_v40.mp3"
+    },
+    {
+     "ko": "소개하다",
+     "en": "to introduce",
+     "audio": "audio/voc_v41.mp3"
+    },
+    {
+     "ko": "차이",
+     "en": "difference",
+     "audio": "audio/voc_v42.mp3"
+    },
+    {
+     "ko": "다르다",
+     "en": "to be different",
+     "audio": "audio/voc_v43.mp3"
+    },
+    {
+     "ko": "비슷하다",
+     "en": "to be similar",
+     "audio": "audio/voc_v44.mp3"
+    },
+    {
+     "ko": "익숙하다",
+     "en": "to be used to",
+     "audio": "audio/voc_v45.mp3"
+    },
+    {
+     "ko": "영향",
+     "en": "effect, influence",
+     "audio": "audio/voc_v46.mp3"
+    },
+    {
+     "ko": "건강",
+     "en": "health",
+     "audio": "audio/voc_v47.mp3"
+    },
+    {
+     "ko": "생활",
+     "en": "daily life",
+     "audio": "audio/voc_v48.mp3"
+    },
+    {
+     "ko": "기억하다",
+     "en": "to remember",
+     "audio": "audio/voc_v49.mp3"
+    }
+   ]
+  },
+  {
+   "title": "하늘 · Sky",
+   "items": [
+    {
+     "ko": "하늘",
+     "en": "sky",
+     "audio": "audio/voc_v50.mp3"
+    },
+    {
+     "ko": "구름",
+     "en": "cloud",
+     "audio": "audio/voc_v51.mp3"
+    },
+    {
+     "ko": "해",
+     "en": "the sun",
+     "audio": "audio/voc_v52.mp3"
+    },
+    {
+     "ko": "맑다",
+     "en": "to be clear, sunny",
+     "audio": "audio/voc_v53.mp3"
+    },
+    {
+     "ko": "흐리다",
+     "en": "to be cloudy, overcast",
+     "audio": "audio/voc_v54.mp3"
+    },
+    {
+     "ko": "그늘",
+     "en": "shade",
+     "audio": "audio/voc_v55.mp3"
+    },
+    {
+     "ko": "소나기",
+     "en": "a sudden shower",
+     "audio": "audio/voc_v56.mp3"
+    }
+   ]
+  },
+  {
+   "title": "여름 물건 · Summer things",
+   "items": [
+    {
+     "ko": "손선풍기",
+     "en": "a handheld (mini) fan",
+     "audio": "audio/voc_v57.mp3"
+    },
+    {
+     "ko": "양산",
+     "en": "a parasol (sun umbrella)",
+     "audio": "audio/voc_v58.mp3"
+    },
+    {
+     "ko": "우산",
+     "en": "an umbrella",
+     "audio": "audio/voc_v59.mp3"
+    },
+    {
+     "ko": "선크림",
+     "en": "sunscreen",
+     "audio": "audio/voc_v60.mp3"
+    },
+    {
+     "ko": "모자",
+     "en": "a hat, cap",
+     "audio": "audio/voc_v61.mp3"
+    },
+    {
+     "ko": "선글라스",
+     "en": "sunglasses",
+     "audio": "audio/voc_v62.mp3"
+    },
+    {
+     "ko": "헬멧",
+     "en": "a helmet",
+     "audio": "audio/voc_v63.mp3"
+    },
+    {
+     "ko": "물병",
+     "en": "a water bottle",
+     "audio": "audio/voc_v64.mp3"
+    }
+   ]
+  },
+  {
+   "title": "비교 · Comparing",
+   "items": [
+    {
+     "ko": "비교하다",
+     "en": "to compare",
+     "audio": "audio/voc_v65.mp3"
+    },
+    {
+     "ko": "차이점",
+     "en": "a difference (point)",
+     "audio": "audio/voc_v66.mp3"
+    },
+    {
+     "ko": "공통점",
+     "en": "a common point",
+     "audio": "audio/voc_v67.mp3"
+    },
+    {
+     "ko": "같다",
+     "en": "to be the same",
+     "audio": "audio/voc_v68.mp3"
+    },
+    {
+     "ko": "처럼",
+     "en": "like, as (attached: 나처럼)",
+     "audio": "audio/voc_v69.mp3"
+    },
+    {
+     "ko": "더",
+     "en": "more",
+     "audio": "audio/voc_v70.mp3"
+    },
+    {
+     "ko": "덜",
+     "en": "less",
+     "audio": "audio/voc_v71.mp3"
+    },
+    {
+     "ko": "둘 다",
+     "en": "both",
+     "audio": "audio/voc_v72.mp3"
+    },
+    {
+     "ko": "반면에",
+     "en": "on the other hand",
+     "audio": "audio/voc_v73.mp3"
+    }
+   ]
+  },
+  {
+   "title": "느낌 · Feelings & body",
+   "items": [
+    {
+     "ko": "졸리다",
+     "en": "to be sleepy",
+     "audio": "audio/voc_v74.mp3"
+    },
+    {
+     "ko": "피곤하다",
+     "en": "to be tired",
+     "audio": "audio/voc_v75.mp3"
+    },
+    {
+     "ko": "답답하다",
+     "en": "to feel stuffy, frustrated",
+     "audio": "audio/voc_v76.mp3"
+    },
+    {
+     "ko": "상쾌하다",
+     "en": "to feel refreshed",
+     "audio": "audio/voc_v77.mp3"
+    },
+    {
+     "ko": "불편하다",
+     "en": "to be uncomfortable",
+     "audio": "audio/voc_v78.mp3"
+    },
+    {
+     "ko": "땀",
+     "en": "sweat",
+     "audio": "audio/voc_v79.mp3"
+    },
+    {
+     "ko": "목마르다",
+     "en": "to be thirsty",
+     "audio": "audio/voc_v80.mp3"
+    },
+    {
+     "ko": "지치다",
+     "en": "to be worn out",
+     "audio": "audio/voc_v81.mp3"
+    }
+   ]
+  },
+  {
+   "title": "동사 · Useful verbs",
+   "items": [
+    {
+     "ko": "입다",
+     "en": "to wear (clothes)",
+     "audio": "audio/voc_v82.mp3"
+    },
+    {
+     "ko": "쓰다",
+     "en": "to wear / use (hat, umbrella)",
+     "audio": "audio/voc_v83.mp3"
+    },
+    {
+     "ko": "벗다",
+     "en": "to take off",
+     "audio": "audio/voc_v84.mp3"
+    },
+    {
+     "ko": "켜다",
+     "en": "to turn on",
+     "audio": "audio/voc_v85.mp3"
+    },
+    {
+     "ko": "끄다",
+     "en": "to turn off",
+     "audio": "audio/voc_v86.mp3"
+    },
+    {
+     "ko": "쉬다",
+     "en": "to rest",
+     "audio": "audio/voc_v87.mp3"
+    },
+    {
+     "ko": "사용하다",
+     "en": "to use",
+     "audio": "audio/voc_v88.mp3"
+    }
+   ]
+  },
+  {
+   "title": "멘토 · 날씨와 옷 · Sun & clothes",
+   "items": [
+    {
+     "ko": "햇빛이 따갑다",
+     "en": "the sun stings the skin",
+     "audio": null
+    },
+    {
+     "ko": "피부가 따갑다",
+     "en": "my skin stings / burns",
+     "audio": null
+    },
+    {
+     "ko": "햇빛이 세다",
+     "en": "the sun is strong",
+     "audio": null
+    },
+    {
+     "ko": "반팔",
+     "en": "short sleeves",
+     "audio": null
+    }
+   ]
+  },
+  {
+   "title": "멘토 · 음식과 건강 · Summer food",
+   "items": [
+    {
+     "ko": "콩국수",
+     "en": "chilled soybean noodle soup",
+     "audio": null
+    },
+    {
+     "ko": "복날",
+     "en": "the dog days (삼복)",
+     "audio": null
+    },
+    {
+     "ko": "보양식",
+     "en": "restorative summer food",
+     "audio": null
+    }
+   ]
+  },
+  {
+   "title": "멘토 · 더위 피하기 · Beating the heat",
+   "items": [
+    {
+     "ko": "햇빛을 막아 주다",
+     "en": "to block the sun",
+     "audio": null
+    },
+    {
+     "ko": "해수욕장",
+     "en": "a swimming beach",
+     "audio": null
+    },
+    {
+     "ko": "피서",
+     "en": "escaping the heat (summer getaway)",
+     "audio": null
+    }
+   ]
+  }
+ ],
+ "full_title": "발표 대본 · The speech",
+ "full": [
+  {
+   "title": "시작 · Opening",
+   "ko": "안녕하십니까? 저는 다라봇이라고 합니다. 오늘은 한국과 캄보디아의 여름 날씨 차이와 생활이나 건강에 미치는 영향에 대해 말씀드리겠습니다. 여름이 되면 한국과 캄보디아의 생활 모습이 많이 달라집니다. 저는 부산에서 2년 동안 살았고 지금은 서울에서 살고 있어서 한국의 여름 날씨에 많이 익숙해졌습니다. 다른 점은 네 가지입니다. 옷, 날씨, 음식, 그리고 더위를 피하는 방법입니다. 그럼 시작하겠습니다.",
+   "en": "Hello. My name is Daraboth. Today I will talk about the difference between Korean and Cambodian summer weather, and its effect on daily life and health. When summer comes, daily life looks quite different in Korea and Cambodia. I lived in Busan for two years and now live in Seoul, so I have become used to Korean summer weather. There are four differences: clothes, weather, food, and how we escape the heat. Then let me begin."
+  },
+  {
+   "title": "옷 · Clothes",
+   "ko": "첫 번째는 옷입니다. 한국 회사에서는 날씨가 더울 때 남자도 반바지를 입고 출근할 수 있는데, 다른 사람들도 다 반바지를 입고 있어서 저도 마음이 편합니다. 하지만 캄보디아 회사에서는 날씨가 더워도 항상 유니폼을 입어야 해서 여름에는 조금 힘듭니다. 회사 밖에서도 다릅니다. 캄보디아 사람들은 햇빛을 싫어해서 날씨가 더워도 긴팔 옷과 긴바지를 많이 입습니다. 이렇게 한국과 캄보디아는 회사에서도 밖에서도 옷이 많이 다릅니다.",
+   "en": "First is clothes. At Korean companies men can wear shorts to work when it is hot, and since everyone else is in shorts too, I feel comfortable. But at Cambodian companies you must wear the uniform however hot it is, so summer is a little hard. Outside work it differs too. Cambodians dislike the sun, so even when it is hot they often wear long sleeves and long trousers. So Korea and Cambodia differ a lot in clothes, at work and outside it."
+  },
+  {
+   "title": "날씨 · Weather",
+   "ko": "두 번째는 날씨입니다. 한국 여름은 보통 습하지만, 바람이 없는 날에는 공기가 건조해서 피부도 같이 건조해집니다. 그래서 저는 로션을 바르는데, 가끔 잊어버려서 피부가 건조할 때가 많습니다. 더운 날씨는 잠에도 영향을 줍니다. 저는 더우면 잠을 잘 못 자서 여름에는 밤이 제일 힘듭니다. 캄보디아는 더운 계절이 길고 바람이 많이 불어서 한국 여름과는 느낌이 많이 다릅니다. 에어컨도 다릅니다. 실내 온도가 24도면 한국 사람들은 시원하다고 하지만, 캄보디아 사람들은 춥다고 합니다. 캄보디아 사람들은 그만큼 추위를 많이 느끼는데, 저는 이것이 재미있습니다. 같은 여름이라도 두 나라에서 느끼는 더위는 이렇게 다릅니다.",
+   "en": "Second is the weather. Korean summer is usually humid, but on windless days the air is dry, so my skin dries out with it. So I use lotion, but I often forget, and then my skin is dry. Hot weather affects sleep too. When it is hot I cannot sleep well, so summer nights are the hardest part for me. In Cambodia the hot season is long and windy, so it feels quite different from Korean summer. AC is different too. At 24 degrees indoors Koreans say it is cool, but Cambodians say it is cold. Cambodians feel cold that easily, and I find that interesting. Even in the same summer, the heat feels this different in the two countries."
+  },
+  {
+   "title": "음식 · Food",
+   "ko": "세 번째는 음식입니다. 한국에는 삼계탕이나 냉면, 콩국수처럼 여름에 먹는 음식이 있고, 특히 복날에는 보양식을 챙겨 먹습니다. 하지만 캄보디아에는 계절에 따라 달라지는 음식이 거의 없습니다. 꾸이띠아우와 삼러꺼꼬는 캄보디아의 유명한 국물 음식인데, 아주 뜨겁지만 여름에도 평소처럼 먹습니다. 저도 여름에 이 음식을 먹고, 스팅 에너지 음료도 계절과 상관없이 항상 마십니다. 그래서 캄보디아에서는 여름이 와도 식사가 거의 그대로입니다.",
+   "en": "Third is food. Korea has summer foods such as samgyetang, naengmyeon, and kongguksu, and on the hottest days (boknal) people eat restorative food (boyangsik); but Cambodia has almost no food that changes with the season. Kuy Teav and Samlor Korko are famous Cambodian soup dishes, and although they are very hot we eat them in summer as usual. I eat them in summer too, and I drink Sting energy drink all year regardless of the season. So in Cambodia, even when summer comes, meals stay much the same."
+  },
+  {
+   "title": "더위 피하기 · Escaping the heat",
+   "ko": "마지막은 더위를 피하는 방법입니다. 한국에서는 여름에 친구들과 한강공원 수영장에 가는데, 물에 들어가면 하루 종일 더웠던 것이 금방 사라집니다. 캄보디아에서는 친구들과 나무가 많은 끼리롬 같은 곳에 캠핑을 갑니다. 한번은 올라갈 때 정말 더울 것 같았는데, 산 위에 도착해 보니 전혀 덥지 않았습니다. 산 위의 바람이 더위를 다 날려 보내는 것 같았고, 저는 그날을 지금도 기억합니다.",
+   "en": "Last is how we escape the heat. In Korea I go to the Han River park pool with friends, and once I am in the water a whole hot day disappears at once. In Cambodia I go camping with friends to places like Kirirom, which has many trees. Once, going up, I thought it would be really hot, but when I got to the top it was not hot at all. It felt as if the wind at the top blew all the heat away, and I still remember that day."
+  },
+  {
+   "title": "마무리 · Closing",
+   "ko": "이렇게 옷, 날씨, 음식, 그리고 더위를 피하는 방법까지 한국과 캄보디아는 여러 가지가 다릅니다. 하지만 각자의 방식으로 더위를 이겨내려는 마음은 비슷하다고 생각합니다. 이상으로 발표를 마치겠습니다. 들어주셔서 감사합니다.",
+   "en": "So in clothes, weather, food, and even how we escape the heat, Korea and Cambodia differ in many ways. But I think the wish to get through the heat, each in their own way, is similar. That concludes my presentation. Thank you for listening."
+  }
+ ],
+ "published": "2026-08-25"
+}
