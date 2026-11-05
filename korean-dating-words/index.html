@@ -1,300 +1,114 @@
 <!doctype html>
-<html lang="ko"><head>
+<html lang="ko">
+<head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>연애 단어 · Dating Words</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@400;500;600;700&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<style>
-:root{
-  --bg:#EFE7D6;--surface:#FBF7EF;--sunken:#F2EADB;--ink:#2C2620;--ink-2:#6B5F50;--ink-3:#948674;
-  --line:#E4D9C6;--accent:#C4703A;--on-accent:#fff;--warn:#B0603F;
-  --f-ko:'Gowun Batang','Hahmlet',serif;--f-disp:'Hahmlet',serif;--f-ui:'IBM Plex Sans',system-ui,sans-serif;
-  --shadow:0 1px 2px rgba(60,46,28,.06),0 8px 24px rgba(60,46,28,.08);
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#211D18;--surface:#2A241D;--sunken:#241F19;--ink:#F1EADC;--ink-2:#C3B7A3;--ink-3:#8E8271;
-  --line:#3A3227;--accent:#E0965F;--on-accent:#241f19;--warn:#E0965F;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.34);
-}}
-*{box-sizing:border-box}html,body{margin:0}
-body{background:var(--bg);background-image:radial-gradient(125% 85% at 50% -12%,color-mix(in srgb,var(--surface) 62%,transparent),transparent 62%);background-attachment:fixed;color:var(--ink);font-family:var(--f-ui);line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 1.1rem 6.5rem}
-.wrap{max-width:900px;margin:0 auto}
-header{padding:2rem 0 .7rem;text-align:center}
-.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
-h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.8rem,5vw,2.6rem);margin:.45rem 0 .3rem;letter-spacing:-.01em}
-.sub{color:var(--ink-2);max-width:46ch;margin:0 auto;font-size:.95rem}
-/* floating chapter rail (right edge, upper area) */
-.chapters{position:fixed;right:.55rem;top:32%;z-index:61;display:flex;flex-direction:column;gap:.28rem;background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 96%,#fff),color-mix(in srgb,var(--surface) 88%,transparent));backdrop-filter:blur(12px) saturate(1.1);border:1px solid var(--line);border-radius:18px;padding:.35rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 12px 30px rgba(60,46,28,.17)}
-.chapters button{font-family:var(--f-ui);color:var(--ink-2);background:transparent;border:none;border-radius:12px;padding:.38rem .4rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.03rem;width:3rem}
-.chapters button .cnum{font-size:.64rem;letter-spacing:.05em;color:var(--ink-3);font-weight:700}
-.chapters button .cko{font-family:var(--f-ko);font-weight:700;font-size:.72rem;line-height:1.12;text-align:center;word-break:keep-all}
-.chapters button .cen{display:none}
-.chapters button:hover{background:var(--sunken)}
-.chapters button.on{background:var(--accent)}
-.chapters button.on:hover{background:var(--accent)}
-.chapters button.on .cko,.chapters button.on .cnum{color:var(--on-accent)}
-.chapters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.chtoggle{font-family:var(--f-ui);font-weight:700;font-size:1.05rem;color:var(--ink-2);background:transparent;border:none;border-radius:12px;padding:.4rem;cursor:pointer;width:3rem;height:2.6rem;display:flex;align-items:center;justify-content:center;transition:background .18s,color .18s,filter .18s}
-.chtoggle:hover{background:var(--sunken)}
-.chtoggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.chapters.collapsed{padding:.16rem;border-radius:50%;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 9px 24px color-mix(in srgb,var(--accent) 28%,rgba(60,46,28,.16))}
-.chapters.collapsed .chtoggle{background:var(--accent);color:var(--on-accent);border-radius:50%;width:2.9rem;height:2.9rem;font-size:1.15rem}
-.chapters.collapsed .chtoggle:hover{filter:brightness(1.06)}
-.chapters.collapsed button[data-tab]{display:none}
-/* the book */
-.book{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:4px 14px 14px 4px;box-shadow:var(--shadow),5px 5px 0 -1px var(--sunken),6px 6px 0 -1px var(--line),10px 9px 0 -2px var(--sunken),11px 10px 0 -2px var(--line);padding:1.3rem 1.5rem 1rem 2.2rem;margin:1.3rem 12px 1.9rem 0;overflow:hidden}
-.book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1.25rem;background:linear-gradient(90deg,color-mix(in srgb,var(--ink) 13%,transparent),transparent 85%);border-right:1px solid var(--line);pointer-events:none}
-.runhead{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:.5rem;margin-bottom:1.1rem;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
-.runhead .rh-ch{color:var(--accent);font-weight:700}
-.pages{position:relative;min-height:40vh}
-.pagefoot{text-align:center;color:var(--ink-3);font-size:.82rem;letter-spacing:.35em;margin-top:1.1rem;padding-top:.6rem;border-top:1px solid var(--line)}
-.panel{display:none} .panel.on{display:block;animation:pageturn .42s cubic-bezier(.2,.7,.2,1)}
-@keyframes pageturn{from{opacity:0;transform:perspective(1200px) rotateY(-9deg) translateX(16px);transform-origin:left center}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.panel.on{animation:none}}
-/* spine */
-.spine-wrap{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.15rem 1.1rem 1.25rem;box-shadow:var(--shadow);margin:0 0 1.6rem}
-.spine-hd{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 .2rem .9rem}
-.spine-hd h2{font-family:var(--f-disp);font-size:1.02rem;margin:0;font-weight:600}
-.spine-hd .note{color:var(--ink-2);font-size:.82rem}
-.spine{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}
-.step{position:relative;background:var(--sunken);border:1px solid var(--line);border-top:3px solid var(--pc);border-radius:13px;padding:.85rem .6rem;text-align:center;display:flex;flex-direction:column;gap:.15rem}
-.step .emoji{font-size:1.5rem;line-height:1.1}
-.step .s-ko{font-family:var(--f-ko);font-weight:700;font-size:1.06rem;color:var(--pc)}
-.step .s-en{font-size:.74rem;color:var(--ink-2);font-weight:500}
-.step .s-day{font-size:.7rem;color:var(--ink-3);margin-top:.15rem;font-style:italic}
-.step:not(:last-child)::after{content:"→";position:absolute;right:-.46rem;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:.9rem;z-index:2}
-.spine-foot{display:flex;align-items:center;gap:.7rem;margin:1rem .2rem 0;color:var(--ink-2);font-size:.85rem}
-.method{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:center;align-items:center;margin:0 0 1.3rem;color:var(--ink-2);font-size:.86rem}
-.method b{color:var(--ink)} .method .n{display:inline-grid;place-items:center;width:1.35rem;height:1.35rem;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:.72rem;font-weight:700;margin-right:.42rem}
-/* cards */
-.cards{display:flex;flex-direction:column;gap:1.15rem}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,38%) 1fr;transition:box-shadow .25s,transform .25s}
-.card.now{box-shadow:0 0 0 3px var(--accent),var(--shadow);transform:translateY(-2px)}
-.pic{position:relative;background:var(--sunken)} .pic img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
-.body{padding:1.15rem 1.25rem 1.2rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
-.chips{display:flex;flex-wrap:wrap;gap:.4rem}
-.chip{font-size:.68rem;font-weight:600;border-radius:999px;padding:.16rem .6rem}
-.chip.part{color:#fff;background:var(--pc)}
-.chip.hook{color:var(--ink-2);background:var(--sunken);border:1px solid var(--line);font-family:var(--f-ko);font-weight:700}
-.ko{font-family:var(--f-ko);font-weight:700;font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.55;margin:.1rem 0 0;word-break:keep-all}
-.en{color:var(--ink-2);font-size:.9rem;margin:0}
-.play{align-self:flex-start;margin-top:.35rem;display:inline-flex;align-items:center;gap:.45rem;font-family:var(--f-ui);font-size:.85rem;font-weight:600;color:var(--on-accent);background:var(--accent);border:none;border-radius:999px;padding:.5rem .95rem;cursor:pointer;box-shadow:0 4px 13px color-mix(in srgb,var(--accent) 28%,transparent);transition:transform .12s ease,filter .18s ease,box-shadow .18s ease}
-.play:hover{filter:brightness(1.05);transform:translateY(-1px)} .play:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.play.playing{background:var(--warn);animation:plpulse 1s ease-in-out infinite}
-@keyframes plpulse{0%,100%{box-shadow:0 0 0 2px color-mix(in srgb,var(--warn) 45%,transparent)}50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--warn) 6%,transparent)}}
-body.hide-ko .ko{filter:blur(7px);opacity:.55;cursor:pointer;transition:filter .15s,opacity .15s}
-body.hide-ko .ko.reveal{filter:none;opacity:1} body.hide-en .en{display:none}
-/* qa */
-.strategy{background:var(--sunken);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:.85rem 1rem;margin:0 0 1.4rem;color:var(--ink-2);font-size:.9rem}
-.strategy b{color:var(--ink)}
-h2.sec{font-family:var(--f-disp);font-size:1.15rem;margin:2rem 0 .4rem;display:flex;align-items:baseline;gap:.5rem}
-h2.sec .cnt{font-family:var(--f-ui);font-size:.75rem;color:var(--ink-3);font-weight:500}
-.secnote{color:var(--ink-2);font-size:.85rem;margin:0 0 1rem}
-h3.grp{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:1.5rem 0 .55rem}
-.qa{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin:0 0 .7rem;overflow:hidden}
-.qhead{display:flex;align-items:flex-start}
-.qa .q{flex:1;min-width:0;text-align:left;background:none;border:none;cursor:pointer;display:flex;align-items:flex-start;gap:.65rem;padding:.95rem 1.05rem;font-family:inherit}
-.qa .qm{flex:none;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:.78rem;font-weight:700;display:grid;place-items:center;margin-top:.05rem}
-.qa.trap .qm{background:var(--warn)}
-.qa .qtext{flex:1;min-width:0;display:flex;flex-direction:column;gap:.14rem}
-.qa .qko{font-family:var(--f-ko);font-weight:700;font-size:1.08rem;color:var(--ink);line-height:1.45;word-break:keep-all}
-.qa .qen{font-size:.82rem;color:var(--ink-2);line-height:1.4}
-.qa .tw{flex:none;font-size:.66rem;color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:.05rem .45rem;margin-top:.2rem}
-.qa.open .tw{display:none}
-.qplay{flex:none;margin:.85rem .85rem 0 0}
-.qa .a{display:none;padding:0 1.05rem 1.05rem 3.2rem;border-top:1px solid var(--line);padding-top:.8rem}
-.qa.open .a,body.reveal .qa .a{display:block}
-.ako{font-family:var(--f-ko);font-weight:700;font-size:1.05rem;line-height:1.6;margin:.15rem 0 .3rem;word-break:keep-all}
-.confirm{font-family:var(--f-ui);font-size:.62rem;font-weight:700;color:var(--warn);border:1px solid var(--warn);border-radius:999px;padding:.05rem .4rem;margin-left:.5rem;vertical-align:middle}
-.aen{color:var(--ink-2);font-size:.88rem;margin:0 0 .35rem}
-.why{color:var(--warn);font-size:.82rem;font-style:italic;margin:.2rem 0 .35rem;line-height:1.5}
-.surv{display:flex;align-items:center;gap:.6rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;margin:0 0 .5rem;box-shadow:var(--shadow)}
-.surv .sko{font-family:var(--f-ko);font-weight:700;font-size:.98rem;flex:1;word-break:keep-all}
-.surv .sen{color:var(--ink-3);font-size:.78rem;flex:none;max-width:42%}
-.play.mini{padding:.35rem;border-radius:50%;margin-top:0}
-/* vocab */
-.vocgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.5rem;margin:0 0 1.3rem}
-.voc{display:flex;align-items:center;gap:.55rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.5rem .65rem;box-shadow:var(--shadow)}
-.voc .vplay{flex:none;margin:0}
-.voc .vko{font-family:var(--f-ko);font-weight:700;font-size:1.08rem;color:var(--ink);word-break:keep-all}
-.voc .ven{color:var(--ink-2);font-size:.8rem;margin-left:auto;text-align:right;padding-left:.4rem}
-body.hide-vko .voc .vko{filter:blur(6px);opacity:.5;cursor:pointer} body.hide-vko .voc .vko.reveal{filter:none;opacity:1}
-body.hide-ven .voc .ven{filter:blur(6px);opacity:.5;cursor:pointer} body.hide-ven .voc .ven.reveal{filter:none;opacity:1}
-/* full (continuous document) */
-.fsec{font-family:var(--f-disp);font-size:1.35rem;margin:2rem 0 .5rem;padding-bottom:.3rem;border-bottom:2px solid var(--accent)}
-.fsec:first-of-type{margin-top:.6rem}
-.fh{font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:1.3rem 0 .4rem}
-.fko{font-family:var(--f-ko);font-size:1.12rem;line-height:1.95;margin:0 0 .35rem;word-break:keep-all}
-.fen{color:var(--ink-2);font-size:.9rem;line-height:1.6;margin:0 0 .7rem}
-.fqa{margin:0 0 .85rem}
-.fq{font-family:var(--f-ko);font-weight:700;font-size:1.02rem;margin:0;word-break:keep-all}
-.fqe{color:var(--ink-3);font-size:.82rem;margin:.05rem 0 .15rem}
-.fa{font-family:var(--f-ko);font-size:1rem;line-height:1.6;margin:.1rem 0 0;word-break:keep-all}
-.fae{color:var(--ink-2);font-size:.84rem;margin:.05rem 0 0}
-.fvoc{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0 1rem;margin:0 0 .5rem}
-.fv{display:flex;gap:.5rem;align-items:baseline;padding:.2rem 0;border-bottom:1px dotted var(--line)}
-.fvko{font-family:var(--f-ko);font-weight:700;font-size:1rem;flex:none;min-width:5.5rem}
-.fven{color:var(--ink-2);font-size:.85rem;margin-left:auto;text-align:right}
-body.hide-fen .fen,body.hide-fen .fqe,body.hide-fen .fae,body.hide-fen .fven{display:none}
-@media print{
-  .chapters,.bar,.method,.spine-wrap,header .eyebrow,.runhead,.pagefoot{display:none!important}
-  body{padding:0} .panel{display:none!important} #panel-full{display:block!important}
-  .book{box-shadow:none;border:none;padding:0;margin:0} .book::before{display:none}
-  .fko,.fen,.fa,.fae,.fq,.fqe,.fvko,.fven{color:#000}
-  .fsec{border-color:#000} .fh{color:#333}
-}
-/* fixed bottom bar */
-.bar{position:fixed;left:50%;bottom:.9rem;transform:translateX(-50%);z-index:60;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;justify-content:center;max-width:calc(100% - 1.3rem);background:linear-gradient(180deg,color-mix(in srgb,var(--surface) 97%,#ffffff),color-mix(in srgb,var(--surface) 90%,transparent));backdrop-filter:blur(14px) saturate(1.15);border:1px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:20px;padding:.5rem .6rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 14px 36px rgba(60,46,28,.18),0 3px 10px rgba(60,46,28,.10);transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .3s ease}
-.bar.hidden{transform:translateX(-50%) translateY(175%);opacity:0}
-.barpeek{position:fixed;left:50%;bottom:.6rem;transform:translateX(-50%);z-index:59;width:2.7rem;height:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:999px;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line);box-shadow:0 5px 14px rgba(60,46,28,.15);cursor:pointer;color:var(--ink-3);font-size:.9rem;line-height:1;opacity:0;pointer-events:none;transition:opacity .28s ease}
-.bar.hidden + .barpeek{opacity:1;pointer-events:auto}
-.acts{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:center}
-.acts[hidden]{display:none}
-.tbtn{font-family:var(--f-ui);font-size:.82rem;font-weight:600;letter-spacing:.005em;color:var(--ink-2);background:color-mix(in srgb,var(--sunken) 55%,var(--surface));border:1px solid var(--line);border-radius:12px;padding:.5rem .9rem;cursor:pointer;transition:transform .12s ease,background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
-.tbtn:hover{color:var(--ink);background:color-mix(in srgb,var(--accent) 13%,var(--surface));border-color:color-mix(in srgb,var(--accent) 45%,var(--line));transform:translateY(-1px)}
-.tbtn:active{transform:translateY(0);box-shadow:inset 0 2px 5px rgba(60,46,28,.14)}
-.tbtn.on{background:var(--accent);color:var(--on-accent);border-color:transparent;box-shadow:0 5px 14px color-mix(in srgb,var(--accent) 34%,transparent)}
-.tbtn.play-all{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))} .tbtn.play-all.on{color:var(--on-accent)}
-.homebtn{display:inline-flex;align-items:center;gap:.35rem;text-decoration:none;color:var(--ink-2);flex:none}
-.homebtn:hover{color:var(--accent);border-color:var(--accent)}
-.flipnav{gap:.5rem} .tbtn.nav{padding:.4rem .75rem;font-size:.95rem;line-height:1}
-.tbtn.nav:disabled{opacity:.35;cursor:default}
-.pageind{font-family:var(--f-ui);font-size:.78rem;font-weight:600;color:var(--ink-2);min-width:5rem;text-align:center;letter-spacing:.03em}
-.tbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-footer{text-align:center;color:var(--ink-3);font-size:.8rem;margin-top:2.4rem;line-height:1.7}
-@media (max-width:640px){.card{grid-template-columns:1fr} .pic img{aspect-ratio:16/9} .spine{grid-template-columns:repeat(2,1fr);gap:.7rem} .step:nth-child(2)::after,.step:last-child::after{content:none} .surv .sen{display:none} .qa .a{padding-left:1.05rem}
-  .chapters{top:26%;right:.4rem} .chapters button{width:2.85rem;padding:.32rem .35rem} .chapters button .cko{font-size:.68rem}
-  .book{box-shadow:var(--shadow);border-radius:4px 10px 10px 4px;padding:1.1rem 1.05rem .9rem 1.7rem;margin-right:0}
-  .bar{left:.55rem;right:.55rem;transform:none;max-width:none;bottom:.6rem;padding:.45rem .5rem} .bar.hidden{transform:translateY(185%)}
-  .tbtn{padding:.45rem .75rem;font-size:.8rem}
-  body{padding-bottom:7.5rem}
-  .vocgrid{grid-template-columns:1fr 1fr} .fvoc{grid-template-columns:1fr} header{padding-top:1.6rem} h1{margin-bottom:.25rem}}
-@media (max-width:400px){.spine{grid-template-columns:1fr} .step:not(:last-child)::after{content:none} .vocgrid{grid-template-columns:1fr}}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연애 단어 · Dating Words · 스터디북</title>
+<meta name="description" content="Fourteen dating words along one arc: someone introduces you, nothing has a name yet, somebody finally says it.">
+<meta name="theme-color" content="#1C2A4A">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../assets/line.css">
+<link rel="stylesheet" href="../assets/unit.css">
 </head>
-<body>
-<div class="wrap">
-  <header>
-    <div class="eyebrow">TTMIK · 2026-09-14</div>
-    <h1>연애 단어</h1>
-    <p class="sub">Fourteen dating words along one arc: someone introduces you, nothing has a name yet, somebody finally says it.</p>
-  </header>
+<body data-unit="korean-dating-words">
+<header class="usign">
+  <div class="wrap">
+    <div class="row"><a class="back" href="../"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>노선도 · All units</a></div>
+    <div class="utitle"><h1>연애 단어</h1><p>Dating Words · TTMIK · 2026-09-14</p></div>
+  </div>
+  <div class="stripe" aria-hidden="true"></div>
+  <nav class="tabs wrap" role="tablist" aria-label="Unit parts">
+    <button role="tab" data-tab="cards" aria-controls="p-cards">그림 카드<small>8 cards</small></button>
+    <button role="tab" data-tab="qa" aria-controls="p-qa">예상 질문<small>6 Q&amp;A</small></button>
+    <button role="tab" data-tab="voc" aria-controls="p-voc">단어<small>14 words</small></button>
+    <button role="tab" data-tab="full" aria-controls="p-full">전체<small>read all</small></button>
+  </nav>
+</header>
 
-  <div class="book">
-    <div class="runhead"><span class="rh-ch" id="runCh">그림 카드 · Speech</span><span class="rh-book">연애 단어 · Dating Words</span></div>
-    <div class="pages">
-
-  <section class="panel on" id="panel-cards">
-    <section class="spine-wrap">
-      <div class="spine-hd"><h2>The spine · 연애의 순서</h2><span class="note">Korean names each stage; English blurs them</span></div>
-      <div class="spine" style="grid-template-columns:repeat(5,1fr)"><div class="step" style="--pc:#5b7fa6"><span class="s-ko" lang="ko">만남</span><span class="s-en">Meeting</span><span class="s-day">Someone introduces you</span></div><div class="step" style="--pc:#8a6fa6"><span class="s-ko" lang="ko">썸</span><span class="s-en">The limbo</span><span class="s-day">No label yet</span></div><div class="step" style="--pc:#c4703a"><span class="s-ko" lang="ko">고백</span><span class="s-en">Confession</span><span class="s-day">Someone says it</span></div><div class="step" style="--pc:#4f7a6f"><span class="s-ko" lang="ko">연애</span><span class="s-en">Dating</span><span class="s-day">Counting from day one</span></div><div class="step" style="--pc:#8a7f6f"><span class="s-ko" lang="ko">이별</span><span class="s-en">Parting</span><span class="s-day">It ends</span></div></div>
-      <div class="spine-foot"><span>만남 → 썸 → 고백 → 연애 → 이별. The middle one is the word English has no equivalent for.</span></div>
-    </section>
-    <p class="method"><span><span class="n">1</span><b>See</b> the picture</span><span><span class="n">2</span><b>Say</b> the Korean out loud</span><span><span class="n">3</span><b>Tap</b> to check &amp; <b>Listen</b></span></p>
-    <div class="cards"><article class="card"><div class="pic"><img loading="lazy" src="img/beat01.jpg" alt="My friend goes on a lot of blind dates these days."></div><div class="body"><div class="chips"><span class="chip part" style="--pc:#5b7fa6">만남 · Meeting</span><span class="chip hook">소개팅</span></div><p class="ko" lang="ko">요즘 친구가 소개팅을 많이 해요.</p><p class="en">My friend goes on a lot of blind dates these days.</p><button class="play" data-au="audio/b1.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="card"><div class="pic"><img loading="lazy" src="img/beat02.jpg" alt="I went on a date with someone a senior at work introduced to me."></div><div class="body"><div class="chips"><span class="chip part" style="--pc:#5b7fa6">만남 · Meeting</span><span class="chip hook">선배</span></div><p class="ko" lang="ko">회사 선배가 소개해 준 사람이랑 데이트를 했어요.</p><p class="en">I went on a date with someone a senior at work introduced to me.</p><button class="play" data-au="audio/b2.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="card"><div class="pic"><img loading="lazy" src="img/beat03.jpg" alt="The two of them aren&#x27;t dating yet, but they&#x27;re in the talking stage."></div><div class="body"><div class="chips"><span class="chip part" style="--pc:#8a6fa6">썸 · The limbo</span><span class="chip hook">썸</span></div><p class="ko" lang="ko">두 사람은 아직 사귀지 않지만 썸을 타고 있어요.</p><p class="en">The two of them aren&#x27;t dating yet, but they&#x27;re in the talking stage.</p><button class="play" data-au="audio/b3.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="card"><div class="pic"><img loading="lazy" src="img/beat04.jpg" alt="Some people have a lot of aegyo and some don&#x27;t."></div><div class="body"><div class="chips"><span class="chip part" style="--pc:#8a6fa6">썸 · The limbo</span><span class="chip hook">애교</span></div><p class="ko" lang="ko">애교가 많은 사람도 있고 없는 사람도 있어요.</p><p class="en">Some people have a lot of aegyo and some don&#x27;t.</p><button class="play" data-au="audio/b4.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="card"><div class="pic"><img loading="lazy" src="img/beat05.jpg" alt="I wanted to confess, but I was so nervous that I couldn&#x27;t say it."></div><div class="body"><div class="chips"><span class="chip part" style="--pc:#c4703a">고백 · Confession</span><span class="chip hook">고백</span></div><p class="ko" lang="ko">고백하고 싶은데 너무 떨려서 말을 못 했어요.</p><p class="en">I wanted to confess, but I was so nervous that I couldn&#x27;t say it.</p><button class="play" data-au="audio/b5.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="card"><div class="pic"><img loading="lazy" src="img/beat06.jpg" alt="I received a confession yesterday, so we decided to start dating today."></div><div class="body"><div class="chips"><span class="chip part" style="--pc:#c4703a">고백 · Confession</span><span class="chip hook">사귀다</span></div><p class="ko" lang="ko">어제 고백을 받아서 오늘부터 사귀기로 했어요.</p><p class="en">I received a confession yesterday, so we decided to start dating today.</p><button class="play" data-au="audio/b6.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="card"><div class="pic"><img loading="lazy" src="img/beat07.jpg" alt="Next week is our hundredth day, so I&#x27;m preparing a present."></div><div class="body"><div class="chips"><span class="chip part" style="--pc:#4f7a6f">연애 · Dating</span><span class="chip hook">백일</span></div><p class="ko" lang="ko">다음 주가 백 일이라서 선물을 준비하고 있어요.</p><p class="en">Next week is our hundredth day, so I&#x27;m preparing a present.</p><button class="play" data-au="audio/b7.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="card"><div class="pic"><img loading="lazy" src="img/beat08.jpg" alt="We were together a long time, but in the end we broke up."></div><div class="body"><div class="chips"><span class="chip part" style="--pc:#8a7f6f">이별 · Parting</span><span class="chip hook">헤어지다</span></div><p class="ko" lang="ko">오래 만났지만 결국 헤어졌어요.</p><p class="en">We were together a long time, but in the end we broke up.</p><button class="play" data-au="audio/b8.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article></div>
-  </section>
-
-  <section class="panel" id="panel-qa">
-    <p class="secnote" style="margin-top:.4rem">The questions a Korean friend would actually ask back. Answer aloud, then tap to compare.</p>
-    <article class="qa"><div class="qhead"><button class="q" type="button"><span class="qm">Q</span><span class="qtext"><span class="qko" lang="ko">썸이 뭐예요?</span><span class="qen">What is sseom?</span></span><span class="tw">tap</span></button></div><div class="a"><p class="ako" lang="ko">사귀기 전에 서로 좋아하는 것 같은 단계예요. 영어로는 딱 맞는 말이 없어요.</p><p class="aen">It&#x27;s the stage before dating where you both seem to like each other. There is no exact English word.</p><button class="play" data-au="audio/a1.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button"><span class="qm">Q</span><span class="qtext"><span class="qko" lang="ko">고백하고 사귀다가 어떻게 달라요?</span><span class="qen">How are gobaek and sagwida different?</span></span><span class="tw">tap</span></button></div><div class="a"><p class="ako" lang="ko">고백은 마음을 말하는 순간이고, 사귀다는 그다음부터 시작하는 관계예요.</p><p class="aen">Gobaek is the moment you say how you feel; sagwida is the relationship that starts after it.</p><button class="play" data-au="audio/a2.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button"><span class="qm">Q</span><span class="qtext"><span class="qko" lang="ko">한국에서는 왜 백 일을 챙겨요?</span><span class="qen">Why do Koreans celebrate the 100th day?</span></span><span class="tw">tap</span></button></div><div class="a"><p class="ako" lang="ko">처음 만난 날부터 날짜를 세기 때문에 백 일이 중요한 날이 돼요.</p><p class="aen">Because the days are counted from the first day you met, so day 100 becomes a real milestone.</p><button class="play" data-au="audio/a3.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button"><span class="qm">Q</span><span class="qtext"><span class="qko" lang="ko">애교를 영어로 어떻게 말해요?</span><span class="qen">How do you say aegyo in English?</span></span><span class="tw">tap</span></button></div><div class="a"><p class="ako" lang="ko">딱 맞는 단어가 없어서 보통 그냥 애교라고 해요. 귀엽게 행동하는 거예요.</p><p class="aen">There is no exact word, so people usually just say aegyo. It means acting cute.</p><button class="play" data-au="audio/a4.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button"><span class="qm">Q</span><span class="qtext"><span class="qko" lang="ko">소개팅은 누가 시켜 줘요?</span><span class="qen">Who sets up a sogaeting?</span></span><span class="tw">tap</span></button></div><div class="a"><p class="ako" lang="ko">보통 친구나 회사 선배가 두 사람을 소개해 줘요.</p><p class="aen">Usually a friend or a senior at work introduces the two people.</p><button class="play" data-au="audio/a5.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button"><span class="qm">Q</span><span class="qtext"><span class="qko" lang="ko">밀당이 무슨 뜻이에요?</span><span class="qen">What does mildang mean?</span></span><span class="tw">tap</span></button></div><div class="a"><p class="ako" lang="ko">밀고 당기기예요. 관심 있는 것처럼 하다가 조금 멀어지는 거예요.</p><p class="aen">It is &quot;push and pull&quot;: acting interested, then pulling back a little.</p><button class="play" data-au="audio/a6.mp3"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Listen</span></button></div></article>
-  </section>
-
-  <section class="panel" id="panel-voc">
-    <p class="secnote" style="margin-top:.4rem">Tap &#9654; to hear each word. Use <b>Hide English</b> to test the meaning, or <b>Hide Korean</b> to produce the word yourself.</p>
-    <h3 class="grp">만남 · Meeting</h3><div class="vocgrid"><div class="voc"><button class="play mini vplay" data-au="audio/v1.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">연애</span><span class="ven">dating, a romantic relationship</span></div><div class="voc"><button class="play mini vplay" data-au="audio/v2.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">소개팅</span><span class="ven">a blind date set up by a friend</span></div><div class="voc"><button class="play mini vplay" data-au="audio/v3.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">선배</span><span class="ven">senior at school or work</span></div><div class="voc"><button class="play mini vplay" data-au="audio/v4.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">데이트</span><span class="ven">a date</span></div></div><h3 class="grp">썸 · The limbo</h3><div class="vocgrid"><div class="voc"><button class="play mini vplay" data-au="audio/v5.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">썸</span><span class="ven">the talking stage</span></div><div class="voc"><button class="play mini vplay" data-au="audio/v6.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">썸타다</span><span class="ven">to be in the talking stage</span></div><div class="voc"><button class="play mini vplay" data-au="audio/v7.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">애교</span><span class="ven">cute, affectionate behaviour</span></div><div class="voc"><button class="play mini vplay" data-au="audio/v8.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">밀당</span><span class="ven">push and pull, playing hard to get</span></div></div><h3 class="grp">고백 · Confession</h3><div class="vocgrid"><div class="voc"><button class="play mini vplay" data-au="audio/v9.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">고백</span><span class="ven">a confession of feelings</span></div><div class="voc"><button class="play mini vplay" data-au="audio/v10.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">사귀다</span><span class="ven">to date, to go out with</span></div><div class="voc"><button class="play mini vplay" data-au="audio/v11.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">짝사랑</span><span class="ven">a one-sided love</span></div></div><h3 class="grp">연애 · Dating</h3><div class="vocgrid"><div class="voc"><button class="play mini vplay" data-au="audio/v12.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">커플</span><span class="ven">a couple</span></div><div class="voc"><button class="play mini vplay" data-au="audio/v13.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">백 일</span><span class="ven">the hundredth day</span></div></div><h3 class="grp">이별 · Parting</h3><div class="vocgrid"><div class="voc"><button class="play mini vplay" data-au="audio/v14.mp3"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">헤어지다</span><span class="ven">to break up</span></div></div>
-  </section>
-
-  <section class="panel" id="panel-full">
-    <h2 class="sec">그림 카드 · The sentences</h2><p class="fko" lang="ko">요즘 친구가 소개팅을 많이 해요.</p><p class="fen">My friend goes on a lot of blind dates these days.</p><p class="fko" lang="ko">회사 선배가 소개해 준 사람이랑 데이트를 했어요.</p><p class="fen">I went on a date with someone a senior at work introduced to me.</p><p class="fko" lang="ko">두 사람은 아직 사귀지 않지만 썸을 타고 있어요.</p><p class="fen">The two of them aren&#x27;t dating yet, but they&#x27;re in the talking stage.</p><p class="fko" lang="ko">애교가 많은 사람도 있고 없는 사람도 있어요.</p><p class="fen">Some people have a lot of aegyo and some don&#x27;t.</p><p class="fko" lang="ko">고백하고 싶은데 너무 떨려서 말을 못 했어요.</p><p class="fen">I wanted to confess, but I was so nervous that I couldn&#x27;t say it.</p><p class="fko" lang="ko">어제 고백을 받아서 오늘부터 사귀기로 했어요.</p><p class="fen">I received a confession yesterday, so we decided to start dating today.</p><p class="fko" lang="ko">다음 주가 백 일이라서 선물을 준비하고 있어요.</p><p class="fen">Next week is our hundredth day, so I&#x27;m preparing a present.</p><p class="fko" lang="ko">오래 만났지만 결국 헤어졌어요.</p><p class="fen">We were together a long time, but in the end we broke up.</p><h2 class="sec">예상 질문 · Q&amp;A</h2><div class="fqa"><p class="fko" lang="ko">Q. 썸이 뭐예요?</p><p class="fen">What is sseom?</p><p class="fko" lang="ko">A. 사귀기 전에 서로 좋아하는 것 같은 단계예요. 영어로는 딱 맞는 말이 없어요.</p><p class="fen">It&#x27;s the stage before dating where you both seem to like each other. There is no exact English word.</p></div><div class="fqa"><p class="fko" lang="ko">Q. 고백하고 사귀다가 어떻게 달라요?</p><p class="fen">How are gobaek and sagwida different?</p><p class="fko" lang="ko">A. 고백은 마음을 말하는 순간이고, 사귀다는 그다음부터 시작하는 관계예요.</p><p class="fen">Gobaek is the moment you say how you feel; sagwida is the relationship that starts after it.</p></div><div class="fqa"><p class="fko" lang="ko">Q. 한국에서는 왜 백 일을 챙겨요?</p><p class="fen">Why do Koreans celebrate the 100th day?</p><p class="fko" lang="ko">A. 처음 만난 날부터 날짜를 세기 때문에 백 일이 중요한 날이 돼요.</p><p class="fen">Because the days are counted from the first day you met, so day 100 becomes a real milestone.</p></div><div class="fqa"><p class="fko" lang="ko">Q. 애교를 영어로 어떻게 말해요?</p><p class="fen">How do you say aegyo in English?</p><p class="fko" lang="ko">A. 딱 맞는 단어가 없어서 보통 그냥 애교라고 해요. 귀엽게 행동하는 거예요.</p><p class="fen">There is no exact word, so people usually just say aegyo. It means acting cute.</p></div><div class="fqa"><p class="fko" lang="ko">Q. 소개팅은 누가 시켜 줘요?</p><p class="fen">Who sets up a sogaeting?</p><p class="fko" lang="ko">A. 보통 친구나 회사 선배가 두 사람을 소개해 줘요.</p><p class="fen">Usually a friend or a senior at work introduces the two people.</p></div><div class="fqa"><p class="fko" lang="ko">Q. 밀당이 무슨 뜻이에요?</p><p class="fen">What does mildang mean?</p><p class="fko" lang="ko">A. 밀고 당기기예요. 관심 있는 것처럼 하다가 조금 멀어지는 거예요.</p><p class="fen">It is &quot;push and pull&quot;: acting interested, then pulling back a little.</p></div><h2 class="sec">단어 · Vocabulary</h2><h3 class="grp">만남 · Meeting</h3><div class="fvoc"><span class="fv"><b lang="ko">연애</b> <span class="fen">dating, a romantic relationship</span></span><span class="fv"><b lang="ko">소개팅</b> <span class="fen">a blind date set up by a friend</span></span><span class="fv"><b lang="ko">선배</b> <span class="fen">senior at school or work</span></span><span class="fv"><b lang="ko">데이트</b> <span class="fen">a date</span></span></div><h3 class="grp">썸 · The limbo</h3><div class="fvoc"><span class="fv"><b lang="ko">썸</b> <span class="fen">the talking stage</span></span><span class="fv"><b lang="ko">썸타다</b> <span class="fen">to be in the talking stage</span></span><span class="fv"><b lang="ko">애교</b> <span class="fen">cute, affectionate behaviour</span></span><span class="fv"><b lang="ko">밀당</b> <span class="fen">push and pull, playing hard to get</span></span></div><h3 class="grp">고백 · Confession</h3><div class="fvoc"><span class="fv"><b lang="ko">고백</b> <span class="fen">a confession of feelings</span></span><span class="fv"><b lang="ko">사귀다</b> <span class="fen">to date, to go out with</span></span><span class="fv"><b lang="ko">짝사랑</b> <span class="fen">a one-sided love</span></span></div><h3 class="grp">연애 · Dating</h3><div class="fvoc"><span class="fv"><b lang="ko">커플</b> <span class="fen">a couple</span></span><span class="fv"><b lang="ko">백 일</b> <span class="fen">the hundredth day</span></span></div><h3 class="grp">이별 · Parting</h3><div class="fvoc"><span class="fv"><b lang="ko">헤어지다</b> <span class="fen">to break up</span></span></div>
-  </section>
-
+<main class="wrap">
+  <section class="panel" id="p-cards" role="tabpanel">
+    <section class="eli" aria-label="The big picture"><h2>한눈에 · The big picture</h2><p class="eli-why">Korean has a word for each stage of dating. English blurs them together.</p><ol><li style="--lc:#00A84D"><img src="img/d01-sogaeting.svg" alt="" loading="lazy"><b lang="ko">소개팅</b><span>A friend sets up a blind date</span></li><li style="--lc:#00A5DE"><img src="img/d03-sseom.svg" alt="" loading="lazy"><b lang="ko">썸</b><span>Liking each other, no label yet</span></li><li style="--lc:#EF7C1C"><img src="img/d05-gobaek.svg" alt="" loading="lazy"><b lang="ko">고백</b><span>Someone says it out loud</span></li><li style="--lc:#996CAC"><img src="img/d07-100days.svg" alt="" loading="lazy"><b lang="ko">백일</b><span>Day 100 together is a big day</span></li><li style="--lc:#0052A4"><img src="img/d08-breakup.svg" alt="" loading="lazy"><b lang="ko">헤어지다</b><span>It ends</span></li></ol></section>
+    <section class="map" aria-label="Sections"><h2>노선도 · 연애의 순서</h2><p class="note">Korean names each stage; English blurs them: 만남 (Someone introduces you), 썸 (No label yet), 고백 (Someone says it), 연애 (Counting from day one), 이별 (It ends).</p><ol><li data-sec="s1" style="--lc:#00A84D"><button type="button"><span class="m-ko" lang="ko">만남</span><span class="m-en">Meeting</span></button></li><li data-sec="s2" style="--lc:#00A5DE"><button type="button"><span class="m-ko" lang="ko">썸</span><span class="m-en">The limbo</span></button></li><li data-sec="s3" style="--lc:#EF7C1C"><button type="button"><span class="m-ko" lang="ko">고백</span><span class="m-en">Confession</span></button></li><li data-sec="s4" style="--lc:#996CAC"><button type="button"><span class="m-ko" lang="ko">연애</span><span class="m-en">Dating</span></button></li><li data-sec="s5" style="--lc:#0052A4"><button type="button"><span class="m-ko" lang="ko">이별</span><span class="m-en">Parting</span></button></li></ol><div class="foot"><span>만남 → 썸 → 고백 → 연애 → 이별. The middle one is the word English has no equivalent for.</span></div></section>
+    <ol class="how"><li><b>1</b>Look at the picture</li><li><b>2</b>Recall the Korean in your head</li><li><b>3</b>Tap to check, then listen</li></ol>
+    <div class="platform">
+      <section class="stage" id="stage" aria-label="Now studying" aria-live="polite">
+        <figure class="pic"><img src="img/d01-sogaeting.svg" alt=""></figure>
+        <div class="st-body">
+          <div class="ctop"></div>
+          <p class="ko st-ko" lang="ko" tabindex="0"></p>
+          <span class="prog" aria-hidden="true"><i></i></span>
+          <p class="en st-en"></p>
+          <div class="st-ctl">
+            <button class="st-nav" id="stPrev" type="button" aria-label="Previous card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button class="bigplay" id="stPlay" type="button" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button>
+            <button class="st-nav" id="stNext" type="button" aria-label="Next card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            <span class="st-count"></span>
+          </div>
+          <p class="keys"><kbd>Space</kbd> listen · <kbd>←</kbd> <kbd>→</kbd> move · <kbd>K</kbd> show Korean</p>
+        </div>
+      </section>
+      <div class="cards" role="list" aria-label="All lines"><article class="card" id="c1" data-sec="s1" style="--lc:#00A84D"><figure class="pic flat"><img loading="lazy" src="img/d01-sogaeting.svg" alt="Two coffees on a cafe table with a pink heart"><button class="cplay" type="button" data-au="audio/b1.mp3" aria-label="Listen to card 1"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></figure><div class="cbody"><div class="ctop"><span class="num">01</span><span class="sec-chip"><span lang="ko">만남</span>&nbsp;· Meeting</span><span class="hook" lang="ko">소개팅</span></div><p class="ko" lang="ko">요즘 친구가 소개팅을 많이 해요.</p><span class="prog" aria-hidden="true"><i></i></span><p class="en">My friend goes on a lot of blind dates these days.</p></div><button class="rplay" type="button" data-au="audio/b1.mp3" aria-label="Listen to card 1"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></article><article class="card" id="c2" data-sec="s1" style="--lc:#00A84D"><figure class="pic flat"><img loading="lazy" src="img/d02-date.svg" alt="Two tickets with a heart"><button class="cplay" type="button" data-au="audio/b2.mp3" aria-label="Listen to card 2"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></figure><div class="cbody"><div class="ctop"><span class="num">02</span><span class="sec-chip"><span lang="ko">만남</span>&nbsp;· Meeting</span><span class="hook" lang="ko">선배</span></div><p class="ko" lang="ko">회사 선배가 소개해 준 사람이랑 데이트를 했어요.</p><span class="prog" aria-hidden="true"><i></i></span><p class="en">I went on a date with someone a senior at work introduced to me.</p></div><button class="rplay" type="button" data-au="audio/b2.mp3" aria-label="Listen to card 2"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></article><article class="card" id="c3" data-sec="s2" style="--lc:#00A5DE"><figure class="pic flat"><img loading="lazy" src="img/d03-sseom.svg" alt="A phone with chat bubbles and a half-filled heart"><button class="cplay" type="button" data-au="audio/b3.mp3" aria-label="Listen to card 3"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></figure><div class="cbody"><div class="ctop"><span class="num">03</span><span class="sec-chip"><span lang="ko">썸</span>&nbsp;· The limbo</span><span class="hook" lang="ko">썸</span></div><p class="ko" lang="ko">두 사람은 아직 사귀지 않지만 썸을 타고 있어요.</p><span class="prog" aria-hidden="true"><i></i></span><p class="en">The two of them aren&#x27;t dating yet, but they&#x27;re in the talking stage.</p></div><button class="rplay" type="button" data-au="audio/b3.mp3" aria-label="Listen to card 3"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></article><article class="card" id="c4" data-sec="s2" style="--lc:#00A5DE"><figure class="pic flat"><img loading="lazy" src="img/d04-aegyo.svg" alt="A cute smiling face with hearts and a sparkle"><button class="cplay" type="button" data-au="audio/b4.mp3" aria-label="Listen to card 4"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></figure><div class="cbody"><div class="ctop"><span class="num">04</span><span class="sec-chip"><span lang="ko">썸</span>&nbsp;· The limbo</span><span class="hook" lang="ko">애교</span></div><p class="ko" lang="ko">애교가 많은 사람도 있고 없는 사람도 있어요.</p><span class="prog" aria-hidden="true"><i></i></span><p class="en">Some people have a lot of aegyo and some don&#x27;t.</p></div><button class="rplay" type="button" data-au="audio/b4.mp3" aria-label="Listen to card 4"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></article><article class="card" id="c5" data-sec="s3" style="--lc:#EF7C1C"><figure class="pic flat"><img loading="lazy" src="img/d05-gobaek.svg" alt="A love letter sealed with a heart, with sweat drops"><button class="cplay" type="button" data-au="audio/b5.mp3" aria-label="Listen to card 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></figure><div class="cbody"><div class="ctop"><span class="num">05</span><span class="sec-chip"><span lang="ko">고백</span>&nbsp;· Confession</span><span class="hook" lang="ko">고백</span></div><p class="ko" lang="ko">고백하고 싶은데 너무 떨려서 말을 못 했어요.</p><span class="prog" aria-hidden="true"><i></i></span><p class="en">I wanted to confess, but I was so nervous that I couldn&#x27;t say it.</p></div><button class="rplay" type="button" data-au="audio/b5.mp3" aria-label="Listen to card 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></article><article class="card" id="c6" data-sec="s3" style="--lc:#EF7C1C"><figure class="pic flat"><img loading="lazy" src="img/d06-sagwida.svg" alt="A calendar with day 1 circled"><button class="cplay" type="button" data-au="audio/b6.mp3" aria-label="Listen to card 6"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></figure><div class="cbody"><div class="ctop"><span class="num">06</span><span class="sec-chip"><span lang="ko">고백</span>&nbsp;· Confession</span><span class="hook" lang="ko">사귀다</span></div><p class="ko" lang="ko">어제 고백을 받아서 오늘부터 사귀기로 했어요.</p><span class="prog" aria-hidden="true"><i></i></span><p class="en">I received a confession yesterday, so we decided to start dating today.</p></div><button class="rplay" type="button" data-au="audio/b6.mp3" aria-label="Listen to card 6"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></article><article class="card" id="c7" data-sec="s4" style="--lc:#996CAC"><figure class="pic flat"><img loading="lazy" src="img/d07-100days.svg" alt="A gift box with a tag that says 100"><button class="cplay" type="button" data-au="audio/b7.mp3" aria-label="Listen to card 7"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></figure><div class="cbody"><div class="ctop"><span class="num">07</span><span class="sec-chip"><span lang="ko">연애</span>&nbsp;· Dating</span><span class="hook" lang="ko">백일</span></div><p class="ko" lang="ko">다음 주가 백 일이라서 선물을 준비하고 있어요.</p><span class="prog" aria-hidden="true"><i></i></span><p class="en">Next week is our hundredth day, so I&#x27;m preparing a present.</p></div><button class="rplay" type="button" data-au="audio/b7.mp3" aria-label="Listen to card 7"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></article><article class="card" id="c8" data-sec="s5" style="--lc:#0052A4"><figure class="pic flat"><img loading="lazy" src="img/d08-breakup.svg" alt="A heart broken in two"><button class="cplay" type="button" data-au="audio/b8.mp3" aria-label="Listen to card 8"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></figure><div class="cbody"><div class="ctop"><span class="num">08</span><span class="sec-chip"><span lang="ko">이별</span>&nbsp;· Parting</span><span class="hook" lang="ko">헤어지다</span></div><p class="ko" lang="ko">오래 만났지만 결국 헤어졌어요.</p><span class="prog" aria-hidden="true"><i></i></span><p class="en">We were together a long time, but in the end we broke up.</p></div><button class="rplay" type="button" data-au="audio/b8.mp3" aria-label="Listen to card 8"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z" fill="currentColor"/><path class="i-stop" d="M7 6h3.5v12H7zM13.5 6H17v12h-3.5z" fill="currentColor"/></svg></button></article></div>
     </div>
-    <div class="pagefoot"><span id="pageNo">1</span> / 4</div>
-  </div>
+  </section>
+  <section class="panel" id="p-qa" role="tabpanel"><h2 class="qsec">예상 질문 · Questions</h2><p class="note">The questions a Korean friend would actually ask back. Answer in your head, then tap to compare.</p><article class="qa"><div class="qhead"><button class="q" type="button" aria-expanded="false" aria-controls="qa1"><span class="qm">Q</span><span class="qt"><span class="qko" lang="ko">썸이 뭐예요?</span><span class="qen">What is sseom?</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div><div class="a" id="qa1"><p class="ako" lang="ko">사귀기 전에 서로 좋아하는 것 같은 단계예요. 영어로는 딱 맞는 말이 없어요.</p><p class="aen">It&#x27;s the stage before dating where you both seem to like each other. There is no exact English word.</p><button class="listen" type="button" data-au="audio/a1.mp3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>듣기 · Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button" aria-expanded="false" aria-controls="qa2"><span class="qm">Q</span><span class="qt"><span class="qko" lang="ko">고백하고 사귀다가 어떻게 달라요?</span><span class="qen">How are gobaek and sagwida different?</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div><div class="a" id="qa2"><p class="ako" lang="ko">고백은 마음을 말하는 순간이고, 사귀다는 그다음부터 시작하는 관계예요.</p><p class="aen">Gobaek is the moment you say how you feel; sagwida is the relationship that starts after it.</p><button class="listen" type="button" data-au="audio/a2.mp3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>듣기 · Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button" aria-expanded="false" aria-controls="qa3"><span class="qm">Q</span><span class="qt"><span class="qko" lang="ko">한국에서는 왜 백 일을 챙겨요?</span><span class="qen">Why do Koreans celebrate the 100th day?</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div><div class="a" id="qa3"><p class="ako" lang="ko">처음 만난 날부터 날짜를 세기 때문에 백 일이 중요한 날이 돼요.</p><p class="aen">Because the days are counted from the first day you met, so day 100 becomes a real milestone.</p><button class="listen" type="button" data-au="audio/a3.mp3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>듣기 · Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button" aria-expanded="false" aria-controls="qa4"><span class="qm">Q</span><span class="qt"><span class="qko" lang="ko">애교를 영어로 어떻게 말해요?</span><span class="qen">How do you say aegyo in English?</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div><div class="a" id="qa4"><p class="ako" lang="ko">딱 맞는 단어가 없어서 보통 그냥 애교라고 해요. 귀엽게 행동하는 거예요.</p><p class="aen">There is no exact word, so people usually just say aegyo. It means acting cute.</p><button class="listen" type="button" data-au="audio/a4.mp3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>듣기 · Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button" aria-expanded="false" aria-controls="qa5"><span class="qm">Q</span><span class="qt"><span class="qko" lang="ko">소개팅은 누가 시켜 줘요?</span><span class="qen">Who sets up a sogaeting?</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div><div class="a" id="qa5"><p class="ako" lang="ko">보통 친구나 회사 선배가 두 사람을 소개해 줘요.</p><p class="aen">Usually a friend or a senior at work introduces the two people.</p><button class="listen" type="button" data-au="audio/a5.mp3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>듣기 · Listen</span></button></div></article><article class="qa"><div class="qhead"><button class="q" type="button" aria-expanded="false" aria-controls="qa6"><span class="qm">Q</span><span class="qt"><span class="qko" lang="ko">밀당이 무슨 뜻이에요?</span><span class="qen">What does mildang mean?</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div><div class="a" id="qa6"><p class="ako" lang="ko">밀고 당기기예요. 관심 있는 것처럼 하다가 조금 멀어지는 거예요.</p><p class="aen">It is &quot;push and pull&quot;: acting interested, then pulling back a little.</p><button class="listen" type="button" data-au="audio/a6.mp3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>듣기 · Listen</span></button></div></article></section>
+  <section class="panel" id="p-voc" role="tabpanel">
+    <p class="note">Tap a word's play button to hear it. Hide one side, then recall it before you tap to check.</p>
+    <h2 class="vgrp">만남 · Meeting</h2><ul class="vlist"><li class="voc"><button class="listen mini" type="button" data-au="audio/v1.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">연애</span><span class="ven">dating, a romantic relationship</span></li><li class="voc"><button class="listen mini" type="button" data-au="audio/v2.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">소개팅</span><span class="ven">a blind date set up by a friend</span></li><li class="voc"><button class="listen mini" type="button" data-au="audio/v3.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">선배</span><span class="ven">senior at school or work</span></li><li class="voc"><button class="listen mini" type="button" data-au="audio/v4.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">데이트</span><span class="ven">a date</span></li></ul><h2 class="vgrp">썸 · The limbo</h2><ul class="vlist"><li class="voc"><button class="listen mini" type="button" data-au="audio/v5.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">썸</span><span class="ven">the talking stage</span></li><li class="voc"><button class="listen mini" type="button" data-au="audio/v6.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">썸타다</span><span class="ven">to be in the talking stage</span></li><li class="voc"><button class="listen mini" type="button" data-au="audio/v7.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">애교</span><span class="ven">cute, affectionate behaviour</span></li><li class="voc"><button class="listen mini" type="button" data-au="audio/v8.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">밀당</span><span class="ven">push and pull, playing hard to get</span></li></ul><h2 class="vgrp">고백 · Confession</h2><ul class="vlist"><li class="voc"><button class="listen mini" type="button" data-au="audio/v9.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">고백</span><span class="ven">a confession of feelings</span></li><li class="voc"><button class="listen mini" type="button" data-au="audio/v10.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">사귀다</span><span class="ven">to date, to go out with</span></li><li class="voc"><button class="listen mini" type="button" data-au="audio/v11.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">짝사랑</span><span class="ven">a one-sided love</span></li></ul><h2 class="vgrp">연애 · Dating</h2><ul class="vlist"><li class="voc"><button class="listen mini" type="button" data-au="audio/v12.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">커플</span><span class="ven">a couple</span></li><li class="voc"><button class="listen mini" type="button" data-au="audio/v13.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">백 일</span><span class="ven">the hundredth day</span></li></ul><h2 class="vgrp">이별 · Parting</h2><ul class="vlist"><li class="voc"><button class="listen mini" type="button" data-au="audio/v14.mp3" aria-label="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button><span class="vko" lang="ko">헤어지다</span><span class="ven">to break up</span></li></ul>
+  </section>
+  <section class="panel full" id="p-full" role="tabpanel"><h2>발표 대본 · The speech</h2><h3>그림 카드 · The sentences</h3><p class="fko" lang="ko">요즘 친구가 소개팅을 많이 해요. 회사 선배가 소개해 준 사람이랑 데이트를 했어요. 두 사람은 아직 사귀지 않지만 썸을 타고 있어요. 애교가 많은 사람도 있고 없는 사람도 있어요. 고백하고 싶은데 너무 떨려서 말을 못 했어요. 어제 고백을 받아서 오늘부터 사귀기로 했어요. 다음 주가 백 일이라서 선물을 준비하고 있어요. 오래 만났지만 결국 헤어졌어요.</p><p class="fen">My friend goes on a lot of blind dates these days. I went on a date with someone a senior at work introduced to me. The two of them aren&#x27;t dating yet, but they&#x27;re in the talking stage. Some people have a lot of aegyo and some don&#x27;t. I wanted to confess, but I was so nervous that I couldn&#x27;t say it. I received a confession yesterday, so we decided to start dating today. Next week is our hundredth day, so I&#x27;m preparing a present. We were together a long time, but in the end we broke up.</p><h2>예상 질문 · Q&amp;A</h2><h3>예상 질문 · Questions</h3><div class="fqa"><p class="fq" lang="ko">Q. 썸이 뭐예요?</p><p class="fsub">What is sseom?</p><p class="fa" lang="ko">A. 사귀기 전에 서로 좋아하는 것 같은 단계예요. 영어로는 딱 맞는 말이 없어요.</p><p class="fsub">It&#x27;s the stage before dating where you both seem to like each other. There is no exact English word.</p></div><div class="fqa"><p class="fq" lang="ko">Q. 고백하고 사귀다가 어떻게 달라요?</p><p class="fsub">How are gobaek and sagwida different?</p><p class="fa" lang="ko">A. 고백은 마음을 말하는 순간이고, 사귀다는 그다음부터 시작하는 관계예요.</p><p class="fsub">Gobaek is the moment you say how you feel; sagwida is the relationship that starts after it.</p></div><div class="fqa"><p class="fq" lang="ko">Q. 한국에서는 왜 백 일을 챙겨요?</p><p class="fsub">Why do Koreans celebrate the 100th day?</p><p class="fa" lang="ko">A. 처음 만난 날부터 날짜를 세기 때문에 백 일이 중요한 날이 돼요.</p><p class="fsub">Because the days are counted from the first day you met, so day 100 becomes a real milestone.</p></div><div class="fqa"><p class="fq" lang="ko">Q. 애교를 영어로 어떻게 말해요?</p><p class="fsub">How do you say aegyo in English?</p><p class="fa" lang="ko">A. 딱 맞는 단어가 없어서 보통 그냥 애교라고 해요. 귀엽게 행동하는 거예요.</p><p class="fsub">There is no exact word, so people usually just say aegyo. It means acting cute.</p></div><div class="fqa"><p class="fq" lang="ko">Q. 소개팅은 누가 시켜 줘요?</p><p class="fsub">Who sets up a sogaeting?</p><p class="fa" lang="ko">A. 보통 친구나 회사 선배가 두 사람을 소개해 줘요.</p><p class="fsub">Usually a friend or a senior at work introduces the two people.</p></div><div class="fqa"><p class="fq" lang="ko">Q. 밀당이 무슨 뜻이에요?</p><p class="fsub">What does mildang mean?</p><p class="fa" lang="ko">A. 밀고 당기기예요. 관심 있는 것처럼 하다가 조금 멀어지는 거예요.</p><p class="fsub">It is &quot;push and pull&quot;: acting interested, then pulling back a little.</p></div><h2>단어 · Vocabulary (14)</h2><h3>만남 · Meeting</h3><div class="fvoc"><div class="fv"><b lang="ko">연애</b><span>dating, a romantic relationship</span></div><div class="fv"><b lang="ko">소개팅</b><span>a blind date set up by a friend</span></div><div class="fv"><b lang="ko">선배</b><span>senior at school or work</span></div><div class="fv"><b lang="ko">데이트</b><span>a date</span></div></div><h3>썸 · The limbo</h3><div class="fvoc"><div class="fv"><b lang="ko">썸</b><span>the talking stage</span></div><div class="fv"><b lang="ko">썸타다</b><span>to be in the talking stage</span></div><div class="fv"><b lang="ko">애교</b><span>cute, affectionate behaviour</span></div><div class="fv"><b lang="ko">밀당</b><span>push and pull, playing hard to get</span></div></div><h3>고백 · Confession</h3><div class="fvoc"><div class="fv"><b lang="ko">고백</b><span>a confession of feelings</span></div><div class="fv"><b lang="ko">사귀다</b><span>to date, to go out with</span></div><div class="fv"><b lang="ko">짝사랑</b><span>a one-sided love</span></div></div><h3>연애 · Dating</h3><div class="fvoc"><div class="fv"><b lang="ko">커플</b><span>a couple</span></div><div class="fv"><b lang="ko">백 일</b><span>the hundredth day</span></div></div><h3>이별 · Parting</h3><div class="fvoc"><div class="fv"><b lang="ko">헤어지다</b><span>to break up</span></div></div></section>
+</main>
 
-  <footer>Lesson written at TOPIK 1 in 해요체 from the TTMIK video of 2026-09-11. Pictures generated for study; every line, answer and word has shane_ko audio.</footer>
+<div class="dock">
+  <div class="acts" id="a-cards">
+    <button class="btn primary" id="openFocus" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V5h4M20 9V5h-4M4 15v4h4M20 15v4h-4"/></svg>집중</button>
+    <button class="btn" id="playAll" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>전체 듣기</span></button>
+    <button class="btn" type="button" data-toggle="hide-ko" aria-pressed="false" aria-label="Hide Korean"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 6.1A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-2.6 3.2M6.3 7.6C4.2 9.2 3 12 3 12s4 6 9 6c1.4 0 2.7-.4 3.8-1"/></svg>한국어</button>
+    <button class="btn" type="button" data-toggle="hide-en" aria-pressed="false" aria-label="Hide English"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 6.1A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-2.6 3.2M6.3 7.6C4.2 9.2 3 12 3 12s4 6 9 6c1.4 0 2.7-.4 3.8-1"/></svg>영어</button>
+  </div>
+  <div class="acts" id="a-qa" hidden>
+    <button class="btn" type="button" data-toggle="reveal-all" aria-pressed="false">답 모두 보기 · Show all answers</button>
+  </div>
+  <div class="acts" id="a-voc" hidden>
+    <button class="btn" type="button" data-toggle="hide-vko" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 6.1A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-2.6 3.2M6.3 7.6C4.2 9.2 3 12 3 12s4 6 9 6c1.4 0 2.7-.4 3.8-1"/></svg>한국어 가리기</button>
+    <button class="btn" type="button" data-toggle="hide-ven" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 6.1A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-2.6 3.2M6.3 7.6C4.2 9.2 3 12 3 12s4 6 9 6c1.4 0 2.7-.4 3.8-1"/></svg>Hide English</button>
+  </div>
+  <div class="acts" id="a-full" hidden>
+    <button class="btn" type="button" data-toggle="hide-fen" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 6.1A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-2.6 3.2M6.3 7.6C4.2 9.2 3 12 3 12s4 6 9 6c1.4 0 2.7-.4 3.8-1"/></svg>Hide English</button>
+    <button class="btn" id="printFull" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z"/></svg>Print / PDF</button>
+  </div>
 </div>
 
-<nav class="chapters collapsed" role="tablist">
-  <button class="chtoggle" id="chToggle" type="button" aria-label="Chapters menu">&#9776;</button>
-  <button data-tab="cards" class="on"><span class="cnum">I</span><span class="cko">그림 카드</span><span class="cen">Speech</span></button>
-  <button data-tab="qa"><span class="cnum">II</span><span class="cko">예상 질문</span><span class="cen">Q&amp;A</span></button>
-  <button data-tab="voc"><span class="cnum">III</span><span class="cko">단어</span><span class="cen">Vocab</span></button>
-  <button data-tab="full"><span class="cnum">IV</span><span class="cko">전체</span><span class="cen">Full</span></button>
-</nav>
-<div class="bar">
-  <a class="tbtn homebtn" href="../" title="Studybook home"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
-  <div class="acts" id="acts-cards">
-    <button class="tbtn play-all" id="playAll" type="button">&#9654; Play all</button>
-    <button class="tbtn" id="tKo" type="button">Hide Korean</button>
-    <button class="tbtn" id="tEn" type="button">Hide English</button>
+<section class="focus" id="focus" role="dialog" aria-modal="true" aria-label="Focus mode, one card at a time" hidden>
+  <div class="f-top">
+    <button class="f-close" type="button" aria-label="Close focus mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <span class="f-count">1 / 8</span>
+    <div class="f-track" aria-hidden="true"><span class="f-dot"></span></div>
   </div>
-  <div class="acts" id="acts-qa" hidden>
-    <button class="tbtn" id="revealAll" type="button">Reveal all answers</button>
+  <div class="f-stage">
+    <div class="f-card">
+      <figure class="pic"><img src="img/d01-sogaeting.svg" alt=""></figure>
+      <div class="cbody">
+        <div class="ctop"></div>
+        <p class="ko hidden" lang="ko"></p>
+        <p class="f-hint">Say it in your head first, then tap the box to check.</p>
+        <p class="en"></p>
+      </div>
+    </div>
   </div>
-  <div class="acts" id="acts-voc" hidden>
-    <button class="tbtn" id="vKo" type="button">Hide Korean</button>
-    <button class="tbtn" id="vEn" type="button">Hide English</button>
+  <div class="f-nav">
+    <button class="btn" id="fPrev" type="button">이전 · Back</button>
+    <button class="btn primary" id="fListen" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>듣기 · Listen</button>
+    <button class="btn" id="fNext" type="button"><span>다음 · Next</span></button>
   </div>
-  <div class="acts" id="acts-full" hidden>
-    <button class="tbtn" id="fEn" type="button">Hide English</button>
-    <button class="tbtn" id="fPrint" type="button">Print / Save PDF</button>
-  </div>
-</div>
-<div class="barpeek" id="barPeek" title="Show menu" aria-label="Show menu">&#8963;</div>
+</section>
 
-<script>
-var cur=null,curBtn=null,seq=null;
-var paBtn=document.getElementById('playAll');
-var cardBtns=[].slice.call(document.querySelectorAll('#panel-cards .card .play'));
-function mark(btn,on){if(!btn)return;btn.classList.toggle('playing',on);var s=btn.querySelector('span');if(s){if(on){if(btn.getAttribute('data-l')===null)btn.setAttribute('data-l',s.textContent);s.textContent='Playing…';}else{var l=btn.getAttribute('data-l');if(l!==null)s.textContent=l;}}}
-function stopCur(){if(cur){cur.pause();}mark(curBtn,false);cur=null;curBtn=null;}
-function clearNow(){var n=document.querySelector('.card.now');if(n)n.classList.remove('now');}
-function playOne(btn,onEnd){stopCur();cur=new Audio(btn.getAttribute('data-au'));curBtn=btn;mark(btn,true);cur.onended=function(){mark(btn,false);if(onEnd)onEnd();};cur.play().catch(function(){mark(btn,false);if(onEnd)onEnd();});}
-function stopSeq(){if(seq!==null){seq=null;stopCur();clearNow();paBtn.classList.remove('on');paBtn.textContent='▶ Play all';}}
-function step(){if(seq===null)return;if(seq>=cardBtns.length){stopSeq();return;}var btn=cardBtns[seq],card=btn.closest('.card');clearNow();card.classList.add('now');card.scrollIntoView({block:'center',behavior:'smooth'});playOne(btn,function(){if(seq!==null){seq++;setTimeout(step,380);}});}
-paBtn.addEventListener('click',function(){if(seq!==null){stopSeq();return;}seq=0;paBtn.classList.add('on');paBtn.textContent='■ Stop';step();});
-document.addEventListener('click',function(e){
-  var p=e.target.closest('.play');
-  if(p){e.stopPropagation();stopSeq();if(curBtn===p&&cur&&!cur.ended){stopCur();return;}playOne(p);return;}
-  var q=e.target.closest('.qa .q'); if(q){q.closest('.qa').classList.toggle('open');return;}
-  var ko=e.target.closest('.ko'); if(ko&&document.body.classList.contains('hide-ko')){ko.classList.toggle('reveal');return;}
-  var vko=e.target.closest('.vko'); if(vko&&document.body.classList.contains('hide-vko')){vko.classList.toggle('reveal');return;}
-  var ven=e.target.closest('.ven'); if(ven&&document.body.classList.contains('hide-ven')){ven.classList.toggle('reveal');}
-});
-function tog(id,cls,onL,offL){var b=document.getElementById(id);b.addEventListener('click',function(){var on=document.body.classList.toggle(cls);b.classList.toggle('on',on);b.textContent=on?offL:onL;if(cls==='hide-ko'&&!on){[].forEach.call(document.querySelectorAll('.ko.reveal'),function(k){k.classList.remove('reveal');});}});}
-tog('tKo','hide-ko','Hide Korean','Show Korean');
-tog('tEn','hide-en','Hide English','Show English');
-tog('vKo','hide-vko','Hide Korean','Show Korean');
-tog('vEn','hide-ven','Hide English','Show English');
-tog('fEn','hide-fen','Hide English','Show English');
-document.getElementById('fPrint').addEventListener('click',function(){window.print();});
-var rb=document.getElementById('revealAll');
-rb.addEventListener('click',function(){var on=document.body.classList.toggle('reveal');rb.classList.toggle('on',on);rb.textContent=on?'Hide all answers':'Reveal all answers';});
-// chapters (book pages)
-var tabs=document.querySelectorAll('.chapters button');
-var panels={cards:document.getElementById('panel-cards'),qa:document.getElementById('panel-qa'),voc:document.getElementById('panel-voc'),full:document.getElementById('panel-full')};
-var acts={cards:document.getElementById('acts-cards'),qa:document.getElementById('acts-qa'),voc:document.getElementById('acts-voc'),full:document.getElementById('acts-full')};
-var ORDER=['cards','qa','voc','full'];
-var NAMES={cards:'그림 카드 · Speech',qa:'예상 질문 · Q&A',voc:'단어 · Vocab',full:'전체 · Full'};
-var ROMAN=['I','II','III','IV'];
-var SHORT={cards:'Speech',qa:'Q&A',voc:'Vocab',full:'Full'};
-var runCh=document.getElementById('runCh'),pageNo=document.getElementById('pageNo'),pageInd=document.getElementById('pageInd'),prevB=document.getElementById('prevPage'),nextB=document.getElementById('nextPage');
-var curTab='cards';
-function showTab(name){stopSeq();stopCur();curTab=name;var idx=ORDER.indexOf(name);for(var k in panels){panels[k].classList.toggle('on',k===name);acts[k].hidden=(k!==name);}tabs.forEach(function(t){t.classList.toggle('on',t.getAttribute('data-tab')===name);});if(runCh)runCh.textContent=NAMES[name];if(pageNo)pageNo.textContent=(idx+1);if(pageInd)pageInd.textContent=ROMAN[idx]+' · '+SHORT[name];if(prevB)prevB.disabled=(idx<=0);if(nextB)nextB.disabled=(idx>=ORDER.length-1);var rl=document.querySelector('.chapters');if(rl)rl.classList.add('collapsed');setChIcon();window.scrollTo({top:0,behavior:'smooth'});}
-tabs.forEach(function(t){t.addEventListener('click',function(){showTab(t.getAttribute('data-tab'));});});
-function flip(d){var i=ORDER.indexOf(curTab)+d;if(i>=0&&i<ORDER.length)showTab(ORDER[i]);}
-if(prevB)prevB.addEventListener('click',function(){flip(-1);});
-if(nextB)nextB.addEventListener('click',function(){flip(1);});
-showTab('cards');
-function setChIcon(){var r=document.querySelector('.chapters'),t=document.getElementById('chToggle');if(r&&t)t.textContent=r.classList.contains('collapsed')?'☰':'✕';}
-var chToggle=document.getElementById('chToggle');
-if(chToggle)chToggle.addEventListener('click',function(){document.querySelector('.chapters').classList.toggle('collapsed');setChIcon();});
-setChIcon();
-// auto-hide the bar while reading; a small handle brings it back
-var barEl=document.querySelector('.bar'),barPeek=document.getElementById('barPeek'),lastY=window.scrollY;
-if(barPeek)barPeek.addEventListener('click',function(){barEl.classList.remove('hidden');});
-window.addEventListener('scroll',function(){var y=window.scrollY;var atBottom=(window.innerHeight+y)>=(document.body.scrollHeight-48);if(seq!==null||y<90||atBottom){barEl.classList.remove('hidden');}else if(y>lastY+8){barEl.classList.add('hidden');}else if(y<lastY-8){barEl.classList.remove('hidden');}lastY=y;},{passive:true});
-</script>
-</body></html>
+<script src="../assets/unit.js" defer></script>
+</body>
+</html>

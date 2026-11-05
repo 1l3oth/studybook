@@ -47,11 +47,14 @@ loci, active recall, and the honest caveat about NLP "eye-accessing cues"), also
 Working code lives in `templates/` (the live site uses the same files under `tools/` and `assets/`):
 - `unit.example.json` is the data shape of one unit: sections (each a Seoul line colour), an optional
   `explain` block (eli5 style: big flat pictures, a few words each), cards, Q&A blocks
-  (`trap` / `qa` / `surv`), vocab groups and full text. Write this file first.
+  (`trap` / `qa` / `surv` / `gram` for grammar or word patterns), vocab groups and full text. Optional:
+  `explain` (the big picture tiles, every unit has them), `qa_tab` (rename the Q&A tab), `station_en`.
+  Write this file first.
 - `gen_audio.py` gives every line, answer and word a native Korean voice (edge-tts, free, no key) and
   fills the Full text from the cards. Re-runnable; existing clips are kept.
 - `render_unit.py` writes `<unit>/index.html` from `unit.json`. The page links the shared
   `assets/line.css`, `assets/unit.css`, `assets/unit.js`; never inline a per-unit design.
+- `build_stations.py` rewrites the homepage station list from every `*/unit.json`, oldest first.
 - `build_feed.py` builds `feed.xml` from every `*/unit.json`, newest `published` first.
 - `draw_flat_objects.example.py` shows how unit pictures are drawn: flat 2D object SVGs, no image model.
 - `hub_index.html` is the homepage (a subway line, one station per unit); `pwa/` holds the manifest,
@@ -59,7 +62,9 @@ Working code lives in `templates/` (the live site uses the same files under `too
 - `DESIGN.example.md` records the visual system (Seoul Metro wayfinding). Follow it.
 
 Unit build, in order: write `unit.json` -> draw `img/*.svg` -> `python tools/gen_audio.py <slug>` ->
-`python tools/render_unit.py <slug>` -> add a station to the homepage -> `python tools/build_feed.py`.
+`python tools/render_unit.py <slug>` -> `python tools/build_stations.py` -> `python tools/build_feed.py`.
+For real-life topics, find the phrases Koreans actually use with the agent-reach skill (web search of
+Korean sites) before writing the lines; do not invent wording.
 
 ## What the user needs on their side
 Do not assume these exist — check, and tell the user what is missing (full list in the repo README):

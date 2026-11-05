@@ -104,6 +104,7 @@ def render(u):
                 last_group = it['group']
             n += 1
             trap = b.get('kind') == 'trap'
+            mark = '문' if b.get('kind') == 'gram' else 'Q'
             check = '<span class="check">확인 필요 · check</span>' if it.get('check') else ''
             why = f'<p class="why">{e(it["why"])}</p>' if it.get('why') else ''
             aen = f'<p class="aen">{e(it["aen"])}</p>' if it.get('aen') else ''
@@ -112,7 +113,7 @@ def render(u):
             qh.append(
                 f'<article class="qa{" trap" if trap else ""}"><div class="qhead">'
                 f'<button class="q" type="button" aria-expanded="false" aria-controls="{aid}">'
-                f'<span class="qm">Q</span><span class="qt"><span class="qko" lang="ko">{e(it["q"])}</span>{qen}</span>'
+                f'<span class="qm">{mark}</span><span class="qt"><span class="qko" lang="ko">{e(it["q"])}</span>{qen}</span>'
                 f'<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
                 f'</button>{listen(it.get("qaudio"), mini=True)}</div>'
                 f'<div class="a" id="{aid}"><p class="ako" lang="ko">{e(it["a"])}{check}</p>{aen}{why}{listen(it.get("audio"))}</div></article>')
@@ -131,14 +132,15 @@ def render(u):
     fh = [f'<h2>{e(u.get("full_title", "대본 · The text"))}</h2>']
     for s in u['full']:
         fh.append(f'<h3>{e(s["title"])}</h3><p class="fko" lang="ko">{e(s["ko"])}</p><p class="fen">{e(s["en"])}</p>')
-    fh.append('<h2>예상 질문 · Q&amp;A</h2>')
+    qtab = u.get('qa_tab', {'ko': '예상 질문', 'en': 'Q&A'})
+    fh.append(f'<h2>{e(qtab["ko"])} · {e(qtab["en"])}</h2>')
     for b in u['qa']:
         fh.append(f'<h3>{e(b["title"])}</h3>')
         for it in b['items']:
             if b.get('kind') == 'surv':
                 fh.append(f'<div class="fqa"><p class="fa" lang="ko">{e(it["ko"])}</p><p class="fsub">{e(it.get("en"))}</p></div>')
             else:
-                fh.append(f'<div class="fqa"><p class="fq" lang="ko">Q. {e(it["q"])}</p>'
+                fh.append(f'<div class="fqa"><p class="fq" lang="ko">{"문" if b.get("kind") == "gram" else "Q"}. {e(it["q"])}</p>'
                           + (f'<p class="fsub">{e(it["qen"])}</p>' if it.get('qen') else '')
                           + f'<p class="fa" lang="ko">A. {e(it["a"])}</p>'
                           + (f'<p class="fsub">{e(it["aen"])}</p>' if it.get('aen') else '') + '</div>')
@@ -185,7 +187,7 @@ def render(u):
   <div class="stripe" aria-hidden="true"></div>
   <nav class="tabs wrap" role="tablist" aria-label="Unit parts">
     <button role="tab" data-tab="cards" aria-controls="p-cards">그림 카드<small>{len(cards)} cards</small></button>
-    <button role="tab" data-tab="qa" aria-controls="p-qa">예상 질문<small>{qcount} Q&amp;A</small></button>
+    <button role="tab" data-tab="qa" aria-controls="p-qa">{e(qtab["ko"])}<small>{qcount} {e(qtab["en"])}</small></button>
     <button role="tab" data-tab="voc" aria-controls="p-voc">단어<small>{vcount} words</small></button>
     <button role="tab" data-tab="full" aria-controls="p-full">전체<small>read all</small></button>
   </nav>

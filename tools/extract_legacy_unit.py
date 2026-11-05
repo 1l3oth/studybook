@@ -79,17 +79,26 @@ def main():
         elif m.group(3) is not None:
             group = txt(m.group(3))
         elif m.group(4) is not None:
+            if not blocks:  # pages without block headings: one default block
+                blocks.append({'title': '예상 질문 · Questions', 'small': '', 'kind': 'qa', 'items': [],
+                               'note': txt(first(r'<p class="secnote"[^>]*>(.*?)</p>', qa_html)).replace('Answer aloud,', 'Answer in your head,')})
             a = m.group(5)
             ako = first(r'<p class="ako"[^>]*>(.*?)</p>', a)
+            aens = re.findall(r'<p class="aen">(.*?)</p>', a, re.S)
+            aen_main = aens[0] if aens else ''
+            why_html = first(r'<p class="why">(.*?)</p>', a) or next((x for x in aens[1:] if x.lstrip().startswith('<b>')), '')
+            chip_check = '확인' in first(r'<span class="chip hook">(.*?)</span>', aen_main)
+            aen_main = re.sub(r'<span class="chip hook">.*?</span>', '', aen_main, flags=re.S)
+            why_txt = re.sub(r'^(Why (they ask|it helps)|왜)[^:]*:\s*', '', txt(why_html))
             blocks[-1]['items'].append({k: v for k, v in {
                 'group': group,
                 'q': txt(first(r'<span class="qko"[^>]*>(.*?)</span>', a)),
                 'qen': txt(first(r'<span class="qen">(.*?)</span>', a)),
                 'qaudio': first(r'class="play mini qplay" data-au="([^"]+)"', a) or None,
                 'a': txt(re.sub(r'<span class="confirm">.*?</span>', '', ako, flags=re.S)),
-                'check': 'class="confirm"' in ako,
-                'aen': txt(first(r'<p class="aen">(.*?)</p>', a)),
-                'why': txt(first(r'<p class="why">(.*?)</p>', a)),
+                'check': 'class="confirm"' in ako or chip_check,
+                'aen': txt(aen_main),
+                'why': why_txt,
                 'audio': first(r'<button class="play" data-au="([^"]+)"', a) or None,
             }.items() if v not in (None, '', False)})
         else:
@@ -110,9 +119,38 @@ def main():
                                        'en': txt(first(r'<span class="ven">(.*?)</span>', a)),
                                        'audio': first(r'data-au="([^"]+)"', a) or None})
 
-    speech = panel('full').split('<h2 class="fsec">')[1]
-    full = [{'title': txt(t), 'ko': txt(k), 'en': txt(e)} for t, k, e in
-            re.findall(r'<h3 class="fh">(.*?)</h3>\s*<p class="fko"[^>]*>(.*?)</p>\s*<p class="fen">(.*?)</p>', speech, re.S)]
+    full_html = panel('full')
+    if '<h2 class="fsec">' in full_html:
+        speech = full_html.split('<h2 class="fsec">')[1]
+        full = [{'title': txt(t), 'ko': txt(k), 'en': txt(e)} for t, k, e in
+                re.findall(r'<h3 class="fh">(.*?)</h3>\s*<p class="fko"[^>]*>(.*?)</p>\s*<p class="fen">(.*?)</p>', speech, re.S)]
+    else:
+        speech = re.split(r'<h2 class="sec">', full_html)[1]  # first block: the speech or sentences
+        head = txt(speech.split('</h2>')[0])
+        full, cur = [], None
+        for m in re.finditer(r'<h3 class="grp">(.*?)</h3>|<p class="fko"[^>]*>(.*?)</p>\s*<p class="fen">(.*?)</p>', speech.split('</h2>', 1)[1], re.S):
+            if m.group(1) is not None or cur is None:
+                cur = {'title': txt(m.group(1)) if m.group(1) is not None else head, 'ko': [], 'en': []}
+                full.append(cur)
+            if m.group(2) is not None:
+                cur['ko'].append(txt(m.group(2))); cur['en'].append(txt(m.group(3)))
+        full = [{'title': f['title'], 'ko': ' '.join(f['ko']), 'en': ' '.join(f['en'])} for f in full if f['ko']]
+
+    # grammar panel (cooking unit): kept as a Q&A block of kind "gram"
+    gram_html = panel('gram')
+    if gram_html:
+        gitems = []
+        for a in re.findall(r'<article class="qa">(.*?)</article>', gram_html, re.S):
+            aens = re.findall(r'<p class="aen">(.*?)</p>', a, re.S)
+            gitems.append({k: v for k, v in {
+                'q': txt(first(r'<span class="qko"[^>]*>(.*?)</span>', a)),
+                'qen': txt(first(r'<span class="qen">(.*?)</span>', a)),
+                'a': txt(first(r'<p class="ako"[^>]*>(.*?)</p>', a)),
+                'aen': txt(aens[0]) if aens else '',
+                'why': re.sub(r'^Why it helps:\s*', '', txt(aens[1])) if len(aens) > 1 else '',
+                'audio': first(r'data-au="([^"]+)"', a) or None}.items() if v})
+        blocks.append({'title': '문법 · Grammar', 'small': '', 'kind': 'gram', 'items': gitems,
+                       'note': txt(first(r'<p class="secnote"[^>]*>(.*?)</p>', gram_html)).replace('Try a sentence first', 'Make a sentence in your head first')})
 
     unit = {
         'slug': slug,

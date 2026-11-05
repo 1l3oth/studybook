@@ -73,3 +73,6 @@ station title 1.32rem 800; body 0.9rem; meta 0.8rem with tabular numerals.
   colours; the Korean box stays hidden until tapped; Back, Listen (primary), Next.
 - Flat pictures always sit on a light tile (`#F4F6F9` tinted with `--lc`), in dark mode too, because
   the drawings use dark ink.
+- **Every unit uses this system** (Rex, 2026-11-05: "from now we adopt the new UI"): five units, all
+  rendered from `unit.json`, all pictures flat SVG drawn by each unit's `draw.py`. Grammar and word
+  pattern items reuse the Q&A card with the mark 문 instead of Q.

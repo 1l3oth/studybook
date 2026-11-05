@@ -1,0 +1,745 @@
+{
+ "slug": "korean-cooking-speech",
+ "title_ko": "나의 새 습관, 요리",
+ "title_en": "My New Habit: Cooking",
+ "subtitle": "K-Specialist 6회 · 2026-11-28 13:00",
+ "description": "My habit since coming to Korea: cooking the food I missed, too salty for anyone else. Topic 3 of the 6th interview, written in my own plain 습니다체.",
+ "sections": [
+  {
+   "id": "s1",
+   "ko": "시작",
+   "en": "Opening",
+   "color": "#6B7488"
+  },
+  {
+   "id": "s2",
+   "ko": "이유",
+   "en": "Why I started",
+   "color": "#00A84D"
+  },
+  {
+   "id": "s3",
+   "ko": "만들기",
+   "en": "Making it",
+   "color": "#00A5DE"
+  },
+  {
+   "id": "s4",
+   "ko": "짠맛",
+   "en": "Too salty",
+   "color": "#EF7C1C"
+  },
+  {
+   "id": "s5",
+   "ko": "변화",
+   "en": "What changed",
+   "color": "#996CAC"
+  },
+  {
+   "id": "s6",
+   "ko": "마무리",
+   "en": "Closing",
+   "color": "#6B7488"
+  }
+ ],
+ "spine": {
+  "title": "노선도 · 한 끼의 순서",
+  "note": "The talk runs in the order of one meal: 시작 (Who I am), 이유 (I wanted it), 만들기 (I cook it), 짠맛 (I taste it), 변화 (What it did), 마무리 (What comes next).",
+  "audio": null,
+  "caption": "Want it, cook it, taste it, then see what it changed. Follow the meal and you will not lose your place."
+ },
+ "explain": {
+  "title": "한눈에 · The big picture",
+  "why": "Your K-Specialist talk on 2026-11-28: why you started cooking, how you make cha spey, why it is salty, and what changed.",
+  "tiles": [
+   {
+    "img": "img/k04-miss.svg",
+    "ko": "그립다",
+    "en": "You missed Cambodian food",
+    "color": "#00A84D"
+   },
+   {
+    "img": "img/k05-money.svg",
+    "ko": "돈",
+    "en": "Eating out costs a lot",
+    "color": "#00A84D"
+   },
+   {
+    "img": "img/k06-chaspey.svg",
+    "ko": "차 스빼이",
+    "en": "Cabbage and meat, stir-fried",
+    "color": "#00A5DE"
+   },
+   {
+    "img": "img/k08-chili.svg",
+    "ko": "고추",
+    "en": "Always chili, never forgotten",
+    "color": "#00A5DE"
+   },
+   {
+    "img": "img/k09-salty.svg",
+    "ko": "짜다",
+    "en": "Too salty for everyone else",
+    "color": "#EF7C1C"
+   },
+   {
+    "img": "img/k12-home.svg",
+    "ko": "덜 그립다",
+    "en": "Home feels closer",
+    "color": "#996CAC"
+   }
+  ]
+ },
+ "cards": [
+  {
+   "sec": "s1",
+   "img": "img/k01-intro.svg",
+   "alt": "A laptop with code and a team ID badge",
+   "hook": "다라봇",
+   "ko": "안녕하십니까? 저는 마드라스체크 SaaS개발1팀에서 일하고 있는 다라봇이라고 합니다.",
+   "en": "Hello. My name is Daraboth and I work in SaaS Development Team 1 at Madras Check.",
+   "audio": "audio/k871c8d40.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s1",
+   "img": "img/k02-habit.svg",
+   "alt": "A wok of stir-fry with a tag that says new",
+   "hook": "습관",
+   "ko": "오늘은 한국에 온 후에 새로 생긴 습관에 대해 말씀드리겠습니다. 제 새로운 습관은 요리입니다.",
+   "en": "Today I will talk about a new habit I picked up after coming to Korea. My new habit is cooking.",
+   "audio": "audio/k6d8bf389.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s2",
+   "img": "img/k03-before.svg",
+   "alt": "A take-away box and an empty pan, crossed out",
+   "hook": "거의",
+   "ko": "한국에 오기 전에는 요리를 거의 하지 않았습니다.",
+   "en": "Before I came to Korea, I almost never cooked.",
+   "audio": "audio/kc1a006e5.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s2",
+   "img": "img/k04-miss.svg",
+   "alt": "A bowl of rice and a speech bubble with a heart",
+   "hook": "그립다",
+   "ko": "요리를 시작한 이유는 두 가지입니다. 첫 번째 이유는 캄보디아 음식이 그리웠기 때문입니다. 한국에 살면서 캄보디아 음식이 많이 먹고 싶어졌습니다.",
+   "en": "There are two reasons I started cooking. The first is that I missed Cambodian food. Living in Korea, I came to really want Cambodian food.",
+   "audio": "audio/k864212e1.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s2",
+   "img": "img/k05-money.svg",
+   "alt": "A wallet with coins flying out",
+   "hook": "아끼다",
+   "ko": "두 번째 이유는 돈입니다. 밖에서 사 먹으면 돈이 많이 들어서 돈을 아끼고 싶었습니다. 그래서 저는 직접 요리하기 시작했습니다.",
+   "en": "The second reason is money. Eating out costs a lot, so I wanted to save money. So I started cooking for myself.",
+   "audio": "audio/k92bfb1a6.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s3",
+   "img": "img/k06-chaspey.svg",
+   "alt": "A plate of stir-fried cabbage and meat",
+   "hook": "차 스빼이",
+   "ko": "제가 제일 자주 만드는 음식은 캄보디아 음식인 차 스빼이입니다. 양배추와 고기를 볶아서 만드는 간단한 요리입니다.",
+   "en": "The dish I make most often is a Cambodian dish called cha spey. It is a simple dish of stir-fried cabbage and meat.",
+   "audio": "audio/kb80ad7e5.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s3",
+   "img": "img/k07-buy.svg",
+   "alt": "A shopping bag with cabbage and garlic, meat, a knife",
+   "hook": "그다음에",
+   "ko": "먼저 마늘하고 양배추, 고기를 삽니다. 그다음에 재료를 썰어서 같이 볶습니다.",
+   "en": "First I buy garlic, cabbage and meat. Then I cut the ingredients and stir-fry them together.",
+   "audio": "audio/k06cd7ec1.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s3",
+   "img": "img/k08-chili.svg",
+   "alt": "A recipe card and two red chilies with a check",
+   "hook": "고추",
+   "ko": "레시피에는 없지만 저는 고추를 꼭 넣습니다. 고추는 한 번도 잊어버린 적이 없습니다.",
+   "en": "It is not in the recipe, but I always add chili. I have never once forgotten the chili.",
+   "audio": "audio/k5e932224.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s4",
+   "img": "img/k09-salty.svg",
+   "alt": "A salt shaker pouring a lot of salt",
+   "hook": "짜다",
+   "ko": "그런데 제 음식은 항상 조금 짭니다. 왜냐하면 저는 짠 음식을 좋아하기 때문입니다.",
+   "en": "But my food is always a little salty, because I like salty food.",
+   "audio": "audio/k5879a4d5.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s4",
+   "img": "img/k10-alone.svg",
+   "alt": "One bowl on a table, the other place empty",
+   "hook": "혼자",
+   "ko": "저한테는 보통 맛인데 다른 사람들한테는 짜서 제 음식은 보통 저 혼자 먹습니다.",
+   "en": "To me it tastes normal, but it is salty for other people, so I usually end up eating my food alone.",
+   "audio": "audio/k46e65494.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s5",
+   "img": "img/k11-save.svg",
+   "alt": "A piggy bank, a coin and a receipt going down",
+   "hook": "식비",
+   "ko": "요리를 하면서 제 생활도 두 가지가 달라졌습니다. 첫 번째로, 직접 만들어 먹어서 식비를 아낄 수 있게 되었습니다.",
+   "en": "As I cooked, two things in my life changed too. First, because I make my own food, I came to be able to save on food costs.",
+   "audio": "audio/k0f752bac.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s5",
+   "img": "img/k12-home.svg",
+   "alt": "A house with a heart and a plate of cha spey",
+   "hook": "고향",
+   "ko": "두 번째로, 차 스빼이를 먹으면 마음이 편해져서 고향이 덜 그립습니다.",
+   "en": "Second, when I eat cha spey my heart feels at ease, so I miss home less.",
+   "audio": "audio/k220c84e8.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s6",
+   "img": "img/k13-best.svg",
+   "alt": "A gold medal with the number 1 and a small wok",
+   "hook": "제 생각에는",
+   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 습관입니다. 왜냐하면 돈도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다.",
+   "en": "In my opinion, cooking is the best habit I picked up in Korea, because I can save money and also taste home.",
+   "audio": "audio/k7c7901f9.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s6",
+   "img": "img/k14-next.svg",
+   "alt": "A salt shaker with one grain and three bowls to share",
+   "hook": "덜",
+   "ko": "다음에는 소금을 조금 덜 넣어서 다른 사람들도 같이 먹을 수 있게 만들고 싶습니다. 이상으로 발표를 마치겠습니다. 들어주셔서 감사합니다.",
+   "en": "Next time I want to use a little less salt, so other people can eat it with me. That concludes my presentation. Thank you for listening.",
+   "audio": "audio/k6e48c68b.mp3",
+   "flat": true
+  }
+ ],
+ "qa": [
+  {
+   "title": "예상 질문 · Questions",
+   "small": "",
+   "kind": "qa",
+   "items": [
+    {
+     "group": "함정과 빈틈 · Traps first",
+     "q": "언제부터 요리를 시작했습니까?",
+     "qen": "When did you start cooking?",
+     "a": "한국에 온 후에 시작했습니다. 정확한 날짜는 기억이 안 나지만, 캄보디아 음식이 그리워서 시작했습니다.",
+     "check": true,
+     "aen": "I started after coming to Korea. I do not remember the exact date, but I started because I missed Cambodian food.",
+     "why": "The talk never gives a date, and this is the first thing they will ask. Put your real month here if you remember it.",
+     "audio": "audio/kf97fbc84.mp3"
+    },
+    {
+     "group": "함정과 빈틈 · Traps first",
+     "q": "짠 것을 알면서 왜 소금을 덜 넣지 않습니까?",
+     "qen": "If you know it is salty, why not use less salt?",
+     "a": "저한테는 짠맛이 보통 맛이라서 잘 모릅니다. 그래서 다른 사람과 같이 먹을 때는 소금을 덜 넣으려고 합니다.",
+     "check": true,
+     "aen": "Salty tastes normal to me, so I cannot really tell. So when I eat with other people, I try to use less salt.",
+     "why": "Your funniest line opens this door. Have an answer ready.",
+     "audio": "audio/k5fc7c453.mp3"
+    },
+    {
+     "group": "함정과 빈틈 · Traps first",
+     "q": "차 스빼이가 무슨 뜻입니까?",
+     "qen": "What does cha spey mean?",
+     "a": "차는 볶다라는 뜻이고, 스빼이는 양배추라는 뜻입니다.",
+     "aen": "Cha means to stir-fry, and spey means cabbage.",
+     "why": "You name a Khmer word, so they will ask what it means.",
+     "audio": "audio/kb2953682.mp3"
+    },
+    {
+     "group": "함정과 빈틈 · Traps first",
+     "q": "식비가 얼마나 줄었습니까?",
+     "qen": "How much did your food costs go down?",
+     "a": "정확히 계산하지는 않았지만, 밖에서 사 먹을 때보다 돈을 덜 씁니다.",
+     "check": true,
+     "aen": "I have not calculated it exactly, but I spend less than when I eat out.",
+     "why": "You claim saving money but give no number. A real number is better if you have one.",
+     "audio": "audio/k2ed96317.mp3"
+    },
+    {
+     "group": "요리 · Cooking",
+     "q": "왜 고추를 꼭 넣습니까?",
+     "qen": "Why do you always add chili?",
+     "a": "고추를 넣으면 맛이 더 좋아서 항상 넣습니다.",
+     "check": true,
+     "aen": "It tastes better with chili, so I always add it.",
+     "audio": "audio/kf09d2882.mp3"
+    },
+    {
+     "group": "요리 · Cooking",
+     "q": "차 스빼이 말고 또 무엇을 만듭니까?",
+     "qen": "What else do you make besides cha spey?",
+     "a": "아목이나 커리 같은 캄보디아 음식도 만듭니다.",
+     "check": true,
+     "aen": "I also make Cambodian dishes like amok and curry.",
+     "audio": "audio/kc4c5132c.mp3"
+    },
+    {
+     "group": "요리 · Cooking",
+     "q": "재료는 어디에서 삽니까?",
+     "qen": "Where do you buy ingredients?",
+     "a": "보통 영등포시장에서 장을 봅니다.",
+     "check": true,
+     "aen": "I usually do my shopping at Yeongdeungpo Market.",
+     "audio": "audio/kad7061be.mp3"
+    },
+    {
+     "group": "요리 · Cooking",
+     "q": "한국 음식과 캄보디아 음식은 어떻게 다릅니까?",
+     "qen": "How are Korean and Cambodian food different?",
+     "a": "한국에는 계절에 따라 먹는 음식이 있지만, 캄보디아에는 그런 음식이 거의 없습니다.",
+     "aen": "Korea has food you eat by season, but Cambodia has almost none.",
+     "audio": "audio/k4c56baf0.mp3"
+    },
+    {
+     "group": "습관 · Habits",
+     "q": "요리 말고 또 새로 생긴 습관이 있습니까?",
+     "qen": "Any other new habits besides cooking?",
+     "a": "네, 두 가지가 더 있습니다. 하나는 책을 읽는 것이고, 다른 하나는 AI를 공부하는 것입니다.",
+     "aen": "Yes, two more. One is reading books and the other is studying AI.",
+     "audio": "audio/k34851943.mp3"
+    },
+    {
+     "group": "습관 · Habits",
+     "q": "왜 AI를 공부합니까?",
+     "qen": "Why do you study AI?",
+     "a": "회사 일에 도움이 많이 되기 때문입니다.",
+     "check": true,
+     "aen": "Because it helps a lot with my work at the company.",
+     "audio": "audio/k7853e584.mp3"
+    },
+    {
+     "group": "한국 생활과 일 · Life and work",
+     "q": "회사에서 무슨 일을 합니까?",
+     "qen": "What do you do at your company?",
+     "a": "연구개발본부 SaaS개발1팀에서 플로우 서비스를 개발하고 있습니다.",
+     "aen": "I develop the Flow service in SaaS Development Team 1 in the R&D division.",
+     "audio": "audio/k21f32b94.mp3"
+    },
+    {
+     "group": "한국 생활과 일 · Life and work",
+     "q": "한국 생활에서 무엇이 제일 힘듭니까?",
+     "qen": "What is hardest about life in Korea?",
+     "a": "가족과 고향 음식이 그리울 때가 제일 힘듭니다.",
+     "check": true,
+     "aen": "The hardest times are when I miss my family and the food from home.",
+     "audio": "audio/kbf4363eb.mp3"
+    },
+    {
+     "group": "한국 생활과 일 · Life and work",
+     "q": "한국어는 어떻게 공부합니까?",
+     "qen": "How do you study Korean?",
+     "a": "매일 조금씩 단어와 문법을 공부하고, 가끔 한국어로 일기를 씁니다.",
+     "aen": "I study words and grammar a little every day, and I sometimes write a diary in Korean.",
+     "audio": "audio/kd9b361ce.mp3"
+    },
+    {
+     "group": "한국 생활과 일 · Life and work",
+     "q": "K-Specialist에 왜 지원했습니까?",
+     "qen": "Why did you apply for K-Specialist?",
+     "a": "한국어를 더 잘하고 싶고, 앞으로 한국이나 싱가포르에서 일하고 싶기 때문입니다.",
+     "check": true,
+     "aen": "Because I want to get better at Korean and I want to work in Korea or Singapore in the future.",
+     "audio": "audio/k56fae56c.mp3"
+    }
+   ],
+   "note": "The notice says questions go wide and memorizing alone will not score well. Answer in your head, then tap to compare. Answers marked 확인 use a detail I could not confirm, so change them to the truth."
+  },
+  {
+   "title": "문법 · Grammar",
+   "small": "",
+   "kind": "gram",
+   "items": [
+    {
+     "q": "-(으)ㄴ 적이 없다",
+     "qen": "have never done",
+     "a": "고추는 한 번도 잊어버린 적이 없습니다.",
+     "aen": "I have never once forgotten the chili.",
+     "why": "Stronger than 안 했습니다. It is the punchline of your chili line.",
+     "audio": "audio/k1a49beff.mp3"
+    },
+    {
+     "q": "-게 되다",
+     "qen": "came to, ended up",
+     "a": "식비를 아낄 수 있게 되었습니다.",
+     "aen": "I came to be able to save on food costs.",
+     "why": "Your Orbit lesson from 10-02. It shows change over time, which is the whole topic.",
+     "audio": "audio/kd8f444b8.mp3"
+    },
+    {
+     "q": "-기 시작하다",
+     "qen": "started doing",
+     "a": "저는 직접 요리하기 시작했습니다.",
+     "aen": "I started cooking for myself.",
+     "why": "Your Orbit lesson from 10-08. It marks the moment the habit began.",
+     "audio": "audio/k55ed5ad2.mp3"
+    },
+    {
+     "q": "-(으)면서",
+     "qen": "while, as",
+     "a": "한국에 살면서 캄보디아 음식이 많이 먹고 싶어졌습니다.",
+     "aen": "Living in Korea, I came to really want Cambodian food.",
+     "why": "Your lesson today. It joins two things happening together without 그리고.",
+     "audio": "audio/kf1fc4ae0.mp3"
+    },
+    {
+     "q": "-기 전에 / -(으)ㄴ 후에",
+     "qen": "before / after",
+     "a": "한국에 오기 전에는 요리를 거의 하지 않았습니다.",
+     "aen": "Before I came to Korea, I almost never cooked.",
+     "why": "It places the habit in time. The topic title itself uses -ㄴ 후에.",
+     "audio": "audio/kc1a006e5.mp3"
+    },
+    {
+     "q": "-어지다",
+     "qen": "to become",
+     "a": "마음이 편해져서 고향이 덜 그립습니다.",
+     "aen": "My heart feels at ease, so I miss home less.",
+     "why": "Attach it to 싶다 or 편하다 to show a feeling changing, so the talk moves.",
+     "audio": "audio/kc4074ad2.mp3"
+    },
+    {
+     "q": "덜",
+     "qen": "less",
+     "a": "소금을 조금 덜 넣고 싶습니다.",
+     "aen": "I want to use a little less salt.",
+     "why": "A very short word that sounds natural. Better than 조금 적게.",
+     "audio": "audio/k6755cf1e.mp3"
+    },
+    {
+     "q": "-는 편이다",
+     "qen": "tend to",
+     "a": "저는 짠 음식을 좋아하는 편입니다.",
+     "aen": "I tend to like salty food.",
+     "why": "Your Orbit lesson from 10-19. Use it in Q&A when you want to soften a claim, in place of 것 같습니다.",
+     "audio": "audio/kc4529a46.mp3"
+    },
+    {
+     "q": "근데 → 그런데",
+     "qen": "but, however (formal)",
+     "a": "그런데 제 음식은 항상 조금 짭니다.",
+     "aen": "But my food is always a little salty.",
+     "why": "근데 is your natural word in a diary. In front of the panel, say 그런데. Everything else about your rhythm stays the same.",
+     "audio": "audio/ka91954a1.mp3"
+    },
+    {
+     "q": "왜냐하면 ... -기 때문입니다",
+     "qen": "because",
+     "a": "왜냐하면 저는 짠 음식을 좋아하기 때문입니다.",
+     "aen": "Because I like salty food.",
+     "why": "You already say 왜냐하면. In formal speech, close it with -기 때문입니다 so the sentence finishes properly.",
+     "audio": "audio/k513841d9.mp3"
+    }
+   ],
+   "note": "Your script keeps your own grammar: -어서, -지만, -는데, -고, -면, 왜냐하면, 제 생각에는, 그다음에. These are the new or stronger patterns it adds. Make a sentence in your head first, then tap to check."
+  }
+ ],
+ "vocab": [
+  {
+   "title": "습관과 요리 · Habit and cooking",
+   "items": [
+    {
+     "ko": "습관",
+     "en": "habit",
+     "audio": "audio/k0e09a497.mp3"
+    },
+    {
+     "ko": "취미",
+     "en": "hobby",
+     "audio": "audio/kfb0483e3.mp3"
+    },
+    {
+     "ko": "요리하다",
+     "en": "to cook",
+     "audio": "audio/ka2b99d4d.mp3"
+    },
+    {
+     "ko": "직접",
+     "en": "by myself, in person",
+     "audio": "audio/kc27ff0e1.mp3"
+    },
+    {
+     "ko": "재료",
+     "en": "ingredients",
+     "audio": "audio/ked17a518.mp3"
+    },
+    {
+     "ko": "레시피",
+     "en": "recipe",
+     "audio": "audio/k6f0ef0b5.mp3"
+    },
+    {
+     "ko": "장을 보다",
+     "en": "to do the grocery shopping",
+     "audio": "audio/kda268ce6.mp3"
+    },
+    {
+     "ko": "간단하다",
+     "en": "to be simple",
+     "audio": "audio/kd631ce42.mp3"
+    }
+   ]
+  },
+  {
+   "title": "차 스빼이 · The dish",
+   "items": [
+    {
+     "ko": "양배추",
+     "en": "cabbage",
+     "audio": "audio/ka9d1a15b.mp3"
+    },
+    {
+     "ko": "마늘",
+     "en": "garlic",
+     "audio": "audio/k7a83acce.mp3"
+    },
+    {
+     "ko": "고기",
+     "en": "meat",
+     "audio": "audio/k77895dd5.mp3"
+    },
+    {
+     "ko": "고추",
+     "en": "chili",
+     "audio": "audio/kb8f71205.mp3"
+    },
+    {
+     "ko": "소금",
+     "en": "salt",
+     "audio": "audio/k89290136.mp3"
+    },
+    {
+     "ko": "썰다",
+     "en": "to cut, to slice",
+     "audio": "audio/ke3feef04.mp3"
+    },
+    {
+     "ko": "볶다",
+     "en": "to stir-fry",
+     "audio": "audio/ka921a1d1.mp3"
+    },
+    {
+     "ko": "넣다",
+     "en": "to put in, to add",
+     "audio": "audio/k03bd95cb.mp3"
+    }
+   ]
+  },
+  {
+   "title": "맛 · Taste",
+   "items": [
+    {
+     "ko": "맛",
+     "en": "taste",
+     "audio": "audio/kd4103ce9.mp3"
+    },
+    {
+     "ko": "짜다",
+     "en": "to be salty",
+     "audio": "audio/k3cc78bd2.mp3"
+    },
+    {
+     "ko": "짠맛",
+     "en": "salty taste",
+     "audio": "audio/k468a5809.mp3"
+    },
+    {
+     "ko": "맵다",
+     "en": "to be spicy",
+     "audio": "audio/k19dea8ba.mp3"
+    },
+    {
+     "ko": "싱겁다",
+     "en": "to be bland",
+     "audio": "audio/kbb0164ce.mp3"
+    },
+    {
+     "ko": "간",
+     "en": "seasoning",
+     "audio": "audio/k962b85a6.mp3"
+    },
+    {
+     "ko": "간을 보다",
+     "en": "to taste for seasoning",
+     "audio": "audio/k1d351f58.mp3"
+    },
+    {
+     "ko": "입맛",
+     "en": "your own taste, palate",
+     "audio": "audio/k9203dbc7.mp3"
+    }
+   ]
+  },
+  {
+   "title": "돈 · Money",
+   "items": [
+    {
+     "ko": "식비",
+     "en": "food costs",
+     "audio": "audio/k51178cb8.mp3"
+    },
+    {
+     "ko": "아끼다",
+     "en": "to save, to use sparingly",
+     "audio": "audio/k0bbc4c27.mp3"
+    },
+    {
+     "ko": "외식",
+     "en": "eating out",
+     "audio": "audio/kf4fc5a6e.mp3"
+    },
+    {
+     "ko": "사 먹다",
+     "en": "to buy food and eat it",
+     "audio": "audio/k4deebfaa.mp3"
+    },
+    {
+     "ko": "돈이 들다",
+     "en": "to cost money",
+     "audio": "audio/k9df3bc04.mp3"
+    },
+    {
+     "ko": "덜",
+     "en": "less",
+     "audio": "audio/k9f9037e6.mp3"
+    }
+   ]
+  },
+  {
+   "title": "마음과 생활 · Feelings and life",
+   "items": [
+    {
+     "ko": "그립다",
+     "en": "to miss",
+     "audio": "audio/k7dd19b64.mp3"
+    },
+    {
+     "ko": "고향",
+     "en": "hometown, home",
+     "audio": "audio/kb7f76724.mp3"
+    },
+    {
+     "ko": "마음이 편하다",
+     "en": "to feel at ease",
+     "audio": "audio/ka21b4ce6.mp3"
+    },
+    {
+     "ko": "달라지다",
+     "en": "to change, become different",
+     "audio": "audio/kdc500fc1.mp3"
+    },
+    {
+     "ko": "자취하다",
+     "en": "to live on your own",
+     "audio": "audio/kd7b75beb.mp3"
+    },
+    {
+     "ko": "다른 사람",
+     "en": "other people",
+     "audio": "audio/k3be6419f.mp3"
+    }
+   ]
+  },
+  {
+   "title": "발표 표현 · Presentation phrases",
+   "items": [
+    {
+     "ko": "말씀드리겠습니다",
+     "en": "I will tell you (formal)",
+     "audio": "audio/k88bb3071.mp3"
+    },
+    {
+     "ko": "이유는 두 가지입니다",
+     "en": "there are two reasons",
+     "audio": "audio/ka746371d.mp3"
+    },
+    {
+     "ko": "첫 번째로",
+     "en": "firstly",
+     "audio": "audio/k34f79e0e.mp3"
+    },
+    {
+     "ko": "두 번째로",
+     "en": "secondly",
+     "audio": "audio/kcca0c967.mp3"
+    },
+    {
+     "ko": "그다음에",
+     "en": "after that, then",
+     "audio": "audio/ka17067ac.mp3"
+    },
+    {
+     "ko": "왜냐하면",
+     "en": "because",
+     "audio": "audio/k2eca4c07.mp3"
+    },
+    {
+     "ko": "제 생각에는",
+     "en": "in my opinion",
+     "audio": "audio/k746577e4.mp3"
+    },
+    {
+     "ko": "이상으로 발표를 마치겠습니다",
+     "en": "that concludes my presentation",
+     "audio": "audio/k727fff63.mp3"
+    }
+   ]
+  }
+ ],
+ "full_title": "발표 대본 · The speech",
+ "full": [
+  {
+   "title": "시작 · Opening",
+   "ko": "안녕하십니까? 저는 마드라스체크 SaaS개발1팀에서 일하고 있는 다라봇이라고 합니다. 오늘은 한국에 온 후에 새로 생긴 습관에 대해 말씀드리겠습니다. 제 새로운 습관은 요리입니다.",
+   "en": "Hello. My name is Daraboth and I work in SaaS Development Team 1 at Madras Check. Today I will talk about a new habit I picked up after coming to Korea. My new habit is cooking."
+  },
+  {
+   "title": "이유 · Why I started",
+   "ko": "한국에 오기 전에는 요리를 거의 하지 않았습니다. 요리를 시작한 이유는 두 가지입니다. 첫 번째 이유는 캄보디아 음식이 그리웠기 때문입니다. 한국에 살면서 캄보디아 음식이 많이 먹고 싶어졌습니다. 두 번째 이유는 돈입니다. 밖에서 사 먹으면 돈이 많이 들어서 돈을 아끼고 싶었습니다. 그래서 저는 직접 요리하기 시작했습니다.",
+   "en": "Before I came to Korea, I almost never cooked. There are two reasons I started cooking. The first is that I missed Cambodian food. Living in Korea, I came to really want Cambodian food. The second reason is money. Eating out costs a lot, so I wanted to save money. So I started cooking for myself."
+  },
+  {
+   "title": "만들기 · Making it",
+   "ko": "제가 제일 자주 만드는 음식은 캄보디아 음식인 차 스빼이입니다. 양배추와 고기를 볶아서 만드는 간단한 요리입니다. 먼저 마늘하고 양배추, 고기를 삽니다. 그다음에 재료를 썰어서 같이 볶습니다. 레시피에는 없지만 저는 고추를 꼭 넣습니다. 고추는 한 번도 잊어버린 적이 없습니다.",
+   "en": "The dish I make most often is a Cambodian dish called cha spey. It is a simple dish of stir-fried cabbage and meat. First I buy garlic, cabbage and meat. Then I cut the ingredients and stir-fry them together. It is not in the recipe, but I always add chili. I have never once forgotten the chili."
+  },
+  {
+   "title": "짠맛 · Too salty",
+   "ko": "그런데 제 음식은 항상 조금 짭니다. 왜냐하면 저는 짠 음식을 좋아하기 때문입니다. 저한테는 보통 맛인데 다른 사람들한테는 짜서 제 음식은 보통 저 혼자 먹습니다.",
+   "en": "But my food is always a little salty, because I like salty food. To me it tastes normal, but it is salty for other people, so I usually end up eating my food alone."
+  },
+  {
+   "title": "변화 · What changed",
+   "ko": "요리를 하면서 제 생활도 두 가지가 달라졌습니다. 첫 번째로, 직접 만들어 먹어서 식비를 아낄 수 있게 되었습니다. 두 번째로, 차 스빼이를 먹으면 마음이 편해져서 고향이 덜 그립습니다.",
+   "en": "As I cooked, two things in my life changed too. First, because I make my own food, I came to be able to save on food costs. Second, when I eat cha spey my heart feels at ease, so I miss home less."
+  },
+  {
+   "title": "마무리 · Closing",
+   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 습관입니다. 왜냐하면 돈도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다. 다음에는 소금을 조금 덜 넣어서 다른 사람들도 같이 먹을 수 있게 만들고 싶습니다. 이상으로 발표를 마치겠습니다. 들어주셔서 감사합니다.",
+   "en": "In my opinion, cooking is the best habit I picked up in Korea, because I can save money and also taste home. Next time I want to use a little less salt, so other people can eat it with me. That concludes my presentation. Thank you for listening."
+  }
+ ],
+ "published": "2026-11-03",
+ "station_en": "My new habit: cooking. Your K-Specialist talk on 2026-11-28."
+}
