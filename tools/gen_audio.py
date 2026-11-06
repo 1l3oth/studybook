@@ -18,11 +18,12 @@ import hashlib
 
 import edge_tts
 
+ASKER_VOICE = 'ko-KR-SunHiNeural'  # the person asking in the chat-style Q&A, so it never sounds like you
 EXPLAIN_VOICE = 'en-US-AvaMultilingualNeural'  # multilingual: reads the Korean words inside English notes
 
 
-def ename(text):
-    return 'audio/e-' + hashlib.sha1(text.encode('utf-8')).hexdigest()[:10] + '.mp3'
+def ename(text, pre='e'):
+    return f'audio/{pre}-' + hashlib.sha1(text.encode('utf-8')).hexdigest()[:10] + '.mp3'
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -36,6 +37,7 @@ def main():
 
     jobs = []
     ejobs = []
+    ijobs = []
 
     def explain(it, field, key):
         if it.get(field):
@@ -52,6 +54,9 @@ def main():
                 explain(it, 'en', 'en_audio')
             else:
                 explain(it, 'aen', 'aen_audio')
+                if b.get('kind') in (None, 'qa', 'trap') and it.get('q'):
+                    it['iaudio'] = ename(it['q'], 'i')
+                    ijobs.append((it['q'], it['iaudio']))
                 if b.get('kind') == 'gram':
                     explain(it, 'why', 'why_audio')
                 if it.get('qaudio'):
@@ -65,6 +70,10 @@ def main():
             it.setdefault('audio', 'audio/v%02d.mp3' % n)
             jobs.append((it['ko'], it['audio']))
             explain(it, 'en', 'en_audio')
+            if it.get('ex'):  # the example sentence in the Korean voice, its meaning in the English one
+                it['ex']['audio'] = ename(it['ex']['ko'], 'x')
+                jobs.append((it['ex']['ko'], it['ex']['audio']))
+                explain(it['ex'], 'en', 'en_audio')
     if not u.get('full'):
         secs = {s['id']: s for s in u['sections']}
         for s in u['sections']:
@@ -74,7 +83,7 @@ def main():
                                   'en': ' '.join(c['en'] for c in cs)})
     io.open(path, 'w', encoding='utf-8', newline='\n').write(json.dumps(u, ensure_ascii=False, indent=1))
 
-    todo = [(t, os.path.join(d, a), v) for v, js in ((voice, jobs), (EXPLAIN_VOICE, ejobs)) for t, a in js if a and t
+    todo = [(t, os.path.join(d, a), v) for v, js in ((voice, jobs), (ASKER_VOICE, ijobs), (EXPLAIN_VOICE, ejobs)) for t, a in js if a and t
             if not (os.path.exists(os.path.join(d, a)) and os.path.getsize(os.path.join(d, a)) > 1000)]
     todo = list({o: (t, o, v) for t, o, v in todo}.values())
 
@@ -84,11 +93,11 @@ def main():
         async def one(text, out, v):
             async with sem:
                 os.makedirs(os.path.dirname(out), exist_ok=True)
-                await edge_tts.Communicate(text.replace("'", '') if v == voice else text, v, rate='-5%').save(out)
+                await edge_tts.Communicate(text.replace("'", '') if v != EXPLAIN_VOICE else text, v, rate='-5%').save(out)
         await asyncio.gather(*(one(t, o, v) for t, o, v in todo))
 
     asyncio.run(run())
-    print(f'{slug}: {len(jobs)} Korean + {len(ejobs)} English clips referenced, {len(todo)} generated')
+    print(f'{slug}: {len(jobs)} Korean + {len(ijobs)} asker + {len(ejobs)} English clips referenced, {len(todo)} generated')
 
 
 if __name__ == '__main__':

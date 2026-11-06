@@ -320,13 +320,68 @@ body.hide-fen .fen,body.hide-fen .fsub,body.hide-fen .fv span{display:none}
 }
 
 /* English explainer: a small speaker in front of the meaning or the note (en-US voice) */
-.xp{display:inline-flex;align-items:center;gap:.2rem;vertical-align:middle;margin:0 .4rem .1rem 0;padding:.12rem .45rem .12rem .35rem;
-  border:1.5px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--ink-2);font:800 .66rem/1 var(--f);cursor:pointer}
-.xp svg{width:13px;height:13px}
-.xp:hover{color:var(--ink);border-color:var(--ink-3)}
+.xp{display:inline-flex;align-items:center;gap:.25rem;vertical-align:middle;margin:0 .45rem .15rem 0;padding:.2rem .6rem .2rem .45rem;
+  border:0;border-radius:999px;background:#0052A4;color:#fff;font:800 .74rem/1 var(--f);cursor:pointer;min-height:26px}
+.xp svg{width:15px;height:15px}
+.xp:hover{filter:brightness(1.15)}
 .xp.playing{background:var(--sign);border-color:var(--sign);color:#fff}
 body.hide-en .en:not(.shown) .xp,body.hide-ven .ven:not(.shown) .xp{visibility:hidden}
 /* word pictures in the vocab list */
-.vpic{width:46px;height:46px;flex:none;border-radius:10px;background:color-mix(in srgb,var(--lc,var(--line)) 12%,#F4F6F9);padding:3px}
+.vpic{width:68px;height:68px;flex:none;border-radius:12px;background:color-mix(in srgb,var(--lc,var(--line)) 12%,#F4F6F9);padding:3px}
 .vlist{--lc:var(--line)}
+@media (min-width:960px){.vpic{width:88px;height:88px}.voc{min-height:100px}}
 @media print{.xp{display:none}}
+
+/* chat-style Q&A: the asker on the left, you on the right, the answer covered until you tap */
+.chat{display:flex;flex-direction:column;gap:.55rem;max-width:780px;margin:0 auto .8rem}
+.qgrp.chip{align-self:center;margin:.9rem 0 .2rem;background:var(--surface);border-radius:999px;padding:.25rem .8rem;box-shadow:var(--shadow);font-size:.78rem}
+.msg{display:flex;align-items:flex-end;gap:.55rem}
+.msg.me{justify-content:flex-end}
+.msg .av{width:46px;height:46px;flex:none;border-radius:50%;box-shadow:0 0 0 3px transparent;transition:box-shadow .2s}
+.msg.speaking .av{box-shadow:0 0 0 3px var(--here)}
+.bub{position:relative;max-width:min(78%,560px);padding:.6rem .85rem .7rem;border-radius:18px;background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.msg.them .bub{border-bottom-left-radius:5px}
+.msg.me .bub{border-bottom-right-radius:5px;background:color-mix(in srgb,#0052A4 16%,var(--surface))}
+.msg.them.trap .bub{box-shadow:0 0 0 2px var(--notice),var(--shadow)}
+.who{display:flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:800;color:var(--ink-2);margin-bottom:.2rem}
+.bub .qko{margin:0;font-weight:800;font-size:1.05rem;line-height:1.55;word-break:keep-all}
+.bub .qen{margin:.15rem 0 0;font-size:.84rem;color:var(--ink-2)}
+.bub .listen.mini{margin-top:.45rem}
+.ans .inner{display:none}
+.ans.open .inner,body.reveal-all .ans .inner{display:block}
+.ans.open .cover,body.reveal-all .ans .cover{display:none}
+.ans .cover{display:block;width:100%;min-width:220px;min-height:52px;border:0;border-radius:12px;cursor:pointer;font:700 .86rem var(--f);color:var(--ink-2);
+  background:repeating-linear-gradient(-45deg,transparent 0 8px,color-mix(in srgb,var(--ink-3) 14%,transparent) 8px 10px)}
+.ans .dots{display:none;gap:5px;padding:.4rem .2rem}
+.ans.thinking .dots{display:flex}.ans.thinking .cover{display:none}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--ink-3);animation:dot 1s infinite}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+.av .eye{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+.msg.me .av .eye{animation-delay:1.7s}
+@keyframes blink{0%,93%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.av .mouth{transform-box:fill-box;transform-origin:center}
+.msg.speaking .av .mouth{animation:talk .16s infinite alternate}
+@keyframes talk{from{transform:scaleY(.4)}to{transform:scaleY(1.9) scaleX(1.1)}}
+@media (prefers-reduced-motion:reduce){.av .eye,.msg.speaking .av .mouth,.dots i{animation:none}}
+@media print{.ans .inner{display:block}.ans .cover,.msg .av{display:none}}
+
+/* vocab as cards: the picture and the text take equal halves; each word has a real-life example */
+.vlist{display:grid;grid-template-columns:1fr;gap:.7rem;background:none;box-shadow:none;border-radius:0;overflow:visible}
+.voc.haspic{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:0;padding:0;border-top:0;min-height:0;
+  background:var(--surface);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.vfig{margin:0;aspect-ratio:1;display:grid;place-items:center;background:color-mix(in srgb,var(--lc,var(--line)) 12%,#F4F6F9)}
+.voc .vpic{width:84%;height:84%;background:none;border-radius:0;padding:0}
+.vtext{display:flex;flex-direction:column;justify-content:center;gap:.35rem;padding:.8rem .9rem;min-width:0}
+.vrow{display:flex;align-items:center;gap:.55rem}
+.voc.haspic .vko{font-size:clamp(1.25rem,5vw,1.7rem);line-height:1.25}
+.voc.haspic .ven{margin:0;text-align:left;font-size:.9rem}
+.vex{margin-top:.25rem;padding-top:.45rem;border-top:1px dashed var(--rule)}
+.vex .exko{margin:0 0 .25rem;font-weight:700;font-size:.92rem;line-height:1.5;word-break:keep-all}
+.vex .listen.mini{min-height:30px;min-width:30px}
+.vex .exen{margin:.25rem 0 0;font-size:.8rem;color:var(--ink-2);line-height:1.45}
+@media (min-width:720px){.vlist{grid-template-columns:1fr 1fr}}
+@media (min-width:960px){.voc{min-height:0}.voc .vpic{width:80%;height:80%}}
+.vex{display:grid;grid-template-columns:auto 1fr;column-gap:.5rem;align-items:start}
+.vex .listen.mini{order:-1;margin-top:-.1rem}
+.vex .exen{grid-column:1/-1}

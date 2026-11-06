@@ -24,7 +24,7 @@ def e(s):
 
 
 HANGUL = re.compile('[가-힣ㄱ-ㅎ]')
-V = 'v=xp1'  # bump when assets change, so a new page never meets an old cached stylesheet
+V = 'v=voc2'  # bump when assets change, so a new page never meets an old cached stylesheet
 SITE = 'https://1l3oth.github.io/studybook/'
 
 
@@ -87,6 +87,45 @@ def xp(au):
     if not au:
         return ''
     return f'<button class="xp" type="button" data-au="{e(au)}" aria-label="Explain in English">{XP}<b>EN</b></button>'
+
+
+# Chat-style Q&A: the asker on the left, you on the right. Inline SVG so CSS can animate the mouth
+# while a clip plays (.msg.speaking) and blink the eyes.
+ASKER_SVG = ('<svg class="av" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#E7E2F3"/>'
+             '<path d="M10 64 Q10 44 32 44 Q54 44 54 64Z" fill="#1C2A4A"/><path d="M26 44 L32 54 L38 44Z" fill="#fff"/>'
+             '<path d="M17 34 Q15 12 32 12 Q49 12 47 34 Q47 40 44 42 L44 28 Q32 26 20 28 L20 42 Q17 40 17 34Z" fill="#3B2A23"/>'
+             '<ellipse cx="32" cy="30" rx="12" ry="14" fill="#F2C9A5"/>'
+             '<path d="M20 26 Q26 14 44 24 Q40 18 32 17 Q22 17 20 26Z" fill="#3B2A23"/>'
+             '<g class="eye"><circle cx="27" cy="29" r="1.8" fill="#23262D"/><circle cx="37" cy="29" r="1.8" fill="#23262D"/></g>'
+             '<circle cx="27" cy="29" r="4.2" fill="none" stroke="#23262D" stroke-width="1.3"/>'
+             '<circle cx="37" cy="29" r="4.2" fill="none" stroke="#23262D" stroke-width="1.3"/><path d="M31.2 29 H32.8" stroke="#23262D" stroke-width="1.3"/>'
+             '<ellipse class="mouth" cx="32" cy="37.5" rx="3.2" ry="1.6" fill="#B5544A"/></svg>')
+ME_SVG = ('<svg class="av" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#DCEBFA"/>'
+          '<path d="M10 64 Q10 44 32 44 Q54 44 54 64Z" fill="#0052A4"/><path d="M27 44 Q32 50 37 44" fill="none" stroke="#fff" stroke-width="2"/>'
+          '<ellipse cx="32" cy="30" rx="12" ry="14" fill="#D9A27A"/>'
+          '<path d="M19 28 Q18 13 32 13 Q46 13 45 28 Q42 20 32 20 Q23 20 19 28Z" fill="#1B1B1F"/>'
+          '<g class="eye"><circle cx="27" cy="30" r="1.8" fill="#23262D"/><circle cx="37" cy="30" r="1.8" fill="#23262D"/></g>'
+          '<ellipse class="mouth" cx="32" cy="37.5" rx="3.2" ry="1.6" fill="#9C4A3E"/></svg>')
+
+
+def chat_pair(it, n, trap, them, me):
+    """One question and answer as two chat messages. The answer stays covered until you tap it."""
+    aid = f'qa{n}'
+    qen = f'<p class="qen">{t(it["qen"])}</p>' if it.get('qen') else ''
+    check = f'<span class="check">{ui("확인 필요 · check", "check")}</span>' if it.get('check') else ''
+    why = f'<p class="why">{t(it["why"])}</p>' if it.get('why') else ''
+    aen = f'<p class="aen">{xp(it.get("aen_audio"))}{t(it["aen"])}</p>' if it.get('aen') else ''
+    tag = f'<span class="trap-tag">{ui("함정", "Trap")}</span>' if trap else ''
+    qa_au = it.get('iaudio') or it.get('qaudio')
+    return (f'<div class="msg them{" trap" if trap else ""}">{ASKER_SVG}<div class="bub">'
+            f'<span class="who">{m(them)}{tag}</span>'
+            f'<p class="{he("qko", it.get("qen"))}" lang="ko">{t(it["q"])}</p>{qen}'
+            f'{listen(qa_au, mini=True)}</div></div>'
+            f'<div class="msg me"><div class="bub ans" id="{aid}"><span class="who">{m(me)}</span>'
+            f'<button class="cover" type="button" aria-controls="{aid}">{ui("먼저 생각하고, 탭하세요", "Think of your answer, then tap")}</button>'
+            f'<div class="inner"><p class="{he("ako", it.get("aen"))}" lang="ko">{t(it["a"])}{check}</p>{aen}'
+            f'{listen(it.get("audio"), mini=True)}{why}</div>'
+            f'<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>{ME_SVG}</div>')
 
 
 def cplay(au, n, cls):
@@ -157,6 +196,18 @@ def render(u):
                           f'<span class="sen">{xp(it.get("en_audio"))}{t(it.get("en"))}</span></span>{listen(it.get("audio"), mini=True)}</div>')
             continue
         last_group = None
+        if b.get('kind') != 'gram':  # questions someone asks you: a chat
+            chat = u.get('chat', {})
+            them, me = chat.get('them', '상대 · The other person'), chat.get('me', '나 · Me')
+            qh.append('<div class="chat">')
+            for it in b['items']:
+                if it.get('group') and it['group'] != last_group:
+                    qh.append(f'<h3 class="qgrp chip">{m(it["group"])}</h3>')
+                    last_group = it['group']
+                n += 1
+                qh.append(chat_pair(it, n, b.get('kind') == 'trap', them, me))
+            qh.append('</div>')
+            continue
         for it in b['items']:
             if it.get('group') and it['group'] != last_group:
                 qh.append(f'<h3 class="qgrp">{m(it["group"])}</h3>')
@@ -183,9 +234,13 @@ def render(u):
         lc = f' style="--lc:{e(g["color"])}"' if g.get('color') else ''
         vh.append(f'<h2 class="vgrp"{lc}>{m(g["title"])}</h2><ul class="vlist">')
         for it in g['items']:
-            pic = (f'<img class="vpic" src="{e(it["img"])}" alt="" loading="lazy">' if it.get('img') else '')
-            vh.append(f'<li class="voc">{pic}{listen(it.get("audio"), mini=True)}<span class="vko has-en" lang="ko">{t(it["ko"])}</span>'
-                      f'<span class="ven">{xp(it.get("en_audio"))}{t(it["en"])}</span></li>')
+            pic = (f'<figure class="vfig"><img class="vpic" src="{e(it["img"])}" alt="" loading="lazy"></figure>' if it.get('img') else '')
+            ex = it.get('ex') or {}
+            exh = (f'<div class="vex"><p class="exko has-en" lang="ko">{t(ex["ko"])}</p>{listen(ex.get("audio"), mini=True)}'
+                   f'<p class="exen">{xp(ex.get("en_audio"))}{t(ex.get("en", ""))}</p></div>') if ex.get('ko') else ''
+            vh.append(f'<li class="voc{" haspic" if pic else ""}">{pic}<div class="vtext"><div class="vrow">{listen(it.get("audio"), mini=True)}'
+                      f'<span class="vko has-en" lang="ko">{t(it["ko"])}</span></div>'
+                      f'<span class="ven">{xp(it.get("en_audio"))}{t(it["en"])}</span>{exh}</div></li>')
         vh.append('</ul>')
 
     # ---- full text ----
@@ -317,7 +372,8 @@ def render(u):
     <button class="btn" type="button" data-toggle="hide-en" aria-pressed="false" aria-label="Hide English">{ICON["eye"]}{ui("영어", "English")}</button>
   </div>
   <div class="acts" id="a-qa" hidden>
-    <button class="btn" type="button" data-toggle="reveal-all" aria-pressed="false">{ui("답 모두 보기 · Show all answers", "Show all answers")}</button>
+    <button class="btn primary" id="playTalk" type="button" aria-pressed="false">{ICON["play"]}<span>{ui("대화 재생", "Play the talk")}</span></button>
+    <button class="btn" type="button" data-toggle="reveal-all" aria-pressed="false">{ui("답 모두 보기", "Show all answers")}</button>
   </div>
   <div class="acts" id="a-voc" hidden>
     <button class="btn" type="button" data-toggle="hide-vko" aria-pressed="false">{ICON["eye"]}{ui("한국어 가리기", "Hide Lyric")}</button>

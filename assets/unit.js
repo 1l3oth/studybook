@@ -63,7 +63,7 @@
   function play(btn, done, ownerEl) {
     stop();
     audio = new Audio(btn.dataset.au); playingBtn = btn; mark(btn, true);
-    setOwner(ownerEl || btn.closest('.card'));
+    setOwner(ownerEl || btn.closest('.card, .msg'));
     var bar = owner ? $('.prog i', owner) : null;
     audio.ontimeupdate = function () { if (bar && audio && audio.duration) bar.style.width = (audio.currentTime / audio.duration * 100) + '%'; };
     audio.onended = function () { mark(btn, false); setOwner(null); if (done) done(); };
@@ -184,6 +184,8 @@
       if (c && desk.matches) { select(cards.indexOf(c), true); stageReveal(); play(b, function () { mark(sPlay, false); }, stage); mark(sPlay, true); return; }
       play(b); return;
     }
+    var cv = e.target.closest('.ans .cover');
+    if (cv) { cv.closest('.ans').classList.add('open'); return; }
     var q = e.target.closest('.qa .q');
     if (q) { var qa = q.closest('.qa'); qa.classList.toggle('open'); q.setAttribute('aria-expanded', qa.classList.contains('open')); return; }
     var hid = e.target.closest('.ko, .vko, .ven');
@@ -199,6 +201,48 @@
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); stopSeq(); select(sel - 1); }
     else if (e.key === 'k' || e.key === 'K') stageReveal();
   });
+
+  // ---- Q&A as a conversation: the question plays, you get a few seconds to think, then the answer ----
+  var talkBtn = $('#playTalk'), talk = null;
+  function talkStop() {
+    if (!talk) return;
+    clearTimeout(talk.t); talk = null; stop();
+    $$('.ans.thinking').forEach(function (x) { x.classList.remove('thinking'); });
+    talkBtn.setAttribute('aria-pressed', 'false'); $('span', talkBtn).innerHTML = L('대화 재생', 'Play the talk');
+  }
+  function talkStep() {
+    if (!talk) return;
+    var q = talk.qs[talk.i];
+    if (!q) { talkStop(); return; }
+    var a = q.nextElementSibling, ans = $('.ans', a);
+    q.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    function answer() {
+      if (!talk) return;
+      ans.classList.add('thinking');
+      talk.t = setTimeout(function () {
+        if (!talk) return;
+        ans.classList.remove('thinking'); ans.classList.add('open');
+        var ab = $('.inner .listen', ans);
+        function next() { if (!talk) return; talk.i++; talk.t = setTimeout(talkStep, 900); }
+        if (ab) play(ab, next, a); else next();
+      }, 4000);
+    }
+    var qb = $('.bub > .listen', q);
+    if (qb) play(qb, answer, q); else answer();
+  }
+  if (talkBtn) {
+    talkBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (talk) { talkStop(); return; }
+      var qs = $$('#p-qa .msg.them');
+      if (!qs.length) return;
+      talk = { qs: qs, i: 0, t: null };
+      talkBtn.setAttribute('aria-pressed', 'true'); $('span', talkBtn).innerHTML = L('멈추기', 'Stop');
+      talkStep();
+    });
+    $$('.tabs [role="tab"]').forEach(function (tb) { tb.addEventListener('click', talkStop); });
+    document.addEventListener('click', function (e) { if (talk && e.target.closest('[data-au], .cover')) talkStop(); }, true);
+  }
 
   // ---- toggles ----
   $$('[data-toggle]').forEach(function (btn) {

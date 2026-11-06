@@ -344,7 +344,8 @@
      "aen": "I started after coming to Korea. I do not remember the exact date, but I started because I missed Cambodian food.",
      "why": "The talk never gives a date, and this is the first thing they will ask. Put your real month here if you remember it.",
      "audio": "audio/kf97fbc84.mp3",
-     "aen_audio": "audio/e-949e6d87da.mp3"
+     "aen_audio": "audio/e-949e6d87da.mp3",
+     "iaudio": "audio/i-5c6f2707ed.mp3"
     },
     {
      "group": "함정과 빈틈 · Traps first",
@@ -355,7 +356,8 @@
      "aen": "Salty tastes normal to me, so I cannot really tell. So when I eat with other people, I try to use less salt.",
      "why": "Your funniest line opens this door. Have an answer ready.",
      "audio": "audio/k5fc7c453.mp3",
-     "aen_audio": "audio/e-9062b84ebb.mp3"
+     "aen_audio": "audio/e-9062b84ebb.mp3",
+     "iaudio": "audio/i-67e3e680ce.mp3"
     },
     {
      "group": "함정과 빈틈 · Traps first",
@@ -365,7 +367,8 @@
      "aen": "Cha means to stir-fry, and spey means cabbage.",
      "why": "You name a Khmer word, so they will ask what it means.",
      "audio": "audio/kb2953682.mp3",
-     "aen_audio": "audio/e-a8bed8a6d3.mp3"
+     "aen_audio": "audio/e-a8bed8a6d3.mp3",
+     "iaudio": "audio/i-ac6bd89118.mp3"
     },
     {
      "group": "함정과 빈틈 · Traps first",
@@ -376,7 +379,8 @@
      "aen": "I have not calculated it exactly, but I spend less than when I eat out.",
      "why": "You claim saving money but give no number. A real number is better if you have one.",
      "audio": "audio/k2ed96317.mp3",
-     "aen_audio": "audio/e-02ad449bae.mp3"
+     "aen_audio": "audio/e-02ad449bae.mp3",
+     "iaudio": "audio/i-040d1853a3.mp3"
     },
     {
      "group": "요리 · Cooking",
@@ -386,7 +390,8 @@
      "check": true,
      "aen": "It tastes better with chili, so I always add it.",
      "audio": "audio/kf09d2882.mp3",
-     "aen_audio": "audio/e-1d5ea2908c.mp3"
+     "aen_audio": "audio/e-1d5ea2908c.mp3",
+     "iaudio": "audio/i-bb5c2c5dda.mp3"
     },
     {
      "group": "요리 · Cooking",
@@ -396,7 +401,8 @@
      "check": true,
      "aen": "I also make Cambodian dishes like amok and curry.",
      "audio": "audio/kc4c5132c.mp3",
-     "aen_audio": "audio/e-c98fa99ddd.mp3"
+     "aen_audio": "audio/e-c98fa99ddd.mp3",
+     "iaudio": "audio/i-23714e0d02.mp3"
     },
     {
      "group": "요리 · Cooking",
@@ -406,7 +412,8 @@
      "check": true,
      "aen": "I usually do my shopping at Yeongdeungpo Market. Chili I buy frozen on Coupang.",
      "audio": "audio/c-qa-shop.mp3",
-     "aen_audio": "audio/e-d826781864.mp3"
+     "aen_audio": "audio/e-d826781864.mp3",
+     "iaudio": "audio/i-4e194e626e.mp3"
     },
     {
      "group": "요리 · Cooking",
@@ -416,7 +423,8 @@
      "aen": "Not often. A pack of frozen chili is about 8,000 won, and it lasts four or five months.",
      "why": "A natural follow-up to your Coupang line. The numbers are yours, so say them with confidence.",
      "audio": "audio/c-qa-howoften.mp3",
-     "aen_audio": "audio/e-79eb1046dc.mp3"
+     "aen_audio": "audio/e-79eb1046dc.mp3",
+     "iaudio": "audio/i-4c55d2a837.mp3"
     },
     {
      "group": "요리 · Cooking",
@@ -426,7 +434,8 @@
      "aen": "Vietnamese chili is a little spicier than Cambodian chili.",
      "why": "If you mention Vietnam, expect this. One short comparison is enough.",
      "audio": "audio/c-qa-vietnam.mp3",
-     "aen_audio": "audio/e-2b698acc66.mp3"
+     "aen_audio": "audio/e-2b698acc66.mp3",
+     "iaudio": "audio/i-ec2b2269ab.mp3"
     },
     {
      "group": "요리 · Cooking",
@@ -435,7 +444,8 @@
      "a": "한국에는 계절에 따라 먹는 음식이 있지만, 캄보디아에는 그런 음식이 거의 없습니다.",
      "aen": "Korea has food you eat by season, but Cambodia has almost none.",
      "audio": "audio/k4c56baf0.mp3",
-     "aen_audio": "audio/e-b879697825.mp3"
+     "aen_audio": "audio/e-b879697825.mp3",
+     "iaudio": "audio/i-bcfb7a7631.mp3"
     },
     {
      "group": "요리 · Cooking",
@@ -445,7 +455,8 @@
      "aen": "At first my roommates showed me how to use the kitchen. Then I learned from my family and from YouTube.",
      "why": "Your thank-you lines open this question. Answer with the same three: roommates, family, YouTube.",
      "audio": "audio/c-qa-who.mp3",
-     "aen_audio": "audio/e-998a6fe845.mp3"
+     "aen_audio": "audio/e-998a6fe845.mp3",
+     "iaudio": "audio/i-f96b2cf3c3.mp3"
     },
     {
      "group": "요리 · Cooking",
@@ -456,7 +467,8 @@
      "aen": "I have not decided yet, but I would like it to be a dish they have never tried.",
      "why": "Your closing invites this. Put the real dish here once you choose one.",
      "audio": "audio/c-qa-which.mp3",
-     "aen_audio": "audio/e-e571e19541.mp3"
+     "aen_audio": "audio/e-e571e19541.mp3",
+     "iaudio": "audio/i-4f797bd642.mp3"
     },
     {
      "group": "취미 · Hobbies",
@@ -465,7 +477,8 @@
      "a": "네, 두 가지가 더 있습니다. 하나는 책을 읽는 것이고, 다른 하나는 AI를 공부하는 것입니다.",
      "aen": "Yes, two more. One is reading books and the other is studying AI.",
      "audio": "audio/k34851943.mp3",
-     "aen_audio": "audio/e-374a672378.mp3"
+     "aen_audio": "audio/e-374a672378.mp3",
+     "iaudio": "audio/i-4b16e39a89.mp3"
     },
     {
      "group": "취미 · Hobbies",
@@ -475,7 +488,8 @@
      "check": true,
      "aen": "Because it helps a lot with my work at the company.",
      "audio": "audio/k7853e584.mp3",
-     "aen_audio": "audio/e-f44de2889a.mp3"
+     "aen_audio": "audio/e-f44de2889a.mp3",
+     "iaudio": "audio/i-b0e2317b44.mp3"
     },
     {
      "group": "한국 생활과 일 · Life and work",
@@ -484,7 +498,8 @@
      "a": "연구개발본부 SaaS개발1팀에서 플로우 서비스를 개발하고 있습니다.",
      "aen": "I develop the Flow service in SaaS Development Team 1 in the R&D division.",
      "audio": "audio/k21f32b94.mp3",
-     "aen_audio": "audio/e-d98f713d08.mp3"
+     "aen_audio": "audio/e-d98f713d08.mp3",
+     "iaudio": "audio/i-c9e70feb22.mp3"
     },
     {
      "group": "한국 생활과 일 · Life and work",
@@ -494,7 +509,8 @@
      "check": true,
      "aen": "The hardest times are when I miss my family and the food from home.",
      "audio": "audio/kbf4363eb.mp3",
-     "aen_audio": "audio/e-34cbc0ba31.mp3"
+     "aen_audio": "audio/e-34cbc0ba31.mp3",
+     "iaudio": "audio/i-00292997b9.mp3"
     },
     {
      "group": "한국 생활과 일 · Life and work",
@@ -503,7 +519,8 @@
      "a": "매일 조금씩 단어와 문법을 공부하고, 가끔 한국어로 일기를 씁니다.",
      "aen": "I study words and grammar a little every day, and I sometimes write a diary in Korean.",
      "audio": "audio/kd9b361ce.mp3",
-     "aen_audio": "audio/e-a24b71adc3.mp3"
+     "aen_audio": "audio/e-a24b71adc3.mp3",
+     "iaudio": "audio/i-c044cc7906.mp3"
     },
     {
      "group": "한국 생활과 일 · Life and work",
@@ -513,7 +530,8 @@
      "check": true,
      "aen": "Because I want to get better at Korean and I want to work in Korea or Singapore in the future.",
      "audio": "audio/k56fae56c.mp3",
-     "aen_audio": "audio/e-e3aad8aa08.mp3"
+     "aen_audio": "audio/e-e3aad8aa08.mp3",
+     "iaudio": "audio/i-d10aaad262.mp3"
     }
    ],
    "note": "The notice says questions go wide and memorizing alone will not score well. Answer in your head, then tap to compare. Answers marked 확인 use a detail I could not confirm, so change them to the truth."
@@ -698,56 +716,104 @@
      "en": "habit",
      "audio": "audio/k0e09a497.mp3",
      "en_audio": "audio/e-3800515d4b.mp3",
-     "img": "img/w-0e09a497a5.svg"
+     "img": "img/w-0e09a497a5.svg",
+     "ex": {
+      "ko": "아침마다 물을 마시는 습관이 있어요.",
+      "en": "I have a habit of drinking water every morning.",
+      "audio": "audio/x-fe72edf1a4.mp3",
+      "en_audio": "audio/e-42b8a0ba3b.mp3"
+     }
     },
     {
      "ko": "취미",
      "en": "hobby",
      "audio": "audio/kfb0483e3.mp3",
      "en_audio": "audio/e-54b7e849c6.mp3",
-     "img": "img/w-fb0483e34b.svg"
+     "img": "img/w-fb0483e34b.svg",
+     "ex": {
+      "ko": "주말에 요리하는 게 제 취미예요.",
+      "en": "Cooking on weekends is my hobby.",
+      "audio": "audio/x-81b60fab25.mp3",
+      "en_audio": "audio/e-b1c48802fb.mp3"
+     }
     },
     {
      "ko": "요리하다",
      "en": "to cook",
      "audio": "audio/ka2b99d4d.mp3",
      "en_audio": "audio/e-205a740810.mp3",
-     "img": "img/w-a2b99d4d70.svg"
+     "img": "img/w-a2b99d4d70.svg",
+     "ex": {
+      "ko": "저는 저녁에 집에서 요리해요.",
+      "en": "I cook at home in the evening.",
+      "audio": "audio/x-b8c5b98eff.mp3",
+      "en_audio": "audio/e-afb1e22e6e.mp3"
+     }
     },
     {
      "ko": "직접",
      "en": "by myself, in person",
      "audio": "audio/kc27ff0e1.mp3",
      "en_audio": "audio/e-1dfd32b595.mp3",
-     "img": "img/w-c27ff0e1b2.svg"
+     "img": "img/w-c27ff0e1b2.svg",
+     "ex": {
+      "ko": "김치를 직접 만들어 봤어요.",
+      "en": "I tried making kimchi myself.",
+      "audio": "audio/x-e7259ae0f1.mp3",
+      "en_audio": "audio/e-606a96f375.mp3"
+     }
     },
     {
      "ko": "재료",
      "en": "ingredients",
      "audio": "audio/ked17a518.mp3",
      "en_audio": "audio/e-dc6048e0f0.mp3",
-     "img": "img/w-ed17a518f9.svg"
+     "img": "img/w-ed17a518f9.svg",
+     "ex": {
+      "ko": "마트에서 찌개 재료를 샀어요.",
+      "en": "I bought the ingredients for stew at the supermarket.",
+      "audio": "audio/x-73d0191455.mp3",
+      "en_audio": "audio/e-bb48be859a.mp3"
+     }
     },
     {
      "ko": "레시피",
      "en": "recipe",
      "audio": "audio/k6f0ef0b5.mp3",
      "en_audio": "audio/e-e2a2270c8a.mp3",
-     "img": "img/w-6f0ef0b54e.svg"
+     "img": "img/w-6f0ef0b54e.svg",
+     "ex": {
+      "ko": "유튜브에서 레시피를 찾아봤어요.",
+      "en": "I looked up the recipe on YouTube.",
+      "audio": "audio/x-802836a47c.mp3",
+      "en_audio": "audio/e-565d7e4f06.mp3"
+     }
     },
     {
      "ko": "장을 보다",
      "en": "to do the grocery shopping",
      "audio": "audio/kda268ce6.mp3",
      "en_audio": "audio/e-778063c79e.mp3",
-     "img": "img/w-da268ce64a.svg"
+     "img": "img/w-da268ce64a.svg",
+     "ex": {
+      "ko": "퇴근하고 마트에서 장을 봐요.",
+      "en": "I do the grocery shopping at the supermarket after work.",
+      "audio": "audio/x-bcf41592e2.mp3",
+      "en_audio": "audio/e-4e8737290d.mp3"
+     }
     },
     {
      "ko": "간단하다",
      "en": "to be simple",
      "audio": "audio/kd631ce42.mp3",
      "en_audio": "audio/e-ad349adbfd.mp3",
-     "img": "img/w-d631ce4280.svg"
+     "img": "img/w-d631ce4280.svg",
+     "ex": {
+      "ko": "라면은 만들기 간단해요.",
+      "en": "Ramyeon is simple to make.",
+      "audio": "audio/x-8cd4e3e617.mp3",
+      "en_audio": "audio/e-f250d83fba.mp3"
+     }
     }
    ]
   },
@@ -759,70 +825,130 @@
      "en": "cabbage",
      "audio": "audio/ka9d1a15b.mp3",
      "en_audio": "audio/e-05d1ce01dc.mp3",
-     "img": "img/w-a9d1a15bb1.svg"
+     "img": "img/w-a9d1a15bb1.svg",
+     "ex": {
+      "ko": "양배추가 싸서 많이 샀어요.",
+      "en": "Cabbage was cheap, so I bought a lot.",
+      "audio": "audio/x-4bdc448007.mp3",
+      "en_audio": "audio/e-c7313bf794.mp3"
+     }
     },
     {
      "ko": "마늘",
      "en": "garlic",
      "audio": "audio/k7a83acce.mp3",
      "en_audio": "audio/e-2ade5d5a47.mp3",
-     "img": "img/w-7a83acced4.svg"
+     "img": "img/w-7a83acced4.svg",
+     "ex": {
+      "ko": "한국 음식에는 마늘이 많이 들어가요.",
+      "en": "Korean food has a lot of garlic in it.",
+      "audio": "audio/x-14ce75403f.mp3",
+      "en_audio": "audio/e-ad4f0b408c.mp3"
+     }
     },
     {
      "ko": "고기",
      "en": "meat",
      "audio": "audio/k77895dd5.mp3",
      "en_audio": "audio/e-bb40f75a9c.mp3",
-     "img": "img/w-77895dd580.svg"
+     "img": "img/w-77895dd580.svg",
+     "ex": {
+      "ko": "오늘 저녁은 고기 먹을까요?",
+      "en": "Shall we have meat for dinner tonight?",
+      "audio": "audio/x-788da3a682.mp3",
+      "en_audio": "audio/e-b4ba3f41df.mp3"
+     }
     },
     {
      "ko": "고추",
      "en": "chili",
      "audio": "audio/kb8f71205.mp3",
      "en_audio": "audio/e-15fb0570b6.mp3",
-     "img": "img/w-b8f7120511.svg"
+     "img": "img/w-b8f7120511.svg",
+     "ex": {
+      "ko": "고추를 너무 많이 넣어서 매워요.",
+      "en": "I put in too much chili, so it is spicy.",
+      "audio": "audio/x-10237c915c.mp3",
+      "en_audio": "audio/e-770e2a5863.mp3"
+     }
     },
     {
      "ko": "소금",
      "en": "salt",
      "audio": "audio/k89290136.mp3",
      "en_audio": "audio/e-b295d11713.mp3",
-     "img": "img/w-89290136da.svg"
+     "img": "img/w-89290136da.svg",
+     "ex": {
+      "ko": "소금 좀 주시겠어요?",
+      "en": "Could you pass me the salt?",
+      "audio": "audio/x-0f4e962f37.mp3",
+      "en_audio": "audio/e-629be48481.mp3"
+     }
     },
     {
      "ko": "썰다",
      "en": "to cut, to slice",
      "audio": "audio/ke3feef04.mp3",
      "en_audio": "audio/e-7c263a530c.mp3",
-     "img": "img/w-e3feef044a.svg"
+     "img": "img/w-e3feef044a.svg",
+     "ex": {
+      "ko": "양파를 얇게 썰어 주세요.",
+      "en": "Please slice the onion thinly.",
+      "audio": "audio/x-a447f1a234.mp3",
+      "en_audio": "audio/e-085bb42718.mp3"
+     }
     },
     {
      "ko": "볶다",
      "en": "to stir-fry",
      "audio": "audio/ka921a1d1.mp3",
      "en_audio": "audio/e-08562be9ee.mp3",
-     "img": "img/w-a921a1d158.svg"
+     "img": "img/w-a921a1d158.svg",
+     "ex": {
+      "ko": "기름에 마늘을 먼저 볶아요.",
+      "en": "Stir-fry the garlic in oil first.",
+      "audio": "audio/x-2978f58584.mp3",
+      "en_audio": "audio/e-0ec0d6578e.mp3"
+     }
     },
     {
      "ko": "넣다",
      "en": "to put in, to add",
      "audio": "audio/k03bd95cb.mp3",
      "en_audio": "audio/e-6143f58e3e.mp3",
-     "img": "img/w-03bd95cbd2.svg"
+     "img": "img/w-03bd95cbd2.svg",
+     "ex": {
+      "ko": "라면에 계란을 넣어 먹어요.",
+      "en": "I put an egg in my ramyeon.",
+      "audio": "audio/x-75c574bb95.mp3",
+      "en_audio": "audio/e-e760eb9efe.mp3"
+     }
     },
     {
      "ko": "냉동",
      "en": "frozen",
      "audio": "audio/v17.mp3",
      "en_audio": "audio/e-c405fd1117.mp3",
-     "img": "img/w-57e60c5c02.svg"
+     "img": "img/w-57e60c5c02.svg",
+     "ex": {
+      "ko": "냉동 만두를 에어프라이어에 구웠어요.",
+      "en": "I cooked frozen dumplings in the air fryer.",
+      "audio": "audio/x-c995de678f.mp3",
+      "en_audio": "audio/e-465c702d8f.mp3"
+     }
     },
     {
      "ko": "봉지",
      "en": "bag, pack",
      "audio": "audio/v18.mp3",
      "en_audio": "audio/e-8acb4c7547.mp3",
-     "img": "img/w-8c2b74fb23.svg"
+     "img": "img/w-8c2b74fb23.svg",
+     "ex": {
+      "ko": "봉지 필요하세요?",
+      "en": "Do you need a bag?",
+      "audio": "audio/x-772eb7c442.mp3",
+      "en_audio": "audio/e-ff392d046e.mp3"
+     }
     }
    ]
   },
@@ -834,63 +960,117 @@
      "en": "taste",
      "audio": "audio/kd4103ce9.mp3",
      "en_audio": "audio/e-270fdbaac5.mp3",
-     "img": "img/w-d4103ce998.svg"
+     "img": "img/w-d4103ce998.svg",
+     "ex": {
+      "ko": "이 집은 맛이 진짜 좋아요.",
+      "en": "The food at this place really tastes good.",
+      "audio": "audio/x-a226b61a03.mp3",
+      "en_audio": "audio/e-38b1da9cc7.mp3"
+     }
     },
     {
      "ko": "짜다",
      "en": "to be salty",
      "audio": "audio/k3cc78bd2.mp3",
      "en_audio": "audio/e-f5aa74bc9c.mp3",
-     "img": "img/w-3cc78bd275.svg"
+     "img": "img/w-3cc78bd275.svg",
+     "ex": {
+      "ko": "국이 좀 짜요. 물 좀 넣을게요.",
+      "en": "The soup is a bit salty. I will add some water.",
+      "audio": "audio/x-5dd610ebb5.mp3",
+      "en_audio": "audio/e-73295b757b.mp3"
+     }
     },
     {
      "ko": "짠맛",
      "en": "salty taste",
      "audio": "audio/k468a5809.mp3",
      "en_audio": "audio/e-5a605fbb72.mp3",
-     "img": "img/w-468a580972.svg"
+     "img": "img/w-468a580972.svg",
+     "ex": {
+      "ko": "짠맛이 너무 강해요.",
+      "en": "The salty taste is too strong.",
+      "audio": "audio/x-57cdf68e85.mp3",
+      "en_audio": "audio/e-a9114d1e2e.mp3"
+     }
     },
     {
      "ko": "맵다",
      "en": "to be spicy",
      "audio": "audio/k19dea8ba.mp3",
      "en_audio": "audio/e-e49be5b72c.mp3",
-     "img": "img/w-19dea8ba15.svg"
+     "img": "img/w-19dea8ba15.svg",
+     "ex": {
+      "ko": "이거 많이 매워요?",
+      "en": "Is this very spicy?",
+      "audio": "audio/x-ca018b755f.mp3",
+      "en_audio": "audio/e-7d0b25179f.mp3"
+     }
     },
     {
      "ko": "싱겁다",
      "en": "to be bland",
      "audio": "audio/kbb0164ce.mp3",
      "en_audio": "audio/e-ce4d5d29f3.mp3",
-     "img": "img/w-bb0164ced9.svg"
+     "img": "img/w-bb0164ced9.svg",
+     "ex": {
+      "ko": "좀 싱거우면 간장을 넣으세요.",
+      "en": "If it is a bit bland, add some soy sauce.",
+      "audio": "audio/x-ffad9a9a74.mp3",
+      "en_audio": "audio/e-9fcea38e22.mp3"
+     }
     },
     {
      "ko": "간",
      "en": "seasoning",
      "audio": "audio/k962b85a6.mp3",
      "en_audio": "audio/e-ebdc3c7721.mp3",
-     "img": "img/w-962b85a6b0.svg"
+     "img": "img/w-962b85a6b0.svg",
+     "ex": {
+      "ko": "간이 딱 맞아요.",
+      "en": "The seasoning is just right.",
+      "audio": "audio/x-9263f0c22d.mp3",
+      "en_audio": "audio/e-ad4c5f36f0.mp3"
+     }
     },
     {
      "ko": "간을 보다",
      "en": "to taste for seasoning",
      "audio": "audio/k1d351f58.mp3",
      "en_audio": "audio/e-ec067d1a2b.mp3",
-     "img": "img/w-1d351f58be.svg"
+     "img": "img/w-1d351f58be.svg",
+     "ex": {
+      "ko": "소금 넣기 전에 간을 봐요.",
+      "en": "I taste it before adding salt.",
+      "audio": "audio/x-30d402dd7a.mp3",
+      "en_audio": "audio/e-af7ec101eb.mp3"
+     }
     },
     {
      "ko": "입맛",
      "en": "your own taste, palate",
      "audio": "audio/k9203dbc7.mp3",
      "en_audio": "audio/e-c4d6f4e06d.mp3",
-     "img": "img/w-9203dbc772.svg"
+     "img": "img/w-9203dbc772.svg",
+     "ex": {
+      "ko": "이 음식은 제 입맛에 잘 맞아요.",
+      "en": "This food suits my taste well.",
+      "audio": "audio/x-457a430309.mp3",
+      "en_audio": "audio/e-2f2a33618a.mp3"
+     }
     },
     {
      "ko": "더 맵다",
      "en": "to be spicier",
      "audio": "audio/v27.mp3",
      "en_audio": "audio/e-003c33455a.mp3",
-     "img": "img/w-6bedd65212.svg"
+     "img": "img/w-6bedd65212.svg",
+     "ex": {
+      "ko": "불닭볶음면이 신라면보다 더 매워요.",
+      "en": "Buldak noodles are spicier than Shin Ramyun.",
+      "audio": "audio/x-e308a1fa58.mp3",
+      "en_audio": "audio/e-5fbfb1f8c7.mp3"
+     }
     }
    ]
   },
@@ -902,49 +1082,91 @@
      "en": "food costs",
      "audio": "audio/k51178cb8.mp3",
      "en_audio": "audio/e-18f441fec4.mp3",
-     "img": "img/w-51178cb8e4.svg"
+     "img": "img/w-51178cb8e4.svg",
+     "ex": {
+      "ko": "이번 달 식비가 너무 많이 나왔어요.",
+      "en": "My food costs this month came out too high.",
+      "audio": "audio/x-360c2aeda6.mp3",
+      "en_audio": "audio/e-f0d0dba88b.mp3"
+     }
     },
     {
      "ko": "아끼다",
      "en": "to save, to use sparingly",
      "audio": "audio/k0bbc4c27.mp3",
      "en_audio": "audio/e-91718d5301.mp3",
-     "img": "img/w-0bbc4c2765.svg"
+     "img": "img/w-0bbc4c2765.svg",
+     "ex": {
+      "ko": "돈을 아끼려고 도시락을 싸 와요.",
+      "en": "I bring a packed lunch to save money.",
+      "audio": "audio/x-4bcabc0de3.mp3",
+      "en_audio": "audio/e-6e7e3fb1d3.mp3"
+     }
     },
     {
      "ko": "외식",
      "en": "eating out",
      "audio": "audio/kf4fc5a6e.mp3",
      "en_audio": "audio/e-60f23b9f3f.mp3",
-     "img": "img/w-f4fc5a6e9f.svg"
+     "img": "img/w-f4fc5a6e9f.svg",
+     "ex": {
+      "ko": "주말에 가족이랑 외식했어요.",
+      "en": "I ate out with my family on the weekend.",
+      "audio": "audio/x-9f53be1e28.mp3",
+      "en_audio": "audio/e-0b190ee8ee.mp3"
+     }
     },
     {
      "ko": "사 먹다",
      "en": "to buy food and eat it",
      "audio": "audio/k4deebfaa.mp3",
      "en_audio": "audio/e-1c0a54a752.mp3",
-     "img": "img/w-4deebfaa0b.svg"
+     "img": "img/w-4deebfaa0b.svg",
+     "ex": {
+      "ko": "바빠서 점심을 편의점에서 사 먹었어요.",
+      "en": "I was busy, so I bought lunch at a convenience store.",
+      "audio": "audio/x-e861bf6ef9.mp3",
+      "en_audio": "audio/e-fcbc8fa29a.mp3"
+     }
     },
     {
      "ko": "돈이 들다",
      "en": "to cost money",
      "audio": "audio/k9df3bc04.mp3",
      "en_audio": "audio/e-0d13d18d39.mp3",
-     "img": "img/w-9df3bc043b.svg"
+     "img": "img/w-9df3bc043b.svg",
+     "ex": {
+      "ko": "서울에서 살면 돈이 많이 들어요.",
+      "en": "Living in Seoul costs a lot of money.",
+      "audio": "audio/x-e169a65ad2.mp3",
+      "en_audio": "audio/e-f2e88af487.mp3"
+     }
     },
     {
      "ko": "덜",
      "en": "less",
      "audio": "audio/k9f9037e6.mp3",
      "en_audio": "audio/e-0b439cf4e1.mp3",
-     "img": "img/w-9f9037e6ca.svg"
+     "img": "img/w-9f9037e6ca.svg",
+     "ex": {
+      "ko": "오늘은 어제보다 덜 추워요.",
+      "en": "Today is less cold than yesterday.",
+      "audio": "audio/x-c4a5abd931.mp3",
+      "en_audio": "audio/e-b2e0e89db7.mp3"
+     }
     },
     {
      "ko": "네다섯 달",
      "en": "four or five months",
      "audio": "audio/v34.mp3",
      "en_audio": "audio/e-3883ea73b6.mp3",
-     "img": "img/w-23c1d202df.svg"
+     "img": "img/w-23c1d202df.svg",
+     "ex": {
+      "ko": "한국어를 네다섯 달 정도 배웠어요.",
+      "en": "I have studied Korean for about four or five months.",
+      "audio": "audio/x-61b4312837.mp3",
+      "en_audio": "audio/e-84f738fc42.mp3"
+     }
     }
    ]
   },
@@ -956,91 +1178,169 @@
      "en": "to miss",
      "audio": "audio/k7dd19b64.mp3",
      "en_audio": "audio/e-470b988594.mp3",
-     "img": "img/w-7dd19b6485.svg"
+     "img": "img/w-7dd19b6485.svg",
+     "ex": {
+      "ko": "가끔 엄마 음식이 그리워요.",
+      "en": "Sometimes I miss my mom's food.",
+      "audio": "audio/x-d7aba92e64.mp3",
+      "en_audio": "audio/e-c57a3a7c72.mp3"
+     }
     },
     {
      "ko": "고향",
      "en": "hometown, home",
      "audio": "audio/kb7f76724.mp3",
      "en_audio": "audio/e-fb474999cf.mp3",
-     "img": "img/w-b7f767241b.svg"
+     "img": "img/w-b7f767241b.svg",
+     "ex": {
+      "ko": "고향이 어디예요?",
+      "en": "Where is your hometown?",
+      "audio": "audio/x-e2f8d72894.mp3",
+      "en_audio": "audio/e-3b1a3da402.mp3"
+     }
     },
     {
      "ko": "마음이 편하다",
      "en": "to feel at ease",
      "audio": "audio/ka21b4ce6.mp3",
      "en_audio": "audio/e-dc78a64907.mp3",
-     "img": "img/w-a21b4ce618.svg"
+     "img": "img/w-a21b4ce618.svg",
+     "ex": {
+      "ko": "집에 오면 마음이 편해요.",
+      "en": "I feel at ease when I come home.",
+      "audio": "audio/x-06b913e138.mp3",
+      "en_audio": "audio/e-9113fc43f0.mp3"
+     }
     },
     {
      "ko": "달라지다",
      "en": "to change, become different",
      "audio": "audio/kdc500fc1.mp3",
      "en_audio": "audio/e-2ea9f697e2.mp3",
-     "img": "img/w-dc500fc1f6.svg"
+     "img": "img/w-dc500fc1f6.svg",
+     "ex": {
+      "ko": "한국에 와서 생활이 많이 달라졌어요.",
+      "en": "My life changed a lot after coming to Korea.",
+      "audio": "audio/x-6031f205ff.mp3",
+      "en_audio": "audio/e-998073b145.mp3"
+     }
     },
     {
      "ko": "자취하다",
      "en": "to live on your own",
      "audio": "audio/kd7b75beb.mp3",
      "en_audio": "audio/e-a2c758ac8d.mp3",
-     "img": "img/w-d7b75bebd3.svg"
+     "img": "img/w-d7b75bebd3.svg",
+     "ex": {
+      "ko": "대학교 때부터 혼자 자취했어요.",
+      "en": "I have lived on my own since university.",
+      "audio": "audio/x-1a79b42bc7.mp3",
+      "en_audio": "audio/e-7bc53cbb3f.mp3"
+     }
     },
     {
      "ko": "다른 사람",
      "en": "other people",
      "audio": "audio/k3be6419f.mp3",
      "en_audio": "audio/e-6ede5d8c09.mp3",
-     "img": "img/w-3be6419f88.svg"
+     "img": "img/w-3be6419f88.svg",
+     "ex": {
+      "ko": "다른 사람한테 물어볼게요.",
+      "en": "I will ask someone else.",
+      "audio": "audio/x-1545792974.mp3",
+      "en_audio": "audio/e-33b25ab1dd.mp3"
+     }
     },
     {
      "ko": "부모님",
      "en": "parents",
      "audio": "audio/v41.mp3",
      "en_audio": "audio/e-a664f10b5e.mp3",
-     "img": "img/w-48507634c2.svg"
+     "img": "img/w-48507634c2.svg",
+     "ex": {
+      "ko": "부모님께 매주 전화해요.",
+      "en": "I call my parents every week.",
+      "audio": "audio/x-b7fb5d3d04.mp3",
+      "en_audio": "audio/e-5cf771e194.mp3"
+     }
     },
     {
      "ko": "떨어져 살다",
      "en": "to live apart",
      "audio": "audio/v42.mp3",
      "en_audio": "audio/e-1ce12222d6.mp3",
-     "img": "img/w-80e9a9989e.svg"
+     "img": "img/w-80e9a9989e.svg",
+     "ex": {
+      "ko": "가족과 떨어져 사는 게 쉽지 않아요.",
+      "en": "Living apart from family is not easy.",
+      "audio": "audio/x-3c1e1a12bd.mp3",
+      "en_audio": "audio/e-d6b809954d.mp3"
+     }
     },
     {
      "ko": "부엌",
      "en": "kitchen",
      "audio": "audio/v43.mp3",
      "en_audio": "audio/e-2f56c0ac09.mp3",
-     "img": "img/w-68141aa292.svg"
+     "img": "img/w-68141aa292.svg",
+     "ex": {
+      "ko": "부엌이 작아서 요리하기 불편해요.",
+      "en": "The kitchen is small, so cooking is inconvenient.",
+      "audio": "audio/x-df34d347c9.mp3",
+      "en_audio": "audio/e-4756c4bb60.mp3"
+     }
     },
     {
      "ko": "룸메이트",
      "en": "roommate",
      "audio": "audio/v44.mp3",
      "en_audio": "audio/e-7db0aea3bc.mp3",
-     "img": "img/w-288d14be03.svg"
+     "img": "img/w-288d14be03.svg",
+     "ex": {
+      "ko": "룸메이트랑 같이 저녁을 먹었어요.",
+      "en": "I had dinner with my roommate.",
+      "audio": "audio/x-d9bbb1f50c.mp3",
+      "en_audio": "audio/e-af21111285.mp3"
+     }
     },
     {
      "ko": "형",
      "en": "older brother (bong)",
      "audio": "audio/v45.mp3",
      "en_audio": "audio/e-b9eefa2fb8.mp3",
-     "img": "img/w-e46ebed2d1.svg"
+     "img": "img/w-e46ebed2d1.svg",
+     "ex": {
+      "ko": "형, 같이 밥 먹으러 가요.",
+      "en": "Hey (older brother), let's go eat together.",
+      "audio": "audio/x-199e731e53.mp3",
+      "en_audio": "audio/e-9deaa3bc4a.mp3"
+     }
     },
     {
      "ko": "돌아가다",
      "en": "to go back",
      "audio": "audio/v46.mp3",
      "en_audio": "audio/e-bf3d4ee7bc.mp3",
-     "img": "img/w-b16933ff78.svg"
+     "img": "img/w-b16933ff78.svg",
+     "ex": {
+      "ko": "내년에 고향에 돌아갈 거예요.",
+      "en": "I will go back to my hometown next year.",
+      "audio": "audio/x-296975b85d.mp3",
+      "en_audio": "audio/e-00a4dd6ccc.mp3"
+     }
     },
     {
      "ko": "처음으로",
      "en": "for the first time",
      "audio": "audio/v47.mp3",
      "en_audio": "audio/e-43d412cadb.mp3",
-     "img": "img/w-5f8e0688e4.svg"
+     "img": "img/w-5f8e0688e4.svg",
+     "ex": {
+      "ko": "한국에서 처음으로 눈을 봤어요.",
+      "en": "I saw snow for the first time in Korea.",
+      "audio": "audio/x-933d8ec68a.mp3",
+      "en_audio": "audio/e-26a9bb36f2.mp3"
+     }
     }
    ]
   },
@@ -1052,56 +1352,104 @@
      "en": "I will tell you (formal)",
      "audio": "audio/k88bb3071.mp3",
      "en_audio": "audio/e-499ed9526d.mp3",
-     "img": "img/w-88bb3071e9.svg"
+     "img": "img/w-88bb3071e9.svg",
+     "ex": {
+      "ko": "지금부터 제 취미에 대해 말씀드리겠습니다.",
+      "en": "From now on, I will tell you about my hobby.",
+      "audio": "audio/x-2bb6045641.mp3",
+      "en_audio": "audio/e-54b15ef03d.mp3"
+     }
     },
     {
      "ko": "이유는 두 가지입니다",
      "en": "there are two reasons",
      "audio": "audio/ka746371d.mp3",
      "en_audio": "audio/e-6c2f0c4855.mp3",
-     "img": "img/w-a746371db7.svg"
+     "img": "img/w-a746371db7.svg",
+     "ex": {
+      "ko": "제가 한국에 온 이유는 두 가지입니다.",
+      "en": "There are two reasons I came to Korea.",
+      "audio": "audio/x-688383a569.mp3",
+      "en_audio": "audio/e-6789311c82.mp3"
+     }
     },
     {
      "ko": "첫 번째로",
      "en": "firstly",
      "audio": "audio/k34f79e0e.mp3",
      "en_audio": "audio/e-4e91453d7d.mp3",
-     "img": "img/w-34f79e0e7c.svg"
+     "img": "img/w-34f79e0e7c.svg",
+     "ex": {
+      "ko": "첫 번째로, 회사가 집에서 가까워요.",
+      "en": "Firstly, the company is close to home.",
+      "audio": "audio/x-9e090a6887.mp3",
+      "en_audio": "audio/e-cb5279d225.mp3"
+     }
     },
     {
      "ko": "두 번째로",
      "en": "secondly",
      "audio": "audio/kcca0c967.mp3",
      "en_audio": "audio/e-a0f1066d65.mp3",
-     "img": "img/w-cca0c9670f.svg"
+     "img": "img/w-cca0c9670f.svg",
+     "ex": {
+      "ko": "두 번째로, 동료들이 친절해요.",
+      "en": "Secondly, my coworkers are kind.",
+      "audio": "audio/x-9db51d485a.mp3",
+      "en_audio": "audio/e-d9236d3cd9.mp3"
+     }
     },
     {
      "ko": "그다음에",
      "en": "after that, then",
      "audio": "audio/ka17067ac.mp3",
      "en_audio": "audio/e-9f521a467a.mp3",
-     "img": "img/w-a17067acec.svg"
+     "img": "img/w-a17067acec.svg",
+     "ex": {
+      "ko": "손을 씻고, 그다음에 밥을 먹어요.",
+      "en": "I wash my hands, and then I eat.",
+      "audio": "audio/x-5840308e55.mp3",
+      "en_audio": "audio/e-f0d6f1a6ae.mp3"
+     }
     },
     {
      "ko": "왜냐하면",
      "en": "because",
      "audio": "audio/k2eca4c07.mp3",
      "en_audio": "audio/e-d1ef4731ec.mp3",
-     "img": "img/w-2eca4c0747.svg"
+     "img": "img/w-2eca4c0747.svg",
+     "ex": {
+      "ko": "오늘 늦었어요. 왜냐하면 버스를 놓쳤거든요.",
+      "en": "I was late today, because I missed the bus.",
+      "audio": "audio/x-7caaea7c04.mp3",
+      "en_audio": "audio/e-08c2b6eda2.mp3"
+     }
     },
     {
      "ko": "제 생각에는",
      "en": "in my opinion",
      "audio": "audio/k746577e4.mp3",
      "en_audio": "audio/e-fc940843d0.mp3",
-     "img": "img/w-746577e404.svg"
+     "img": "img/w-746577e404.svg",
+     "ex": {
+      "ko": "제 생각에는 이 방법이 더 좋아요.",
+      "en": "In my opinion, this way is better.",
+      "audio": "audio/x-15945756ad.mp3",
+      "en_audio": "audio/e-7be58b58aa.mp3"
+     }
     },
     {
      "ko": "이상으로 발표를 마치겠습니다",
      "en": "that concludes my presentation",
      "audio": "audio/k727fff63.mp3",
      "en_audio": "audio/e-e0820290f6.mp3",
-     "img": "img/w-727fff63d1.svg"
+     "img": "img/w-727fff63d1.svg",
+     "ex": {
+      "ko": "이상으로 발표를 마치겠습니다. 감사합니다.",
+      "en": "That concludes my presentation. Thank you.",
+      "audio": "audio/x-bea03d72f2.mp3",
+      "en_audio": "audio/e-7334eb2ddd.mp3"
+     }
     }
    ]
   }
@@ -1141,5 +1489,9 @@
  ],
  "published": "2026-11-03",
  "station_en": "My new hobby: cooking. Your K-Specialist talk on 2026-11-28.",
- "credit": "Script built from my own answers on 2026-11-03, updated 2026-11-04 (습관 to 취미). Pictures are flat drawings for study; every line, answer, pattern and word has native Korean audio."
+ "credit": "Script built from my own answers on 2026-11-03, updated 2026-11-04 (습관 to 취미). Pictures are flat drawings for study; every line, answer, pattern and word has native Korean audio.",
+ "chat": {
+  "them": "심사위원 · Judge",
+  "me": "나 · Me"
+ }
 }

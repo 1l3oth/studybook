@@ -15,6 +15,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from word_icons import *  # noqa: E402,F401,F403
 from words_summer import SUMMER  # noqa: E402
+from word_examples import EX  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -154,10 +155,15 @@ def main():
         slug = os.path.basename(d)
         u = json.load(io.open(p, encoding='utf-8'))
         faces = emotion_faces(u) if slug == 'korean-emotion-words' else {}
+        sents = {c['hook']: c for c in u['cards'] if c.get('hook')} if faces else {}
         n = 0
         for g in u['vocab']:
             for it in g['items']:
                 w = it['ko']
+                if w in EX:  # a real-life example sentence
+                    it['ex'] = dict(it.get('ex') or {}, ko=EX[w][0], en=EX[w][1])
+                elif w in sents:  # the emotion unit's own card sentence
+                    it['ex'] = dict(it.get('ex') or {}, ko=sents[w]['ko'], en=sents[w]['en'])
                 if w in faces:
                     it['img'] = faces[w]
                 elif w in D:
