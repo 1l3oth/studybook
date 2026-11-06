@@ -83,6 +83,26 @@ def piggy(cx, cy):
             f'<rect x="{cx - 8}" y="{cy - 22}" width="16" height="3.5" rx="1.75" fill="#B5687A"/>')
 
 
+# people: a round head on a rounded body, flat
+def person(cx, base, h=40, body=BLUE, skin='#E8B48C', hair=INK):
+    r = h * .16
+    top = base - h
+    return (f'<path d="M{cx - h * .28:.1f} {base} Q{cx - h * .28:.1f} {top + h * .42:.1f} {cx} {top + h * .42:.1f} '
+            f'Q{cx + h * .28:.1f} {top + h * .42:.1f} {cx + h * .28:.1f} {base}Z" fill="{body}"/>'
+            f'<circle cx="{cx}" cy="{top + r + 1:.1f}" r="{r:.1f}" fill="{skin}"/>'
+            f'<path d="M{cx - r:.1f} {top + r:.1f} Q{cx} {top - r * .4:.1f} {cx + r:.1f} {top + r:.1f}Z" fill="{hair}"/>')
+
+
+def phone(x, y, w=34, h=56):
+    return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6" fill="{INK}"/>'
+            f'<rect x="{x + 3}" y="{y + 6}" width="{w - 6}" height="{h - 12}" rx="2" fill="{WHITE}"/>')
+
+
+def plane(x, y, k=1.0, c=SKY):
+    return (f'<path transform="translate({x} {y}) scale({k})" d="M0 0 L22 -2 L30 -10 L34 -10 L30 -1 L40 0 L44 -5 L47 -5 '
+            f'L45 2 L47 9 L44 9 L40 4 L30 5 L34 14 L30 14 L22 6 L0 4Z" fill="{c}"/>')
+
+
 os.makedirs(OUT, exist_ok=True)
 
 # 01. who I am: a laptop with code and a team badge
@@ -217,11 +237,64 @@ svg('k12-home.svg',
     + f'<ellipse cx="128" cy="74" rx="22" ry="8" fill="{WHITE}" stroke="{LINE}" stroke-width="2"/>'
     f'<path d="M114 72 q4 -8 10 -2 q4 -8 10 0 q4 -6 8 2Z" fill="{CABBAGE}"/>' + steam(122, 58, 2, 10, 6))
 
+# 12b. cooking taught me how to live far away from my parents
+svg('k12b-far.svg',
+    f'<path d="M14 54 L38 34 L62 54 V88 H14Z" fill="{WHITE}" stroke="{LINE}" stroke-width="2" stroke-linejoin="round"/>'
+    f'<path d="M10 56 L38 30 L66 56" fill="none" stroke="{ORANGE}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>'
+    + person(30, 88, 26, GREEN) + person(46, 88, 28, '#996CAC')
+    + f'<path d="M70 70 H112" stroke="{LINE}" stroke-width="3" stroke-dasharray="4 5" stroke-linecap="round"/>'
+    + plane(78, 50, .7)
+    + person(134, 88, 34, BLUE) + wok(134, 56, 12, True))
+
+# 12c. before, I always ate my parents' food; I never thought I would cook for myself
+svg('k12c-before.svg',
+    person(30, 90, 38, GREEN) + person(56, 90, 40, '#996CAC')
+    + f'<rect x="20" y="62" width="58" height="5" rx="2.5" fill="#B07A4A"/>'
+    + bowl(48, 56, 12, '#F7F3E8')
+    + person(112, 90, 30, BLUE)
+    + f'<circle cx="132" cy="38" r="3" fill="{WHITE}" stroke="{LINE}" stroke-width="1.5"/>'
+    f'<circle cx="138" cy="28" r="4" fill="{WHITE}" stroke="{LINE}" stroke-width="1.5"/>'
+    f'<ellipse cx="140" cy="14" rx="16" ry="11" fill="{WHITE}" stroke="{LINE}" stroke-width="2"/>'
+    + wok(138, 14, 7, False) + text(152, 20, '?', 11, RED, 800))
+
+# 12d. thanks to my first roommates, Seudy and Ratha, who showed me the kitchen
+svg('k12d-roommates.svg',
+    f'<rect x="58" y="44" width="56" height="44" rx="3" fill="#E7EAF0" stroke="{LINE}" stroke-width="2"/>'
+    f'<rect x="62" y="40" width="48" height="6" rx="2" fill="{INK}"/>'
+    f'<circle cx="74" cy="43" r="4" fill="{RED}"/><circle cx="98" cy="43" r="4" fill="#55595F"/>'
+    + wok(86, 34, 12, False)
+    + person(36, 90, 40, GREEN) + person(136, 90, 40, ORANGE)
+    + f'<path d="M46 62 L62 54" stroke="#E8B48C" stroke-width="4" stroke-linecap="round"/>'
+    + person(86, 96, 26, BLUE)
+    + heart(150, 26, .9) + heart(22, 26, .9))
+
+# 12e. thanks to my family and YouTube, who taught me to make the food I like
+svg('k12e-youtube.svg',
+    phone(24, 22, 38, 62)
+    + f'<rect x="31" y="40" width="24" height="17" rx="5" fill="{RED}"/><path d="M40 44 v9 l8 -4.5Z" fill="{WHITE}"/>'
+    + f'<rect x="31" y="62" width="24" height="3" rx="1.5" fill="{LINE}"/><rect x="31" y="68" width="16" height="3" rx="1.5" fill="{LINE}"/>'
+    + text(80, 58, '+', 18, INK, 800)
+    + f'<path d="M98 50 L122 30 L146 50 V88 H98Z" fill="{WHITE}" stroke="{LINE}" stroke-width="2" stroke-linejoin="round"/>'
+    f'<path d="M94 52 L122 26 L150 52" fill="none" stroke="{ORANGE}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>'
+    + person(114, 88, 26, GREEN) + person(130, 88, 28, '#996CAC') + heart(122, 46, .8))
+
 # 13. in my opinion, cooking is the best habit I picked up in Korea
 svg('k13-best.svg',
     f'<path d="M58 4 H72 L88 32 H74Z" fill="{BLUE}"/><path d="M102 4 H88 L72 32 H86Z" fill="{SKY}"/>'
     f'<circle cx="80" cy="56" r="30" fill="{YELLOW}"/><circle cx="80" cy="56" r="23" fill="none" stroke="#D99E00" stroke-width="2.5"/>'
     + text(80, 63, '1', 22, '#8A5A00', 800) + wok(132, 70, 16, True).replace(f'fill="{INK}"', f'fill="{INK}"', 1))
+
+# 13b. I am learning Korean food, to cook it for my parents when I go back
+svg('k13b-plan.svg',
+    bowl(36, 54, 26, RED)
+    + f'<rect x="20" y="49" width="10" height="4" rx="2" fill="{WHITE}"/><rect x="36" y="51" width="9" height="4" rx="2" fill="#F2E3B3"/>'
+    f'<path d="M44 46 l6 -3" stroke="{CABBAGE_D}" stroke-width="3" stroke-linecap="round"/>'
+    + steam(26, 40, 3, 10, 7)
+    + f'<path d="M66 60 H96" stroke="{LINE}" stroke-width="3" stroke-dasharray="4 5" stroke-linecap="round"/>'
+    + plane(70, 42, .6)
+    + f'<path d="M104 54 L128 34 L152 54 V88 H104Z" fill="{WHITE}" stroke="{LINE}" stroke-width="2" stroke-linejoin="round"/>'
+    f'<path d="M100 56 L128 30 L156 56" fill="none" stroke="{ORANGE}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>'
+    + person(120, 88, 26, GREEN) + person(136, 88, 28, '#996CAC') + heart(128, 18, .9))
 
 # 14. next time: a little less salt, so others can eat with me
 svg('k14-next.svg',

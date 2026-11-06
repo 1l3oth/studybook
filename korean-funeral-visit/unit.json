@@ -91,7 +91,8 @@
    "hook": "돌아가시다",
    "ko": "회사 동료의 아버님이 돌아가셨어요.",
    "en": "A coworker's father passed away.",
-   "audio": "audio/c1.mp3"
+   "audio": "audio/c1.mp3",
+   "en_audio": "audio/e-b1b1824b03.mp3"
   },
   {
    "sec": "news",
@@ -101,7 +102,8 @@
    "hook": "명복",
    "ko": "동료에게 '삼가 고인의 명복을 빕니다'라고 메시지를 보내요.",
    "en": "I message my coworker: 'May the deceased rest in peace.'",
-   "audio": "audio/c2.mp3"
+   "audio": "audio/c2.mp3",
+   "en_audio": "audio/e-d8211fd646.mp3"
   },
   {
    "sec": "prep",
@@ -111,7 +113,8 @@
    "hook": "부의금",
    "ko": "검은 옷을 입고 흰 봉투에 부의금을 넣어요.",
    "en": "I wear dark clothes and put condolence money in a white envelope.",
-   "audio": "audio/c3.mp3"
+   "audio": "audio/c3.mp3",
+   "en_audio": "audio/e-57d944695c.mp3"
   },
   {
    "sec": "altar",
@@ -121,7 +124,8 @@
    "hook": "방명록",
    "ko": "장례식장에 가서 방명록에 이름을 써요.",
    "en": "At the funeral hall, I write my name in the guestbook.",
-   "audio": "audio/c4.mp3"
+   "audio": "audio/c4.mp3",
+   "en_audio": "audio/e-7815015106.mp3"
   },
   {
    "sec": "altar",
@@ -131,7 +135,8 @@
    "hook": "국화",
    "ko": "빈소에서 국화를 놓고 두 번 절해요.",
    "en": "At the memorial altar, I lay a chrysanthemum and bow twice.",
-   "audio": "audio/c5.mp3"
+   "audio": "audio/c5.mp3",
+   "en_audio": "audio/e-d126e740f4.mp3"
   },
   {
    "sec": "family",
@@ -141,7 +146,8 @@
    "hook": "상주",
    "ko": "상주에게 한 번 절하고 '얼마나 마음이 아프세요' 하고 조용히 말해요.",
    "en": "I bow once to the chief mourner and quietly say, 'You must be heartbroken.'",
-   "audio": "audio/c6.mp3"
+   "audio": "audio/c6.mp3",
+   "en_audio": "audio/e-9f867cf10f.mp3"
   },
   {
    "sec": "meal",
@@ -151,7 +157,8 @@
    "hook": "육개장",
    "ko": "육개장을 조금 먹고 조용히 나와요.",
    "en": "I eat a little yukgaejang and leave quietly.",
-   "audio": "audio/c7.mp3"
+   "audio": "audio/c7.mp3",
+   "en_audio": "audio/e-84de7b969b.mp3"
   }
  ],
  "qa": [
@@ -168,7 +175,8 @@
      "a": "아니요. 종교 때문에 어려우면 묵념만 해도 돼요.",
      "aen": "No. If bowing is hard for religious reasons, a silent prayer is fine.",
      "why": "Many Christian families lay a flower and pray in silence instead of bowing.",
-     "audio": "audio/at1.mp3"
+     "audio": "audio/at1.mp3",
+     "aen_audio": "audio/e-09894e4448.mp3"
     },
     {
      "q": "부의금은 얼마 내요?",
@@ -178,7 +186,8 @@
      "aen": "Usually 50,000 or 100,000 won. You can match the amount with your team.",
      "why": "Amounts vary by closeness, so ask a teammate. Odd amounts (3, 5 or 7만 원) are the old custom.",
      "check": true,
-     "audio": "audio/at2.mp3"
+     "audio": "audio/at2.mp3",
+     "aen_audio": "audio/e-277f70e8be.mp3"
     }
    ]
   },
@@ -194,7 +203,8 @@
      "qaudio": "audio/qc1.mp3",
      "a": "병원 장례식장이에요. 같이 갈래요?",
      "aen": "It's a hospital funeral hall. Shall we go together?",
-     "audio": "audio/ac1.mp3"
+     "audio": "audio/ac1.mp3",
+     "aen_audio": "audio/e-253998281c.mp3"
     },
     {
      "q": "언제 조문 갈 거예요?",
@@ -202,7 +212,8 @@
      "qaudio": "audio/qc2.mp3",
      "a": "오늘 퇴근하고 갈 거예요.",
      "aen": "I'll go after work today.",
-     "audio": "audio/ac2.mp3"
+     "audio": "audio/ac2.mp3",
+     "aen_audio": "audio/e-f6220b26a6.mp3"
     },
     {
      "q": "발인이 언제예요?",
@@ -210,7 +221,8 @@
      "qaudio": "audio/qc3.mp3",
      "a": "모레 아침이에요.",
      "aen": "The day after tomorrow, in the morning.",
-     "audio": "audio/ac3.mp3"
+     "audio": "audio/ac3.mp3",
+     "aen_audio": "audio/e-75404d04f9.mp3"
     }
    ]
   },
@@ -223,12 +235,14 @@
     {
      "ko": "뭐라고 위로해야 할지 모르겠어요.",
      "en": "I don't know what to say to comfort you.",
-     "audio": "audio/s1.mp3"
+     "audio": "audio/s1.mp3",
+     "en_audio": "audio/e-ad9ad2efa0.mp3"
     },
     {
      "ko": "마음이 많이 아프시겠어요.",
      "en": "This must hurt so much.",
-     "audio": "audio/s2.mp3"
+     "audio": "audio/s2.mp3",
+     "en_audio": "audio/e-e4c7e45793.mp3"
     }
    ]
   }
@@ -241,27 +255,37 @@
     {
      "ko": "고인",
      "en": "the deceased",
-     "audio": "audio/v01.mp3"
+     "audio": "audio/v01.mp3",
+     "en_audio": "audio/e-e4214f5576.mp3",
+     "img": "img/w-085506df80.svg"
     },
     {
      "ko": "상주",
      "en": "chief mourner",
-     "audio": "audio/v02.mp3"
+     "audio": "audio/v02.mp3",
+     "en_audio": "audio/e-2b39833bbc.mp3",
+     "img": "img/w-d855a790a8.svg"
     },
     {
      "ko": "유족",
      "en": "bereaved family",
-     "audio": "audio/v03.mp3"
+     "audio": "audio/v03.mp3",
+     "en_audio": "audio/e-8e3572955f.mp3",
+     "img": "img/w-85bf28b55e.svg"
     },
     {
      "ko": "조문객",
      "en": "visitor, mourner",
-     "audio": "audio/v04.mp3"
+     "audio": "audio/v04.mp3",
+     "en_audio": "audio/e-1ea52ed901.mp3",
+     "img": "img/w-fe63d66ac0.svg"
     },
     {
      "ko": "동료",
      "en": "coworker",
-     "audio": "audio/v05.mp3"
+     "audio": "audio/v05.mp3",
+     "en_audio": "audio/e-6a25522d6c.mp3",
+     "img": "img/w-affa151c27.svg"
     }
    ]
   },
@@ -272,17 +296,23 @@
     {
      "ko": "장례식장",
      "en": "funeral hall",
-     "audio": "audio/v06.mp3"
+     "audio": "audio/v06.mp3",
+     "en_audio": "audio/e-eb57a2074b.mp3",
+     "img": "img/w-1147ef1f1e.svg"
     },
     {
      "ko": "빈소",
      "en": "memorial altar room",
-     "audio": "audio/v07.mp3"
+     "audio": "audio/v07.mp3",
+     "en_audio": "audio/e-9092614375.mp3",
+     "img": "img/w-bfebb802a8.svg"
     },
     {
      "ko": "영정 사진",
      "en": "portrait of the deceased",
-     "audio": "audio/v08.mp3"
+     "audio": "audio/v08.mp3",
+     "en_audio": "audio/e-f4fbfa6ff7.mp3",
+     "img": "img/w-dfa21acea6.svg"
     }
    ]
   },
@@ -293,32 +323,44 @@
     {
      "ko": "부의금",
      "en": "condolence money",
-     "audio": "audio/v09.mp3"
+     "audio": "audio/v09.mp3",
+     "en_audio": "audio/e-9929e50226.mp3",
+     "img": "img/w-7ff6a63363.svg"
     },
     {
      "ko": "흰 봉투",
      "en": "white envelope",
-     "audio": "audio/v10.mp3"
+     "audio": "audio/v10.mp3",
+     "en_audio": "audio/e-dad0d747de.mp3",
+     "img": "img/w-909ba5277c.svg"
     },
     {
      "ko": "방명록",
      "en": "guestbook",
-     "audio": "audio/v11.mp3"
+     "audio": "audio/v11.mp3",
+     "en_audio": "audio/e-d0af7b913c.mp3",
+     "img": "img/w-dcfda81cf2.svg"
     },
     {
      "ko": "국화",
      "en": "chrysanthemum",
-     "audio": "audio/v12.mp3"
+     "audio": "audio/v12.mp3",
+     "en_audio": "audio/e-1306897356.mp3",
+     "img": "img/w-1537f4df68.svg"
     },
     {
      "ko": "조화",
      "en": "funeral wreath",
-     "audio": "audio/v13.mp3"
+     "audio": "audio/v13.mp3",
+     "en_audio": "audio/e-7f68aa1efc.mp3",
+     "img": "img/w-1f563c8735.svg"
     },
     {
      "ko": "검은 옷",
      "en": "dark clothes",
-     "audio": "audio/v14.mp3"
+     "audio": "audio/v14.mp3",
+     "en_audio": "audio/e-15fb1a1550.mp3",
+     "img": "img/w-044420efd6.svg"
     }
    ]
   },
@@ -329,37 +371,51 @@
     {
      "ko": "돌아가시다",
      "en": "to pass away (polite)",
-     "audio": "audio/v15.mp3"
+     "audio": "audio/v15.mp3",
+     "en_audio": "audio/e-eb96cf6a4d.mp3",
+     "img": "img/w-ff2d5ab273.svg"
     },
     {
      "ko": "조문하다",
      "en": "to pay condolences",
-     "audio": "audio/v16.mp3"
+     "audio": "audio/v16.mp3",
+     "en_audio": "audio/e-e4c9994eb4.mp3",
+     "img": "img/w-6f21d0b347.svg"
     },
     {
      "ko": "절하다",
      "en": "to bow deeply",
-     "audio": "audio/v17.mp3"
+     "audio": "audio/v17.mp3",
+     "en_audio": "audio/e-c869b8e08d.mp3",
+     "img": "img/w-955c9410d7.svg"
     },
     {
      "ko": "묵념하다",
      "en": "to pray in silence",
-     "audio": "audio/v18.mp3"
+     "audio": "audio/v18.mp3",
+     "en_audio": "audio/e-2eb4a13e1b.mp3",
+     "img": "img/w-ffd4364364.svg"
     },
     {
      "ko": "명복을 빌다",
      "en": "to pray for the soul",
-     "audio": "audio/v19.mp3"
+     "audio": "audio/v19.mp3",
+     "en_audio": "audio/e-02dbf197c3.mp3",
+     "img": "img/w-68aa71bcf0.svg"
     },
     {
      "ko": "위로하다",
      "en": "to comfort",
-     "audio": "audio/v20.mp3"
+     "audio": "audio/v20.mp3",
+     "en_audio": "audio/e-4b937e1f5d.mp3",
+     "img": "img/w-97e22c7f98.svg"
     },
     {
      "ko": "발인",
      "en": "funeral procession",
-     "audio": "audio/v21.mp3"
+     "audio": "audio/v21.mp3",
+     "en_audio": "audio/e-9169cc68b9.mp3",
+     "img": "img/w-12d3a8e70a.svg"
     }
    ]
   }

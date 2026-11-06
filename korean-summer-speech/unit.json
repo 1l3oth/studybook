@@ -99,7 +99,8 @@
    "ko": "안녕하십니까? 저는 다라봇이라고 합니다. 저는 부산에서 2년 동안 살았고 지금은 서울에서 살고 있어서 한국의 여름 날씨에 많이 익숙해졌습니다.",
    "en": "Hello. My name is Daraboth. I lived in Busan for two years and now live in Seoul, so I have become used to Korean summer weather.",
    "audio": "audio/ln0_3.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-ba02f0257b.mp3"
   },
   {
    "sec": "s2",
@@ -109,7 +110,8 @@
    "ko": "한국 회사에서는 날씨가 더울 때 남자도 반바지를 입고 출근할 수 있는데, 다른 사람들도 다 반바지를 입고 있어서 저도 마음이 편합니다.",
    "en": "At Korean companies men can wear shorts to work when it is hot, and since everyone else is in shorts too, I feel comfortable.",
    "audio": "audio/ln7.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-e72d3eb955.mp3"
   },
   {
    "sec": "s2",
@@ -119,7 +121,8 @@
    "ko": "하지만 캄보디아 회사에서는 날씨가 더워도 항상 유니폼을 입어야 해서 여름에는 조금 힘듭니다. 회사 밖에서도 다릅니다. 캄보디아 사람들은 햇빛을 싫어해서 날씨가 더워도 긴팔 옷과 긴바지를 많이 입습니다.",
    "en": "But at Cambodian companies you must wear the uniform however hot it is, so summer is a little hard. Outside work it differs too. Cambodians dislike the sun, so even when it is hot they often wear long sleeves and long trousers.",
    "audio": "audio/ln8_9.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-6d149da1d2.mp3"
   },
   {
    "sec": "s3",
@@ -129,7 +132,8 @@
    "ko": "한국 여름은 보통 습하지만, 바람이 없는 날에는 공기가 건조해서 피부도 같이 건조해집니다. 그래서 저는 로션을 바르는데, 가끔 잊어버려서 피부가 건조할 때가 많습니다.",
    "en": "Korean summer is usually humid, but on windless days the air is dry, so my skin dries out with it. So I use lotion, but I often forget, and then my skin is dry.",
    "audio": "audio/ln12_13.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-b8446d95a1.mp3"
   },
   {
    "sec": "s3",
@@ -139,7 +143,8 @@
    "ko": "더운 날씨는 잠에도 영향을 줍니다. 저는 더우면 잠을 잘 못 자서 여름에는 밤이 제일 힘듭니다.",
    "en": "Hot weather affects sleep too. When it is hot I cannot sleep well, so summer nights are the hardest part for me.",
    "audio": "audio/ln14.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-e2b54efcc1.mp3"
   },
   {
    "sec": "s3",
@@ -149,7 +154,8 @@
    "ko": "에어컨도 다릅니다. 실내 온도가 24도면 한국 사람들은 시원하다고 하지만, 캄보디아 사람들은 춥다고 합니다. 캄보디아 사람들은 그만큼 추위를 많이 느끼는데, 저는 이것이 재미있습니다.",
    "en": "AC is different too. At 24 degrees indoors Koreans say it is cool, but Cambodians say it is cold. Cambodians feel cold that easily, and I find that interesting.",
    "audio": "audio/ln16_17.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-f4699c844b.mp3"
   },
   {
    "sec": "s4",
@@ -159,7 +165,8 @@
    "ko": "꾸이띠아우와 삼러꺼꼬는 캄보디아의 유명한 국물 음식인데, 아주 뜨겁지만 여름에도 평소처럼 먹습니다.",
    "en": "Kuy Teav and Samlor Korko are famous Cambodian soup dishes, and although they are very hot we eat them in summer as usual.",
    "audio": "audio/ln21.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-d9f9b4208b.mp3"
   },
   {
    "sec": "s4",
@@ -169,7 +176,8 @@
    "ko": "저도 여름에 이 음식을 먹고, 스팅 에너지 음료도 계절과 상관없이 항상 마십니다.",
    "en": "I eat them in summer too, and I drink Sting energy drink all year regardless of the season.",
    "audio": "audio/ln22.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-e180261243.mp3"
   },
   {
    "sec": "s5",
@@ -179,7 +187,8 @@
    "ko": "한국에서는 여름에 친구들과 한강공원 수영장에 가는데, 물에 들어가면 하루 종일 더웠던 것이 금방 사라집니다.",
    "en": "In Korea I go to the Han River park pool with friends, and once I am in the water a whole hot day disappears at once.",
    "audio": "audio/ln25.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-f243e094c6.mp3"
   },
   {
    "sec": "s5",
@@ -189,7 +198,8 @@
    "ko": "캄보디아에서는 친구들과 나무가 많은 끼리롬 같은 곳에 캠핑을 갑니다. 산 위의 바람이 더위를 다 날려 보내는 것 같았고, 저는 그날을 지금도 기억합니다.",
    "en": "In Cambodia I go camping with friends to places like Kirirom, which has many trees. It felt as if the wind at the top blew all the heat away, and I still remember that day.",
    "audio": "audio/ln26_28.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-25f310f152.mp3"
   },
   {
    "sec": "s6",
@@ -199,7 +209,8 @@
    "ko": "하지만 각자의 방식으로 더위를 이겨내려는 마음은 비슷하다고 생각합니다. 이상으로 발표를 마치겠습니다. 들어주셔서 감사합니다.",
    "en": "But I think the wish to get through the heat, each in their own way, is similar. That concludes my presentation. Thank you for listening.",
    "audio": "audio/ln30_31.mp3",
-   "flat": true
+   "flat": true,
+   "en_audio": "audio/e-6d694c57eb.mp3"
   }
  ],
  "qa": [
@@ -215,7 +226,8 @@
      "qaudio": "audio/ln36.mp3",
      "a": "부산에서 2년 동안 살았고, 지금은 서울에서 살고 있습니다.",
      "aen": "I lived in Busan for two years, and now I live in Seoul.",
-     "audio": "audio/ln37.mp3"
+     "audio": "audio/ln37.mp3",
+     "aen_audio": "audio/e-fc14d40ac1.mp3"
     },
     {
      "q": "한국 여름에서 무엇이 제일 힘듭니까?",
@@ -223,7 +235,8 @@
      "qaudio": "audio/ln38.mp3",
      "a": "저는 더우면 잠을 잘 못 자서 여름에는 밤이 제일 힘듭니다.",
      "aen": "When it is hot I cannot sleep well, so summer nights are hardest for me.",
-     "audio": "audio/ln39.mp3"
+     "audio": "audio/ln39.mp3",
+     "aen_audio": "audio/e-59de5b8f3a.mp3"
     },
     {
      "q": "끼리롬은 어떤 곳입니까?",
@@ -231,7 +244,8 @@
      "qaudio": "audio/ln40.mp3",
      "a": "캄보디아에 있는 산인데, 나무가 많아서 시원하고 캠핑하기 좋습니다.",
      "aen": "It is a mountain in Cambodia, and since it has many trees it is cool and good for camping.",
-     "audio": "audio/ln41.mp3"
+     "audio": "audio/ln41.mp3",
+     "aen_audio": "audio/e-214b859d02.mp3"
     },
     {
      "q": "꾸이띠아우는 어떤 음식입니까?",
@@ -239,7 +253,8 @@
      "qaudio": "audio/ln42.mp3",
      "a": "국수와 국물이 있는 음식인데, 캄보디아에서는 아침에도 자주 먹습니다.",
      "aen": "It is a noodle and broth dish, and in Cambodia we often eat it at breakfast too.",
-     "audio": "audio/ln43.mp3"
+     "audio": "audio/ln43.mp3",
+     "aen_audio": "audio/e-2acfe4c31d.mp3"
     },
     {
      "q": "삼러꺼꼬는 어떤 음식입니까?",
@@ -247,7 +262,8 @@
      "qaudio": "audio/ln44.mp3",
      "a": "여러 가지 채소와 고기를 넣고 끓인 국물 음식입니다.",
      "aen": "It is a soup boiled with various vegetables and meat.",
-     "audio": "audio/ln45.mp3"
+     "audio": "audio/ln45.mp3",
+     "aen_audio": "audio/e-11cf5c789d.mp3"
     },
     {
      "q": "스팅은 무엇입니까?",
@@ -255,7 +271,8 @@
      "qaudio": "audio/ln46.mp3",
      "a": "에너지 음료인데, 저는 계절과 상관없이 매일 마십니다.",
      "aen": "It is an energy drink, and I drink it every day regardless of the season.",
-     "audio": "audio/ln47.mp3"
+     "audio": "audio/ln47.mp3",
+     "aen_audio": "audio/e-39c3f479cb.mp3"
     },
     {
      "q": "캄보디아 회사에서는 왜 유니폼을 입습니까?",
@@ -263,7 +280,8 @@
      "qaudio": "audio/ln48.mp3",
      "a": "회사 규정이라서 날씨와 상관없이 입어야 합니다.",
      "aen": "It is a company rule, so you have to wear it regardless of the weather.",
-     "audio": "audio/ln49.mp3"
+     "audio": "audio/ln49.mp3",
+     "aen_audio": "audio/e-4e9dfb3027.mp3"
     },
     {
      "q": "한국 여름과 캄보디아 여름 중에서 어느 쪽이 더 좋습니까?",
@@ -271,7 +289,8 @@
      "qaudio": "audio/ln50.mp3",
      "a": "두 나라 여름은 서로 다르게 힘들어서 고르기 어렵습니다. 하지만 밤에 잠을 잘 잘 수 있는 여름이 더 좋습니다.",
      "aen": "The two summers are hard in different ways, so it is difficult to choose. But I prefer the summer where I can sleep well at night.",
-     "audio": "audio/ln51.mp3"
+     "audio": "audio/ln51.mp3",
+     "aen_audio": "audio/e-014e7787e3.mp3"
     },
     {
      "q": "이 주제를 왜 골랐습니까?",
@@ -279,7 +298,8 @@
      "qaudio": "audio/ln52.mp3",
      "a": "저는 두 나라에서 모두 여름을 보내 봐서, 그 차이를 이야기하고 싶었습니다.",
      "aen": "I have spent summers in both countries, so I wanted to talk about the difference.",
-     "audio": "audio/ln53.mp3"
+     "audio": "audio/ln53.mp3",
+     "aen_audio": "audio/e-4a4e5c6a00.mp3"
     }
    ]
   },
@@ -297,7 +317,8 @@
      "a": "네, 저희 회사도 날씨가 더울 때는 반바지를 입을 수 있습니다.",
      "check": true,
      "aen": "Yes, my company also lets us wear shorts when it is hot.",
-     "audio": "audio/qa_d0.mp3"
+     "audio": "audio/qa_d0.mp3",
+     "aen_audio": "audio/e-f741d84f99.mp3"
     },
     {
      "group": "옷 · Clothes",
@@ -306,7 +327,8 @@
      "qaudio": "audio/qa_qd1.mp3",
      "a": "여자들은 반바지보다 시원한 치마나 원피스를 더 많이 입는 것 같습니다.",
      "aen": "Women seem to wear cool skirts or dresses more than shorts.",
-     "audio": "audio/qa_d1.mp3"
+     "audio": "audio/qa_d1.mp3",
+     "aen_audio": "audio/e-a2d21f27d3.mp3"
     },
     {
      "group": "옷 · Clothes",
@@ -315,7 +337,8 @@
      "qaudio": "audio/qa_qd2.mp3",
      "a": "피부가 타는 것을 싫어해서, 그늘을 찾고 긴팔을 입습니다.",
      "aen": "They dislike getting tanned, so they seek shade and wear long sleeves.",
-     "audio": "audio/qa_d2.mp3"
+     "audio": "audio/qa_d2.mp3",
+     "aen_audio": "audio/e-1f0a2a945c.mp3"
     },
     {
      "group": "날씨 · Weather",
@@ -324,7 +347,8 @@
      "qaudio": "audio/qa_qd3.mp3",
      "a": "네, 여름에 비가 많이 오는 장마가 있는데, 그때는 아주 습합니다.",
      "aen": "Yes, there is a rainy season with heavy rain, and it is very humid then.",
-     "audio": "audio/qa_d3.mp3"
+     "audio": "audio/qa_d3.mp3",
+     "aen_audio": "audio/e-e222e2cf73.mp3"
     },
     {
      "group": "날씨 · Weather",
@@ -333,7 +357,8 @@
      "qaudio": "audio/qa_qd4.mp3",
      "a": "특별한 것은 아니고, 평범한 수분 로션을 사용합니다.",
      "aen": "Nothing special, just an ordinary moisturizing lotion.",
-     "audio": "audio/qa_d4.mp3"
+     "audio": "audio/qa_d4.mp3",
+     "aen_audio": "audio/e-af37b3b899.mp3"
     },
     {
      "group": "날씨 · Weather",
@@ -343,7 +368,8 @@
      "a": "에어컨이나 선풍기를 켜고 시원하게 하고 잡니다.",
      "check": true,
      "aen": "I turn on the AC or a fan to cool down, then sleep.",
-     "audio": "audio/qa_d5.mp3"
+     "audio": "audio/qa_d5.mp3",
+     "aen_audio": "audio/e-a2bf285aba.mp3"
     },
     {
      "group": "날씨 · Weather",
@@ -353,7 +379,8 @@
      "a": "저는 25도나 26도가 제일 편합니다.",
      "check": true,
      "aen": "I am most comfortable at 25 or 26 degrees.",
-     "audio": "audio/qa_d6.mp3"
+     "audio": "audio/qa_d6.mp3",
+     "aen_audio": "audio/e-82358d5f3b.mp3"
     },
     {
      "group": "음식 · Food",
@@ -363,7 +390,8 @@
      "a": "냉면이나 삼계탕을 많이 먹습니다. 저도 냉면을 좋아합니다.",
      "check": true,
      "aen": "People eat naengmyeon or samgyetang a lot. I like naengmyeon too.",
-     "audio": "audio/qa_d7.mp3"
+     "audio": "audio/qa_d7.mp3",
+     "aen_audio": "audio/e-24de0ac495.mp3"
     },
     {
      "group": "음식 · Food",
@@ -372,7 +400,8 @@
      "qaudio": "audio/qa_qd8.mp3",
      "a": "닭과 인삼을 넣고 끓인 국물 음식인데, 여름에 힘을 내려고 먹습니다.",
      "aen": "A soup boiled with chicken and ginseng, eaten in summer for energy.",
-     "audio": "audio/qa_d8.mp3"
+     "audio": "audio/qa_d8.mp3",
+     "aen_audio": "audio/e-a295d07850.mp3"
     },
     {
      "group": "음식 · Food",
@@ -381,7 +410,8 @@
      "qaudio": "audio/qa_qd9.mp3",
      "a": "국물이 시원하고 깔끔한 맛입니다.",
      "aen": "The broth has a clean, refreshing taste.",
-     "audio": "audio/qa_d9.mp3"
+     "audio": "audio/qa_d9.mp3",
+     "aen_audio": "audio/e-5da3c12df9.mp3"
     },
     {
      "group": "음식 · Food",
@@ -391,7 +421,8 @@
      "a": "매일 마시지만 하루에 한 캔만 마셔서 괜찮다고 생각합니다.",
      "check": true,
      "aen": "I drink it daily but only one can a day, so I think it is fine.",
-     "audio": "audio/qa_d10.mp3"
+     "audio": "audio/qa_d10.mp3",
+     "aen_audio": "audio/e-feaedd8485.mp3"
     },
     {
      "group": "더위 피하기 · Escaping the heat",
@@ -400,7 +431,8 @@
      "qaudio": "audio/qa_qd11.mp3",
      "a": "여름에 친구들과 가끔 갑니다.",
      "aen": "I go sometimes with friends in summer.",
-     "audio": "audio/qa_d11.mp3"
+     "audio": "audio/qa_d11.mp3",
+     "aen_audio": "audio/e-d961e8acf6.mp3"
     },
     {
      "group": "더위 피하기 · Escaping the heat",
@@ -409,7 +441,8 @@
      "qaudio": "audio/qa_qd12.mp3",
      "a": "프놈펜에서 차로 두세 시간쯤 걸립니다.",
      "aen": "It takes about two or three hours by car from Phnom Penh.",
-     "audio": "audio/qa_d12.mp3"
+     "audio": "audio/qa_d12.mp3",
+     "aen_audio": "audio/e-9f417f6c8e.mp3"
     },
     {
      "group": "더위 피하기 · Escaping the heat",
@@ -418,7 +451,8 @@
      "qaudio": "audio/qa_qd13.mp3",
      "a": "네, 친구들과 자연에서 쉬는 것을 좋아합니다.",
      "aen": "Yes, I like relaxing in nature with friends.",
-     "audio": "audio/qa_d13.mp3"
+     "audio": "audio/qa_d13.mp3",
+     "aen_audio": "audio/e-6e761e2e54.mp3"
     },
     {
      "group": "전체 내용 · About the talk",
@@ -427,7 +461,8 @@
      "qaudio": "audio/qa_qd14.mp3",
      "a": "캄보디아는 일 년 내내 덥지만, 한국은 여름에만 덥고 습합니다.",
      "aen": "Cambodia is hot all year, but Korea is hot and humid only in summer.",
-     "audio": "audio/qa_d14.mp3"
+     "audio": "audio/qa_d14.mp3",
+     "aen_audio": "audio/e-2dc1b63890.mp3"
     },
     {
      "group": "전체 내용 · About the talk",
@@ -436,7 +471,8 @@
      "qaudio": "audio/qa_qd15.mp3",
      "a": "네, 이제는 로션도 바르고, 더위를 피하는 방법도 배웠습니다.",
      "aen": "Yes, now I use lotion and have learned ways to escape the heat.",
-     "audio": "audio/qa_d15.mp3"
+     "audio": "audio/qa_d15.mp3",
+     "aen_audio": "audio/e-65b1b52521.mp3"
     },
     {
      "group": "전체 내용 · About the talk",
@@ -445,7 +481,8 @@
      "qaudio": "audio/qa_qd16.mp3",
      "a": "친구들과 끼리롬에 캠핑 가던 것이 그립습니다.",
      "aen": "I miss going camping at Kirirom with friends.",
-     "audio": "audio/qa_d16.mp3"
+     "audio": "audio/qa_d16.mp3",
+     "aen_audio": "audio/e-55d8bda3b2.mp3"
     }
    ]
   },
@@ -490,22 +527,26 @@
     {
      "ko": "죄송합니다. 다시 한 번 말씀해 주시겠습니까?",
      "en": "Sorry, could you say that once more?",
-     "audio": "audio/ln32.mp3"
+     "audio": "audio/ln32.mp3",
+     "en_audio": "audio/e-b02fc05482.mp3"
     },
     {
      "ko": "죄송합니다. 조금 천천히 말씀해 주시겠습니까?",
      "en": "Sorry, could you speak a little more slowly?",
-     "audio": "audio/ln33.mp3"
+     "audio": "audio/ln33.mp3",
+     "en_audio": "audio/e-272247f185.mp3"
     },
     {
      "ko": "좋은 질문입니다. 잠깐만 생각해 보겠습니다.",
      "en": "Good question. Let me think for a moment.",
-     "audio": "audio/ln34.mp3"
+     "audio": "audio/ln34.mp3",
+     "en_audio": "audio/e-e4fb82de55.mp3"
     },
     {
      "ko": "죄송합니다. 그건 잘 모르겠습니다. 나중에 찾아보겠습니다.",
      "en": "Sorry, I do not know that. I will look it up later.",
-     "audio": "audio/ln35.mp3"
+     "audio": "audio/ln35.mp3",
+     "en_audio": "audio/e-8c7ca5259f.mp3"
     }
    ]
   }
@@ -517,62 +558,86 @@
     {
      "ko": "여름",
      "en": "summer",
-     "audio": "audio/voc_v0.mp3"
+     "audio": "audio/voc_v0.mp3",
+     "en_audio": "audio/e-6420ed4d83.mp3",
+     "img": "img/w-bcd8e1c6aa.svg"
     },
     {
      "ko": "날씨",
      "en": "weather",
-     "audio": "audio/voc_v1.mp3"
+     "audio": "audio/voc_v1.mp3",
+     "en_audio": "audio/e-f98669cc9b.mp3",
+     "img": "img/w-c2fce353cc.svg"
     },
     {
      "ko": "덥다",
      "en": "to be hot",
-     "audio": "audio/voc_v2.mp3"
+     "audio": "audio/voc_v2.mp3",
+     "en_audio": "audio/e-f4faa5da9c.mp3",
+     "img": "img/w-15aa701a5b.svg"
     },
     {
      "ko": "습하다",
      "en": "to be humid",
-     "audio": "audio/voc_v3.mp3"
+     "audio": "audio/voc_v3.mp3",
+     "en_audio": "audio/e-6220cd2a95.mp3",
+     "img": "img/w-6d0591807a.svg"
     },
     {
      "ko": "건조하다",
      "en": "to be dry",
-     "audio": "audio/voc_v4.mp3"
+     "audio": "audio/voc_v4.mp3",
+     "en_audio": "audio/e-c8bf2de6af.mp3",
+     "img": "img/w-fe58c58879.svg"
     },
     {
      "ko": "바람",
      "en": "wind",
-     "audio": "audio/voc_v5.mp3"
+     "audio": "audio/voc_v5.mp3",
+     "en_audio": "audio/e-e70091e7cd.mp3",
+     "img": "img/w-80440affdf.svg"
     },
     {
      "ko": "장마",
      "en": "the rainy season",
-     "audio": "audio/voc_v6.mp3"
+     "audio": "audio/voc_v6.mp3",
+     "en_audio": "audio/e-be512abfaf.mp3",
+     "img": "img/w-a6fb7d1eab.svg"
     },
     {
      "ko": "온도",
      "en": "temperature",
-     "audio": "audio/voc_v7.mp3"
+     "audio": "audio/voc_v7.mp3",
+     "en_audio": "audio/e-7033e90fcd.mp3",
+     "img": "img/w-e210fbf378.svg"
     },
     {
      "ko": "에어컨",
      "en": "air conditioner",
-     "audio": "audio/voc_v8.mp3"
+     "audio": "audio/voc_v8.mp3",
+     "en_audio": "audio/e-0c1c862c29.mp3",
+     "img": "img/w-665f6510f8.svg"
     },
     {
      "ko": "선풍기",
      "en": "electric fan",
-     "audio": "audio/voc_v9.mp3"
+     "audio": "audio/voc_v9.mp3",
+     "en_audio": "audio/e-94216ba1ba.mp3",
+     "img": "img/w-b10f03e80b.svg"
     },
     {
      "ko": "시원하다",
      "en": "to be cool",
-     "audio": "audio/voc_v10.mp3"
+     "audio": "audio/voc_v10.mp3",
+     "en_audio": "audio/e-f9546e9bfd.mp3",
+     "img": "img/w-82bd75c692.svg"
     },
     {
      "ko": "춥다",
      "en": "to be cold",
-     "audio": "audio/voc_v11.mp3"
+     "audio": "audio/voc_v11.mp3",
+     "en_audio": "audio/e-009e3d5819.mp3",
+     "img": "img/w-c1af25762f.svg"
     }
    ]
   },
@@ -582,42 +647,58 @@
     {
      "ko": "옷",
      "en": "clothes",
-     "audio": "audio/voc_v12.mp3"
+     "audio": "audio/voc_v12.mp3",
+     "en_audio": "audio/e-00b1e4f56e.mp3",
+     "img": "img/w-49a63eac55.svg"
     },
     {
      "ko": "반바지",
      "en": "shorts",
-     "audio": "audio/voc_v13.mp3"
+     "audio": "audio/voc_v13.mp3",
+     "en_audio": "audio/e-9e32d15b24.mp3",
+     "img": "img/w-4eb2e89513.svg"
     },
     {
      "ko": "긴팔",
      "en": "long sleeves",
-     "audio": "audio/voc_v14.mp3"
+     "audio": "audio/voc_v14.mp3",
+     "en_audio": "audio/e-e542cfb2d7.mp3",
+     "img": "img/w-3bdba3161f.svg"
     },
     {
      "ko": "긴바지",
      "en": "long pants",
-     "audio": "audio/voc_v15.mp3"
+     "audio": "audio/voc_v15.mp3",
+     "en_audio": "audio/e-5e0eb1c5f6.mp3",
+     "img": "img/w-2a20e72108.svg"
     },
     {
      "ko": "유니폼",
      "en": "uniform",
-     "audio": "audio/voc_v16.mp3"
+     "audio": "audio/voc_v16.mp3",
+     "en_audio": "audio/e-8146160c40.mp3",
+     "img": "img/w-1bc2c01753.svg"
     },
     {
      "ko": "출근하다",
      "en": "to go to work",
-     "audio": "audio/voc_v17.mp3"
+     "audio": "audio/voc_v17.mp3",
+     "en_audio": "audio/e-c05ee71669.mp3",
+     "img": "img/w-5ced3f8075.svg"
     },
     {
      "ko": "햇빛",
      "en": "sunlight",
-     "audio": "audio/voc_v18.mp3"
+     "audio": "audio/voc_v18.mp3",
+     "en_audio": "audio/e-1f4ae04738.mp3",
+     "img": "img/w-c8b58a7d61.svg"
     },
     {
      "ko": "편하다",
      "en": "to be comfortable",
-     "audio": "audio/voc_v19.mp3"
+     "audio": "audio/voc_v19.mp3",
+     "en_audio": "audio/e-b8b512846a.mp3",
+     "img": "img/w-92c612d640.svg"
     }
    ]
   },
@@ -627,57 +708,79 @@
     {
      "ko": "음식",
      "en": "food",
-     "audio": "audio/voc_v20.mp3"
+     "audio": "audio/voc_v20.mp3",
+     "en_audio": "audio/e-39ccb32d95.mp3",
+     "img": "img/w-34e413e86c.svg"
     },
     {
      "ko": "국물",
      "en": "broth, soup",
-     "audio": "audio/voc_v21.mp3"
+     "audio": "audio/voc_v21.mp3",
+     "en_audio": "audio/e-6555113811.mp3",
+     "img": "img/w-41a4dcdc45.svg"
     },
     {
      "ko": "국수",
      "en": "noodles",
-     "audio": "audio/voc_v22.mp3"
+     "audio": "audio/voc_v22.mp3",
+     "en_audio": "audio/e-00ac24f8c4.mp3",
+     "img": "img/w-cb6ba5f69e.svg"
     },
     {
      "ko": "냉면",
      "en": "cold noodles",
-     "audio": "audio/voc_v23.mp3"
+     "audio": "audio/voc_v23.mp3",
+     "en_audio": "audio/e-bc24beefac.mp3",
+     "img": "img/w-163196d3eb.svg"
     },
     {
      "ko": "삼계탕",
      "en": "ginseng chicken soup",
-     "audio": "audio/voc_v24.mp3"
+     "audio": "audio/voc_v24.mp3",
+     "en_audio": "audio/e-1dcda73e2c.mp3",
+     "img": "img/w-16d3cd116c.svg"
     },
     {
      "ko": "뜨겁다",
      "en": "to be hot (to the touch)",
-     "audio": "audio/voc_v25.mp3"
+     "audio": "audio/voc_v25.mp3",
+     "en_audio": "audio/e-a3a9d67652.mp3",
+     "img": "img/w-8fee70ed1f.svg"
     },
     {
      "ko": "채소",
      "en": "vegetables",
-     "audio": "audio/voc_v26.mp3"
+     "audio": "audio/voc_v26.mp3",
+     "en_audio": "audio/e-9cc860a01c.mp3",
+     "img": "img/w-0bb951fc27.svg"
     },
     {
      "ko": "고기",
      "en": "meat",
-     "audio": "audio/voc_v27.mp3"
+     "audio": "audio/voc_v27.mp3",
+     "en_audio": "audio/e-bb40f75a9c.mp3",
+     "img": "img/w-77895dd580.svg"
     },
     {
      "ko": "끓이다",
      "en": "to boil",
-     "audio": "audio/voc_v28.mp3"
+     "audio": "audio/voc_v28.mp3",
+     "en_audio": "audio/e-ba8ef2078e.mp3",
+     "img": "img/w-6a93d8fc84.svg"
     },
     {
      "ko": "계절",
      "en": "season",
-     "audio": "audio/voc_v29.mp3"
+     "audio": "audio/voc_v29.mp3",
+     "en_audio": "audio/e-76f5e40391.mp3",
+     "img": "img/w-61f9e82b4c.svg"
     },
     {
      "ko": "맛",
      "en": "taste, flavor",
-     "audio": "audio/voc_v30.mp3"
+     "audio": "audio/voc_v30.mp3",
+     "en_audio": "audio/e-a0bb65b05e.mp3",
+     "img": "img/w-d4103ce998.svg"
     }
    ]
   },
@@ -687,47 +790,65 @@
     {
      "ko": "더위",
      "en": "the heat",
-     "audio": "audio/voc_v31.mp3"
+     "audio": "audio/voc_v31.mp3",
+     "en_audio": "audio/e-161aaad82d.mp3",
+     "img": "img/w-e28d878840.svg"
     },
     {
      "ko": "피하다",
      "en": "to avoid, escape",
-     "audio": "audio/voc_v32.mp3"
+     "audio": "audio/voc_v32.mp3",
+     "en_audio": "audio/e-6d56301028.mp3",
+     "img": "img/w-6109a25f33.svg"
     },
     {
      "ko": "수영장",
      "en": "swimming pool",
-     "audio": "audio/voc_v33.mp3"
+     "audio": "audio/voc_v33.mp3",
+     "en_audio": "audio/e-4d0008e59f.mp3",
+     "img": "img/w-b26c929dc0.svg"
     },
     {
      "ko": "강",
      "en": "river",
-     "audio": "audio/voc_v34.mp3"
+     "audio": "audio/voc_v34.mp3",
+     "en_audio": "audio/e-08fbe5a2e4.mp3",
+     "img": "img/w-89ee069631.svg"
     },
     {
      "ko": "공원",
      "en": "park",
-     "audio": "audio/voc_v35.mp3"
+     "audio": "audio/voc_v35.mp3",
+     "en_audio": "audio/e-ce4151ff85.mp3",
+     "img": "img/w-c36a7c1eae.svg"
     },
     {
      "ko": "캠핑",
      "en": "camping",
-     "audio": "audio/voc_v36.mp3"
+     "audio": "audio/voc_v36.mp3",
+     "en_audio": "audio/e-64634fd298.mp3",
+     "img": "img/w-1da1d5bdff.svg"
     },
     {
      "ko": "산",
      "en": "mountain",
-     "audio": "audio/voc_v37.mp3"
+     "audio": "audio/voc_v37.mp3",
+     "en_audio": "audio/e-d79ac4a2b1.mp3",
+     "img": "img/w-f45277c644.svg"
     },
     {
      "ko": "나무",
      "en": "tree",
-     "audio": "audio/voc_v38.mp3"
+     "audio": "audio/voc_v38.mp3",
+     "en_audio": "audio/e-80655da8d8.mp3",
+     "img": "img/w-8eb09d1664.svg"
     },
     {
      "ko": "친구",
      "en": "friend",
-     "audio": "audio/voc_v39.mp3"
+     "audio": "audio/voc_v39.mp3",
+     "en_audio": "audio/e-e69867ca7d.mp3",
+     "img": "img/w-8c24009751.svg"
     }
    ]
   },
@@ -737,52 +858,72 @@
     {
      "ko": "발표",
      "en": "presentation",
-     "audio": "audio/voc_v40.mp3"
+     "audio": "audio/voc_v40.mp3",
+     "en_audio": "audio/e-e4c8d951f1.mp3",
+     "img": "img/w-f8f29489cb.svg"
     },
     {
      "ko": "소개하다",
      "en": "to introduce",
-     "audio": "audio/voc_v41.mp3"
+     "audio": "audio/voc_v41.mp3",
+     "en_audio": "audio/e-fbe278a9e2.mp3",
+     "img": "img/w-7392fa5dbd.svg"
     },
     {
      "ko": "차이",
      "en": "difference",
-     "audio": "audio/voc_v42.mp3"
+     "audio": "audio/voc_v42.mp3",
+     "en_audio": "audio/e-48d53c6e22.mp3",
+     "img": "img/w-f4b1e545cf.svg"
     },
     {
      "ko": "다르다",
      "en": "to be different",
-     "audio": "audio/voc_v43.mp3"
+     "audio": "audio/voc_v43.mp3",
+     "en_audio": "audio/e-52aac6f099.mp3",
+     "img": "img/w-2ee1642895.svg"
     },
     {
      "ko": "비슷하다",
      "en": "to be similar",
-     "audio": "audio/voc_v44.mp3"
+     "audio": "audio/voc_v44.mp3",
+     "en_audio": "audio/e-a97f62f3e5.mp3",
+     "img": "img/w-fff602e96c.svg"
     },
     {
      "ko": "익숙하다",
      "en": "to be used to",
-     "audio": "audio/voc_v45.mp3"
+     "audio": "audio/voc_v45.mp3",
+     "en_audio": "audio/e-7f0892b12f.mp3",
+     "img": "img/w-af128cc977.svg"
     },
     {
      "ko": "영향",
      "en": "effect, influence",
-     "audio": "audio/voc_v46.mp3"
+     "audio": "audio/voc_v46.mp3",
+     "en_audio": "audio/e-1a8c6709e3.mp3",
+     "img": "img/w-5636f17be5.svg"
     },
     {
      "ko": "건강",
      "en": "health",
-     "audio": "audio/voc_v47.mp3"
+     "audio": "audio/voc_v47.mp3",
+     "en_audio": "audio/e-834b34f16f.mp3",
+     "img": "img/w-9ec14632f5.svg"
     },
     {
      "ko": "생활",
      "en": "daily life",
-     "audio": "audio/voc_v48.mp3"
+     "audio": "audio/voc_v48.mp3",
+     "en_audio": "audio/e-93fe8de8e2.mp3",
+     "img": "img/w-4cbf565e04.svg"
     },
     {
      "ko": "기억하다",
      "en": "to remember",
-     "audio": "audio/voc_v49.mp3"
+     "audio": "audio/voc_v49.mp3",
+     "en_audio": "audio/e-a7f9501d95.mp3",
+     "img": "img/w-c863ebd9c9.svg"
     }
    ]
   },
@@ -792,37 +933,51 @@
     {
      "ko": "하늘",
      "en": "sky",
-     "audio": "audio/voc_v50.mp3"
+     "audio": "audio/voc_v50.mp3",
+     "en_audio": "audio/e-5737ef08a3.mp3",
+     "img": "img/w-c3d78839f9.svg"
     },
     {
      "ko": "구름",
      "en": "cloud",
-     "audio": "audio/voc_v51.mp3"
+     "audio": "audio/voc_v51.mp3",
+     "en_audio": "audio/e-000e793db7.mp3",
+     "img": "img/w-38fd921c75.svg"
     },
     {
      "ko": "해",
      "en": "the sun",
-     "audio": "audio/voc_v52.mp3"
+     "audio": "audio/voc_v52.mp3",
+     "en_audio": "audio/e-1d4a9ef0fb.mp3",
+     "img": "img/w-84ed8394a0.svg"
     },
     {
      "ko": "맑다",
      "en": "to be clear, sunny",
-     "audio": "audio/voc_v53.mp3"
+     "audio": "audio/voc_v53.mp3",
+     "en_audio": "audio/e-2a3d55be07.mp3",
+     "img": "img/w-ec5db742d6.svg"
     },
     {
      "ko": "흐리다",
      "en": "to be cloudy, overcast",
-     "audio": "audio/voc_v54.mp3"
+     "audio": "audio/voc_v54.mp3",
+     "en_audio": "audio/e-cc99c26d7f.mp3",
+     "img": "img/w-65edbb43f5.svg"
     },
     {
      "ko": "그늘",
      "en": "shade",
-     "audio": "audio/voc_v55.mp3"
+     "audio": "audio/voc_v55.mp3",
+     "en_audio": "audio/e-7f5bb03cf5.mp3",
+     "img": "img/w-9cd67a95f7.svg"
     },
     {
      "ko": "소나기",
      "en": "a sudden shower",
-     "audio": "audio/voc_v56.mp3"
+     "audio": "audio/voc_v56.mp3",
+     "en_audio": "audio/e-cc12c771c1.mp3",
+     "img": "img/w-5ed2015d6b.svg"
     }
    ]
   },
@@ -832,42 +987,58 @@
     {
      "ko": "손선풍기",
      "en": "a handheld (mini) fan",
-     "audio": "audio/voc_v57.mp3"
+     "audio": "audio/voc_v57.mp3",
+     "en_audio": "audio/e-1cb00e913f.mp3",
+     "img": "img/w-c264466d5d.svg"
     },
     {
      "ko": "양산",
      "en": "a parasol (sun umbrella)",
-     "audio": "audio/voc_v58.mp3"
+     "audio": "audio/voc_v58.mp3",
+     "en_audio": "audio/e-906837faa1.mp3",
+     "img": "img/w-52d60761eb.svg"
     },
     {
      "ko": "우산",
      "en": "an umbrella",
-     "audio": "audio/voc_v59.mp3"
+     "audio": "audio/voc_v59.mp3",
+     "en_audio": "audio/e-30e9c95b2a.mp3",
+     "img": "img/w-c3c6d557d9.svg"
     },
     {
      "ko": "선크림",
      "en": "sunscreen",
-     "audio": "audio/voc_v60.mp3"
+     "audio": "audio/voc_v60.mp3",
+     "en_audio": "audio/e-d205a5bffb.mp3",
+     "img": "img/w-39c8b21a13.svg"
     },
     {
      "ko": "모자",
      "en": "a hat, cap",
-     "audio": "audio/voc_v61.mp3"
+     "audio": "audio/voc_v61.mp3",
+     "en_audio": "audio/e-ca90424256.mp3",
+     "img": "img/w-a35e68beb3.svg"
     },
     {
      "ko": "선글라스",
      "en": "sunglasses",
-     "audio": "audio/voc_v62.mp3"
+     "audio": "audio/voc_v62.mp3",
+     "en_audio": "audio/e-9ef44106d6.mp3",
+     "img": "img/w-4ba1da9dd5.svg"
     },
     {
      "ko": "헬멧",
      "en": "a helmet",
-     "audio": "audio/voc_v63.mp3"
+     "audio": "audio/voc_v63.mp3",
+     "en_audio": "audio/e-b823580566.mp3",
+     "img": "img/w-9c67588e11.svg"
     },
     {
      "ko": "물병",
      "en": "a water bottle",
-     "audio": "audio/voc_v64.mp3"
+     "audio": "audio/voc_v64.mp3",
+     "en_audio": "audio/e-4b28e62637.mp3",
+     "img": "img/w-243b7be51e.svg"
     }
    ]
   },
@@ -877,47 +1048,65 @@
     {
      "ko": "비교하다",
      "en": "to compare",
-     "audio": "audio/voc_v65.mp3"
+     "audio": "audio/voc_v65.mp3",
+     "en_audio": "audio/e-09f5d602a7.mp3",
+     "img": "img/w-b7b9541403.svg"
     },
     {
      "ko": "차이점",
      "en": "a difference (point)",
-     "audio": "audio/voc_v66.mp3"
+     "audio": "audio/voc_v66.mp3",
+     "en_audio": "audio/e-67b25de0cd.mp3",
+     "img": "img/w-111882a8b2.svg"
     },
     {
      "ko": "공통점",
      "en": "a common point",
-     "audio": "audio/voc_v67.mp3"
+     "audio": "audio/voc_v67.mp3",
+     "en_audio": "audio/e-cd8fd002ac.mp3",
+     "img": "img/w-658afc241d.svg"
     },
     {
      "ko": "같다",
      "en": "to be the same",
-     "audio": "audio/voc_v68.mp3"
+     "audio": "audio/voc_v68.mp3",
+     "en_audio": "audio/e-2cc9878de1.mp3",
+     "img": "img/w-76f7b1e882.svg"
     },
     {
      "ko": "처럼",
      "en": "like, as (attached: 나처럼)",
-     "audio": "audio/voc_v69.mp3"
+     "audio": "audio/voc_v69.mp3",
+     "en_audio": "audio/e-c4ec18d3cc.mp3",
+     "img": "img/w-1227253fd8.svg"
     },
     {
      "ko": "더",
      "en": "more",
-     "audio": "audio/voc_v70.mp3"
+     "audio": "audio/voc_v70.mp3",
+     "en_audio": "audio/e-e7c95b4c28.mp3",
+     "img": "img/w-a20f2464c8.svg"
     },
     {
      "ko": "덜",
      "en": "less",
-     "audio": "audio/voc_v71.mp3"
+     "audio": "audio/voc_v71.mp3",
+     "en_audio": "audio/e-0b439cf4e1.mp3",
+     "img": "img/w-9f9037e6ca.svg"
     },
     {
      "ko": "둘 다",
      "en": "both",
-     "audio": "audio/voc_v72.mp3"
+     "audio": "audio/voc_v72.mp3",
+     "en_audio": "audio/e-fc39b18f28.mp3",
+     "img": "img/w-8f687f7f65.svg"
     },
     {
      "ko": "반면에",
      "en": "on the other hand",
-     "audio": "audio/voc_v73.mp3"
+     "audio": "audio/voc_v73.mp3",
+     "en_audio": "audio/e-73710e07ad.mp3",
+     "img": "img/w-8e21ce8269.svg"
     }
    ]
   },
@@ -927,42 +1116,58 @@
     {
      "ko": "졸리다",
      "en": "to be sleepy",
-     "audio": "audio/voc_v74.mp3"
+     "audio": "audio/voc_v74.mp3",
+     "en_audio": "audio/e-509f7be6eb.mp3",
+     "img": "img/w-425c7f73b7.svg"
     },
     {
      "ko": "피곤하다",
      "en": "to be tired",
-     "audio": "audio/voc_v75.mp3"
+     "audio": "audio/voc_v75.mp3",
+     "en_audio": "audio/e-3638594a81.mp3",
+     "img": "img/w-810823b80f.svg"
     },
     {
      "ko": "답답하다",
      "en": "to feel stuffy, frustrated",
-     "audio": "audio/voc_v76.mp3"
+     "audio": "audio/voc_v76.mp3",
+     "en_audio": "audio/e-f9447b991d.mp3",
+     "img": "img/w-40296d8dbd.svg"
     },
     {
      "ko": "상쾌하다",
      "en": "to feel refreshed",
-     "audio": "audio/voc_v77.mp3"
+     "audio": "audio/voc_v77.mp3",
+     "en_audio": "audio/e-ab10862783.mp3",
+     "img": "img/w-e9d58e39f0.svg"
     },
     {
      "ko": "불편하다",
      "en": "to be uncomfortable",
-     "audio": "audio/voc_v78.mp3"
+     "audio": "audio/voc_v78.mp3",
+     "en_audio": "audio/e-875a9e4289.mp3",
+     "img": "img/w-52c419b235.svg"
     },
     {
      "ko": "땀",
      "en": "sweat",
-     "audio": "audio/voc_v79.mp3"
+     "audio": "audio/voc_v79.mp3",
+     "en_audio": "audio/e-8c49835ccb.mp3",
+     "img": "img/w-72d54d24e5.svg"
     },
     {
      "ko": "목마르다",
      "en": "to be thirsty",
-     "audio": "audio/voc_v80.mp3"
+     "audio": "audio/voc_v80.mp3",
+     "en_audio": "audio/e-811a0786dd.mp3",
+     "img": "img/w-5f8acbca25.svg"
     },
     {
      "ko": "지치다",
      "en": "to be worn out",
-     "audio": "audio/voc_v81.mp3"
+     "audio": "audio/voc_v81.mp3",
+     "en_audio": "audio/e-b4bc27914c.mp3",
+     "img": "img/w-1acce534d2.svg"
     }
    ]
   },
@@ -972,37 +1177,51 @@
     {
      "ko": "입다",
      "en": "to wear (clothes)",
-     "audio": "audio/voc_v82.mp3"
+     "audio": "audio/voc_v82.mp3",
+     "en_audio": "audio/e-17ba775a88.mp3",
+     "img": "img/w-b3f3fec76e.svg"
     },
     {
      "ko": "쓰다",
      "en": "to wear / use (hat, umbrella)",
-     "audio": "audio/voc_v83.mp3"
+     "audio": "audio/voc_v83.mp3",
+     "en_audio": "audio/e-02c7470433.mp3",
+     "img": "img/w-f428a7a566.svg"
     },
     {
      "ko": "벗다",
      "en": "to take off",
-     "audio": "audio/voc_v84.mp3"
+     "audio": "audio/voc_v84.mp3",
+     "en_audio": "audio/e-551fcf435d.mp3",
+     "img": "img/w-4c841f7c9b.svg"
     },
     {
      "ko": "켜다",
      "en": "to turn on",
-     "audio": "audio/voc_v85.mp3"
+     "audio": "audio/voc_v85.mp3",
+     "en_audio": "audio/e-7bb1d0a09b.mp3",
+     "img": "img/w-923c3e0a23.svg"
     },
     {
      "ko": "끄다",
      "en": "to turn off",
-     "audio": "audio/voc_v86.mp3"
+     "audio": "audio/voc_v86.mp3",
+     "en_audio": "audio/e-7b0878cd9d.mp3",
+     "img": "img/w-4fd59636be.svg"
     },
     {
      "ko": "쉬다",
      "en": "to rest",
-     "audio": "audio/voc_v87.mp3"
+     "audio": "audio/voc_v87.mp3",
+     "en_audio": "audio/e-66a5f14a45.mp3",
+     "img": "img/w-2eacfffc6f.svg"
     },
     {
      "ko": "사용하다",
      "en": "to use",
-     "audio": "audio/voc_v88.mp3"
+     "audio": "audio/voc_v88.mp3",
+     "en_audio": "audio/e-ba49a7f2ef.mp3",
+     "img": "img/w-d4429a98a1.svg"
     }
    ]
   },
@@ -1012,22 +1231,30 @@
     {
      "ko": "햇빛이 따갑다",
      "en": "the sun stings the skin",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-1d0bdb2a84.mp3",
+     "img": "img/w-2986e13f08.svg"
     },
     {
      "ko": "피부가 따갑다",
      "en": "my skin stings / burns",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-9106ff0cb6.mp3",
+     "img": "img/w-703c2a56f2.svg"
     },
     {
      "ko": "햇빛이 세다",
      "en": "the sun is strong",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-2f14d11848.mp3",
+     "img": "img/w-4ee2de6b8b.svg"
     },
     {
      "ko": "반팔",
      "en": "short sleeves",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-141002afc4.mp3",
+     "img": "img/w-db4a15c797.svg"
     }
    ]
   },
@@ -1037,17 +1264,23 @@
     {
      "ko": "콩국수",
      "en": "chilled soybean noodle soup",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-8b3262140a.mp3",
+     "img": "img/w-586d913154.svg"
     },
     {
      "ko": "복날",
      "en": "the dog days (삼복)",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-19343711c5.mp3",
+     "img": "img/w-b926740c8a.svg"
     },
     {
      "ko": "보양식",
      "en": "restorative summer food",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-6f3639a846.mp3",
+     "img": "img/w-236281e3aa.svg"
     }
    ]
   },
@@ -1057,17 +1290,23 @@
     {
      "ko": "햇빛을 막아 주다",
      "en": "to block the sun",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-00a0988cbc.mp3",
+     "img": "img/w-e00e04b192.svg"
     },
     {
      "ko": "해수욕장",
      "en": "a swimming beach",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-6af7374b8b.mp3",
+     "img": "img/w-018de0eaa1.svg"
     },
     {
      "ko": "피서",
      "en": "escaping the heat (summer getaway)",
-     "audio": null
+     "audio": null,
+     "en_audio": "audio/e-de7ed98faa.mp3",
+     "img": "img/w-7b9cbcdbc2.svg"
     }
    ]
   }

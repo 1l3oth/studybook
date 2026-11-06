@@ -253,6 +253,13 @@
       fHint = $('.f-hint', focus), fListen = $('#fListen'), fPrev = $('#fPrev'), fNext = $('#fNext'), fCount = $('.f-count', focus);
     function fStop() { if (fAudio) fAudio.pause(); fAudio = null; fListen.classList.remove('playing'); }
     var fCard = $('.f-card', focus);
+    // the English explainer inside the focus card plays on its own clip
+    fEn.addEventListener('click', function (e) {
+      var b = e.target.closest('.xp'); if (!b) return;
+      e.stopPropagation(); fStop(); fAudio = new Audio(b.dataset.au); b.classList.add('playing');
+      fAudio.onended = function () { b.classList.remove('playing'); };
+      fAudio.play().catch(function () { b.classList.remove('playing'); });
+    });
     function fFit() { fitCard(fCard, fPicBox, [fKo, fEn]); }
     window.addEventListener('resize', function () { requestAnimationFrame(fFit); });
     function reveal() { fKo.classList.remove('hidden'); fKo.removeAttribute('role'); fKo.removeAttribute('tabindex'); fHint.hidden = true; fFit(); }

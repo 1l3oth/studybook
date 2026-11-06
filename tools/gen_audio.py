@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Fill a unit's missing audio with a native Korean neural voice (edge-tts, free, no key).
+"""Fill a unit's missing audio with a native Korean neural voice (edge-tts, free, no key), plus the
+English explainer clips (en-US-AvaMultilingualNeural): card meaning, Q&A answer meaning, grammar notes and word meaning.
+Explainer clips are named from a hash of their text, so a changed text gets a new clip.
 
     python tools/gen_audio.py korean-funeral-visit [--voice ko-KR-InJoonNeural]
 
@@ -12,7 +14,15 @@ import json
 import os
 import sys
 
+import hashlib
+
 import edge_tts
+
+EXPLAIN_VOICE = 'en-US-AvaMultilingualNeural'  # multilingual: reads the Korean words inside English notes
+
+
+def ename(text):
+    return 'audio/e-' + hashlib.sha1(text.encode('utf-8')).hexdigest()[:10] + '.mp3'
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,13 +35,25 @@ def main():
     u = json.load(io.open(path, encoding='utf-8'))
 
     jobs = []
+    ejobs = []
+
+    def explain(it, field, key):
+        if it.get(field):
+            it[key] = ename(it[field])
+            ejobs.append((it[field], it[key]))
+
     for c in u['cards']:
         jobs.append((c['ko'], c['audio']))
+        explain(c, 'en', 'en_audio')
     for b in u['qa']:
         for it in b['items']:
             if b.get('kind') == 'surv':
                 jobs.append((it['ko'], it['audio']))
+                explain(it, 'en', 'en_audio')
             else:
+                explain(it, 'aen', 'aen_audio')
+                if b.get('kind') == 'gram':
+                    explain(it, 'why', 'why_audio')
                 if it.get('qaudio'):
                     jobs.append((it['q'], it['qaudio']))
                 if it.get('audio'):
@@ -42,6 +64,7 @@ def main():
             n += 1
             it.setdefault('audio', 'audio/v%02d.mp3' % n)
             jobs.append((it['ko'], it['audio']))
+            explain(it, 'en', 'en_audio')
     if not u.get('full'):
         secs = {s['id']: s for s in u['sections']}
         for s in u['sections']:
@@ -51,20 +74,21 @@ def main():
                                   'en': ' '.join(c['en'] for c in cs)})
     io.open(path, 'w', encoding='utf-8', newline='\n').write(json.dumps(u, ensure_ascii=False, indent=1))
 
-    todo = [(t, os.path.join(d, a)) for t, a in jobs
+    todo = [(t, os.path.join(d, a), v) for v, js in ((voice, jobs), (EXPLAIN_VOICE, ejobs)) for t, a in js if a and t
             if not (os.path.exists(os.path.join(d, a)) and os.path.getsize(os.path.join(d, a)) > 1000)]
+    todo = list({o: (t, o, v) for t, o, v in todo}.values())
 
     async def run():
         sem = asyncio.Semaphore(4)
 
-        async def one(text, out):
+        async def one(text, out, v):
             async with sem:
                 os.makedirs(os.path.dirname(out), exist_ok=True)
-                await edge_tts.Communicate(text.replace("'", ''), voice, rate='-5%').save(out)
-        await asyncio.gather(*(one(t, o) for t, o in todo))
+                await edge_tts.Communicate(text.replace("'", '') if v == voice else text, v, rate='-5%').save(out)
+        await asyncio.gather(*(one(t, o, v) for t, o, v in todo))
 
     asyncio.run(run())
-    print(f'{slug}: {len(jobs)} clips referenced, {len(todo)} generated with {voice}')
+    print(f'{slug}: {len(jobs)} Korean + {len(ejobs)} English clips referenced, {len(todo)} generated')
 
 
 if __name__ == '__main__':

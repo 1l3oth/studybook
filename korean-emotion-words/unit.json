@@ -69,7 +69,8 @@
    "hook": "기쁘다",
    "ko": "여러분을 알게 되어서 참 기쁩니다.",
    "en": "I am very glad to have met you all.",
-   "audio": "audio/s04.mp3"
+   "audio": "audio/s04.mp3",
+   "en_audio": "audio/e-d28ecf1048.mp3"
   },
   {
    "sec": "pos",
@@ -79,7 +80,8 @@
    "hook": "사랑",
    "ko": "저는 사랑하는 사람과 결혼하고 싶어요.",
    "en": "I want to marry the person I love.",
-   "audio": "audio/s12.mp3"
+   "audio": "audio/s12.mp3",
+   "en_audio": "audio/e-e0380640c5.mp3"
   },
   {
    "sec": "pos",
@@ -89,7 +91,8 @@
    "hook": "상쾌하다",
    "ko": "운동한 후에 샤워를 하면 기분이 상쾌해요.",
    "en": "When I shower after exercising, I feel refreshed.",
-   "audio": "audio/s13.mp3"
+   "audio": "audio/s13.mp3",
+   "en_audio": "audio/e-cd76e1e510.mp3"
   },
   {
    "sec": "pos",
@@ -99,7 +102,8 @@
    "hook": "신나다",
    "ko": "아이들이 놀이 공원에서 신나게 놀았습니다.",
    "en": "The children played excitedly at the amusement park.",
-   "audio": "audio/s16.mp3"
+   "audio": "audio/s16.mp3",
+   "en_audio": "audio/e-b8d36eedbb.mp3"
   },
   {
    "sec": "pos",
@@ -109,7 +113,8 @@
    "hook": "즐겁다",
    "ko": "저는 한국 생활이 즐겁습니다.",
    "en": "I find life in Korea enjoyable.",
-   "audio": "audio/s22.mp3"
+   "audio": "audio/s22.mp3",
+   "en_audio": "audio/e-a6656f9701.mp3"
   },
   {
    "sec": "pos",
@@ -119,7 +124,8 @@
    "hook": "편안하다",
    "ko": "시험이 끝나서 마음이 편안해요.",
    "en": "The exam is over, so my mind is at ease.",
-   "audio": "audio/s25.mp3"
+   "audio": "audio/s25.mp3",
+   "en_audio": "audio/e-43ae0d051b.mp3"
   },
   {
    "sec": "pos",
@@ -129,7 +135,8 @@
    "hook": "행복",
    "ko": "사랑하는 사람과 결혼해서 행복해요.",
    "en": "I married the person I love, so I am happy.",
-   "audio": "audio/s26.mp3"
+   "audio": "audio/s26.mp3",
+   "en_audio": "audio/e-98e4ddc7bc.mp3"
   },
   {
    "sec": "react",
@@ -139,7 +146,8 @@
    "hook": "그립다",
    "ko": "안나 씨는 1년 전에 한국에 왔습니다. 그래서 지금 고향이 그립습니다.",
    "en": "Anna came to Korea a year ago, so now she misses her hometown.",
-   "audio": "audio/s02.mp3"
+   "audio": "audio/s02.mp3",
+   "en_audio": "audio/e-27c2ad6fe8.mp3"
   },
   {
    "sec": "react",
@@ -149,7 +157,8 @@
    "hook": "기분",
    "ko": "상을 받았는데 기분이 어때요?",
    "en": "You received an award, so how do you feel?",
-   "audio": "audio/s03.mp3"
+   "audio": "audio/s03.mp3",
+   "en_audio": "audio/e-ffcf9a1c17.mp3"
   },
   {
    "sec": "react",
@@ -159,7 +168,8 @@
    "hook": "놀라다",
    "ko": "처음 본 외국 사람이 한국말을 잘해서 놀랐어요.",
    "en": "I was surprised that a foreigner I met for the first time spoke Korean well.",
-   "audio": "audio/s06.mp3"
+   "audio": "audio/s06.mp3",
+   "en_audio": "audio/e-a2baedffc5.mp3"
   },
   {
    "sec": "neg",
@@ -169,7 +179,8 @@
    "hook": "걱정",
    "ko": "피터 씨는 하숙집을 못 구해서 걱정입니다.",
    "en": "Peter is worried because he can't find a boarding house.",
-   "audio": "audio/s01.mp3"
+   "audio": "audio/s01.mp3",
+   "en_audio": "audio/e-606bd25bed.mp3"
   },
   {
    "sec": "neg",
@@ -179,7 +190,8 @@
    "hook": "답답하다",
    "ko": "하숙방이 좁고 창문이 없어서 답답해요.",
    "en": "The boarding room is small and has no window, so it feels stuffy.",
-   "audio": "audio/s08.mp3"
+   "audio": "audio/s08.mp3",
+   "en_audio": "audio/e-840ba49d29.mp3"
   },
   {
    "sec": "neg",
@@ -189,7 +201,8 @@
    "hook": "무섭다",
    "ko": "저는 무서운 영화를 싫어해요.",
    "en": "I don't like scary movies.",
-   "audio": "audio/s09.mp3"
+   "audio": "audio/s09.mp3",
+   "en_audio": "audio/e-df80a9b801.mp3"
   },
   {
    "sec": "neg",
@@ -199,7 +212,8 @@
    "hook": "부럽다",
    "ko": "저는 한국말을 잘하는 안나 씨가 부러워요.",
    "en": "I envy Anna, who speaks Korean well.",
-   "audio": "audio/s10.mp3"
+   "audio": "audio/s10.mp3",
+   "en_audio": "audio/e-18c3aa617a.mp3"
   },
   {
    "sec": "neg",
@@ -209,7 +223,8 @@
    "hook": "불안",
    "ko": "시험 때문에 불안해서 잠을 못 잤어요.",
    "en": "I was uneasy because of the exam, so I couldn't sleep.",
-   "audio": "audio/s11.mp3"
+   "audio": "audio/s11.mp3",
+   "en_audio": "audio/e-7e24f5d395.mp3"
   },
   {
    "sec": "neg",
@@ -219,7 +234,8 @@
    "hook": "섭섭하다",
    "ko": "고향에 돌아가는 것은 기쁘지만, 친구들과 헤어져서 섭섭해요.",
    "en": "I'm glad to go back to my hometown, but I'm sad to part from my friends.",
-   "audio": "audio/s14.mp3"
+   "audio": "audio/s14.mp3",
+   "en_audio": "audio/e-062a133124.mp3"
   },
   {
    "sec": "neg",
@@ -229,7 +245,8 @@
    "hook": "슬프다",
    "ko": "어제 본 드라마가 너무 슬펐어요.",
    "en": "The drama I watched yesterday was so sad.",
-   "audio": "audio/s15.mp3"
+   "audio": "audio/s15.mp3",
+   "en_audio": "audio/e-abbf27b5d9.mp3"
   },
   {
    "sec": "neg",
@@ -239,7 +256,8 @@
    "hook": "심심하다",
    "ko": "리에 씨는 어제 약속이 없어서 하루 종일 집에 혼자 있었어요. 그래서 너무 심심했어요.",
    "en": "Rie had no plans yesterday and was home alone all day, so she was very bored.",
-   "audio": "audio/s17.mp3"
+   "audio": "audio/s17.mp3",
+   "en_audio": "audio/e-7926aaeb38.mp3"
   },
   {
    "sec": "neg",
@@ -249,7 +267,8 @@
    "hook": "외롭다",
    "ko": "리에 씨는 혼자 살아서 가끔 외롭습니다.",
    "en": "Rie lives alone, so she is sometimes lonely.",
-   "audio": "audio/s18.mp3"
+   "audio": "audio/s18.mp3",
+   "en_audio": "audio/e-6ab9e6cd94.mp3"
   },
   {
    "sec": "neg",
@@ -259,7 +278,8 @@
    "hook": "우울하다",
    "ko": "저는 취직 시험에 계속 떨어져서 우울합니다.",
    "en": "I keep failing job exams, so I feel depressed.",
-   "audio": "audio/s19.mp3"
+   "audio": "audio/s19.mp3",
+   "en_audio": "audio/e-6c1bd07093.mp3"
   },
   {
    "sec": "neg",
@@ -269,7 +289,8 @@
    "hook": "지루하다",
    "ko": "매일 똑같은 일을 하면 지루해요.",
    "en": "If you do the same work every day, it gets boring.",
-   "audio": "audio/s23.mp3"
+   "audio": "audio/s23.mp3",
+   "en_audio": "audio/e-0c5b543766.mp3"
   },
   {
    "sec": "neg",
@@ -279,7 +300,8 @@
    "hook": "창피하다",
    "ko": "길에서 넘어져서 창피했어요.",
    "en": "I fell over in the street, so I was embarrassed.",
-   "audio": "audio/s24.mp3"
+   "audio": "audio/s24.mp3",
+   "en_audio": "audio/e-b0db66c1ee.mp3"
   },
   {
    "sec": "neg",
@@ -289,7 +311,8 @@
    "hook": "화",
    "ko": "친구가 저한테 거짓말을 해서 화가 났어요.",
    "en": "My friend lied to me, so I got angry.",
-   "audio": "audio/s27.mp3"
+   "audio": "audio/s27.mp3",
+   "en_audio": "audio/e-7087ce520c.mp3"
   }
  ],
  "qa_tab": {
@@ -308,7 +331,8 @@
      "qen": "to be glad, to be happy",
      "qaudio": "audio/w04.mp3",
      "a": "-이/가 기쁘다 · -이/가 -을/를 기뻐하다",
-     "aen": "기뻐하다 to be pleased · 기쁨 joy · 반대 슬프다"
+     "aen": "기뻐하다 to be pleased · 기쁨 joy · 반대 슬프다",
+     "aen_audio": "audio/e-e7a8a8cd6b.mp3"
     },
     {
      "group": "긍정 · Positive",
@@ -316,7 +340,8 @@
      "qen": "love",
      "qaudio": "audio/w12.mp3",
      "a": "-이/가 -을/를 사랑하다",
-     "aen": "사랑하다 to love"
+     "aen": "사랑하다 to love",
+     "aen_audio": "audio/e-6f386f332b.mp3"
     },
     {
      "group": "긍정 · Positive",
@@ -338,7 +363,8 @@
      "qen": "to be enjoyable, to be cheerful",
      "qaudio": "audio/w22.mp3",
      "a": "-이/가 즐겁다",
-     "aen": "즐거워하다 to enjoy"
+     "aen": "즐거워하다 to enjoy",
+     "aen_audio": "audio/e-f7cbb02816.mp3"
     },
     {
      "group": "긍정 · Positive",
@@ -346,7 +372,8 @@
      "qen": "to be at ease, free from anxiety",
      "qaudio": "audio/w25.mp3",
      "a": "-이/가 편안하다",
-     "aen": "반대 불편하다"
+     "aen": "반대 불편하다",
+     "aen_audio": "audio/e-bee937272d.mp3"
     },
     {
      "group": "긍정 · Positive",
@@ -354,7 +381,8 @@
      "qen": "happiness",
      "qaudio": "audio/w26.mp3",
      "a": "-이/가 행복하다",
-     "aen": "행복하다 to be happy · 행복해하다 to feel happy · 행복을 느끼다 to feel happiness"
+     "aen": "행복하다 to be happy · 행복해하다 to feel happy · 행복을 느끼다 to feel happiness",
+     "aen_audio": "audio/e-556955bb00.mp3"
     },
     {
      "group": "반응 · Reaction",
@@ -363,7 +391,9 @@
      "qaudio": "audio/w02.mp3",
      "a": "-이/가 그립다 · -이/가 -을/를 그리워하다",
      "aen": "그리워하다 to long for · 그리움 longing",
-     "why": "Stronger and wider than 보고 싶다: works for places and times, not only people."
+     "why": "Stronger and wider than 보고 싶다: works for places and times, not only people.",
+     "aen_audio": "audio/e-cc07408474.mp3",
+     "why_audio": "audio/e-9f9fc42530.mp3"
     },
     {
      "group": "반응 · Reaction",
@@ -385,7 +415,8 @@
      "qen": "anxiety, worry",
      "qaudio": "audio/w01.mp3",
      "a": "-이/가 걱정이다 / 걱정(이) 되다 · -을/를 걱정하다",
-     "aen": "걱정하다 to worry"
+     "aen": "걱정하다 to worry",
+     "aen_audio": "audio/e-fa9ac60f0c.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -393,7 +424,8 @@
      "qen": "to be stuffy, to feel helpless",
      "qaudio": "audio/w08.mp3",
      "a": "-이/가 답답하다",
-     "why": "Physical stuffiness and the frustrated, blocked feeling. The book's second example: 한국말을 잘 못해서 답답해요."
+     "why": "Physical stuffiness and the frustrated, blocked feeling. The book's second example: 한국말을 잘 못해서 답답해요.",
+     "why_audio": "audio/e-ec0f2ada9a.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -401,7 +433,8 @@
      "qen": "to be scary",
      "qaudio": "audio/w09.mp3",
      "a": "-은/는 -이/가 무섭다 · -은/는 -을/를 무서워하다",
-     "aen": "무서워하다 to be afraid of"
+     "aen": "무서워하다 to be afraid of",
+     "aen_audio": "audio/e-4748ebffc2.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -409,7 +442,8 @@
      "qen": "to be envious",
      "qaudio": "audio/w10.mp3",
      "a": "-은/는 -이/가 부럽다 · -은/는 -을/를 부러워하다",
-     "aen": "부러워하다 to envy"
+     "aen": "부러워하다 to envy",
+     "aen_audio": "audio/e-be3cf295da.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -417,7 +451,8 @@
      "qen": "uneasiness, restlessness",
      "qaudio": "audio/w11.mp3",
      "a": "-이/가 불안하다",
-     "aen": "불안하다 to be uneasy · 불안해하다 to feel uneasy"
+     "aen": "불안하다 to be uneasy · 불안해하다 to feel uneasy",
+     "aen_audio": "audio/e-2a56b65890.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -425,7 +460,8 @@
      "qen": "to be sad at parting, to be regretful",
      "qaudio": "audio/w14.mp3",
      "a": "-이/가 섭섭하다",
-     "why": "No clean English word. The sadness of parting, usually mixed with something good."
+     "why": "No clean English word. The sadness of parting, usually mixed with something good.",
+     "why_audio": "audio/e-e0acd062d8.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -433,7 +469,8 @@
      "qen": "to be sad",
      "qaudio": "audio/w15.mp3",
      "a": "-이/가 슬프다",
-     "aen": "슬퍼하다 to grieve · 슬픔 sadness · 반대 기쁘다"
+     "aen": "슬퍼하다 to grieve · 슬픔 sadness · 반대 기쁘다",
+     "aen_audio": "audio/e-832c2119de.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -441,7 +478,8 @@
      "qen": "to be bored (from having too much time)",
      "qaudio": "audio/w17.mp3",
      "a": "-이/가 심심하다",
-     "why": "You have nothing to do. Compare 지루하다, where the thing itself is tedious."
+     "why": "You have nothing to do. Compare 지루하다, where the thing itself is tedious.",
+     "why_audio": "audio/e-807b21e3b2.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -449,7 +487,8 @@
      "qen": "to be lonely",
      "qaudio": "audio/w18.mp3",
      "a": "-이/가 외롭다",
-     "aen": "외로워하다 to feel lonely · 외로움 loneliness"
+     "aen": "외로워하다 to feel lonely · 외로움 loneliness",
+     "aen_audio": "audio/e-3fbb4b82d4.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -457,7 +496,8 @@
      "qen": "to be depressed",
      "qaudio": "audio/w19.mp3",
      "a": "-이/가 우울하다",
-     "aen": "우울해하다 to feel depressed · 우울증 depression (the condition)"
+     "aen": "우울해하다 to feel depressed · 우울증 depression (the condition)",
+     "aen_audio": "audio/e-9dcb5e1244.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -466,7 +506,9 @@
      "qaudio": "audio/w23.mp3",
      "a": "-이/가 지루하다",
      "aen": "지루해하다 to find tedious",
-     "why": "The thing itself is dull. Compare 심심하다, where you simply have nothing to do."
+     "why": "The thing itself is dull. Compare 심심하다, where you simply have nothing to do.",
+     "aen_audio": "audio/e-f8ee896160.mp3",
+     "why_audio": "audio/e-be6e6dfa56.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -474,7 +516,8 @@
      "qen": "to be embarrassed, to be ashamed",
      "qaudio": "audio/w24.mp3",
      "a": "-이/가 창피하다",
-     "aen": "창피해하다 to feel ashamed"
+     "aen": "창피해하다 to feel ashamed",
+     "aen_audio": "audio/e-66cc59b9e0.mp3"
     },
     {
      "group": "부정 · Negative",
@@ -495,37 +538,51 @@
     {
      "ko": "기쁘다",
      "en": "to be glad, to be happy · 형용사 adjective [기쁘다] · '으' 불규칙",
-     "audio": "audio/w04.mp3"
+     "audio": "audio/w04.mp3",
+     "en_audio": "audio/e-ac5e0e25cb.mp3",
+     "img": "img/e04.svg"
     },
     {
      "ko": "사랑",
      "en": "love · 명사 noun [사랑]",
-     "audio": "audio/w12.mp3"
+     "audio": "audio/w12.mp3",
+     "en_audio": "audio/e-7e708245f1.mp3",
+     "img": "img/e12.svg"
     },
     {
      "ko": "상쾌하다",
      "en": "to be refreshing · 형용사 adjective [상쾌하다]",
-     "audio": "audio/w13.mp3"
+     "audio": "audio/w13.mp3",
+     "en_audio": "audio/e-f22a241cd9.mp3",
+     "img": "img/e13.svg"
     },
     {
      "ko": "신나다",
      "en": "to be excited · 형용사 adjective [신나다]",
-     "audio": "audio/w16.mp3"
+     "audio": "audio/w16.mp3",
+     "en_audio": "audio/e-7a9b7647fe.mp3",
+     "img": "img/e16.svg"
     },
     {
      "ko": "즐겁다",
      "en": "to be enjoyable, to be cheerful · 형용사 adjective [즐겁따] · 'ㅂ' 불규칙",
-     "audio": "audio/w22.mp3"
+     "audio": "audio/w22.mp3",
+     "en_audio": "audio/e-d42a9f254d.mp3",
+     "img": "img/e22.svg"
     },
     {
      "ko": "편안하다",
      "en": "to be at ease, free from anxiety · 형용사 adjective [펴난하다]",
-     "audio": "audio/w25.mp3"
+     "audio": "audio/w25.mp3",
+     "en_audio": "audio/e-8eb8a13600.mp3",
+     "img": "img/e25.svg"
     },
     {
      "ko": "행복",
      "en": "happiness · 명사 noun [행복]",
-     "audio": "audio/w26.mp3"
+     "audio": "audio/w26.mp3",
+     "en_audio": "audio/e-e5a8d722ea.mp3",
+     "img": "img/e26.svg"
     }
    ]
   },
@@ -536,17 +593,23 @@
     {
      "ko": "그립다",
      "en": "to be missed, to be longed for · 형용사 adjective [그립따] · 'ㅂ' 불규칙",
-     "audio": "audio/w02.mp3"
+     "audio": "audio/w02.mp3",
+     "en_audio": "audio/e-967404abfd.mp3",
+     "img": "img/e02.svg"
     },
     {
      "ko": "기분",
      "en": "feeling, mood · 명사 noun [기분]",
-     "audio": "audio/w03.mp3"
+     "audio": "audio/w03.mp3",
+     "en_audio": "audio/e-61e0767bc6.mp3",
+     "img": "img/e03.svg"
     },
     {
      "ko": "놀라다",
      "en": "to be surprised, to be amazed · 동사 verb [놀:라다]",
-     "audio": "audio/w06.mp3"
+     "audio": "audio/w06.mp3",
+     "en_audio": "audio/e-3bfbfc54b4.mp3",
+     "img": "img/e06.svg"
     }
    ]
   },
@@ -557,67 +620,93 @@
     {
      "ko": "걱정",
      "en": "anxiety, worry · 명사 noun [걱쩡]",
-     "audio": "audio/w01.mp3"
+     "audio": "audio/w01.mp3",
+     "en_audio": "audio/e-8435b4a487.mp3",
+     "img": "img/e01.svg"
     },
     {
      "ko": "답답하다",
      "en": "to be stuffy, to feel helpless · 형용사 adjective [답따파다]",
-     "audio": "audio/w08.mp3"
+     "audio": "audio/w08.mp3",
+     "en_audio": "audio/e-2dec5e3bd5.mp3",
+     "img": "img/e08.svg"
     },
     {
      "ko": "무섭다",
      "en": "to be scary · 형용사 adjective [무섭따] · 'ㅂ' 불규칙",
-     "audio": "audio/w09.mp3"
+     "audio": "audio/w09.mp3",
+     "en_audio": "audio/e-e1c0c000ee.mp3",
+     "img": "img/e09.svg"
     },
     {
      "ko": "부럽다",
      "en": "to be envious · 형용사 adjective [부럽따] · 'ㅂ' 불규칙",
-     "audio": "audio/w10.mp3"
+     "audio": "audio/w10.mp3",
+     "en_audio": "audio/e-8a6898a14b.mp3",
+     "img": "img/e10.svg"
     },
     {
      "ko": "불안",
      "en": "uneasiness, restlessness · 명사 noun [부란]",
-     "audio": "audio/w11.mp3"
+     "audio": "audio/w11.mp3",
+     "en_audio": "audio/e-ad97d47493.mp3",
+     "img": "img/e11.svg"
     },
     {
      "ko": "섭섭하다",
      "en": "to be sad at parting, to be regretful · 형용사 adjective [섭써파다]",
-     "audio": "audio/w14.mp3"
+     "audio": "audio/w14.mp3",
+     "en_audio": "audio/e-64dbf24e01.mp3",
+     "img": "img/e14.svg"
     },
     {
      "ko": "슬프다",
      "en": "to be sad · 형용사 adjective [슬프다] · '으' 불규칙",
-     "audio": "audio/w15.mp3"
+     "audio": "audio/w15.mp3",
+     "en_audio": "audio/e-3cc943b163.mp3",
+     "img": "img/e15.svg"
     },
     {
      "ko": "심심하다",
      "en": "to be bored (from having too much time) · 형용사 adjective [심심하다]",
-     "audio": "audio/w17.mp3"
+     "audio": "audio/w17.mp3",
+     "en_audio": "audio/e-6c9dd3e69a.mp3",
+     "img": "img/e17.svg"
     },
     {
      "ko": "외롭다",
      "en": "to be lonely · 형용사 adjective [외롭따/웨롭따] · 'ㅂ' 불규칙",
-     "audio": "audio/w18.mp3"
+     "audio": "audio/w18.mp3",
+     "en_audio": "audio/e-5ba309871f.mp3",
+     "img": "img/e18.svg"
     },
     {
      "ko": "우울하다",
      "en": "to be depressed · 형용사 adjective [우울하다]",
-     "audio": "audio/w19.mp3"
+     "audio": "audio/w19.mp3",
+     "en_audio": "audio/e-1dbe04cc15.mp3",
+     "img": "img/e19.svg"
     },
     {
      "ko": "지루하다",
      "en": "to be bored, to be tedious · 형용사 adjective [지루하다]",
-     "audio": "audio/w23.mp3"
+     "audio": "audio/w23.mp3",
+     "en_audio": "audio/e-59e9691cf6.mp3",
+     "img": "img/e23.svg"
     },
     {
      "ko": "창피하다",
      "en": "to be embarrassed, to be ashamed · 형용사 adjective [창피하다]",
-     "audio": "audio/w24.mp3"
+     "audio": "audio/w24.mp3",
+     "en_audio": "audio/e-275bea09de.mp3",
+     "img": "img/e24.svg"
     },
     {
      "ko": "화",
      "en": "anger · 명사 noun [화]",
-     "audio": "audio/w27.mp3"
+     "audio": "audio/w27.mp3",
+     "en_audio": "audio/e-d5a0696458.mp3",
+     "img": "img/e27.svg"
     }
    ]
   }

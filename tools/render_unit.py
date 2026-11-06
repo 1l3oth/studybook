@@ -24,7 +24,7 @@ def e(s):
 
 
 HANGUL = re.compile('[가-힣ㄱ-ㅎ]')
-V = 'v=fit1'  # bump when assets change, so a new page never meets an old cached stylesheet
+V = 'v=xp1'  # bump when assets change, so a new page never meets an old cached stylesheet
 SITE = 'https://1l3oth.github.io/studybook/'
 
 
@@ -76,6 +76,17 @@ def listen(au, label=None, mini=False, extra=''):
     if mini:
         return f'<button class="listen mini" type="button" data-au="{e(au)}" aria-label="Listen"{extra}>{PLAY}</button>'
     return f'<button class="listen" type="button" data-au="{e(au)}">{PLAY}<span>{ui('듣기 · Listen', 'Listen')}</span></button>'
+
+
+XP = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/>'
+      '<path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>')
+
+
+def xp(au):
+    """The English explainer button: a small speaker that reads the meaning or the note in English."""
+    if not au:
+        return ''
+    return f'<button class="xp" type="button" data-au="{e(au)}" aria-label="Explain in English">{XP}<b>EN</b></button>'
 
 
 def cplay(au, n, cls):
@@ -130,7 +141,7 @@ def render(u):
             f'<div class="cbody"><div class="ctop"><span class="num">{i + 1:02d}</span>'
             f'<span class="sec-chip"><span class="mk" lang="ko">{t(s.get("ko", ""))}&nbsp;· </span>{t(s.get("en", ""))}</span>{hook}</div>'
             f'<p class="ko has-en" lang="ko">{t(c["ko"])}</p><span class="prog" aria-hidden="true"><i></i></span>'
-            f'<p class="en">{t(c["en"])}</p></div>{cplay(c.get("audio"), i + 1, "rplay")}</article>')
+            f'<p class="en">{xp(c.get("en_audio"))}{t(c["en"])}</p></div>{cplay(c.get("audio"), i + 1, "rplay")}</article>')
 
     # ---- Q&A ----
     qh = [f'<p class="note">{t(u["qa_note"])}</p>'] if u.get('qa_note') else []
@@ -143,7 +154,7 @@ def render(u):
         if b.get('kind') == 'surv':
             for it in b['items']:
                 qh.append(f'<div class="surv"><span class="sko" lang="ko"><span class="{"mk" if it.get("en") else ""}">{t(it["ko"])}</span>'
-                          f'<span class="sen">{t(it.get("en"))}</span></span>{listen(it.get("audio"), mini=True)}</div>')
+                          f'<span class="sen">{xp(it.get("en_audio"))}{t(it.get("en"))}</span></span>{listen(it.get("audio"), mini=True)}</div>')
             continue
         last_group = None
         for it in b['items']:
@@ -154,8 +165,8 @@ def render(u):
             trap = b.get('kind') == 'trap'
             mark = ui('문', 'G') if b.get('kind') == 'gram' else 'Q'
             check = f'<span class="check">{ui("확인 필요 · check", "check")}</span>' if it.get('check') else ''
-            why = f'<p class="why">{t(it["why"])}</p>' if it.get('why') else ''
-            aen = f'<p class="aen">{t(it["aen"])}</p>' if it.get('aen') else ''
+            why = f'<p class="why">{xp(it.get("why_audio"))}{t(it["why"])}</p>' if it.get('why') else ''
+            aen = f'<p class="aen">{xp(it.get("aen_audio"))}{t(it["aen"])}</p>' if it.get('aen') else ''
             qen = f'<span class="qen">{t(it["qen"])}</span>' if it.get('qen') else ''
             aid = f'qa{n}'
             qh.append(
@@ -172,8 +183,9 @@ def render(u):
         lc = f' style="--lc:{e(g["color"])}"' if g.get('color') else ''
         vh.append(f'<h2 class="vgrp"{lc}>{m(g["title"])}</h2><ul class="vlist">')
         for it in g['items']:
-            vh.append(f'<li class="voc">{listen(it.get("audio"), mini=True)}<span class="vko has-en" lang="ko">{t(it["ko"])}</span>'
-                      f'<span class="ven">{t(it["en"])}</span></li>')
+            pic = (f'<img class="vpic" src="{e(it["img"])}" alt="" loading="lazy">' if it.get('img') else '')
+            vh.append(f'<li class="voc">{pic}{listen(it.get("audio"), mini=True)}<span class="vko has-en" lang="ko">{t(it["ko"])}</span>'
+                      f'<span class="ven">{xp(it.get("en_audio"))}{t(it["en"])}</span></li>')
         vh.append('</ul>')
 
     # ---- full text ----
