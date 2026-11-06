@@ -73,7 +73,7 @@
    {
     "img": "img/k08-chili.svg",
     "ko": "고추",
-    "en": "Always chili, never forgotten",
+    "en": "Always chili: frozen, from Coupang",
     "color": "#00A5DE"
    },
    {
@@ -169,6 +169,26 @@
    "ko": "레시피에는 없지만 저는 고추를 꼭 넣습니다. 고추는 한 번도 잊어버린 적이 없습니다.",
    "en": "It is not in the recipe, but I always add chili. I have never once forgotten the chili.",
    "audio": "audio/k5e932224.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s3",
+   "img": "img/k08b-frozen.svg",
+   "alt": "A frozen bag of chilies, a price tag of 8,000 won and a calendar saying 4 to 5 months",
+   "hook": "냉동 고추",
+   "ko": "저는 쿠팡에서 냉동 고추를 삽니다. 한 봉지에 8,000원쯤인데 네다섯 달 동안 먹을 수 있습니다.",
+   "en": "I buy frozen chili on Coupang. A pack is about 8,000 won, and I can eat it for four or five months.",
+   "audio": "audio/c08b-frozen.mp3",
+   "flat": true
+  },
+  {
+   "sec": "s3",
+   "img": "img/k08c-vietnam.svg",
+   "alt": "A Cambodian chili with one flame and a Vietnamese chili with two flames",
+   "hook": "더 맵다",
+   "ko": "베트남 고추는 캄보디아 고추보다 조금 더 맵습니다.",
+   "en": "Vietnamese chili is a little spicier than Cambodian chili.",
+   "audio": "audio/c08c-vietnam.mp3",
    "flat": true
   },
   {
@@ -299,10 +319,28 @@
      "group": "요리 · Cooking",
      "q": "재료는 어디에서 삽니까?",
      "qen": "Where do you buy ingredients?",
-     "a": "보통 영등포시장에서 장을 봅니다.",
+     "a": "보통 영등포시장에서 장을 봅니다. 고추는 쿠팡에서 냉동 고추를 삽니다.",
      "check": true,
-     "aen": "I usually do my shopping at Yeongdeungpo Market.",
-     "audio": "audio/kad7061be.mp3"
+     "aen": "I usually do my shopping at Yeongdeungpo Market. Chili I buy frozen on Coupang.",
+     "audio": "audio/c-qa-shop.mp3"
+    },
+    {
+     "group": "요리 · Cooking",
+     "q": "고추는 얼마나 자주 삽니까?",
+     "qen": "How often do you buy chili?",
+     "a": "자주 안 삽니다. 냉동 고추 한 봉지가 8,000원쯤인데 네다섯 달 동안 먹을 수 있습니다.",
+     "aen": "Not often. A pack of frozen chili is about 8,000 won, and it lasts four or five months.",
+     "why": "A natural follow-up to your Coupang line. The numbers are yours, so say them with confidence.",
+     "audio": "audio/c-qa-howoften.mp3"
+    },
+    {
+     "group": "요리 · Cooking",
+     "q": "베트남 고추와 캄보디아 고추는 뭐가 다릅니까?",
+     "qen": "How are Vietnamese and Cambodian chili different?",
+     "a": "베트남 고추가 캄보디아 고추보다 조금 더 맵습니다.",
+     "aen": "Vietnamese chili is a little spicier than Cambodian chili.",
+     "why": "If you mention Vietnam, expect this. One short comparison is enough.",
+     "audio": "audio/c-qa-vietnam.mp3"
     },
     {
      "group": "요리 · Cooking",
@@ -478,6 +516,14 @@
      "aen": "Because I like salty food.",
      "why": "You already say 왜냐하면. In formal speech, close it with -기 때문입니다 so the sentence finishes properly.",
      "audio": "audio/k513841d9.mp3"
+    },
+    {
+     "q": "A는 B보다 더",
+     "qen": "A is more ... than B",
+     "a": "베트남 고추는 캄보디아 고추보다 조금 더 맵습니다.",
+     "aen": "Vietnamese chili is a little spicier than Cambodian chili.",
+     "why": "The comparison pattern. 보다 marks what you compare against, 더 means more.",
+     "audio": "audio/c-gram-boda.mp3"
     }
    ],
    "note": "Your script keeps your own grammar: -어서, -지만, -는데, -고, -면, 왜냐하면, 제 생각에는, 그다음에. These are the new or stronger patterns it adds. Make a sentence in your head first, then tap to check."
@@ -571,6 +617,16 @@
      "ko": "넣다",
      "en": "to put in, to add",
      "audio": "audio/k03bd95cb.mp3"
+    },
+    {
+     "ko": "냉동",
+     "en": "frozen",
+     "audio": "audio/v17.mp3"
+    },
+    {
+     "ko": "봉지",
+     "en": "bag, pack",
+     "audio": "audio/v18.mp3"
     }
    ]
   },
@@ -616,6 +672,11 @@
      "ko": "입맛",
      "en": "your own taste, palate",
      "audio": "audio/k9203dbc7.mp3"
+    },
+    {
+     "ko": "더 맵다",
+     "en": "to be spicier",
+     "audio": "audio/v27.mp3"
     }
    ]
   },
@@ -651,6 +712,11 @@
      "ko": "덜",
      "en": "less",
      "audio": "audio/k9f9037e6.mp3"
+    },
+    {
+     "ko": "네다섯 달",
+     "en": "four or five months",
+     "audio": "audio/v34.mp3"
     }
    ]
   },
@@ -749,8 +815,8 @@
   },
   {
    "title": "만들기 · Making it",
-   "ko": "제가 제일 자주 만드는 음식은 캄보디아 음식인 차 스빼이입니다. 양배추와 고기를 볶아서 만드는 간단한 요리입니다. 먼저 마늘하고 양배추, 고기를 삽니다. 그다음에 재료를 썰어서 같이 볶습니다. 레시피에는 없지만 저는 고추를 꼭 넣습니다. 고추는 한 번도 잊어버린 적이 없습니다.",
-   "en": "The dish I make most often is a Cambodian dish called cha spey. It is a simple dish of stir-fried cabbage and meat. First I buy garlic, cabbage and meat. Then I cut the ingredients and stir-fry them together. It is not in the recipe, but I always add chili. I have never once forgotten the chili."
+   "ko": "제가 제일 자주 만드는 음식은 캄보디아 음식인 차 스빼이입니다. 양배추와 고기를 볶아서 만드는 간단한 요리입니다. 먼저 마늘하고 양배추, 고기를 삽니다. 그다음에 재료를 썰어서 같이 볶습니다. 레시피에는 없지만 저는 고추를 꼭 넣습니다. 고추는 한 번도 잊어버린 적이 없습니다. 저는 쿠팡에서 냉동 고추를 삽니다. 한 봉지에 8,000원쯤인데 네다섯 달 동안 먹을 수 있습니다. 베트남 고추는 캄보디아 고추보다 조금 더 맵습니다.",
+   "en": "The dish I make most often is a Cambodian dish called cha spey. It is a simple dish of stir-fried cabbage and meat. First I buy garlic, cabbage and meat. Then I cut the ingredients and stir-fry them together. It is not in the recipe, but I always add chili. I have never once forgotten the chili. I buy frozen chili on Coupang. A pack is about 8,000 won, and I can eat it for four or five months. Vietnamese chili is a little spicier than Cambodian chili."
   },
   {
    "title": "짠맛 · Too salty",

@@ -21,8 +21,28 @@
 
   // sticky header height, so the desktop stage sits right under it
   var hdr = $('.usign');
-  function setHdr() { document.documentElement.style.setProperty('--hdr', hdr.offsetHeight + 'px'); }
+  var dock = $('.dock');
+  function setHdr() {
+    document.documentElement.style.setProperty('--hdr', hdr.offsetHeight + 'px');
+    if (dock) document.documentElement.style.setProperty('--dock', dock.offsetHeight + 'px');
+  }
   setHdr(); window.addEventListener('resize', setHdr);
+
+  // Keep the shown card inside the screen. The card is as tall as the room left between the header
+  // and the dock; the picture takes what the text leaves. When the text is long, it shrinks step by
+  // step until the picture keeps at least a third of the card.
+  function fitCard(box, pic, els) {
+    if (!box || box.offsetParent === null) return;
+    els.forEach(function (el) { el.style.fontSize = ''; });
+    for (var n = 0; n < 30 && pic.clientHeight < box.clientHeight * 0.34; n++) {
+      var shrunk = false;
+      els.forEach(function (el) {
+        var s = parseFloat(getComputedStyle(el).fontSize);
+        if (s > 15) { el.style.fontSize = (s * 0.94).toFixed(1) + 'px'; shrunk = true; }
+      });
+      if (!shrunk) break;
+    }
+  }
 
   // ---- audio engine: one clip at a time; the owner shows progress ----
   var audio = null, playingBtn = null, owner = null, seq = null;
@@ -82,7 +102,9 @@
   var sImg = stage && $('.pic img', stage), sPic = stage && $('.pic', stage), sTop = stage && $('.ctop', stage),
     sKo = stage && $('.st-ko', stage), sEn = stage && $('.st-en', stage), sPlay = $('#stPlay'), sPrev = $('#stPrev'),
     sNext = $('#stNext'), sCount = stage && $('.st-count', stage);
-  function stageReveal() { if (sKo) { sKo.classList.remove('hidden'); sKo.classList.add('shown'); sKo.removeAttribute('role'); } }
+  function fitStage() { if (stage) fitCard(stage, sPic, [sKo, sEn]); }
+  function stageReveal() { if (sKo) { sKo.classList.remove('hidden'); sKo.classList.add('shown'); sKo.removeAttribute('role'); fitStage(); } }
+  window.addEventListener('resize', function () { requestAnimationFrame(fitStage); });
   function select(i, keepAudio, noScroll) {
     if (!stage || !cards.length) return;
     sel = Math.max(0, Math.min(cards.length - 1, i));
@@ -96,6 +118,7 @@
     sKo.innerHTML = $('.ko', c).innerHTML; sEn.innerHTML = $('.en', c).innerHTML;
     if (body.classList.contains('hide-ko')) { sKo.classList.add('hidden'); sKo.classList.remove('shown'); sKo.setAttribute('role', 'button'); } else stageReveal();
     sCount.textContent = (sel + 1) + ' / ' + cards.length;
+    fitStage();
     sPrev.disabled = sel === 0; sNext.disabled = sel === cards.length - 1;
     mapOn(c.dataset.sec); savePos(sel);
     if (desk.matches && !noScroll) {
@@ -185,6 +208,7 @@
       if (!on) $$('.shown').forEach(function (x) { x.classList.remove('shown'); });
       if (cls === 'hide-ko' && stage) {
         if (on) { sKo.classList.add('hidden'); sKo.classList.remove('shown'); sKo.setAttribute('role', 'button'); } else stageReveal();
+        fitStage();
       }
     });
   });
@@ -228,7 +252,10 @@
     var fPic = $('.pic img', focus), fPicBox = $('.pic', focus), fTop = $('.ctop', focus), fKo = $('.ko', focus), fEn = $('.en', focus),
       fHint = $('.f-hint', focus), fListen = $('#fListen'), fPrev = $('#fPrev'), fNext = $('#fNext'), fCount = $('.f-count', focus);
     function fStop() { if (fAudio) fAudio.pause(); fAudio = null; fListen.classList.remove('playing'); }
-    function reveal() { fKo.classList.remove('hidden'); fKo.removeAttribute('role'); fKo.removeAttribute('tabindex'); fHint.hidden = true; }
+    var fCard = $('.f-card', focus);
+    function fFit() { fitCard(fCard, fPicBox, [fKo, fEn]); }
+    window.addEventListener('resize', function () { requestAnimationFrame(fFit); });
+    function reveal() { fKo.classList.remove('hidden'); fKo.removeAttribute('role'); fKo.removeAttribute('tabindex'); fHint.hidden = true; fFit(); }
     function render(i) {
       fStop(); fi = Math.max(0, Math.min(cards.length - 1, i)); savePos(fi);
       var c = cards[fi], img = $('.pic img', c);
@@ -242,13 +269,14 @@
       fCount.textContent = (fi + 1) + ' / ' + cards.length;
       segs.forEach(function (s, j) { s.classList.toggle('done', j <= fi); });
       dot.style.left = ((fi + 0.5) / cards.length * 100) + '%';
+      fFit();
       fPrev.disabled = fi === 0; $('span', fNext).innerHTML = fi === cards.length - 1 ? L('끝 · Done', 'Done') : L('다음 · Next', 'Next');
     }
     function open() {
       stopSeq(); stop();
       var p = get('sb:pos:' + slug, null);
       render(p && p.i < cards.length ? p.i : 0);
-      focus.hidden = false; body.style.overflow = 'hidden'; $('.f-close', focus).focus();
+      focus.hidden = false; body.style.overflow = 'hidden'; fFit(); $('.f-close', focus).focus();
     }
     function close() {
       fStop(); focus.hidden = true; body.style.overflow = '';

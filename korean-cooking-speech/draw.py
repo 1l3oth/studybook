@@ -156,6 +156,36 @@ svg('k08-chili.svg',
     + ''.join(f'<rect x="28" y="{26 + i * 11}" width="{40 - (i % 2) * 12}" height="4" rx="2" fill="{LINE}"/>' for i in range(5))
     + chili(88, 46, -12, 1.6) + chili(96, 70, 8, 1.3) + check(140, 22))
 
+# 08b. I buy frozen chili on Coupang: about 8,000 won a pack, it lasts four or five months
+def snowflake(x, y, r=6, c=SKY):
+    return ''.join(f'<path d="M{x} {y} l{r * dx:.1f} {r * dy:.1f}" stroke="{c}" stroke-width="2" stroke-linecap="round"/>'
+                   for dx, dy in ((1, 0), (-1, 0), (.5, .87), (-.5, -.87), (.5, -.87), (-.5, .87)))
+
+
+svg('k08b-frozen.svg',
+    f'<path d="M18 22 H74 L78 88 H14Z" fill="#E6F4FB" stroke="{SKY}" stroke-width="2"/>'
+    f'<rect x="18" y="16" width="56" height="8" rx="2" fill="{SKY}"/>'
+    + chili(26, 50, -10, 1.0) + chili(34, 66, 6, 1.0) + chili(28, 78, -4, .9)
+    + snowflake(62, 40) + snowflake(64, 70, 5)
+    + f'<path d="M92 20 h44 l10 10 v16 h-54Z" fill="{YELLOW}"/><circle cx="98" cy="33" r="3" fill="{WHITE}"/>'
+    + text(122, 39, '8,000원', 11)
+    + f'<rect x="96" y="56" width="50" height="34" rx="4" fill="{WHITE}" stroke="{LINE}" stroke-width="2"/>'
+    f'<rect x="96" y="56" width="50" height="9" rx="3" fill="{RED}"/>'
+    + text(121, 83, '4~5달', 12))
+
+# 08c. Vietnamese chili is a little spicier than Cambodian chili
+def flame(x, y, k=1.0):
+    return (f'<path transform="translate({x} {y}) scale({k})" d="M0 0 C-7 -2 -7 -10 -2 -16 C-1 -11 2 -10 3 -13 '
+            f'C7 -8 7 -2 0 0Z" fill="{ORANGE}"/>')
+
+
+svg('k08c-vietnam.svg',
+    chili(16, 56, -6, 1.5) + flame(40, 34)
+    + text(38, 86, '캄보디아', 11)
+    + chili(96, 56, -6, 1.5) + flame(112, 34) + flame(128, 34)
+    + text(118, 86, '베트남', 11)
+    + f'<path d="M72 50 h12 m-4 -4 l4 4 l-4 4" stroke="{INK}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')
+
 # 09. my food is always a little salty
 svg('k09-salty.svg',
     salt(56, 10, 1.5)
