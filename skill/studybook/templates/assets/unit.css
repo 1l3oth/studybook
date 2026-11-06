@@ -39,6 +39,10 @@ body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
 .map li button{appearance:none;background:none;border:0;padding:.15rem .1rem;cursor:pointer;color:inherit;font-family:var(--f);display:block;width:100%}
 .map .m-ko{display:block;font-weight:800;font-size:.95rem;word-break:keep-all;line-height:1.25}
 .map .m-en{display:block;font-size:.76rem;color:var(--ink-2);margin-top:.1rem;line-height:1.25}
+html[data-script="ro"] .map ol{grid-auto-columns:minmax(min-content,1fr);overflow-x:auto;scrollbar-width:thin}
+html[data-script="ro"] .map li{min-width:auto}
+html[data-script="ro"] .map li button{padding:.15rem .35rem}
+html[data-script="ro"] .map .m-ko .t-ro{font-size:.84rem;overflow-wrap:normal}
 .map .foot{display:flex;align-items:center;gap:.7rem;margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--rule);font-size:.84rem;color:var(--ink-2)}
 
 .how{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;margin:0 0 1.1rem;padding:0;list-style:none;font-size:.84rem;color:var(--ink-2)}

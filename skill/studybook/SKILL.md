@@ -63,19 +63,23 @@ Working code lives in `templates/` (the live site uses the same files under `too
 
 Unit build, in order: write `unit.json` -> draw `img/*.svg` -> `python tools/gen_audio.py <slug>` ->
 `python tools/render_unit.py <slug>` -> `python tools/build_stations.py` -> `python tools/build_feed.py` -> `python tools/build_images.py` (app icons and the link cover).
-Every page gets the English, 한국어, Lyric switch automatically; Lyric comes from `romanize.py` (fix a misread word in its `SPOKEN` list).
+Every page gets the English, 한국어, Lyric switch automatically; Lyric comes from `romanize.py` in the
+lyric-site style (ColorCodedLyrics: lowercase, sh, weo, spelled as sung). Follow the `korean-lyric` skill
+for the rules, and fix a misread word in `romanize.py`'s `SPOKEN` list, never by hand in the HTML.
 For real-life topics, find the phrases Koreans actually use with the agent-reach skill (web search of
 Korean sites) before writing the lines; do not invent wording.
 
 ## What the user needs on their side
 Do not assume these exist — check, and tell the user what is missing (full list in the repo README):
-- **Python 3** (the builders are Python, standard library only).
+- **Python 3.12 or newer** (the builders are Python, standard library only; `render_unit.py` will not run on 3.11).
 - **`edge-tts`** (`pip install -U edge-tts`) for the native voice. Keep it updated: old versions get
   HTTP 403 from the speech service. fal.ai (`genmedia`) is optional, not required.
 - **git + a GitHub account + `gh` CLI** to host on GitHub Pages.
 
 ## Non-negotiables (every unit)
 - `<meta charset="utf-8">` first in the file, always (or non-Latin text becomes mojibake).
+- Every book ships with all three views: **English, 한국어 and Lyric**. Every Korean string goes through
+  `romanize.py` (via `t()` in `render_unit.py`), so none is left without Lyric. Check all three at 390px and desktop.
 - A native voice in the target language, not a multilingual voice with a language flag.
 - The **Hide / active-recall** toggle — never ship a unit without it.
 - One HTML file with in-page tabs, never separate pages per tab; audio and images as files beside it.

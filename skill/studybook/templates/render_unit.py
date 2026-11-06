@@ -24,7 +24,7 @@ def e(s):
 
 
 HANGUL = re.compile('[가-힣ㄱ-ㅎ]')
-V = 'v=lyric1'  # bump when assets change, so a new page never meets an old cached stylesheet
+V = 'v=lyric2'  # bump when assets change, so a new page never meets an old cached stylesheet
 SITE = 'https://1l3oth.github.io/studybook/'
 
 

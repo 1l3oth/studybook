@@ -1,19 +1,25 @@
 # -*- coding: utf-8 -*-
-"""Korean to Lyric: Hangul written in English letters, spelled the way it sounds, so someone who
-cannot read Hangul can read it out loud (standard library only).
+"""Korean to Lyric: Hangul in English letters, written the way K-pop lyric sites and YouTube lyric
+videos write it (ColorCodedLyrics style), so someone who cannot read Hangul can sing it out loud.
+Standard library only.
 
     from romanize import romanize
-    romanize('감사합니다')  # 'Gamsahamnida'
+    romanize('감사합니다')  # 'gamsahamnida'
 
-Spelling follows Revised Romanization, applied to the spoken form: linking (먹어요 meogeoyo),
-nasal sounds (합니다 hamnida), ㄹ sounds (연락 yeollak), ㅎ (좋아요 joayo, 좋다 jota), and 같이 gachi.
+The rules (see skill/korean-lyric/SKILL.md):
+- word spacing as in the Hangul, particles stay on the word: 우리를 urireul
+- all lowercase, punctuation and Latin words kept
+- spelled as spoken: linking (먹어요 meogeoyo), nasal sounds (합니다 hamnida), ㄹ sounds (연락 yeollak),
+  ㅎ (좋아요 joayo, 좋다 jota), 같이 gachi; tensing is not written (먹고 meokgo)
+- ㅅ/ㅆ before an i or y sound is sh/ssh (시 shi, 씨 sshi, 쉬 shwi); ㅝ weo; ㅚ and ㅞ we
+- 의 is ui at the start of a word, e as the particle, i after a consonant (희망 himang)
 Spoken forms a rule cannot see, such as 맛없다 or ㄴ added between words in a compound, are listed
 in SPOKEN. Numbers read with Sino-Korean counters are written out. Other text is left as it is.
 """
 import re
 
 CHO = ['g', 'kk', 'n', 'd', 'tt', 'r', 'm', 'b', 'pp', 's', 'ss', '', 'j', 'jj', 'ch', 'k', 't', 'p', 'h']
-JUNG = ['a', 'ae', 'ya', 'yae', 'eo', 'e', 'yeo', 'ye', 'o', 'wa', 'wae', 'oe', 'yo', 'u', 'wo', 'we', 'wi', 'yu', 'eu', 'ui', 'i']
+JUNG = ['a', 'ae', 'ya', 'yae', 'eo', 'e', 'yeo', 'ye', 'o', 'wa', 'wae', 'we', 'yo', 'u', 'weo', 'we', 'wi', 'yu', 'eu', 'ui', 'i']
 JONG = ['', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
 
 # The sound a final consonant has when no vowel follows.
@@ -91,6 +97,8 @@ def _word(word):
         if i + 1 < len(syl) and final:
             ncho, njung, _ = syl[i + 1]
             coda, carry = _join(final, ncho, njung)
+        if onset in ('s', 'ss') and (vowel[0] in 'iy' or vowel == 'wi'):
+            onset += 'h'  # 시 shi, 셔 shyeo, 씨 sshi, 쉬 shwi
         res.append(onset + vowel + coda)
     return ''.join(res)
 
@@ -154,5 +162,4 @@ def romanize(text):
     s = re.sub('([A-Za-z])(?=[가-힣])', r'\1-', s)
     s = re.sub('[가-힣]+', lambda m: _word(m.group(0)), s)
     s = re.sub('[ㄱ-ㅎ]', lambda m: JAMO.get(m.group(0), m.group(0)), s)
-    # a capital at the start of each sentence, not on a grammar ending like -gi
-    return re.sub(r'(^|[.?!]\s+)([\'"(]?)([a-z])', lambda m: m.group(1) + m.group(2) + m.group(3).upper(), s)
+    return s  # all lowercase, as on lyric sites
