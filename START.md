@@ -64,6 +64,7 @@ Ask: "Do you already have a GitHub account?" If not, walk them through it; they 
 Wait until they say they are in.
 
 ## Step 4 · Log the computer in to GitHub (no password typed in the terminal)
+First run `gh auth status`. If it already says "Logged in to github.com", skip to the git name check below.
 ```
 gh auth login --hostname github.com --git-protocol https --web
 ```
@@ -74,6 +75,9 @@ https://github.com/login/device. Tell them: open that page, type the code, press
 gh auth setup-git
 gh api user --jq .login                      # their username
 gh api user --jq .id                         # their numeric id
+```
+Only if `git config --global user.email` prints nothing (never overwrite a name or email they already have):
+```
 git config --global user.name  "<username>"
 git config --global user.email "<id>+<username>@users.noreply.github.com"
 ```
