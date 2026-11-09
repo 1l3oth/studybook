@@ -47,10 +47,13 @@ Work in the folder that is open in their AI app (make one called `my-studybook` 
 ```
 git clone --depth 1 https://github.com/1l3oth/studybook.git .studybook-src
 ```
-Copy `.studybook-src/skill/studybook` into the place their app reads skills from:
-- Antigravity and Codex (ChatGPT app): `.agents/skills/studybook/`
-- Claude Code: `.claude/skills/studybook/`
-Then delete `.studybook-src`. (With Node.js installed, `npx github:1l3oth/studybook --agents` does the same.)
+Copy the skill to where their app reads skills from, then remove the download:
+- Antigravity and Codex (ChatGPT app), Git Bash / Mac:
+  `mkdir -p .agents/skills && cp -r .studybook-src/skill/studybook .agents/skills/studybook && rm -rf .studybook-src`
+- Same in PowerShell:
+  `New-Item -ItemType Directory -Force .agents\skills | Out-Null; Copy-Item -Recurse .studybook-src\skill\studybook .agents\skills\studybook; Remove-Item -Recurse -Force .studybook-src`
+- Claude Code: use `.claude/skills/studybook` instead of `.agents/skills/studybook`.
+(With Node.js installed, `npx github:1l3oth/studybook --agents` does the same.)
 Read `.agents/skills/studybook/SKILL.md` (or the `.claude` copy) now: it is the router for every step below.
 
 ## Step 3 · A GitHub account (only if they have none)
@@ -64,7 +67,9 @@ Ask: "Do you already have a GitHub account?" If not, walk them through it; they 
 Wait until they say they are in.
 
 ## Step 4 · Log the computer in to GitHub (no password typed in the terminal)
-First run `gh auth status`. If it already says "Logged in to github.com", skip to the git name check below.
+First run `gh auth status`. If it already says "Logged in to github.com", skip the login command and go
+straight to `gh auth setup-git` below. If it lists more than one account, ask which one the site should go
+on and make it active with `gh auth switch --user <username>`.
 ```
 gh auth login --hostname github.com --git-protocol https --web
 ```
@@ -90,8 +95,11 @@ Chinese, French, Spanish, German, Thai, Vietnamese, ...) and which language the 
 ```
 PY .agents/skills/studybook/templates/new_site.py site --lang <code> --support "<translation language>" --title "<Name>'s <Language> Studybook"
 cd site
+git init -b main
 gh repo create studybook --public --source . --remote origin
 ```
+On a re-run: skip `git init` if `.git` exists, and skip `gh repo create` if `git remote get-url origin`
+already prints an address.
 (If `studybook` is taken on their account, use `studybook-<language>`.) `public` is required for the
 free GitHub Pages. `new_site.py` copies the builders into `site/tools/` and writes `site.json`; the web
 address is read from the git remote, so their pages point at **their** site.
@@ -106,14 +114,18 @@ PY tools/gen_audio.py <slug>
 PY tools/render_unit.py <slug>
 PY tools/build_stations.py
 PY tools/build_feed.py
+PY tools/build_images.py
 ```
-`build_images.py` (app icons and link covers) is optional; skip it if no Chrome or Edge is installed.
+`build_images.py` makes the app icons (the phone's "Install app" / Add to Home Screen needs them) and the
+link-preview pictures. It uses Edge or Chrome; every Windows PC has Edge. Only if it says "No Chromium found",
+skip it and tell them the site still works, just without an app icon.
+
+Every unit.json must have `"full": []` (the audio step fills it); `gen_audio.py` adds it when missing.
 
 ## Step 7 · Put it on the internet (GitHub Pages)
 ```
 git add -A
 git commit -m "My first studybook unit"
-git branch -M main
 git push -u origin main
 gh api -X POST repos/<username>/<repo>/pages -f "source[branch]=main" -f "source[path]=/"
 ```
@@ -126,9 +138,10 @@ Open `https://<username>.github.io/<repo>/` and check the page loads and one aud
 Give them the link and tell them:
 - Open it on the phone. iPhone: Share → Add to Home Screen. Android: the "Install app" button. It opens like an app.
 - How to study: look at the picture, say the line in your head, tap to check, then listen. Hide shows a blank so they recall first.
-- Next time: open this folder in the same AI app and say "make a new studybook unit about <topic>" (Antigravity: `/studybook`, Codex: `$studybook`, Claude Code: `/teach-me`). The AI builds it and pushes; the site updates by itself.
+- Next time: open this folder in the same AI app and say "make a new studybook unit about <topic>" (Antigravity and Claude Code: `/studybook`, Codex: `$studybook`). The AI builds it and pushes; the site updates by itself.
 
 ## Free-plan notes
 - Antigravity's free plan and ChatGPT Free's Codex have usage limits that reset. If the AI stops mid-way,
-  they can come back after the reset and say "continue the studybook setup": every step above is safe to re-run.
+  they can come back after the reset and say "continue the studybook setup": check what already exists
+  (the skill folder, `site/`, `.git`, the `origin` remote, the Pages site) and carry on from the first missing step.
 - Nothing here costs money: Git, Python, GitHub, GitHub Pages and the edge-tts voice are all free.

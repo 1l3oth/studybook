@@ -1,4 +1,4 @@
-// Studybook service worker. Online only by design (Rex, 2026-11-05): nothing is cached for
+// Studybook service worker. Online only by design: nothing is cached for
 // offline study. It exists so the app installs cleanly and shows a clear page, not the browser's
 // error, when there is no signal.
 const OFFLINE = 'offline.html';

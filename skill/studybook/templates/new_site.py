@@ -97,6 +97,7 @@ def main():
     copy(os.path.join(HERE, 'DESIGN.example.md'), os.path.join(root, 'DESIGN.md'))
     put(os.path.join(root, 'index.html'), hub(title, short, desc, a.lang, a.support))
     put(os.path.join(root, '.nojekyll'), '')
+    put(os.path.join(root, '.gitignore'), '__pycache__/\n*.pyc\n.DS_Store\n')
     site = {'title': title, 'short': short, 'description': desc, 'lang': a.lang, 'support': a.support, 'url': ''}
     if a.lang not in LANGS:
         site['voice'] = ''

@@ -38,6 +38,6 @@ as plain text for non-Korean units (no `한국어 · English` pairs). The copy r
 - Few words everywhere outside the Korean lines. A note is one sentence.
 
 ## After rendering
-Add a station to the homepage (`index.html`): badge number, title, one-line English, counts, and
-`<span class="tag new" hidden>NEW</span>` for a new unit. Then run `build_feed.py`.
+Run `build_stations.py` (it rewrites the homepage station list, numbers and counts from every unit.json; never edit
+it by hand), then `build_feed.py`, then `build_images.py` (app icons + link covers).
 Check every `img/` and `audio/` reference exists, and look at the page at 390px wide in light and dark.

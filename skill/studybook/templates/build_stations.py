@@ -17,6 +17,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from romanize import romanize  # noqa: E402
+import sitecfg  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -49,7 +50,7 @@ def main():
             f'    <li class="stop" data-unit="{e(u["slug"])}" data-en="{e(u["title_en"])}">\n'
             f'      <a class="station" href="{e(u["slug"])}/">\n'
             f'        <span class="st-top"><span class="badge">{i + 1:02d}</span>{new}</span>\n'
-            f'        <p class="st-ko" lang="ko"><span class="mk">{t(u["title_ko"])}</span><span class="only-en">{e(u["title_en"])}</span></p>\n'
+            f'        <p class="st-ko" lang="{e(sitecfg.lang_of(u)["code"])}"><span class="mk">{t(u["title_ko"])}</span><span class="only-en">{e(u["title_en"])}</span></p>\n'
             f'        <p class="st-en">{t(u.get("station_en") or u.get("description", ""))}</p>\n'
             f'        <p class="st-meta"><span><b>{cards}</b> cards</span><span><b>{qs}</b> {e(qlabel)}</span>'
             f'<span><b>{words}</b> words</span></p>\n'

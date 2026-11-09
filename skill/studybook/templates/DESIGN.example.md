@@ -1,6 +1,6 @@
 # Design
 
-World: **Seoul Metro wayfinding.** The notebook is a subway line, each unit a station on Rex's
+World: **Seoul Metro wayfinding.** The notebook is a subway line, each unit a station on the learner's
 commute. Recorded 2026-11-05 from the built homepage (`index.html`, `assets/line.css`).
 Product truth lives in PRODUCT.md; this file holds visual decisions only.
 

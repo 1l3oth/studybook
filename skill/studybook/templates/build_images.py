@@ -74,7 +74,7 @@ body{{margin:0;width:1200px;height:630px;background:#1C2A4A;color:#fff;overflow:
 .here{{border-color:#F5B700}}
 .body{{position:absolute;left:190px;top:0;right:{right}px;bottom:0;display:flex;flex-direction:column;justify-content:center}}
 .brand{{font-size:30px;font-weight:500;color:#C4CCDD;margin:0 0 26px}}
-h1{{margin:0;font-size:{size}px;font-weight:800;line-height:1.16;letter-spacing:-.015em;word-break:keep-all;text-wrap:balance}}
+h1{{margin:0;font-size:{size}px;font-weight:800;line-height:1.16;letter-spacing:-.015em;word-break:keep-all;overflow-wrap:anywhere;line-break:anywhere;text-wrap:balance}}
 .en{{margin:22px 0 0;font-size:36px;font-weight:500;color:#fff;line-height:1.25}}
 .meta{{margin:30px 0 0;font-size:27px;font-weight:500;color:#C4CCDD}}
 .pic{{position:absolute;right:70px;top:135px;width:360px;height:360px;border-radius:50%;background:#F4F6F9;display:flex;

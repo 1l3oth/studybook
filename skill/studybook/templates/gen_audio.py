@@ -30,6 +30,7 @@ def main():
     u = json.load(io.open(path, encoding='utf-8'))
     voice = sys.argv[sys.argv.index('--voice') + 1] if '--voice' in sys.argv else (sitecfg.lang_of(u)['voice'] or 'ko-KR-InJoonNeural')
 
+    u.setdefault('full', [])
     jobs = []
     for c in u['cards']:
         jobs.append((c['ko'], c['audio']))

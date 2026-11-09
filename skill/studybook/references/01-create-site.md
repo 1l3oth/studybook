@@ -26,10 +26,11 @@ A person starting with nothing at all: follow `00-start-from-zero.md` instead.
    `<head>`: `<link rel="alternate" type="application/rss+xml" href="feed.xml">`.
 4. **`.nojekyll`.** Create an empty `.nojekyll` at the root.
 5. **First commit + push** to `main`.
-6. **Enable Pages** from `main` / root. Git Bash mangles leading-slash API paths, so pass JSON:
+6. **Enable Pages** from `main` / root:
    ```
-   echo '{"source":{"branch":"main","path":"/"}}' | MSYS_NO_PATHCONV=1 gh api -X POST repos/<owner>/<repo>/pages --input -
+   gh api -X POST repos/<owner>/<repo>/pages -f "source[branch]=main" -f "source[path]=/"
    ```
+   (In Git Bash put `MSYS_NO_PATHCONV=1` in front, or it mangles the path; PowerShell needs nothing.)
    The response `html_url` is your site root. First build takes 1–2 min; poll
    `gh api repos/<owner>/<repo>/pages/builds/latest` until `status: built`, then check the URL is 200.
 
