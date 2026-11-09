@@ -59,6 +59,11 @@ def main():
     s = io.open(p, encoding='utf-8').read()
     s, n = re.subn(r'(<ol class="line" id="line">\n).*?(    <li class="stop next">)', lambda m: m.group(1) + ''.join(stops) + m.group(2), s, flags=re.S)
     assert n == 1, 'station list not found'
+    if units:  # "Start here" points at the first unit until the learner opens one
+        first = units[0]
+        s = re.sub(r'(<a class="go" id="nowGo" href=")[^"]*', lambda m: m.group(1) + e(first['slug']) + '/', s, count=1)
+        s = re.sub(r'<p class="title" id="nowTitle">.*?</p>',
+                   lambda m: f'<p class="title" id="nowTitle">{t(first["title_ko"])}<span>{e(first["title_en"])}</span></p>', s, count=1)
     io.open(p, 'w', encoding='utf-8', newline='\n').write(s)
     print(f'index.html: {len(units)} stations:', ', '.join(u['slug'] for u in units))
 

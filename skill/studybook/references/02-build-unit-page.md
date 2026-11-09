@@ -3,6 +3,14 @@
 One unit = one folder `<slug>/` with `unit.json`, `img/`, `audio/` and the rendered `index.html`.
 Never hand-write the page: write `unit.json` and run `render_unit.py`. Design rules: `DESIGN.md`.
 
+## Any language
+The field names come from the first (Korean) book, but they mean the same thing in every language:
+`ko`, `q`, `a` and `title_ko` hold the **study language**; `en`, `qen`, `aen` and `title_en` hold the **translation**
+(Khmer, English, whatever `site.json` "support" says). The study language is `site.json` "lang" (or
+`"lang": "ja"` in one unit.json). Korean gets the Lyric line and Korean control labels; every other language
+gets its own native voice (`tools/sitecfg.py` LANGS) and controls in English. Write section and group titles
+as plain text for non-Korean units (no `한국어 · English` pairs). The copy rules below about 해요체 are for Korean.
+
 ## The page (rendered from unit.json)
 - **Sign band** (sticky): back to the homepage, unit title, then four tabs:
   그림 카드 (cards), 예상 질문 (Q&A), 단어 (vocab), 전체 (full text). The hash (`#qa`) opens a tab.

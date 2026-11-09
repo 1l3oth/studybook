@@ -14,6 +14,25 @@ This repo is two things at once:
 
 ---
 
+## Start from zero (free AI apps, no GitHub account needed)
+
+Open a free AI app that can work on your computer: **Antigravity** (free with a Google account),
+the **ChatGPT desktop app** in Codex mode (free plan included), or Claude Code. Open an empty folder
+in it and paste:
+
+```
+Set up my studybook from zero. Read https://1l3oth.github.io/studybook/START.md and follow it step by step. Talk to me in Khmer.
+```
+
+The AI installs what is missing (Git, Python, the GitHub tool, the free voice), helps you make a
+GitHub account, logs your computer in, starts **your own** site in any language (Korean, English,
+Japanese, Chinese, ...), builds your first unit and puts it online at `https://<you>.github.io/studybook/`.
+You only make the account, type your own password and click Authorize. Everything is free.
+
+A normal chat (chatgpt.com, gemini.google.com) cannot do this: it cannot run programs on your computer.
+
+---
+
 ## What each study unit gives the learner
 
 Four in-page tabs, one shared audio engine, one fixed control bar:
@@ -43,6 +62,12 @@ npx github:1l3oth/studybook --project
 
 # or a .claude directory you name
 npx github:1l3oth/studybook --dir /path/to/.claude
+
+# Antigravity or Codex: this project's .agents/skills
+npx github:1l3oth/studybook --agents
+
+# Antigravity + Codex, every project
+npx github:1l3oth/studybook --agents-global
 ```
 
 This installs two things: the **`studybook` skill** and a **`/teach-me` command**. Restart Claude
@@ -79,15 +104,14 @@ ready; the AI will tell you which are missing when it starts.
 
 | Need | For | Notes |
 |------|-----|-------|
-| **Node.js 14+** | running the `npx` install | that is all Node is used for |
-| **An AI that reads skills** (Claude Code, or an agent that loads `.claude/skills`) | doing the actual building | the skill is instructions + reference code, not a standalone program |
-| **Python 3** | the page and feed builders | standard library only, nothing to `pip install` |
-| **`genmedia` CLI + a fal.ai API key** | generating the pictures and the voice audio | images via `fal-ai/flux/schnell` (~$0.003 each), audio via `fal-ai/bytedance/seed-speech/tts/v2`. **Optional:** if you have no key, supply your own images/audio and skip generation. |
+| **Node.js 14+** (optional) | the `npx` install | not needed when the AI follows START.md |
+| **An AI that reads skills** (Claude Code, Antigravity, or Codex in the ChatGPT app) | doing the actual building | the skill is instructions + reference code, not a standalone program |
+| **Python 3.12+** | the page and feed builders | standard library only |
+| **edge-tts** | the free native voice | `pip install -U edge-tts`, no key |
 | **git + a GitHub account + the `gh` CLI** | hosting on GitHub Pages | the repo must be **public** for free Pages; `gh` must be logged into the account that owns it |
 | **The study material itself** | the content | a speech, script, dialogue, or word list, in the target language — plus its translation if you want one |
 
-Costs are tiny: a full unit (about 12 images + ~150 short audio clips) runs a few cents of fal.ai
-usage. GitHub Pages hosting is free.
+Everything is free: the pictures are drawn as SVG, the voice is edge-tts, and GitHub Pages hosting is free.
 
 You do **not** need: any server, a database, a paid host, a build server, or npm-publish rights.
 

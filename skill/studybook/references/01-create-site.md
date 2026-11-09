@@ -2,6 +2,12 @@
 
 Goal: an empty GitHub Pages site with a notebook-style hub, ready for units.
 
+## Fastest way
+`PY <skill>/templates/new_site.py <folder> --lang <code> --support "<translation language>" --title "..."`
+does steps 2-4 for you (empty homepage, builders in `tools/`, app files, `site.json`, `.nojekyll`).
+Then step 1 with `gh repo create <repo> --public --source . --remote origin`, and steps 5-6.
+A person starting with nothing at all: follow `00-start-from-zero.md` instead.
+
 ## Steps
 1. **Repo.** Create (or reuse) a public GitHub repo, e.g. `studybook`. GitHub Pages on the free tier
    needs the repo public. Confirm the active `gh` account owns it: `gh auth status --active`.

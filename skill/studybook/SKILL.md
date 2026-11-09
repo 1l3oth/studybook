@@ -5,7 +5,10 @@ description: >
   language-study units that follow one memory-first structure: picture cards with audio, a Q&A
   drill, a vocabulary tab, and a full read-through, plus an RSS feed an AI can read. Use this
   whenever the user wants to build a study site or add a study unit/book page, or says "make a
-  studybook", "add a study unit", "create study cards for this speech", "study page like the sample".
+  studybook", "add a study unit", "create study cards for this speech", "study page like the sample",
+  "teach me <a language or topic>", "set up studybook", or pasted a message asking to set it up from zero.
+  Works for any study language (Korean, English, Japanese, Chinese, ...) and in Claude Code, Antigravity
+  and Codex.
   This is a ROUTER: do not improvise the structure — read the one reference below that matches the
   step and follow it, so every unit comes out in the same proven shape.
 ---
@@ -31,6 +34,7 @@ generate your own structure — the whole point of this skill is that units come
 
 | The user wants to… | Read |
 |---|---|
+| **Start from nothing** (no GitHub account, no tools, first time) | `references/00-start-from-zero.md` |
 | Understand the whole pipeline first | this file, then the reference for the step you are on |
 | Stand up a brand-new studybook site (repo + hub + Pages) | `references/01-create-site.md` |
 | Add a study unit / book page from some material | `references/02-build-unit-page.md` |
@@ -69,16 +73,22 @@ for the rules, and fix a misread word in `romanize.py`'s `SPOKEN` list, never by
 For real-life topics, find the phrases Koreans actually use with the agent-reach skill (web search of
 Korean sites) before writing the lines; do not invent wording.
 
+## Any language, anyone's site
+- `templates/new_site.py` starts an empty site for any study language; `site.json` holds the title, the
+  study language (`lang`), the translation language (`support`) and the address (empty = from the git remote).
+- `templates/sitecfg.py` is shared by every builder; its `LANGS` table gives each language a free native voice.
+- Field names say `ko`/`en`, but mean study language / translation in every language (see `02`).
+
 ## What the user needs on their side
-Do not assume these exist — check, and tell the user what is missing (full list in the repo README):
+Do not assume these exist — check, install what is missing (`00` has the commands), and tell the user:
 - **Python 3.12 or newer** (the builders are Python, standard library only; `render_unit.py` will not run on 3.11).
 - **`edge-tts`** (`pip install -U edge-tts`) for the native voice. Keep it updated: old versions get
   HTTP 403 from the speech service. fal.ai (`genmedia`) is optional, not required.
-- **git + a GitHub account + `gh` CLI** to host on GitHub Pages.
+- **git + a GitHub account + `gh` CLI** to host on GitHub Pages (`00` walks a person through making the account).
 
 ## Non-negotiables (every unit)
 - `<meta charset="utf-8">` first in the file, always (or non-Latin text becomes mojibake).
-- Every book ships with all three views: **English, 한국어 and Lyric**. Every Korean string goes through
+- Every **Korean** book ships with all three views: **English, 한국어 and Lyric**. Every Korean string goes through
   `romanize.py` (via `t()` in `render_unit.py`), so none is left without Lyric. Check all three at 390px and desktop.
 - A native voice in the target language, not a multilingual voice with a language flag.
 - The **Hide / active-recall** toggle — never ship a unit without it.
@@ -86,3 +96,4 @@ Do not assume these exist — check, and tell the user what is missing (full lis
 - Focus mode (one card at a time, Korean hidden until tapped) and the shared dock stay on every unit.
 - Never ask the learner to speak aloud: recall happens in their head (they study at work).
 - Pictures are flat 2D objects, drawn as SVG.
+- Never put anyone else's site address, name or units into a learner's site: new sites start from `new_site.py`.

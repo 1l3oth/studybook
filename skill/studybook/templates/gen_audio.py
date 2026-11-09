@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Fill a unit's missing audio with a native Korean neural voice (edge-tts, free, no key).
+"""Fill a unit's missing audio with a native neural voice in the unit's language (edge-tts, free, no key).
 
-    python tools/gen_audio.py korean-funeral-visit [--voice ko-KR-InJoonNeural]
+    python tools/gen_audio.py korean-funeral-visit [--voice ko-KR-SunHiNeural]
+
+The voice comes from the study language (tools/sitecfg.py LANGS, unit.json "lang" or site.json "lang");
+--voice or unit.json "voice" overrides it.
 
 Gives every vocab word an audio path, fills the Full text from the cards when it is empty, then
 synthesises every referenced clip that does not exist yet. Safe to re-run: existing files are kept.
@@ -14,15 +17,18 @@ import sys
 
 import edge_tts
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import sitecfg  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def main():
     slug = sys.argv[1]
-    voice = sys.argv[sys.argv.index('--voice') + 1] if '--voice' in sys.argv else 'ko-KR-InJoonNeural'
     d = os.path.join(ROOT, slug)
     path = os.path.join(d, 'unit.json')
     u = json.load(io.open(path, encoding='utf-8'))
+    voice = sys.argv[sys.argv.index('--voice') + 1] if '--voice' in sys.argv else (sitecfg.lang_of(u)['voice'] or 'ko-KR-InJoonNeural')
 
     jobs = []
     for c in u['cards']:

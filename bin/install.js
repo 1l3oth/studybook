@@ -6,6 +6,8 @@
  *   npx github:1l3oth/studybook            -> global   (~/.claude, or $CLAUDE_CONFIG_DIR)
  *   npx github:1l3oth/studybook --project  -> project  (./.claude)
  *   npx github:1l3oth/studybook --dir X    -> a .claude directory you name
+ *   npx github:1l3oth/studybook --agents   -> this project's .agents/skills (Antigravity + Codex read it)
+ *   npx github:1l3oth/studybook --agents-global -> ~/.agents/skills (Codex) + ~/.gemini/config/skills (Antigravity)
  *
  * No dependencies; runs on any Node >= 14.
  */
@@ -41,6 +43,22 @@ function main() {
   if (!fs.existsSync(path.join(skillSrc, 'SKILL.md'))) {
     console.error('error: skill payload not found at ' + skillSrc);
     process.exit(1);
+  }
+
+  // Antigravity and Codex read skills from .agents/skills (no slash-command files there).
+  if (has('--agents') || has('--agents-global')) {
+    const bases = has('--agents-global')
+      ? [path.join(os.homedir(), '.agents', 'skills'), path.join(os.homedir(), '.gemini', 'config', 'skills')]
+      : [path.join(process.cwd(), '.agents', 'skills')];
+    for (const b of bases) {
+      copyDir(skillSrc, path.join(b, 'studybook'));
+      console.log('Installed studybook skill: ' + path.join(b, 'studybook'));
+    }
+    console.log('');
+    console.log('Open a new chat and say: "make me a studybook unit about <topic>"');
+    console.log('  (Antigravity: /studybook   Codex: $studybook). First time with nothing set up?');
+    console.log('  Say: "set up my studybook from zero" and the AI follows references/00-start-from-zero.md.');
+    return;
   }
 
   const base = claudeBase();

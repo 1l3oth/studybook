@@ -20,6 +20,10 @@ times out above ~6 MB; a normal web server does not, but a 10 MB page still load
 bandwidth. Separate assets → the page is instant and clips stream only when played. Keep the
 self-contained file only for offline use or a claude.ai artifact (`lite`).
 
+## Your web address
+`site.json` "url" is empty on a new site; every builder then reads it from the git remote
+(`github.com/<user>/<repo>` → `https://<user>.github.io/<repo>/`). Add the remote before rendering, or render again after.
+
 ## Deploy
 1. Copy/emit the unit into the local repo clone (`web` mode straight into `<repo>/<unit-slug>/`).
 2. Add the unit's card to the hub `index.html` and refresh `feed.xml` (see 05).

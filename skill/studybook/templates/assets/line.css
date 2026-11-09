@@ -72,3 +72,7 @@ html[data-script="en"] [data-toggle="hide-ko"],html[data-script="en"] [data-togg
 .script button[aria-pressed="true"]{background:var(--on-sign);color:#1C2A4A}
 .script button:focus-visible{outline:3px solid var(--here);outline-offset:1px}
 @media print{.script{display:none!important}}
+/* any study language other than Korean: controls always in English, no Lyric (render_unit.py sets data-ui) */
+html[data-ui="en"] .ui-ko{display:none!important}
+html[data-ui="en"] .ui-en{display:inline!important}
+html[data-ui="en"] .only-ro{display:none!important}

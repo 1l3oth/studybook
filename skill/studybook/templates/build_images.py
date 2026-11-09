@@ -17,7 +17,11 @@ import subprocess
 import sys
 import tempfile
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import sitecfg  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CFG = sitecfg.load()
 ANY = [48, 72, 96, 128, 144, 152, 192, 256, 384, 512, 1024]
 MASK = [48, 72, 96, 128, 192, 384, 512]
 APPLE = {120: 'apple-touch-icon-120.png', 152: 'apple-touch-icon-152.png', 167: 'apple-touch-icon-167.png',
@@ -31,6 +35,7 @@ def chrome():
         return env
     pats = [os.path.expandvars(r'%LOCALAPPDATA%\ms-playwright\chromium_headless_shell-*\*\*.exe'),
             r'C:\Program Files\Google\Chrome\Application\chrome.exe',
+            r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
             os.path.expanduser('~/.cache/ms-playwright/chromium_headless_shell-*/*/*'),
             '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome']
     for p in pats:
@@ -85,7 +90,7 @@ h1{{margin:0;font-size:{size}px;font-weight:800;line-height:1.16;letter-spacing:
 def cover_page(title, en, meta, img=None):
     pic = f'<div class="pic"><img src="file:///{img.replace(os.sep, "/")}" alt=""></div>' if img else ''
     size = 84 if len(title) <= 9 else 70
-    brand = '<p class="brand">다라봇 스터디북 · Studybook</p>' if img else ''
+    brand = f'<p class="brand">{html.escape(CFG["title"])}</p>' if img else ''
     return COVER.format(title=html.escape(title), en=html.escape(en), meta=html.escape(meta), pic=pic, brand=brand,
                         right=470 if img else 90, size=size)
 
@@ -114,10 +119,10 @@ def main():
         tiles = (u.get('explain') or {}).get('tiles') or []
         src = tiles[0]['img'] if tiles else cards[0]['img']
         img = os.path.join(ROOT, u['slug'], src.replace('/', os.sep))
-        meta = f'{len(cards)} cards · {words} words · English, 한국어, Lyric'
+        meta = f'{len(cards)} cards · {words} words'
         shot(exe, cover_page(u['title_ko'], u['title_en'], meta, img), os.path.join(og, u['slug'] + '.png'), 1200, 630, wait=5000)
-    shot(exe, cover_page('다라봇 스터디북', 'Learn Korean, see it, hear it, say it',
-                         f'{len(units)} units · English, 한국어, Lyric'), os.path.join(og, 'home.png'), 1200, 630, wait=5000)
+    shot(exe, cover_page(CFG['title'], 'See it, hear it, say it',
+                         f'{len(units)} units'), os.path.join(og, 'home.png'), 1200, 630, wait=5000)
     print(f'{len(ANY) + len(MASK) + len(APPLE) + len(FAV)} icons, {len(units) + 1} covers')
 
 

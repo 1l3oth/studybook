@@ -9,11 +9,16 @@ import html
 import io
 import json
 import os
+import sys
 from datetime import datetime, timezone
 from email.utils import format_datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = 'https://1l3oth.github.io/studybook/'
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import sitecfg  # noqa: E402
+
+CFG = sitecfg.load()
+SITE = CFG['url']
 
 
 def esc(s):
@@ -29,7 +34,7 @@ def content(u):
     c.append(f'<h3>{esc(u.get("full_title", "Text"))}</h3>')
     for s in u['full']:
         c.append(f'<p><strong>{esc(s["title"])}</strong><br>{esc(s["ko"])}<br><em>{esc(s["en"])}</em></p>')
-    c.append('<h3>예상 질문 (Q&amp;A)</h3>')
+    c.append('<h3>Q&amp;A</h3>')
     for b in u['qa']:
         c.append(f'<p><strong>{esc(b["title"])}</strong></p>')
         for it in b['items']:
@@ -40,7 +45,7 @@ def content(u):
                 aen = f' ({esc(it["aen"])})' if it.get('aen') else ''
                 c.append(f'<p>Q. {esc(it["q"])}{qen}<br>A. {esc(it["a"])}{aen}</p>')
     n = sum(len(g['items']) for g in u['vocab'])
-    c.append(f'<h3>단어 (Vocabulary, {n})</h3>')
+    c.append(f'<h3>Vocabulary ({n})</h3>')
     for g in u['vocab']:
         c.append(f'<p><strong>{esc(g["title"])}</strong><br>' + '<br>'.join(f'{esc(i["ko"])}: {esc(i["en"])}' for i in g['items']) + '</p>')
     return ''.join(c)
@@ -60,9 +65,9 @@ for u in units:
                  f'<content:encoded><![CDATA[{content(u)}]]></content:encoded>\n</item>')
 feed = ('<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">\n<channel>\n'
-        '<title>다라봇 스터디북 (Studybook)</title>\n'
+        f'<title>{esc(CFG["title"])}</title>\n'
         f'<link>{SITE}</link>\n<atom:link href="{SITE}feed.xml" rel="self" type="application/rss+xml"/>\n'
-        '<description>A Korean study notebook. Each item is a study unit with its full text (lines, Q&amp;A, vocabulary) so it can be read directly.</description>\n'
-        f'<language>ko</language>\n<lastBuildDate>{date(units[0])}</lastBuildDate>\n' + '\n'.join(items) + '\n</channel>\n</rss>\n')
+        f'<description>{esc(CFG["description"])} Each item is a study unit with its full text (lines, Q&amp;A, vocabulary) so it can be read directly.</description>\n'
+        f'<language>{esc(CFG["lang"])}</language>\n<lastBuildDate>{date(units[0])}</lastBuildDate>\n' + '\n'.join(items) + '\n</channel>\n</rss>\n')
 io.open(os.path.join(ROOT, 'feed.xml'), 'w', encoding='utf-8', newline='\n').write(feed)
 print(f'feed.xml: {len(units)} units')

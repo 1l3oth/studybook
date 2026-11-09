@@ -15,6 +15,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from romanize import romanize  # noqa: E402
+import sitecfg as SITECFG  # noqa: E402  (tools/sitecfg.py: title, web address, study language)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,18 +26,23 @@ def e(s):
 
 HANGUL = re.compile('[가-힣ㄱ-ㅎ]')
 V = 'v=lyric2'  # bump when assets change, so a new page never meets an old cached stylesheet
-SITE = 'https://1l3oth.github.io/studybook/'
+CFG = SITECFG.load()
+SITE = CFG['url']
+KO = True  # set per unit in render(): Korean gets the Lyric line and Korean control labels
+LANG = {}
 
 
 def t(s):
     """Text that can hold Korean: the Hangul, plus its Lyric. The page's switch shows one of them."""
-    if not s or not HANGUL.search(s):
+    if not KO or not s or not HANGUL.search(s):
         return e(s)
     return f'<span class="t-ko">{e(s)}</span><span class="t-ro" lang="ko-Latn">{e(romanize(s))}</span>'
 
 
 def m(s):
     """A label such as 시작 · Opening. In English mode only the English part stays."""
+    if not KO:
+        return e(s)
     parts = (s or '').split(' · ')
     has_en = any(not HANGUL.search(p) for p in parts)
     if len(parts) < 2 or not has_en:
@@ -58,6 +64,15 @@ def ui(ko, en):
 
 def he(cls, has):
     return f'{cls} has-en' if has else cls
+
+
+def switch():
+    """English / 한국어 / Lyric for Korean; for any other language: the support language and the study language."""
+    if KO:
+        return SWITCH
+    return ('<div class="script" role="group" aria-label="Show text in">'
+            f'<button type="button" data-set="en" aria-pressed="false">{e(LANG["support"])}</button>'
+            f'<button type="button" data-set="ko" aria-pressed="true" lang="{e(LANG["code"])}">{e(LANG["name"])}</button></div>')
 
 
 SWITCH = ('<div class="script" role="group" aria-label="Show text in">'
@@ -87,6 +102,11 @@ def cplay(au, n, cls):
 
 
 def render(u):
+    global KO, LANG
+    LANG = SITECFG.lang_of(u, CFG)
+    KO = LANG['code'] == 'ko'
+    guide = GUIDE if KO else ''
+    tname, sname = LANG['name'], LANG['support']
     secs = {s['id']: s for s in u['sections']}
     color = lambda sid: secs.get(sid, {}).get('color', '#00A84D')
     cards = u['cards']
@@ -177,7 +197,7 @@ def render(u):
         vh.append('</ul>')
 
     # ---- full text ----
-    fh = [GUIDE, f'<h2>{m(u.get("full_title", "대본 · The text"))}</h2>']
+    fh = [guide, f'<h2>{m(u.get("full_title", "대본 · The text"))}</h2>']
     for s in u['full']:
         fh.append(f'<h3>{m(s["title"])}</h3><p class="fko has-en" lang="ko">{t(s["ko"])}</p><p class="fen">{t(s["en"])}</p>')
     qtab = u.get('qa_tab', {'ko': '예상 질문', 'en': 'Q&A'})
@@ -216,11 +236,11 @@ def render(u):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{e(u["title_ko"])} · {e(u["title_en"])} · 스터디북</title>
+<title>{e(u["title_ko"])} · {e(u["title_en"])} · {e(CFG["short"])}</title>
 <meta name="description" content="{e(u.get("description", u["title_en"]))}">
 <meta name="theme-color" content="#1C2A4A">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="다라봇 스터디북 · Studybook">
+<meta property="og:site_name" content="{e(CFG["title"])}">
 <meta property="og:title" content="{e(u["title_ko"])} · {e(u["title_en"])}">
 <meta property="og:description" content="{e(u.get("description", u["title_en"]))}">
 <meta property="og:url" content="{SITE}{e(u["slug"])}/">
@@ -237,7 +257,7 @@ def render(u):
 <link rel="apple-touch-icon" sizes="152x152" href="../icons/apple-touch-icon-152.png">
 <link rel="apple-touch-icon" sizes="167x167" href="../icons/apple-touch-icon-167.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
-<meta name="apple-mobile-web-app-title" content="스터디북">
+<meta name="apple-mobile-web-app-title" content="{e(CFG["short"])}">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -250,7 +270,7 @@ def render(u):
 <body data-unit="{e(u["slug"])}">
 <header class="usign">
   <div class="wrap">
-    <div class="row"><a class="back" href="../">{ICON["back"]}{ui("노선도 · All units", "All units")}</a>{SWITCH}</div>
+    <div class="row"><a class="back" href="../">{ICON["back"]}{ui("노선도 · All units", "All units")}</a>{switch()}</div>
     <div class="utitle"><h1><span class="mk">{t(u["title_ko"])}</span><span class="only-en">{e(u["title_en"])}</span></h1><p><span class="not-en">{e(u["title_en"])}{" · " if u.get("subtitle") else ""}</span>{t(u.get("subtitle"))}</p></div>
   </div>
   <div class="stripe" aria-hidden="true"></div>
@@ -266,8 +286,8 @@ def render(u):
   <section class="panel" id="p-cards" role="tabpanel">
     {ex_html}
     {map_html}
-    {GUIDE}
-    <ol class="how"><li><b>1</b>Look at the picture</li><li><b>2</b>Recall the Korean in your head</li><li><b>3</b>Tap to check, then listen</li></ol>
+    {guide}
+    <ol class="how"><li><b>1</b>Look at the picture</li><li><b>2</b>Recall the {e(LANG['en'])} in your head</li><li><b>3</b>Tap to check, then listen</li></ol>
     <div class="platform">
       <section class="stage" id="stage" aria-label="Now studying" aria-live="polite">
         <figure class="pic"><img src="{e(cards[0]["img"])}" alt=""></figure>
@@ -301,18 +321,18 @@ def render(u):
   <div class="acts" id="a-cards">
     <button class="btn primary" id="openFocus" type="button">{ICON["focus"]}{ui("집중", "Focus")}</button>
     <button class="btn" id="playAll" type="button" aria-pressed="false">{ICON["play"]}<span>{ui("전체 듣기", "Play all")}</span></button>
-    <button class="btn" type="button" data-toggle="hide-ko" aria-pressed="false" aria-label="Hide Korean or Lyric">{ICON["eye"]}{ui("한국어", "Lyric")}</button>
-    <button class="btn" type="button" data-toggle="hide-en" aria-pressed="false" aria-label="Hide English">{ICON["eye"]}{ui("영어", "English")}</button>
+    <button class="btn" type="button" data-toggle="hide-ko" aria-pressed="false" aria-label="{'Hide Korean or Lyric' if KO else 'Hide ' + e(LANG['en'])}">{ICON["eye"]}{ui("한국어", "Lyric") if KO else e(tname)}</button>
+    <button class="btn" type="button" data-toggle="hide-en" aria-pressed="false" aria-label="Hide {e(sname)}">{ICON["eye"]}{ui("영어", "English") if KO else e(sname)}</button>
   </div>
   <div class="acts" id="a-qa" hidden>
     <button class="btn" type="button" data-toggle="reveal-all" aria-pressed="false">{ui("답 모두 보기 · Show all answers", "Show all answers")}</button>
   </div>
   <div class="acts" id="a-voc" hidden>
-    <button class="btn" type="button" data-toggle="hide-vko" aria-pressed="false">{ICON["eye"]}{ui("한국어 가리기", "Hide Lyric")}</button>
-    <button class="btn" type="button" data-toggle="hide-ven" aria-pressed="false">{ICON["eye"]}Hide English</button>
+    <button class="btn" type="button" data-toggle="hide-vko" aria-pressed="false">{ICON["eye"]}{ui("한국어 가리기", "Hide Lyric") if KO else "Hide " + e(tname)}</button>
+    <button class="btn" type="button" data-toggle="hide-ven" aria-pressed="false">{ICON["eye"]}Hide {e(sname)}</button>
   </div>
   <div class="acts" id="a-full" hidden>
-    <button class="btn" type="button" data-toggle="hide-fen" aria-pressed="false">{ICON["eye"]}Hide English</button>
+    <button class="btn" type="button" data-toggle="hide-fen" aria-pressed="false">{ICON["eye"]}Hide {e(sname)}</button>
     <button class="btn" id="printFull" type="button">{ICON["print"]}Print / PDF</button>
   </div>
 </div>
@@ -320,7 +340,7 @@ def render(u):
 <section class="focus" id="focus" role="dialog" aria-modal="true" aria-label="Focus mode, one card at a time" hidden>
   <div class="f-top">
     <button class="f-close" type="button" aria-label="Close focus mode">{ICON["close"]}</button>
-    <span class="f-count">1 / {len(cards)}</span>{SWITCH}
+    <span class="f-count">1 / {len(cards)}</span>{switch()}
     <div class="f-track" aria-hidden="true"><span class="f-dot"></span></div>
   </div>
   <div class="f-stage">
@@ -352,6 +372,8 @@ def main():
     d = os.path.join(ROOT, slug)
     u = json.load(io.open(os.path.join(d, 'unit.json'), encoding='utf-8'))
     out = render(u)
+    if not KO:  # the study language on every text block, English control labels
+        out = out.replace('<html lang="ko">', f'<html lang="{LANG["code"]}" data-ui="en">', 1).replace(' lang="ko"', f' lang="{LANG["code"]}"')
     io.open(os.path.join(d, 'index.html'), 'w', encoding='utf-8', newline='\n').write(out)
     print(f'{slug}: {len(u["cards"])} cards, '
           f'{sum(len(b["items"]) for b in u["qa"])} Q&A items, {sum(len(g["items"]) for g in u["vocab"])} words, '
