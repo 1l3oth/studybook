@@ -146,11 +146,11 @@
    "img": "img/k05-money.svg",
    "alt": "A wallet with coins flying out",
    "hook": "아끼다",
-   "ko": "두 번째 이유는 돈입니다. 밖에서 사 먹으면 돈이 많이 들어서 돈을 아끼고 싶었습니다. 그래서 저는 직접 요리하기 시작했습니다.",
-   "en": "The second reason is money. Eating out costs a lot, so I wanted to save money. So I started cooking for myself.",
+   "ko": "두 번째 이유는 돈입니다. 밖에서 사 먹으면 돈이 많이 들어서 식비를 아끼고 싶었습니다. 그래서 저는 직접 요리하기 시작했습니다.",
+   "en": "The second reason is money. Eating out costs a lot, so I wanted to save on food costs. So I started cooking for myself.",
    "audio": "audio/k92bfb1a6.mp3",
    "flat": true,
-   "en_audio": "audio/e-b79dfde84c.mp3"
+   "en_audio": "audio/e-cab35fb08a.mp3"
   },
   {
    "sec": "s3",
@@ -179,11 +179,11 @@
    "img": "img/k08-chili.svg",
    "alt": "A recipe card and two red chilies with a check",
    "hook": "고추",
-   "ko": "레시피에는 없지만 저는 고추를 꼭 넣습니다. 고추는 한 번도 잊어버린 적이 없습니다.",
-   "en": "It is not in the recipe, but I always add chili. I have never once forgotten the chili.",
+   "ko": "레시피에는 없지만 저는 고추를 꼭 넣습니다. 고추는 한 번도 빼먹은 적이 없습니다.",
+   "en": "It is not in the recipe, but I always add chili. I have never once left out the chili.",
    "audio": "audio/k5e932224.mp3",
    "flat": true,
-   "en_audio": "audio/e-eabd7439cf.mp3"
+   "en_audio": "audio/e-9f5b58bf19.mp3"
   },
   {
    "sec": "s3",
@@ -223,11 +223,11 @@
    "img": "img/k10-alone.svg",
    "alt": "One bowl on a table, the other place empty",
    "hook": "혼자",
-   "ko": "저한테는 보통 맛인데 다른 사람들한테는 짜서 제 음식은 보통 저 혼자 먹습니다.",
-   "en": "To me it tastes normal, but it is salty for other people, so I usually end up eating my food alone.",
+   "ko": "제 입맛에는 딱 맞는데 다른 사람들한테는 짜서 제 음식은 보통 저 혼자 먹습니다.",
+   "en": "It suits my taste just right, but it is salty for other people, so I usually end up eating my food alone.",
    "audio": "audio/k46e65494.mp3",
    "flat": true,
-   "en_audio": "audio/e-d0c1d1e6e9.mp3"
+   "en_audio": "audio/e-24a939dcee.mp3"
   },
   {
    "sec": "s5",
@@ -300,11 +300,11 @@
    "img": "img/k13-best.svg",
    "alt": "A gold medal with the number 1 and a small wok",
    "hook": "제 생각에는",
-   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 취미입니다. 왜냐하면 돈도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다.",
-   "en": "In my opinion, cooking is the best hobby I picked up in Korea, because I can save money and also taste home.",
+   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 취미입니다. 왜냐하면 식비도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다.",
+   "en": "In my opinion, cooking is the best hobby I picked up in Korea, because I can save on food costs and also taste home.",
    "audio": "audio/c13-hobby.mp3",
    "flat": true,
-   "en_audio": "audio/e-5c9edfdf0f.mp3"
+   "en_audio": "audio/e-6854c296f6.mp3"
   },
   {
    "sec": "s6",
@@ -351,12 +351,12 @@
      "group": "함정과 빈틈 · Traps first",
      "q": "짠 것을 알면서 왜 소금을 덜 넣지 않습니까?",
      "qen": "If you know it is salty, why not use less salt?",
-     "a": "저한테는 짠맛이 보통 맛이라서 잘 모릅니다. 그래서 다른 사람과 같이 먹을 때는 소금을 덜 넣으려고 합니다.",
+     "a": "제 입맛에는 딱 맞아서 짠 줄 잘 모릅니다. 그래서 다른 사람과 같이 먹을 때는 소금을 덜 넣으려고 합니다.",
      "check": true,
-     "aen": "Salty tastes normal to me, so I cannot really tell. So when I eat with other people, I try to use less salt.",
+     "aen": "It suits my taste just right, so I do not really notice it is salty. So when I eat with other people, I try to use less salt.",
      "why": "Your funniest line opens this door. Have an answer ready.",
      "audio": "audio/k5fc7c453.mp3",
-     "aen_audio": "audio/e-9062b84ebb.mp3",
+     "aen_audio": "audio/e-186ae2849a.mp3",
      "iaudio": "audio/i-67e3e680ce.mp3"
     },
     {
@@ -576,11 +576,11 @@
     {
      "q": "-(으)ㄴ 적이 없다",
      "qen": "have never done",
-     "a": "고추는 한 번도 잊어버린 적이 없습니다.",
-     "aen": "I have never once forgotten the chili.",
+     "a": "고추는 한 번도 빼먹은 적이 없습니다.",
+     "aen": "I have never once left out the chili.",
      "why": "Stronger than 안 했습니다. It is the punchline of your chili line.",
      "audio": "audio/k1a49beff.mp3",
-     "aen_audio": "audio/e-c69c381fba.mp3",
+     "aen_audio": "audio/e-43a6cf87d0.mp3",
      "why_audio": "audio/e-9ba5ba8131.mp3"
     },
     {
@@ -1463,18 +1463,18 @@
   },
   {
    "title": "이유 · Why I started",
-   "ko": "한국에 오기 전에는 요리를 거의 하지 않았습니다. 요리를 시작한 이유는 두 가지입니다. 첫 번째 이유는 캄보디아 음식이 그리웠기 때문입니다. 한국에 살면서 캄보디아 음식이 많이 먹고 싶어졌습니다. 두 번째 이유는 돈입니다. 밖에서 사 먹으면 돈이 많이 들어서 돈을 아끼고 싶었습니다. 그래서 저는 직접 요리하기 시작했습니다.",
-   "en": "Before I came to Korea, I almost never cooked. There are two reasons I started cooking. The first is that I missed Cambodian food. Living in Korea, I came to really want Cambodian food. The second reason is money. Eating out costs a lot, so I wanted to save money. So I started cooking for myself."
+   "ko": "한국에 오기 전에는 요리를 거의 하지 않았습니다. 요리를 시작한 이유는 두 가지입니다. 첫 번째 이유는 캄보디아 음식이 그리웠기 때문입니다. 한국에 살면서 캄보디아 음식이 많이 먹고 싶어졌습니다. 두 번째 이유는 돈입니다. 밖에서 사 먹으면 돈이 많이 들어서 식비를 아끼고 싶었습니다. 그래서 저는 직접 요리하기 시작했습니다.",
+   "en": "Before I came to Korea, I almost never cooked. There are two reasons I started cooking. The first is that I missed Cambodian food. Living in Korea, I came to really want Cambodian food. The second reason is money. Eating out costs a lot, so I wanted to save on food costs. So I started cooking for myself."
   },
   {
    "title": "만들기 · Making it",
-   "ko": "제가 제일 자주 만드는 음식은 캄보디아 음식인 차 스빼이입니다. 양배추와 고기를 볶아서 만드는 간단한 요리입니다. 먼저 마늘하고 양배추, 고기를 삽니다. 그다음에 재료를 썰어서 같이 볶습니다. 레시피에는 없지만 저는 고추를 꼭 넣습니다. 고추는 한 번도 잊어버린 적이 없습니다. 저는 쿠팡에서 냉동 고추를 삽니다. 한 봉지에 8,000원쯤인데 네다섯 달 동안 먹을 수 있습니다. 베트남 고추는 캄보디아 고추보다 조금 더 맵습니다.",
-   "en": "The dish I make most often is a Cambodian dish called cha spey. It is a simple dish of stir-fried cabbage and meat. First I buy garlic, cabbage and meat. Then I cut the ingredients and stir-fry them together. It is not in the recipe, but I always add chili. I have never once forgotten the chili. I buy frozen chili on Coupang. A pack is about 8,000 won, and I can eat it for four or five months. Vietnamese chili is a little spicier than Cambodian chili."
+   "ko": "제가 제일 자주 만드는 음식은 캄보디아 음식인 차 스빼이입니다. 양배추와 고기를 볶아서 만드는 간단한 요리입니다. 먼저 마늘하고 양배추, 고기를 삽니다. 그다음에 재료를 썰어서 같이 볶습니다. 레시피에는 없지만 저는 고추를 꼭 넣습니다. 고추는 한 번도 빼먹은 적이 없습니다. 저는 쿠팡에서 냉동 고추를 삽니다. 한 봉지에 8,000원쯤인데 네다섯 달 동안 먹을 수 있습니다. 베트남 고추는 캄보디아 고추보다 조금 더 맵습니다.",
+   "en": "The dish I make most often is a Cambodian dish called cha spey. It is a simple dish of stir-fried cabbage and meat. First I buy garlic, cabbage and meat. Then I cut the ingredients and stir-fry them together. It is not in the recipe, but I always add chili. I have never once left out the chili. I buy frozen chili on Coupang. A pack is about 8,000 won, and I can eat it for four or five months. Vietnamese chili is a little spicier than Cambodian chili."
   },
   {
    "title": "짠맛 · Too salty",
-   "ko": "그런데 제 음식은 항상 조금 짭니다. 왜냐하면 저는 짠 음식을 좋아하기 때문입니다. 저한테는 보통 맛인데 다른 사람들한테는 짜서 제 음식은 보통 저 혼자 먹습니다.",
-   "en": "But my food is always a little salty, because I like salty food. To me it tastes normal, but it is salty for other people, so I usually end up eating my food alone."
+   "ko": "그런데 제 음식은 항상 조금 짭니다. 왜냐하면 저는 짠 음식을 좋아하기 때문입니다. 제 입맛에는 딱 맞는데 다른 사람들한테는 짜서 제 음식은 보통 저 혼자 먹습니다.",
+   "en": "But my food is always a little salty, because I like salty food. It suits my taste just right, but it is salty for other people, so I usually end up eating my food alone."
   },
   {
    "title": "변화 · What changed",
@@ -1483,13 +1483,13 @@
   },
   {
    "title": "마무리 · Closing",
-   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 취미입니다. 왜냐하면 돈도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다. 요즘은 한국 음식 만드는 법을 배우려고 합니다. 캄보디아에 돌아가면 부모님께 처음으로 한국 음식을 만들어 드리고 싶습니다. 다음에는 소금을 조금 덜 넣어서 다른 사람들도 같이 먹을 수 있게 만들고 싶습니다. 이상으로 발표를 마치겠습니다. 들어주셔서 감사합니다.",
-   "en": "In my opinion, cooking is the best hobby I picked up in Korea, because I can save money and also taste home. These days I am planning to learn how to make Korean food. When I go back to Cambodia, I want to cook Korean food for my parents, for the first time. Next time I want to use a little less salt, so other people can eat it with me. That concludes my presentation. Thank you for listening."
+   "ko": "제 생각에는 요리가 한국에 와서 생긴 제일 좋은 취미입니다. 왜냐하면 식비도 아낄 수 있고 고향의 맛도 느낄 수 있기 때문입니다. 요즘은 한국 음식 만드는 법을 배우려고 합니다. 캄보디아에 돌아가면 부모님께 처음으로 한국 음식을 만들어 드리고 싶습니다. 다음에는 소금을 조금 덜 넣어서 다른 사람들도 같이 먹을 수 있게 만들고 싶습니다. 이상으로 발표를 마치겠습니다. 들어주셔서 감사합니다.",
+   "en": "In my opinion, cooking is the best hobby I picked up in Korea, because I can save on food costs and also taste home. These days I am planning to learn how to make Korean food. When I go back to Cambodia, I want to cook Korean food for my parents, for the first time. Next time I want to use a little less salt, so other people can eat it with me. That concludes my presentation. Thank you for listening."
   }
  ],
  "published": "2026-11-03",
  "station_en": "My new hobby: cooking. Your K-Specialist talk on 2026-11-28.",
- "credit": "Script built from my own answers on 2026-11-03, updated 2026-11-04 (습관 to 취미). Pictures are flat drawings for study; every line, answer, pattern and word has native Korean audio.",
+ "credit": "Script built from my own answers on 2026-11-03, updated 2026-11-04 (습관 to 취미) and 2026-11-09 (mentor fixes: 식비, 빼먹다, 입맛). Pictures are flat drawings for study; every line, answer, pattern and word has native Korean audio.",
  "chat": {
   "them": "심사위원 · Judge",
   "me": "나 · Me"
