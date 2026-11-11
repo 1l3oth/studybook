@@ -1,0 +1,421 @@
+{
+ "slug": "sql-injection-review",
+ "title_ko": "SQL 인젝션 코드 리뷰",
+ "title_en": "SQL injection in a code review",
+ "subtitle": "Explain the hole and the fix to a teammate",
+ "description": "How to explain SQL injection in a Korean code review: what it is, how to spot it, how to fix it with binding and an allowlist, with native audio, review Q&A and 15 words.",
+ "sections": [
+  {
+   "id": "problem",
+   "ko": "문제",
+   "en": "The hole",
+   "color": "#0052A4"
+  },
+  {
+   "id": "impact",
+   "ko": "영향",
+   "en": "The damage",
+   "color": "#00A84D"
+  },
+  {
+   "id": "find",
+   "ko": "찾기",
+   "en": "Spot it",
+   "color": "#996CAC"
+  },
+  {
+   "id": "fix",
+   "ko": "수정",
+   "en": "Fix it",
+   "color": "#EF7C1C"
+  },
+  {
+   "id": "review",
+   "ko": "리뷰",
+   "en": "Say it",
+   "color": "#CD7C2F"
+  }
+ ],
+ "spine": {
+  "title": "노선도 · 리뷰 순서",
+  "note": "One review comment, in order: name the hole, say the damage, show where, give the fix, ask for the change."
+ },
+ "explain": {
+  "title": "한눈에 · The big picture",
+  "why": "The database cannot tell your words from your commands if you glue them into one string. Send them apart.",
+  "tiles": [
+   {
+    "img": "img/c1-glue.svg",
+    "ko": "문자열 연결",
+    "en": "Input glued into the query",
+    "color": "#0052A4"
+   },
+   {
+    "img": "img/c2-quote.svg",
+    "ko": "작은따옴표",
+    "en": "One quote turns words into code",
+    "color": "#0052A4"
+   },
+   {
+    "img": "img/c7-bind.svg",
+    "ko": "바인딩",
+    "en": "Send the value separately",
+    "color": "#EF7C1C"
+   },
+   {
+    "img": "img/c8-list.svg",
+    "ko": "허용 목록",
+    "en": "Columns come only from a list",
+    "color": "#EF7C1C"
+   },
+   {
+    "img": "img/c9-lock.svg",
+    "ko": "권한 확인",
+    "en": "Check who may ask",
+    "color": "#EF7C1C"
+   }
+  ]
+ },
+ "cards": [
+  {
+   "sec": "problem",
+   "img": "img/c1-glue.svg",
+   "flat": true,
+   "alt": "Two blocks, SQL text and user text, joined by a plus sign",
+   "hook": "문자열 연결",
+   "ko": "사용자 입력을 SQL 문자열에 그대로 붙이면 위험해요.",
+   "en": "Gluing user input straight into the SQL string is dangerous.",
+   "audio": "audio/c1.mp3",
+   "en_audio": "audio/e-d4d7168bf7.mp3"
+  },
+  {
+   "sec": "problem",
+   "img": "img/c2-quote.svg",
+   "flat": true,
+   "alt": "A big single quote cutting a text box in two",
+   "hook": "작은따옴표",
+   "ko": "작은따옴표 하나로 값이 끝나고, 나머지는 명령어가 돼요.",
+   "en": "One single quote ends the value, and the rest becomes a command.",
+   "audio": "audio/c2.mp3",
+   "en_audio": "audio/e-445462520c.mp3"
+  },
+  {
+   "sec": "impact",
+   "img": "img/c3-leak.svg",
+   "flat": true,
+   "alt": "A database cylinder with rows spilling out",
+   "hook": "유출",
+   "ko": "공격자가 다른 사람의 데이터나 저장된 비밀번호를 읽을 수 있어요.",
+   "en": "An attacker can read other people's data or stored passwords.",
+   "audio": "audio/c3.mp3",
+   "en_audio": "audio/e-7d7bd3d173.mp3"
+  },
+  {
+   "sec": "impact",
+   "img": "img/c4-door.svg",
+   "flat": true,
+   "alt": "An open door with no lock",
+   "hook": "인증",
+   "ko": "로그인 확인이 없는 API는 누구나 호출할 수 있어서 더 위험해요.",
+   "en": "An API with no login check is worse, because anyone can call it.",
+   "audio": "audio/c4.mp3",
+   "en_audio": "audio/e-63b888d28d.mp3"
+  },
+  {
+   "sec": "find",
+   "img": "img/c5-plus.svg",
+   "flat": true,
+   "alt": "A magnifying glass over a plus sign",
+   "hook": "더하기",
+   "ko": "리뷰할 때 SQL 문자열 옆에 더하기 기호가 있는지 봐요.",
+   "en": "When reviewing, look for a plus sign next to SQL text.",
+   "audio": "audio/c5.mp3",
+   "en_audio": "audio/e-4006d519bb.mp3"
+  },
+  {
+   "sec": "find",
+   "img": "img/c6-trace.svg",
+   "flat": true,
+   "alt": "A dotted path from a form back to a variable",
+   "hook": "출처",
+   "ko": "그 변수가 요청에서 왔는지 끝까지 따라가 봐요.",
+   "en": "Follow the variable back to see if it came from the request.",
+   "audio": "audio/c6.mp3",
+   "en_audio": "audio/e-3bdfd91571.mp3"
+  },
+  {
+   "sec": "fix",
+   "img": "img/c7-bind.svg",
+   "flat": true,
+   "alt": "A query card with a question mark and a separate value tag",
+   "hook": "바인딩",
+   "ko": "값은 물음표로 바꾸고 따로 바인딩해요.",
+   "en": "Replace the value with a question mark and bind it separately.",
+   "audio": "audio/c7.mp3",
+   "en_audio": "audio/e-0d4bcaef0d.mp3"
+  },
+  {
+   "sec": "fix",
+   "img": "img/c8-list.svg",
+   "flat": true,
+   "alt": "A checklist with three ticked rows",
+   "hook": "허용 목록",
+   "ko": "정렬 컬럼은 바인딩이 안 돼서 허용 목록으로 확인해요.",
+   "en": "Sort columns can't be bound, so check them against an allowlist.",
+   "audio": "audio/c8.mp3",
+   "en_audio": "audio/e-4553c65df2.mp3"
+  },
+  {
+   "sec": "fix",
+   "img": "img/c9-lock.svg",
+   "flat": true,
+   "alt": "A padlock with a person badge",
+   "hook": "권한",
+   "ko": "본인이나 관리자만 조회할 수 있게 권한도 확인해요.",
+   "en": "Also check permission, so only the owner or an admin can look it up.",
+   "audio": "audio/c9.mp3",
+   "en_audio": "audio/e-203ac1986f.mp3"
+  },
+  {
+   "sec": "review",
+   "img": "img/c10-comment.svg",
+   "flat": true,
+   "alt": "A code review comment bubble with a warning mark",
+   "hook": "리뷰 코멘트",
+   "ko": "이 부분은 SQL 인젝션 위험이 있어서 바인딩으로 바꿔 주세요.",
+   "en": "This part has an SQL injection risk, so please change it to binding.",
+   "audio": "audio/c10.mp3",
+   "en_audio": "audio/e-5003b3ed45.mp3"
+  }
+ ],
+ "qa": [
+  {
+   "title": "함정 · 헷갈리는 것",
+   "small": "Traps · read these first",
+   "note": "The two things people get wrong most.",
+   "kind": "trap",
+   "items": [
+    {
+     "q": "특수문자만 막으면 충분하지 않아요?",
+     "qen": "Isn't blocking special characters enough?",
+     "qaudio": "audio/qt1.mp3",
+     "a": "아니요. 필터는 빠지는 경우가 생겨서 바인딩이 기본이에요.",
+     "aen": "No. Filters miss cases, so binding is the default.",
+     "why": "A blocklist has to guess every trick. Binding makes the value plain data, so there is nothing to guess.",
+     "audio": "audio/at1.mp3",
+     "aen_audio": "audio/e-f52f549d78.mp3",
+     "iaudio": "audio/i-9b1311377d.mp3"
+    },
+    {
+     "q": "LIKE 검색어도 바인딩할 수 있어요?",
+     "qen": "Can a LIKE search word be bound too?",
+     "qaudio": "audio/qt2.mp3",
+     "a": "네. 퍼센트 기호를 값에 붙여서 바인딩하면 돼요.",
+     "aen": "Yes. Add the percent signs to the value, then bind it.",
+     "why": "Write ILIKE ? in the query and pass %word% as the value.",
+     "audio": "audio/at2.mp3",
+     "aen_audio": "audio/e-5326e38fff.mp3",
+     "iaudio": "audio/i-0a4ba79a8b.mp3"
+    }
+   ]
+  },
+  {
+   "title": "리뷰에서 · In the review",
+   "small": "Questions a teammate may ask you",
+   "note": "Answer in your head, then tap Listen to compare.",
+   "kind": "qa",
+   "items": [
+    {
+     "q": "왜 이걸 바꿔야 돼요?",
+     "qen": "Why do we need to change this?",
+     "qaudio": "audio/qc1.mp3",
+     "a": "검색어에 따옴표를 넣으면 쿼리가 바뀔 수 있어서요.",
+     "aen": "Because a quote in the search word can change the query.",
+     "audio": "audio/ac1.mp3",
+     "aen_audio": "audio/e-b1d8def9b5.mp3",
+     "iaudio": "audio/i-569ccf4843.mp3"
+    },
+    {
+     "q": "정렬 컬럼도 물음표로 바꾸면 돼요?",
+     "qen": "Can I replace the sort column with a question mark too?",
+     "qaudio": "audio/qc2.mp3",
+     "a": "아니요. 컬럼 이름은 바인딩이 안 돼서 허용 목록을 써야 돼요.",
+     "aen": "No. Column names can't be bound, so use an allowlist.",
+     "audio": "audio/ac2.mp3",
+     "aen_audio": "audio/e-e49af5aa15.mp3",
+     "iaudio": "audio/i-f41f7b318c.mp3"
+    },
+    {
+     "q": "테스트는 어떻게 했어요?",
+     "qen": "How did you test it?",
+     "qaudio": "audio/qc3.mp3",
+     "a": "보통 검색어하고 따옴표가 들어간 검색어를 둘 다 확인했어요.",
+     "aen": "I checked both a normal search word and one with a quote in it.",
+     "check": true,
+     "audio": "audio/ac3.mp3",
+     "aen_audio": "audio/e-3ee888ea9a.mp3",
+     "iaudio": "audio/i-5af45d8e39.mp3"
+    }
+   ]
+  },
+  {
+   "title": "막힐 때",
+   "small": "When you're stuck",
+   "note": "Two safe lines to buy time.",
+   "kind": "surv",
+   "items": [
+    {
+     "ko": "잠깐만요, 이 값이 어디서 오는지 확인해 볼게요.",
+     "en": "One moment, I'll check where this value comes from.",
+     "audio": "audio/s1.mp3",
+     "en_audio": "audio/e-012950ea83.mp3"
+    },
+    {
+     "ko": "보안 관련이라서 한 번 더 봐 주실 수 있어요?",
+     "en": "It's security related, so could you take one more look?",
+     "audio": "audio/s2.mp3",
+     "en_audio": "audio/e-ddb1d22545.mp3"
+    }
+   ]
+  }
+ ],
+ "vocab": [
+  {
+   "title": "문제 · The problem",
+   "color": "#0052A4",
+   "items": [
+    {
+     "ko": "보안 취약점",
+     "en": "security vulnerability",
+     "audio": "audio/v01.mp3",
+     "en_audio": "audio/e-3e48b50ece.mp3"
+    },
+    {
+     "ko": "SQL 인젝션",
+     "en": "SQL injection",
+     "audio": "audio/v02.mp3",
+     "en_audio": "audio/e-0b806fffed.mp3"
+    },
+    {
+     "ko": "사용자 입력",
+     "en": "user input",
+     "audio": "audio/v03.mp3",
+     "en_audio": "audio/e-4b0d1eaca2.mp3"
+    },
+    {
+     "ko": "작은따옴표",
+     "en": "single quote",
+     "audio": "audio/v04.mp3",
+     "en_audio": "audio/e-44817ac90b.mp3"
+    },
+    {
+     "ko": "문자열 연결",
+     "en": "string concatenation",
+     "audio": "audio/v05.mp3",
+     "en_audio": "audio/e-efd72290e4.mp3"
+    }
+   ]
+  },
+  {
+   "title": "수정 · The fix",
+   "color": "#EF7C1C",
+   "items": [
+    {
+     "ko": "바인딩",
+     "en": "binding (bound parameter)",
+     "audio": "audio/v06.mp3",
+     "en_audio": "audio/e-10e1dde699.mp3"
+    },
+    {
+     "ko": "허용 목록",
+     "en": "allowlist",
+     "audio": "audio/v07.mp3",
+     "en_audio": "audio/e-22e784a22a.mp3"
+    },
+    {
+     "ko": "권한 확인",
+     "en": "permission check",
+     "audio": "audio/v08.mp3",
+     "en_audio": "audio/e-663c6361f0.mp3"
+    },
+    {
+     "ko": "인증",
+     "en": "authentication, login check",
+     "audio": "audio/v09.mp3",
+     "en_audio": "audio/e-9f80c5281d.mp3"
+    },
+    {
+     "ko": "정렬 컬럼",
+     "en": "sort column",
+     "audio": "audio/v10.mp3",
+     "en_audio": "audio/e-7a448dc8f2.mp3"
+    }
+   ]
+  },
+  {
+   "title": "리뷰 · Review words",
+   "color": "#CD7C2F",
+   "items": [
+    {
+     "ko": "코드 리뷰",
+     "en": "code review",
+     "audio": "audio/v11.mp3",
+     "en_audio": "audio/e-28edd54889.mp3"
+    },
+    {
+     "ko": "위험하다",
+     "en": "to be dangerous",
+     "audio": "audio/v12.mp3",
+     "en_audio": "audio/e-4f272cb28d.mp3"
+    },
+    {
+     "ko": "유출되다",
+     "en": "to be leaked",
+     "audio": "audio/v13.mp3",
+     "en_audio": "audio/e-b80507cb22.mp3"
+    },
+    {
+     "ko": "수정하다",
+     "en": "to fix, to change",
+     "audio": "audio/v14.mp3",
+     "en_audio": "audio/e-937b8ef61b.mp3"
+    },
+    {
+     "ko": "확인하다",
+     "en": "to check",
+     "audio": "audio/v15.mp3",
+     "en_audio": "audio/e-7c6e7cd2e3.mp3"
+    }
+   ]
+  }
+ ],
+ "full": [
+  {
+   "title": "문제 · The hole",
+   "ko": "사용자 입력을 SQL 문자열에 그대로 붙이면 위험해요. 작은따옴표 하나로 값이 끝나고, 나머지는 명령어가 돼요.",
+   "en": "Gluing user input straight into the SQL string is dangerous. One single quote ends the value, and the rest becomes a command."
+  },
+  {
+   "title": "영향 · The damage",
+   "ko": "공격자가 다른 사람의 데이터나 저장된 비밀번호를 읽을 수 있어요. 로그인 확인이 없는 API는 누구나 호출할 수 있어서 더 위험해요.",
+   "en": "An attacker can read other people's data or stored passwords. An API with no login check is worse, because anyone can call it."
+  },
+  {
+   "title": "찾기 · Spot it",
+   "ko": "리뷰할 때 SQL 문자열 옆에 더하기 기호가 있는지 봐요. 그 변수가 요청에서 왔는지 끝까지 따라가 봐요.",
+   "en": "When reviewing, look for a plus sign next to SQL text. Follow the variable back to see if it came from the request."
+  },
+  {
+   "title": "수정 · Fix it",
+   "ko": "값은 물음표로 바꾸고 따로 바인딩해요. 정렬 컬럼은 바인딩이 안 돼서 허용 목록으로 확인해요. 본인이나 관리자만 조회할 수 있게 권한도 확인해요.",
+   "en": "Replace the value with a question mark and bind it separately. Sort columns can't be bound, so check them against an allowlist. Also check permission, so only the owner or an admin can look it up."
+  },
+  {
+   "title": "리뷰 · Say it",
+   "ko": "이 부분은 SQL 인젝션 위험이 있어서 바인딩으로 바꿔 주세요.",
+   "en": "This part has an SQL injection risk, so please change it to binding."
+  }
+ ],
+ "full_title": "리뷰 순서 · The review, start to finish",
+ "published": "2026-11-11"
+}
