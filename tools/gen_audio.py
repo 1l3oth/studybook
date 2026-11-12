@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Fill a unit's missing audio with a native Korean neural voice (edge-tts, free, no key), plus the
-English explainer clips (en-US-AvaMultilingualNeural): card meaning, Q&A answer meaning, grammar notes and word meaning.
+English explainer clips (en-US-AvaMultilingualNeural): card meaning, Q&A answer meaning, grammar notes and word meaning,
+and the two-host podcast (English host in the explainer voice, Korean host in the Korean voice).
 Explainer clips are named from a hash of their text, so a changed text gets a new clip.
 
     python tools/gen_audio.py korean-funeral-visit [--voice ko-KR-InJoonNeural]
@@ -74,6 +75,10 @@ def main():
                 it['ex']['audio'] = ename(it['ex']['ko'], 'x')
                 jobs.append((it['ex']['ko'], it['ex']['audio']))
                 explain(it['ex'], 'en', 'en_audio')
+    pjobs = []  # the podcast: English host lines in the explainer voice, Korean host lines in the Korean voice
+    for ln in (u.get('podcast') or {}).get('lines', []):
+        ln['audio'] = ename(ln['text'], 'p' + ln['who'][0])
+        (pjobs if ln['who'] == 'en' else jobs).append((ln['text'], ln['audio']))
     if not u.get('full'):
         secs = {s['id']: s for s in u['sections']}
         for s in u['sections']:
@@ -83,7 +88,7 @@ def main():
                                   'en': ' '.join(c['en'] for c in cs)})
     io.open(path, 'w', encoding='utf-8', newline='\n').write(json.dumps(u, ensure_ascii=False, indent=1))
 
-    todo = [(t, os.path.join(d, a), v) for v, js in ((voice, jobs), (ASKER_VOICE, ijobs), (EXPLAIN_VOICE, ejobs)) for t, a in js if a and t
+    todo = [(t, os.path.join(d, a), v) for v, js in ((voice, jobs), (ASKER_VOICE, ijobs), (EXPLAIN_VOICE, ejobs + pjobs)) for t, a in js if a and t
             if not (os.path.exists(os.path.join(d, a)) and os.path.getsize(os.path.join(d, a)) > 1000)]
     todo = list({o: (t, o, v) for t, o, v in todo}.values())
 
@@ -97,7 +102,7 @@ def main():
         await asyncio.gather(*(one(t, o, v) for t, o, v in todo))
 
     asyncio.run(run())
-    print(f'{slug}: {len(jobs)} Korean + {len(ijobs)} asker + {len(ejobs)} English clips referenced, {len(todo)} generated')
+    print(f'{slug}: {len(pjobs)} podcast English + {len(jobs)} Korean + {len(ijobs)} asker + {len(ejobs)} English clips referenced, {len(todo)} generated')
 
 
 if __name__ == '__main__':

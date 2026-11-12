@@ -13,7 +13,7 @@ body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
 .utitle{padding:.2rem 0 .75rem}
 .utitle h1{margin:0;font-size:clamp(1.35rem,5.6vw,1.8rem);font-weight:800;letter-spacing:-.015em;line-height:1.2;word-break:keep-all}
 .utitle p{margin:.2rem 0 0;font-size:.84rem;color:var(--on-sign-2)}
-.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.12)}
+.tabs{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:0;border-top:1px solid rgba(255,255,255,.12)}
 .tabs button{appearance:none;background:none;border:0;color:var(--on-sign-2);font:700 .9rem/1.2 var(--f);padding:.7rem .2rem .65rem;
   cursor:pointer;position:relative;min-height:48px;display:flex;flex-direction:column;align-items:center;gap:.1rem}
 .tabs button small{font-weight:500;font-size:.76rem}
@@ -399,3 +399,16 @@ html[data-script="ro"] .voc.haspic .vfig{height:150px;min-height:0;overflow:hidd
 html[data-script="ro"] .voc.haspic .vpic{width:126px;height:126px}
 html[data-script="ro"] .voc.haspic .vko .t-ro{font-size:clamp(1.1rem,4.6vw,1.5rem)}
 html[data-script="ro"] .vex .exko{grid-column:1/-1}
+
+/* ---------- podcast: two hosts, one line at a time ---------- */
+.pod h2{margin:0 0 .2rem;font-size:1.1rem;font-weight:800}
+.plist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem}
+.pl button{appearance:none;width:100%;text-align:left;font:inherit;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:.15rem;
+  background:var(--surface);border:0;border-radius:var(--r);box-shadow:var(--shadow);padding:.7rem .9rem .75rem;border-left:5px solid var(--ink-3)}
+.pl.pko button{border-left-color:var(--line);margin-left:1.4rem;width:calc(100% - 1.4rem)}
+.pwho{font-size:.72rem;font-weight:800;letter-spacing:.02em;color:var(--ink-2);text-transform:uppercase}
+.ptext{font-size:.95rem;line-height:1.55;word-break:keep-all}
+.pko .ptext{font-size:clamp(1.08rem,4.2vw,1.25rem);font-weight:700}
+.psub{font-size:.84rem;color:var(--ink-2)}
+.pl.now button{box-shadow:0 0 0 3px var(--here),var(--shadow-up)}
+.pcount{align-self:center;font-size:.84rem;font-weight:700;color:var(--ink-2);font-variant-numeric:tabular-nums;padding:0 .4rem}

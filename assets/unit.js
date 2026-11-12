@@ -360,5 +360,41 @@
     });
   }
 
+  // ---- podcast: one clip per line, in both voices, played back to back. Pause keeps your place. ----
+  var podBtn = $('#podPlay'), podLines = $$('#p-pod .pl button'), podCount = $('#podCount');
+  var pod = { i: 0, a: null, on: false, t: null };
+  function podMark(i) {
+    podLines.forEach(function (b, j) { b.parentNode.classList.toggle('now', j === i); });
+    if (podCount) podCount.textContent = (i + 1) + ' / ' + podLines.length;
+  }
+  function podLabel() {
+    podBtn.setAttribute('aria-pressed', pod.on ? 'true' : 'false');
+    $('span', podBtn).innerHTML = pod.on ? L('일시정지', 'Pause') : L('재생', 'Play');
+  }
+  function podPause() {
+    if (!pod.on) return;
+    pod.on = false; clearTimeout(pod.t); if (pod.a) pod.a.pause(); podLabel();
+  }
+  function podGo(i) {
+    clearTimeout(pod.t); if (pod.a) { pod.a.pause(); pod.a = null; }
+    if (i >= podLines.length) { pod.on = false; pod.i = 0; podLabel(); podMark(-1); if (podCount) podCount.textContent = '0 / ' + podLines.length; return; }
+    stop(); pod.i = i; pod.on = true; podLabel(); podMark(i);
+    podLines[i].scrollIntoView({ block: 'center', behavior: 'smooth' });
+    var a = pod.a = new Audio(podLines[i].dataset.pa);
+    a.onended = function () { if (pod.a === a && pod.on) pod.t = setTimeout(function () { podGo(i + 1); }, 350); };
+    a.play().catch(function () { if (pod.a === a) podPause(); });
+  }
+  if (podBtn && podLines.length) {
+    podBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (pod.on) { podPause(); return; }
+      if (pod.a && !pod.a.ended) { stop(); pod.on = true; podLabel(); pod.a.play().catch(podPause); return; }
+      podGo(pod.i);
+    });
+    podLines.forEach(function (b, i) { b.addEventListener('click', function () { podGo(i); }); });
+    $$('.tabs [role="tab"]').forEach(function (tb) { tb.addEventListener('click', podPause); });
+    document.addEventListener('click', function (e) { if (e.target.closest('[data-au]')) podPause(); }, true);
+  }
+
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('../sw.js', { scope: '../' }).catch(function () {});
 })();

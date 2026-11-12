@@ -24,7 +24,7 @@ def e(s):
 
 
 HANGUL = re.compile('[가-힣ㄱ-ㅎ]')
-V = 'v=voc3'  # bump when assets change, so a new page never meets an old cached stylesheet
+V = 'v=voc4'  # bump when assets change, so a new page never meets an old cached stylesheet
 SITE = 'https://1l3oth.github.io/studybook/'
 
 
@@ -266,6 +266,27 @@ def render(u):
                   + ''.join(f'<div class="fv"><b class="has-en" lang="ko">{t(it["ko"])}</b><span>{t(it["en"])}</span></div>' for it in g['items'])
                   + '</div>')
 
+    # ---- podcast: two hosts, one clip per line, played one after another ----
+    pod = u.get('podcast') or {}
+    plines = pod.get('lines', [])
+    pod_tab = pod_panel = pod_dock = ''
+    if plines:
+        rows = []
+        for i, ln in enumerate(plines):
+            ko = ln['who'] == 'ko'
+            who = ui('한국어', 'Korean') if ko else ui('영어', 'English')
+            lang = ' lang="ko"' if ko else ''
+            sub = f'<span class="psub">{e(ln["en"])}</span>' if ln.get('en') else ''
+            rows.append(f'<li class="pl {"pko" if ko else "pen"}"><button type="button" data-pa="{e(ln["audio"])}" data-pi="{i}">'
+                        f'<span class="pwho">{who}</span><span class="ptext"{lang}>{t(ln["text"])}</span>{sub}</button></li>')
+        pnote = f'<p class="note">{t(pod["note"])}</p>' if pod.get('note') else ''
+        pod_panel = (f'<section class="panel pod" id="p-pod" role="tabpanel"><h2>{m(pod.get("title", "팟캐스트 · Podcast"))}</h2>'
+                     f'{pnote}<ol class="plist">{"".join(rows)}</ol></section>')
+        pod_tab = (f'<button role="tab" data-tab="pod" aria-controls="p-pod"><span>{ui("팟캐스트", "Podcast")}</span>'
+                   f'<small>{len(plines)} lines</small></button>')
+        pod_dock = (f'<div class="acts" id="a-pod" hidden><button class="btn primary" id="podPlay" type="button" aria-pressed="false">'
+                    f'{{play}}<span>{ui("재생", "Play")}</span></button><span class="pcount" id="podCount">0 / {len(plines)}</span></div>')
+
     credit = f'<p class="credit">{t(u["credit"])}</p>' if u.get('credit') else ''
     fh.append(credit)
 
@@ -278,6 +299,7 @@ def render(u):
         'close': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
     }
 
+    pod_dock = pod_dock.replace('{play}', ICON['play'])
     return f'''<!doctype html>
 <html lang="ko">
 <head>
@@ -326,6 +348,7 @@ def render(u):
     <button role="tab" data-tab="qa" aria-controls="p-qa"><span>{ui(qtab["ko"], qtab["en"])}</span><small>{qcount} {e(qtab["en"])}</small></button>
     <button role="tab" data-tab="voc" aria-controls="p-voc"><span>{ui("단어", "Words")}</span><small>{vcount} words</small></button>
     <button role="tab" data-tab="full" aria-controls="p-full"><span>{ui("전체", "Full")}</span><small>read all</small></button>
+    {pod_tab}
   </nav>
 </header>
 
@@ -362,6 +385,7 @@ def render(u):
     {"".join(vh)}
   </section>
   <section class="panel full" id="p-full" role="tabpanel">{"".join(fh)}</section>
+  {pod_panel}
 </main>
 
 <div class="dock">
@@ -383,6 +407,7 @@ def render(u):
     <button class="btn" type="button" data-toggle="hide-fen" aria-pressed="false">{ICON["eye"]}Hide English</button>
     <button class="btn" id="printFull" type="button">{ICON["print"]}Print / PDF</button>
   </div>
+  {pod_dock}
 </div>
 
 <section class="focus" id="focus" role="dialog" aria-modal="true" aria-label="Focus mode, one card at a time" hidden>

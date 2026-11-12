@@ -1493,5 +1493,204 @@
  "chat": {
   "them": "심사위원 · Judge",
   "me": "나 · Me"
+ },
+ "podcast": {
+  "title": "요리 이야기 · Talking about cooking",
+  "note": "Two hosts: English explains, Korean says it. Press Play and it runs line by line. Tap any line to jump there.",
+  "lines": [
+   {
+    "who": "en",
+    "text": "Welcome to the Studybook podcast. Today's topic is one hobby: cooking, and how to talk about it in Korean. I explain in English, and my Korean co-host says each sentence the way a native speaker would.",
+    "audio": "audio/pe-d5f953fa8c.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "안녕하세요. 오늘은 요리에 대해 이야기해 볼게요.",
+    "en": "Hello. Today let's talk about cooking.",
+    "audio": "audio/pk-97894d13c7.mp3"
+   },
+   {
+    "who": "en",
+    "text": "First, the big word: 취미, hobby. A hobby you picked up recently is 새로 생긴 취미.",
+    "audio": "audio/pe-377ea11c97.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "제 새로운 취미는 요리입니다.",
+    "en": "My new hobby is cooking.",
+    "audio": "audio/pk-9bbb85bb54.mp3"
+   },
+   {
+    "who": "en",
+    "text": "요리 is cooking. Add 하다 and you get 요리하다, to cook. Now, why start? The talk gives two reasons. Listen for 이유는 두 가지입니다.",
+    "audio": "audio/pe-0c23a4a6c8.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "요리를 시작한 이유는 두 가지입니다.",
+    "en": "There are two reasons I started cooking.",
+    "audio": "audio/pk-3426bafa2f.mp3"
+   },
+   {
+    "who": "en",
+    "text": "Reason one: missing home food. The verb is 그립다, to miss.",
+    "audio": "audio/pe-565ff6c146.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "첫 번째 이유는 캄보디아 음식이 그리웠기 때문입니다.",
+    "en": "The first reason is that I missed Cambodian food.",
+    "audio": "audio/pk-33145dd665.mp3"
+   },
+   {
+    "who": "en",
+    "text": "때문입니다 at the end means: it is because. Reason two is money.",
+    "audio": "audio/pe-35a8109b95.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "밖에서 사 먹으면 돈이 많이 들어요.",
+    "en": "Eating out costs a lot of money.",
+    "audio": "audio/pk-6f8cbc2850.mp3"
+   },
+   {
+    "who": "en",
+    "text": "사 먹다 means to buy food and eat it, food you did not cook. 돈이 들다 means it costs money. And to save on food costs is 식비를 아끼다.",
+    "audio": "audio/pe-cebc29056d.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "그래서 식비를 아끼고 싶었습니다.",
+    "en": "So I wanted to save on food costs.",
+    "audio": "audio/pk-7b51681f53.mp3"
+   },
+   {
+    "who": "en",
+    "text": "Now the kitchen. The dish is cha spey: cabbage and meat, stir-fried. Three verbs do all the work. 썰다, to cut. 볶다, to stir-fry. 넣다, to put in.",
+    "audio": "audio/pe-8ff45ccbbd.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "재료를 썰어서 같이 볶습니다.",
+    "en": "I cut the ingredients and stir-fry them together.",
+    "audio": "audio/pk-60a24af92a.mp3"
+   },
+   {
+    "who": "en",
+    "text": "썰어서 means: cut, and then. The 어서 ending joins two steps in order.",
+    "audio": "audio/pe-084721af56.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "레시피에는 없지만 저는 고추를 꼭 넣습니다.",
+    "en": "It is not in the recipe, but I always add chili.",
+    "audio": "audio/pk-5fa0084308.mp3"
+   },
+   {
+    "who": "en",
+    "text": "꼭 means always, without fail. To say you have never once skipped it, use 은 적이 없다.",
+    "audio": "audio/pe-22fa887bbf.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "고추는 한 번도 빼먹은 적이 없습니다.",
+    "en": "I have never once left out the chili.",
+    "audio": "audio/pk-26b490d381.mp3"
+   },
+   {
+    "who": "en",
+    "text": "Next, taste. 짜다 is salty. 맵다 is spicy. 싱겁다 is bland. And 입맛 is your own taste.",
+    "audio": "audio/pe-654aa1f2ed.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "제 입맛에는 딱 맞는데 다른 사람들한테는 짜요.",
+    "en": "It suits my taste just right, but it is salty for other people.",
+    "audio": "audio/pk-24e6ca9927.mp3"
+   },
+   {
+    "who": "en",
+    "text": "딱 맞다 means it fits just right. Now, what changed? The verb is 달라지다, to become different.",
+    "audio": "audio/pe-104a28d570.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "요리를 하면서 제 생활도 달라졌습니다.",
+    "en": "As I cooked, my life changed too.",
+    "audio": "audio/pk-41b1ed4162.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "차 스빼이를 먹으면 마음이 편해져서 고향이 덜 그립습니다.",
+    "en": "When I eat cha spey I feel at ease, so I miss home less.",
+    "audio": "audio/pk-fc126dd614.mp3"
+   },
+   {
+    "who": "en",
+    "text": "덜 means less. 고향이 덜 그립다: I miss home less. One last line, a plan for next time.",
+    "audio": "audio/pe-d86d45ad48.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "다음에는 소금을 조금 덜 넣고 싶습니다.",
+    "en": "Next time I want to put in a little less salt.",
+    "audio": "audio/pk-3c7bc9500a.mp3"
+   },
+   {
+    "who": "en",
+    "text": "Quick review. Say the Korean in your head before my co-host does. Hobby?",
+    "audio": "audio/pe-b1a5a2043e.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "취미",
+    "en": "hobby",
+    "audio": "audio/pk-fb0483e34b.mp3"
+   },
+   {
+    "who": "en",
+    "text": "To stir-fry?",
+    "audio": "audio/pe-6e40bdb726.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "볶다",
+    "en": "to stir-fry",
+    "audio": "audio/pk-a921a1d158.mp3"
+   },
+   {
+    "who": "en",
+    "text": "To save on food costs?",
+    "audio": "audio/pe-658032aabb.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "식비를 아끼다",
+    "en": "to save on food costs",
+    "audio": "audio/pk-62bd02ecea.mp3"
+   },
+   {
+    "who": "en",
+    "text": "I miss home less?",
+    "audio": "audio/pe-e8967cf9cf.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "고향이 덜 그립습니다.",
+    "en": "I miss home less.",
+    "audio": "audio/pk-ecc5947513.mp3"
+   },
+   {
+    "who": "en",
+    "text": "That's the episode. Open the cards to practise each line of the talk. See you next time.",
+    "audio": "audio/pe-756e03d1d8.mp3"
+   },
+   {
+    "who": "ko",
+    "text": "들어 주셔서 감사합니다.",
+    "en": "Thank you for listening.",
+    "audio": "audio/pk-dab047d32d.mp3"
+   }
+  ]
  }
 }
