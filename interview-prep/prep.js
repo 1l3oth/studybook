@@ -47,6 +47,8 @@
         b.items.forEach(function (q, i) { items.push(qItem(src, 'q' + bi + '.' + i, q)); });
       });
     });
+    // answers with guessed personal facts stay out until Rex gives the real ones
+    items = items.filter(function (it) { return !it.check; });
   }
   function qItem(src, key, q) {
     return { id: src.id + ':' + key, src: src, type: 'q', prompt: q.q, promptEn: q.qen, ko: q.a, en: q.aen,
@@ -120,7 +122,9 @@
       $('promptEn').textContent = cur.hook ? 'Hint: ' + cur.hook : '';
     } else {
       pic.className = 'pic q';
-      pic.innerHTML = '<span class="who">?</span><span>면접관 · The interviewer asks</span>';
+      pic.innerHTML = '<span class="who">?</span><span>면접관 · The interviewer asks</span>' +
+        (cur.ask ? '<button class="ask-again" id="askAgain">&#9654; 질문 다시 듣기 · Hear the question</button>' : '');
+      if (cur.ask) $('askAgain').onclick = function () { play(cur.ask); };
       $('prompt').textContent = cur.prompt;
       $('promptEn').textContent = cur.promptEn || '';
       if (cur.ask) play(cur.ask);

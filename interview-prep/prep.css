@@ -62,3 +62,4 @@ h1 span{font-size:14px;font-weight:600;color:var(--on-sign-2);margin-left:6px}
 .r0{background:#D7372B}.r1{background:#C76A12}.r2{background:#00803A}
 .center{text-align:center}.center .go{margin-top:16px}
 @media (min-width:900px){.card{display:grid;grid-template-columns:1.1fr 1fr}.pic{aspect-ratio:auto;min-height:340px}.pic.q{flex-direction:column;justify-content:center;align-items:flex-start}}
+.ask-again{background:#fff;color:#1a1a1a;border:0;border-radius:10px;padding:9px 14px;font-weight:700;font-size:13px;cursor:pointer}
