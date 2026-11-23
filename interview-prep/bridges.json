@@ -1,0 +1,61 @@
+[
+ {
+  "q": "한국 음식하고 캄보디아 음식은 뭐가 달라요?",
+  "qen": "How is Korean food different from Cambodian food?",
+  "a": "한국 음식은 반찬이 많아요. 캄보디아에서도 가족이 같이 반찬을 나눠 먹지만, 반찬 수는 더 적어요.",
+  "aen": "Korean meals have many side dishes. In Cambodia families share dishes too, but there are fewer of them.",
+  "check": true,
+  "iaudio": "audio/i-6ed0f15a03.mp3",
+  "audio": "audio/a-59fe0920f0.mp3",
+  "aen_audio": "audio/e-733ecb34ec.mp3"
+ },
+ {
+  "q": "요리하면서 한국 문화에 대해 배운 게 있어요?",
+  "qen": "Did cooking teach you anything about Korean culture?",
+  "a": "네, 한국 사람들은 음식을 같이 나눠 먹는 걸 좋아해요. 그래서 저도 차 스빼이를 만들어서 동료들하고 나눠 먹고 싶어요.",
+  "aen": "Yes, Koreans love sharing food. So I'd like to make cha spey and share it with my coworkers too.",
+  "check": true,
+  "iaudio": "audio/i-0fe624132c.mp3",
+  "audio": "audio/a-b5d9e28a7f.mp3",
+  "aen_audio": "audio/e-4886b79c7e.mp3"
+ },
+ {
+  "q": "한국 사람들처럼 밥을 빨리 먹어요?",
+  "qen": "Do you eat fast like Koreans?",
+  "a": "처음에는 천천히 먹었는데, 지금은 저도 빨리 먹어요.",
+  "aen": "At first I ate slowly, but now I eat fast too.",
+  "check": true,
+  "iaudio": "audio/i-46c8499ddc.mp3",
+  "audio": "audio/a-8a83220ac0.mp3",
+  "aen_audio": "audio/e-2a89fb4111.mp3"
+ },
+ {
+  "q": "매운 음식 좋아해요?",
+  "qen": "Do you like spicy food?",
+  "a": "네, 아주 좋아해요. 저는 요리할 때 고추를 꼭 넣어요. 김치찌개도 좋아해요.",
+  "aen": "Yes, I love it. I always put chili in when I cook. I like kimchi stew too.",
+  "iaudio": "audio/i-abd3e7f6e0.mp3",
+  "audio": "audio/a-b98d09ef29.mp3",
+  "aen_audio": "audio/e-82ab7706ee.mp3"
+ },
+ {
+  "q": "한국에서 밥 먹을 때 뭐가 제일 어려웠어요?",
+  "qen": "What was hardest about eating in Korea?",
+  "a": "쇠젓가락이 제일 어려웠어요. 캄보디아에서는 숟가락하고 포크를 많이 써요.",
+  "aen": "Metal chopsticks were the hardest. In Cambodia we mostly use a spoon and fork.",
+  "check": true,
+  "iaudio": "audio/i-940266aeb7.mp3",
+  "audio": "audio/a-d732392775.mp3",
+  "aen_audio": "audio/e-4f8b612a76.mp3"
+ },
+ {
+  "q": "동료들하고 회식하면 뭐가 좋아요?",
+  "qen": "What do you like about team dinners?",
+  "a": "같이 찌개를 먹고 노래방에 가면 동료들하고 더 친해져요.",
+  "aen": "Eating stew together and going to karaoke brings me closer to my coworkers.",
+  "check": true,
+  "iaudio": "audio/i-6b4eb3ed98.mp3",
+  "audio": "audio/a-5c0d643422.mp3",
+  "aen_audio": "audio/e-746bcb42f2.mp3"
+ }
+]

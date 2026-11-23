@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>면접 준비 · Interview prep · 스터디북</title>
+<meta name="description" content="One daily session that mixes the cooking talk and the Korean culture unit with spaced recall and mock interview questions.">
+<meta name="theme-color" content="#1C2A4A">
+<meta name="robots" content="noindex">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/line.css">
+<link rel="stylesheet" href="prep.css">
+</head>
+<body>
+<header class="band">
+  <div class="band-in">
+    <a class="back" href="../">&lsaquo; 노선도 · All units</a>
+    <div class="band-row">
+      <h1>면접 준비 <span>Interview prep</span></h1>
+      <div class="dday" id="dday"></div>
+    </div>
+  </div>
+  <div class="stripe"></div>
+</header>
+
+<main id="home" class="wrap">
+  <section class="panel today">
+    <div class="today-top">
+      <div>
+        <div class="label">오늘 · Today</div>
+        <div class="big" id="todayCount"></div>
+        <div class="sub" id="todaySub"></div>
+      </div>
+      <button class="go" id="start">시작 · Start</button>
+    </div>
+    <ol class="steps">
+      <li><b>See</b> the picture or hear the question.</li>
+      <li><b>Recall</b> the Korean in your head.</li>
+      <li><b>Tap</b> to check and listen, then rate how well you knew it.</li>
+    </ol>
+  </section>
+
+  <section class="panel" id="nightPanel" hidden>
+    <div class="today-top">
+      <div>
+        <div class="label">자기 전 · Before sleep</div>
+        <div class="sub" id="nightSub"></div>
+      </div>
+      <button class="go alt" id="night">다시 보기 · Review</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="label">기억 지도 · Memory map</div>
+    <div id="map"></div>
+    <div class="legend">
+      <span><i class="b-n"></i>new</span><span><i class="b0"></i>missed</span><span><i class="b1"></i>shaky</span>
+      <span><i class="b2"></i>getting there</span><span><i class="b3"></i>solid</span><span><i class="b4"></i>locked in</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="label">설정 · Settings</div>
+    <label class="row">면접 날 · Interview day <input type="date" id="date"></label>
+    <div class="row links"><a href="../korean-cooking-speech/">요리 이야기 · Cooking talk</a><a href="../korean-culture-talk/">한국 문화 이야기 · Korean culture</a></div>
+    <button class="reset" id="reset">Start over</button>
+  </section>
+</main>
+
+<main id="study" class="wrap" hidden>
+  <div class="progress"><div id="bar"></div></div>
+  <div class="meta"><span class="chip" id="chip"></span><span id="left"></span><button class="x" id="quit">닫기 · Close</button></div>
+  <article class="card" id="card">
+    <div class="pic" id="pic"></div>
+    <div class="body">
+      <div class="prompt" id="prompt"></div>
+      <div class="prompt-en" id="promptEn"></div>
+      <button class="reveal" id="reveal">머릿속으로 말해 보고 탭 · Recall, then tap</button>
+      <div class="answer" id="answer" hidden>
+        <div class="ko" id="ko"></div>
+        <div class="en" id="en"></div>
+        <div class="check" id="check" hidden>Make this true for you before the interview.</div>
+        <button class="listen" id="listen">&#9654; 듣기 · Listen</button>
+      </div>
+    </div>
+  </article>
+  <div class="rate" id="rate" hidden>
+    <button data-r="0" class="r0">다시<small>Missed</small></button>
+    <button data-r="1" class="r1">애매<small>Almost</small></button>
+    <button data-r="2" class="r2">알아요<small>Got it</small></button>
+  </div>
+</main>
+
+<main id="done" class="wrap" hidden>
+  <section class="panel center">
+    <div class="big">끝! · Done</div>
+    <div class="sub" id="doneSub"></div>
+    <button class="go" id="home2">돌아가기 · Back</button>
+  </section>
+</main>
+<script src="prep.js"></script>
+</body>
+</html>
