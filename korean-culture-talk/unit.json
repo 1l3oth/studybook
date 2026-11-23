@@ -1,0 +1,793 @@
+{
+ "slug": "korean-culture-talk",
+ "title_ko": "한국 문화 이야기",
+ "title_en": "Talking about Korean culture",
+ "subtitle": "13 things Koreans do, ready for an interview",
+ "description": "Thirteen everyday Korean customs, from bowing to noraebang, as picture cards with native audio, interview questions comparing Korea and Cambodia, and the key words.",
+ "sections": [
+  {
+   "id": "meet",
+   "ko": "만남",
+   "en": "Meeting people",
+   "color": "#0052A4"
+  },
+  {
+   "id": "meal",
+   "ko": "식사",
+   "en": "At the table",
+   "color": "#00A84D"
+  },
+  {
+   "id": "pay",
+   "ko": "계산",
+   "en": "Paying",
+   "color": "#EF7C1C"
+  },
+  {
+   "id": "talk",
+   "ko": "대화",
+   "en": "How people talk",
+   "color": "#996CAC"
+  },
+  {
+   "id": "fun",
+   "ko": "노래방",
+   "en": "After dinner",
+   "color": "#CD7C2F"
+  }
+ ],
+ "spine": {
+  "title": "노선도 · 하루 순서",
+  "note": "One evening with Korean coworkers: meet, eat, pay, talk, then sing."
+ },
+ "explain": {
+  "title": "한눈에 · The big picture",
+  "why": "Most of these customs come from two ideas: respect for older people, and 'we' before 'me'.",
+  "tiles": [
+   {
+    "img": "img/c01-bow.svg",
+    "ko": "존중",
+    "en": "Respect older people",
+    "color": "#0052A4"
+   },
+   {
+    "img": "img/c10-uri.svg",
+    "ko": "우리",
+    "en": "We come before me",
+    "color": "#996CAC"
+   },
+   {
+    "img": "img/c04-banchan.svg",
+    "ko": "나눠 먹기",
+    "en": "Food is shared, not split",
+    "color": "#00A84D"
+   },
+   {
+    "img": "img/c06-fast.svg",
+    "ko": "빨리빨리",
+    "en": "Busy places, fast meals",
+    "color": "#00A84D"
+   },
+   {
+    "img": "img/c09-next-time.svg",
+    "ko": "다음에",
+    "en": "Taking turns keeps friends close",
+    "color": "#EF7C1C"
+   },
+   {
+    "img": "img/c12-unnie.svg",
+    "ko": "나이",
+    "en": "Age decides how you call people",
+    "color": "#996CAC"
+   }
+  ]
+ },
+ "cards": [
+  {
+   "sec": "meet",
+   "img": "img/c01-bow.svg",
+   "flat": true,
+   "alt": "One person bows to another",
+   "hook": "인사",
+   "ko": "한국 사람들은 인사할 때, 고마울 때, 미안할 때 고개를 숙여요.",
+   "en": "Koreans bow their heads to say hello, thank you and sorry.",
+   "audio": "audio/c01.mp3",
+   "en_audio": "audio/e-d276fd02f6.mp3"
+  },
+  {
+   "sec": "meet",
+   "img": "img/c02-title.svg",
+   "flat": true,
+   "alt": "A desk name plate reading 팀장님",
+   "hook": "직급",
+   "ko": "회사에서는 이름 대신 '팀장님', '부장님'처럼 직급으로 불러요.",
+   "en": "At work, people are called by their title, like team leader or department head, not by name.",
+   "audio": "audio/c02.mp3",
+   "en_audio": "audio/e-adb06d0a32.mp3"
+  },
+  {
+   "sec": "meet",
+   "img": "img/c03-two-hands.svg",
+   "flat": true,
+   "alt": "Two hands holding out a wrapped gift",
+   "hook": "두 손",
+   "ko": "윗사람에게 물건을 줄 때는 두 손으로 드려요.",
+   "en": "You give things to an older person with two hands.",
+   "audio": "audio/c03.mp3",
+   "en_audio": "audio/e-c3d9eaac98.mp3"
+  },
+  {
+   "sec": "meal",
+   "img": "img/c04-banchan.svg",
+   "flat": true,
+   "alt": "A table of small side dishes around a rice bowl",
+   "hook": "반찬",
+   "ko": "식당에서는 반찬을 다 같이 나눠 먹어요.",
+   "en": "At a restaurant, everyone shares the side dishes.",
+   "audio": "audio/c04.mp3",
+   "en_audio": "audio/e-9db594c9d5.mp3"
+  },
+  {
+   "sec": "meal",
+   "img": "img/c05-jjigae.svg",
+   "flat": true,
+   "alt": "One pot of red stew with two spoons",
+   "hook": "찌개",
+   "ko": "김치찌개도 한 냄비에서 같이 떠먹어요.",
+   "en": "Even kimchi stew is eaten together from one pot.",
+   "audio": "audio/c05.mp3",
+   "en_audio": "audio/e-ceb58cbf8f.mp3"
+  },
+  {
+   "sec": "meal",
+   "img": "img/c06-fast.svg",
+   "flat": true,
+   "alt": "An empty bowl and a stopwatch",
+   "hook": "빨리",
+   "ko": "한국 사람들은 밥을 빨리 먹는 편이에요.",
+   "en": "Koreans tend to eat fast.",
+   "audio": "audio/c06.mp3",
+   "en_audio": "audio/e-eee07f7438.mp3"
+  },
+  {
+   "sec": "meal",
+   "img": "img/c07-slurp.svg",
+   "flat": true,
+   "alt": "Noodles lifted from a pot with sound lines",
+   "hook": "후루룩",
+   "ko": "라면을 후루룩 소리 내서 먹어도 괜찮아요.",
+   "en": "It's fine to slurp your ramyeon out loud.",
+   "audio": "audio/c07.mp3",
+   "en_audio": "audio/e-dc39eac165.mp3"
+  },
+  {
+   "sec": "meal",
+   "img": "img/c08-chopsticks.svg",
+   "flat": true,
+   "alt": "A metal spoon and metal chopsticks",
+   "hook": "쇠젓가락",
+   "ko": "한국에서는 나무젓가락보다 쇠젓가락을 많이 써요.",
+   "en": "In Korea, people use metal chopsticks more than wooden ones.",
+   "audio": "audio/c08.mp3",
+   "en_audio": "audio/e-bf14e6f8c0.mp3"
+  },
+  {
+   "sec": "pay",
+   "img": "img/c09-next-time.svg",
+   "flat": true,
+   "alt": "A receipt with arrows going back and forth",
+   "hook": "다음에",
+   "ko": "'오늘은 제가 살게요. 다음에 사 주세요.' 이렇게 돌아가면서 사요.",
+   "en": "'I'll pay today. You get it next time.' People take turns paying.",
+   "audio": "audio/c09.mp3",
+   "en_audio": "audio/e-ebb45a3bf9.mp3"
+  },
+  {
+   "sec": "talk",
+   "img": "img/c10-uri.svg",
+   "flat": true,
+   "alt": "A family under one roof with the word 우리",
+   "hook": "우리",
+   "ko": "'내 엄마' 대신 '우리 엄마', '우리 회사'라고 말해요.",
+   "en": "People say 'our mom' and 'our company' instead of 'my'.",
+   "audio": "audio/c10.mp3",
+   "en_audio": "audio/e-a72495882a.mp3"
+  },
+  {
+   "sec": "talk",
+   "img": "img/c11-age.svg",
+   "flat": true,
+   "alt": "A January 1 calendar and a cake with one candle",
+   "hook": "한국 나이",
+   "ko": "한국 나이로는 태어나면 한 살이고, 1월 1일에 모두 한 살을 더 먹어요.",
+   "en": "In Korean age you are one at birth, and everyone turns a year older on January 1.",
+   "audio": "audio/c11.mp3",
+   "en_audio": "audio/e-8c14fb746e.mp3"
+  },
+  {
+   "sec": "talk",
+   "img": "img/c12-unnie.svg",
+   "flat": true,
+   "alt": "An older friend and a younger friend calling 언니",
+   "hook": "언니 오빠",
+   "ko": "가족이 아니어도 나이가 많은 친구를 '언니', '오빠', '누나', '형'이라고 불러요.",
+   "en": "Even outside the family, older friends are called 언니, 오빠, 누나 or 형.",
+   "audio": "audio/c12.mp3",
+   "en_audio": "audio/e-241626b9bf.mp3"
+  },
+  {
+   "sec": "fun",
+   "img": "img/c13-noraebang.svg",
+   "flat": true,
+   "alt": "A karaoke screen, a microphone and music notes",
+   "hook": "노래방",
+   "ko": "밥을 먹고 나서 같이 노래방에 자주 가요.",
+   "en": "After eating, people often go to a karaoke room together.",
+   "audio": "audio/c13.mp3",
+   "en_audio": "audio/e-6e439d4479.mp3"
+  }
+ ],
+ "qa": [
+  {
+   "title": "함정 · 헷갈리는 것",
+   "small": "Traps · read these first",
+   "note": "The three things learners mix up most.",
+   "kind": "trap",
+   "items": [
+    {
+     "q": "면접에서 '-요'로 말해도 돼요?",
+     "qen": "Can I end sentences with -요 in an interview?",
+     "qaudio": "audio/qt1.mp3",
+     "a": "네, 괜찮아요. 더 격식 있게 하려면 '-습니다'로 바꾸면 돼요.",
+     "aen": "Yes, that's fine. To sound more formal, switch to -습니다.",
+     "why": "신기했어요 becomes 신기했습니다, 써요 becomes 씁니다. Pick one style and keep it.",
+     "audio": "audio/at1.mp3",
+     "aen_audio": "audio/e-cf7f82e62f.mp3",
+     "iaudio": "audio/i-405339ac5b.mp3"
+    },
+    {
+     "q": "'우리 엄마'는 누구 엄마예요?",
+     "qen": "Whose mom is 'our mom'?",
+     "qaudio": "audio/qt2.mp3",
+     "a": "제 엄마예요. 듣는 사람 엄마가 아니에요.",
+     "aen": "It's my own mom, not the listener's mom.",
+     "why": "우리 sounds warmer than 내. Use 우리 회사 for your own company too.",
+     "audio": "audio/at2.mp3",
+     "aen_audio": "audio/e-087c56fe6e.mp3",
+     "iaudio": "audio/i-fcdb4de7c1.mp3"
+    },
+    {
+     "q": "'오빠'는 남자 친구한테만 써요?",
+     "qen": "Is 오빠 only for a boyfriend?",
+     "qaudio": "audio/qt3.mp3",
+     "a": "아니요. 여자가 나이 많은 친한 남자를 부를 때 써요.",
+     "aen": "No. A woman uses it for any older man she is close to.",
+     "why": "A man says 형 to an older man and 누나 to an older woman. A woman says 오빠 and 언니.",
+     "audio": "audio/at3.mp3",
+     "aen_audio": "audio/e-5818483c8a.mp3",
+     "iaudio": "audio/i-aac61c1d2c.mp3"
+    }
+   ]
+  },
+  {
+   "title": "면접에서 · In the interview",
+   "small": "Questions an interviewer may ask you",
+   "note": "Answer in your head, then tap Listen to compare.",
+   "kind": "qa",
+   "items": [
+    {
+     "q": "한국에 와서 어떤 문화가 제일 신기했어요?",
+     "qen": "What Korean custom surprised you the most?",
+     "qaudio": "audio/qc1.mp3",
+     "a": "밥을 정말 빨리 먹는 게 신기했어요. 처음에는 따라가기 힘들었는데 지금은 익숙해요.",
+     "aen": "How fast people eat surprised me. At first it was hard to keep up, but now I'm used to it.",
+     "check": true,
+     "audio": "audio/ac1.mp3",
+     "aen_audio": "audio/e-9be44c911b.mp3",
+     "iaudio": "audio/i-9e30d47908.mp3"
+    },
+    {
+     "q": "한국 회사에서는 사람을 어떻게 불러요?",
+     "qen": "How do you address people at a Korean company?",
+     "qaudio": "audio/qc2.mp3",
+     "a": "이름 대신 직급에 '님'을 붙여서 불러요. 예를 들면 '팀장님'이라고 해요.",
+     "aen": "Instead of names, you add 님 to the title. For example, you say 팀장님.",
+     "audio": "audio/ac2.mp3",
+     "aen_audio": "audio/e-3fc5f02805.mp3",
+     "iaudio": "audio/i-9982558332.mp3"
+    },
+    {
+     "q": "윗사람에게 물건을 드릴 때 어떻게 해요?",
+     "qen": "How do you hand something to an older person?",
+     "qaudio": "audio/qc3.mp3",
+     "a": "두 손으로 드리고 고개를 살짝 숙여요.",
+     "aen": "I give it with two hands and bow my head a little.",
+     "audio": "audio/ac3.mp3",
+     "aen_audio": "audio/e-65b8c29ef9.mp3",
+     "iaudio": "audio/i-0708f7fc99.mp3"
+    },
+    {
+     "q": "왜 '내 회사'가 아니라 '우리 회사'라고 해요?",
+     "qen": "Why do people say 'our company', not 'my company'?",
+     "qaudio": "audio/qc4.mp3",
+     "a": "한국은 '나'보다 '우리'를 중요하게 생각해서 그래요. 더 친근하게 들려요.",
+     "aen": "Because Korea puts 'we' before 'me'. It sounds friendlier.",
+     "audio": "audio/ac4.mp3",
+     "aen_audio": "audio/e-a845b58446.mp3",
+     "iaudio": "audio/i-fb50e18769.mp3"
+    },
+    {
+     "q": "한국 나이를 알아요?",
+     "qen": "Do you know about Korean age?",
+     "qaudio": "audio/qc5.mp3",
+     "a": "네, 태어나면 한 살이고 1월 1일에 한 살씩 더 먹어요. 그런데 2023년부터는 만 나이를 써요.",
+     "aen": "Yes. You are one at birth and gain a year every January 1. But since 2023, international age is used.",
+     "audio": "audio/ac5.mp3",
+     "aen_audio": "audio/e-df010fac62.mp3",
+     "iaudio": "audio/i-faff6d096b.mp3"
+    },
+    {
+     "q": "보통 회식 끝나고 뭐 해요?",
+     "qen": "What do people usually do after a team dinner?",
+     "qaudio": "audio/qc6.mp3",
+     "a": "노래방에 가서 같이 노래를 불러요. 코인 노래방은 싸서 자주 가요.",
+     "aen": "They go to a karaoke room and sing together. Coin karaoke is cheap, so people go often.",
+     "audio": "audio/ac6.mp3",
+     "aen_audio": "audio/e-6effa785e6.mp3",
+     "iaudio": "audio/i-22347f3957.mp3"
+    },
+    {
+     "q": "밥값은 누가 내요?",
+     "qen": "Who pays for the meal?",
+     "qaudio": "audio/qc7.mp3",
+     "a": "나눠서 낼 때도 있고, '오늘은 제가 살게요' 하고 돌아가면서 낼 때도 있어요.",
+     "aen": "Sometimes we split it, and sometimes someone says 'I'll pay today' and we take turns.",
+     "audio": "audio/ac7.mp3",
+     "aen_audio": "audio/e-0a348091ed.mp3",
+     "iaudio": "audio/i-914c2e89ce.mp3"
+    },
+    {
+     "q": "캄보디아에도 비슷한 문화가 있어요?",
+     "qen": "Is there a similar custom in Cambodia?",
+     "qaudio": "audio/qc8.mp3",
+     "a": "네, 있어요. 캄보디아에서도 나이 많은 사람을 '벙'이라고 불러요. 한국의 '언니, 오빠'하고 비슷해요.",
+     "aen": "Yes. In Cambodia we also call older people 'bong'. It's like 언니 and 오빠 in Korea.",
+     "check": true,
+     "audio": "audio/ac8.mp3",
+     "aen_audio": "audio/e-aaad56a408.mp3",
+     "iaudio": "audio/i-f88d9d77a0.mp3"
+    },
+    {
+     "q": "한국 문화하고 캄보디아 문화는 뭐가 달라요?",
+     "qen": "How is Korean culture different from Cambodian culture?",
+     "qaudio": "audio/qc9.mp3",
+     "a": "한국은 뭐든지 빨라요. 캄보디아는 조금 더 여유가 있어요.",
+     "aen": "Everything in Korea is fast. Cambodia is a bit more relaxed.",
+     "check": true,
+     "audio": "audio/ac9.mp3",
+     "aen_audio": "audio/e-8ae89b9366.mp3",
+     "iaudio": "audio/i-d1af59e418.mp3"
+    }
+   ]
+  },
+  {
+   "title": "막힐 때",
+   "small": "When you don't know what to say",
+   "note": "Add one of these to any answer and keep talking.",
+   "kind": "surv",
+   "items": [
+    {
+     "ko": "처음에는 신기했는데 지금은 익숙해요.",
+     "en": "At first it surprised me, but now I'm used to it.",
+     "audio": "audio/s1.mp3",
+     "en_audio": "audio/e-c0358a8e1c.mp3"
+    },
+    {
+     "ko": "그건 캄보디아하고 비슷해요.",
+     "en": "That's similar to Cambodia.",
+     "audio": "audio/s2.mp3",
+     "en_audio": "audio/e-80a7ec91b7.mp3"
+    },
+    {
+     "ko": "캄보디아는 조금 달라요.",
+     "en": "Cambodia is a little different.",
+     "audio": "audio/s3.mp3",
+     "en_audio": "audio/e-5eb16f2cdc.mp3"
+    },
+    {
+     "ko": "잘은 모르지만, 제 생각에는 존중하는 문화 같아요.",
+     "en": "I'm not sure, but I think it's a culture of respect.",
+     "audio": "audio/s4.mp3",
+     "en_audio": "audio/e-9fcc22187d.mp3"
+    }
+   ]
+  }
+ ],
+ "vocab": [
+  {
+   "title": "만남 · Meeting people",
+   "color": "#0052A4",
+   "items": [
+    {
+     "ko": "고개를 숙이다",
+     "en": "to bow your head",
+     "img": "img/c01-bow.svg",
+     "ex": {
+      "ko": "선배를 보면 고개를 숙여서 인사해요.",
+      "en": "When I see a senior, I bow my head to greet them.",
+      "audio": "audio/x-b02ffba857.mp3",
+      "en_audio": "audio/e-2da7ead673.mp3"
+     },
+     "audio": "audio/v01.mp3",
+     "en_audio": "audio/e-c6edbcc5f9.mp3"
+    },
+    {
+     "ko": "직급",
+     "en": "job title, rank",
+     "img": "img/c02-title.svg",
+     "ex": {
+      "ko": "회사에서는 직급으로 불러요.",
+      "en": "At work, people are called by their title.",
+      "audio": "audio/x-32ab0c5b1d.mp3",
+      "en_audio": "audio/e-a037626b15.mp3"
+     },
+     "audio": "audio/v02.mp3",
+     "en_audio": "audio/e-524b3851c3.mp3"
+    },
+    {
+     "ko": "팀장님",
+     "en": "team leader",
+     "img": "img/c02-title.svg",
+     "ex": {
+      "ko": "팀장님, 회의 자료 드릴게요.",
+      "en": "Team leader, here are the meeting files.",
+      "audio": "audio/x-454dc52f3e.mp3",
+      "en_audio": "audio/e-868d9ede32.mp3"
+     },
+     "audio": "audio/v03.mp3",
+     "en_audio": "audio/e-788497e72f.mp3"
+    },
+    {
+     "ko": "윗사람",
+     "en": "a senior, an older person",
+     "img": "img/c03-two-hands.svg",
+     "ex": {
+      "ko": "윗사람에게는 존댓말을 써요.",
+      "en": "You use polite speech with seniors.",
+      "audio": "audio/x-07a06d8e9a.mp3",
+      "en_audio": "audio/e-0d386422bb.mp3"
+     },
+     "audio": "audio/v04.mp3",
+     "en_audio": "audio/e-e51dd69ab8.mp3"
+    },
+    {
+     "ko": "두 손으로",
+     "en": "with two hands",
+     "img": "img/c03-two-hands.svg",
+     "ex": {
+      "ko": "명함은 두 손으로 받아요.",
+      "en": "You take a business card with two hands.",
+      "audio": "audio/x-2ddff90ad9.mp3",
+      "en_audio": "audio/e-9e7ae2e62a.mp3"
+     },
+     "audio": "audio/v05.mp3",
+     "en_audio": "audio/e-ee24c552db.mp3"
+    },
+    {
+     "ko": "존댓말",
+     "en": "polite speech",
+     "img": "img/w-polite.svg",
+     "ex": {
+      "ko": "처음 만난 사람에게는 존댓말을 써요.",
+      "en": "You use polite speech with people you just met.",
+      "audio": "audio/x-8d5fda99ab.mp3",
+      "en_audio": "audio/e-9621094b15.mp3"
+     },
+     "audio": "audio/v06.mp3",
+     "en_audio": "audio/e-4192c84bcf.mp3"
+    }
+   ]
+  },
+  {
+   "title": "식사 · At the table",
+   "color": "#00A84D",
+   "items": [
+    {
+     "ko": "반찬",
+     "en": "side dishes",
+     "img": "img/c04-banchan.svg",
+     "ex": {
+      "ko": "반찬은 더 달라고 하면 공짜로 줘요.",
+      "en": "If you ask for more side dishes, they are free.",
+      "audio": "audio/x-de8b30e017.mp3",
+      "en_audio": "audio/e-2a854f7347.mp3"
+     },
+     "audio": "audio/v07.mp3",
+     "en_audio": "audio/e-403bb70a18.mp3"
+    },
+    {
+     "ko": "나눠 먹다",
+     "en": "to share food",
+     "img": "img/c04-banchan.svg",
+     "ex": {
+      "ko": "피자를 시켜서 동료들이랑 나눠 먹었어요.",
+      "en": "I ordered pizza and shared it with my coworkers.",
+      "audio": "audio/x-b2c9d38f62.mp3",
+      "en_audio": "audio/e-224b08b66d.mp3"
+     },
+     "audio": "audio/v08.mp3",
+     "en_audio": "audio/e-dc7a7959a9.mp3"
+    },
+    {
+     "ko": "찌개",
+     "en": "stew",
+     "img": "img/c05-jjigae.svg",
+     "ex": {
+      "ko": "점심에 김치찌개를 먹었어요.",
+      "en": "I had kimchi stew for lunch.",
+      "audio": "audio/x-311373d652.mp3",
+      "en_audio": "audio/e-4d10e12035.mp3"
+     },
+     "audio": "audio/v09.mp3",
+     "en_audio": "audio/e-83c74738d4.mp3"
+    },
+    {
+     "ko": "빨리빨리",
+     "en": "hurry hurry, fast",
+     "img": "img/c06-fast.svg",
+     "ex": {
+      "ko": "한국은 빨리빨리 문화가 있어요.",
+      "en": "Korea has a hurry-hurry culture.",
+      "audio": "audio/x-2ae05597f1.mp3",
+      "en_audio": "audio/e-2ad343bef5.mp3"
+     },
+     "audio": "audio/v10.mp3",
+     "en_audio": "audio/e-2d9a04a663.mp3"
+    },
+    {
+     "ko": "후루룩",
+     "en": "slurp (sound)",
+     "img": "img/c07-slurp.svg",
+     "ex": {
+      "ko": "라면을 후루룩 먹었어요.",
+      "en": "I slurped down my ramyeon.",
+      "audio": "audio/x-85093552c2.mp3",
+      "en_audio": "audio/e-7f19cbdead.mp3"
+     },
+     "audio": "audio/v11.mp3",
+     "en_audio": "audio/e-34936b2f25.mp3"
+    },
+    {
+     "ko": "쇠젓가락",
+     "en": "metal chopsticks",
+     "img": "img/c08-chopsticks.svg",
+     "ex": {
+      "ko": "쇠젓가락은 처음에 좀 어려웠어요.",
+      "en": "Metal chopsticks were a bit hard at first.",
+      "audio": "audio/x-2270d04d03.mp3",
+      "en_audio": "audio/e-cc6b11cff5.mp3"
+     },
+     "audio": "audio/v12.mp3",
+     "en_audio": "audio/e-20a55876ba.mp3"
+    }
+   ]
+  },
+  {
+   "title": "계산 · Paying",
+   "color": "#EF7C1C",
+   "items": [
+    {
+     "ko": "계산하다",
+     "en": "to pay the bill",
+     "img": "img/c09-next-time.svg",
+     "ex": {
+      "ko": "제가 계산할게요.",
+      "en": "I'll get the bill.",
+      "audio": "audio/x-43ee8df529.mp3",
+      "en_audio": "audio/e-ac0dc2f2ae.mp3"
+     },
+     "audio": "audio/v13.mp3",
+     "en_audio": "audio/e-e529890c01.mp3"
+    },
+    {
+     "ko": "제가 살게요",
+     "en": "it's my treat",
+     "img": "img/c09-next-time.svg",
+     "ex": {
+      "ko": "오늘 점심은 제가 살게요.",
+      "en": "Lunch is on me today.",
+      "audio": "audio/x-b683eefcc2.mp3",
+      "en_audio": "audio/e-39d167e6e6.mp3"
+     },
+     "audio": "audio/v14.mp3",
+     "en_audio": "audio/e-cf98254a2f.mp3"
+    },
+    {
+     "ko": "돌아가면서",
+     "en": "taking turns",
+     "img": "img/c09-next-time.svg",
+     "ex": {
+      "ko": "커피는 돌아가면서 사요.",
+      "en": "We take turns buying coffee.",
+      "audio": "audio/x-2384497646.mp3",
+      "en_audio": "audio/e-d3d2756a3f.mp3"
+     },
+     "audio": "audio/v15.mp3",
+     "en_audio": "audio/e-551fd8c7dc.mp3"
+    },
+    {
+     "ko": "회식",
+     "en": "team dinner",
+     "img": "img/w-dinner.svg",
+     "ex": {
+      "ko": "금요일에 팀 회식이 있어요.",
+      "en": "There's a team dinner on Friday.",
+      "audio": "audio/x-79d8e5587f.mp3",
+      "en_audio": "audio/e-24277aecd0.mp3"
+     },
+     "audio": "audio/v16.mp3",
+     "en_audio": "audio/e-46ece3adb1.mp3"
+    }
+   ]
+  },
+  {
+   "title": "대화 · How people talk",
+   "color": "#996CAC",
+   "items": [
+    {
+     "ko": "우리",
+     "en": "we, our",
+     "img": "img/c10-uri.svg",
+     "ex": {
+      "ko": "우리 회사는 강남에 있어요.",
+      "en": "My (our) company is in Gangnam.",
+      "audio": "audio/x-f523606a9e.mp3",
+      "en_audio": "audio/e-2349048f54.mp3"
+     },
+     "audio": "audio/v17.mp3",
+     "en_audio": "audio/e-31d5a3b0ac.mp3"
+    },
+    {
+     "ko": "한 살 더 먹다",
+     "en": "to turn a year older",
+     "img": "img/c11-age.svg",
+     "ex": {
+      "ko": "새해가 돼서 한 살 더 먹었어요.",
+      "en": "It's the new year, so I'm a year older.",
+      "audio": "audio/x-6d2d558e53.mp3",
+      "en_audio": "audio/e-236b2141fd.mp3"
+     },
+     "audio": "audio/v18.mp3",
+     "en_audio": "audio/e-359871af79.mp3"
+    },
+    {
+     "ko": "만 나이",
+     "en": "international age",
+     "img": "img/w-age-man.svg",
+     "ex": {
+      "ko": "요즘은 공식적으로 만 나이를 써요.",
+      "en": "These days international age is the official one.",
+      "audio": "audio/x-a34305b343.mp3",
+      "en_audio": "audio/e-a3e5b03fa5.mp3"
+     },
+     "audio": "audio/v19.mp3",
+     "en_audio": "audio/e-14af453d7a.mp3"
+    },
+    {
+     "ko": "언니",
+     "en": "older sister (said by a woman)",
+     "img": "img/c12-unnie.svg",
+     "ex": {
+      "ko": "언니, 같이 점심 먹어요.",
+      "en": "Unnie, let's have lunch together.",
+      "audio": "audio/x-706453339b.mp3",
+      "en_audio": "audio/e-736a2ad876.mp3"
+     },
+     "audio": "audio/v20.mp3",
+     "en_audio": "audio/e-a118f4e774.mp3"
+    },
+    {
+     "ko": "형",
+     "en": "older brother (said by a man)",
+     "img": "img/c12-unnie.svg",
+     "ex": {
+      "ko": "형, 오늘 시간 있어요?",
+      "en": "Hyung, are you free today?",
+      "audio": "audio/x-8d96611022.mp3",
+      "en_audio": "audio/e-7c7dc3d124.mp3"
+     },
+     "audio": "audio/v21.mp3",
+     "en_audio": "audio/e-c9eb4ad6d6.mp3"
+    }
+   ]
+  },
+  {
+   "title": "노래방 · After dinner",
+   "color": "#CD7C2F",
+   "items": [
+    {
+     "ko": "노래방",
+     "en": "karaoke room",
+     "img": "img/c13-noraebang.svg",
+     "ex": {
+      "ko": "노래방 갈래요?",
+      "en": "Shall we go to a karaoke room?",
+      "audio": "audio/x-55a1fef187.mp3",
+      "en_audio": "audio/e-3839249be3.mp3"
+     },
+     "audio": "audio/v22.mp3",
+     "en_audio": "audio/e-8f9a84ed38.mp3"
+    },
+    {
+     "ko": "코인 노래방",
+     "en": "coin karaoke",
+     "img": "img/w-coin.svg",
+     "ex": {
+      "ko": "코인 노래방은 혼자 가도 괜찮아요.",
+      "en": "It is fine to go to coin karaoke alone.",
+      "audio": "audio/x-48b3e0534e.mp3",
+      "en_audio": "audio/e-ced12b81b7.mp3"
+     },
+     "audio": "audio/v23.mp3",
+     "en_audio": "audio/e-315805e7f5.mp3"
+    },
+    {
+     "ko": "신기하다",
+     "en": "to be surprising, amazing",
+     "img": "img/w-wow.svg",
+     "ex": {
+      "ko": "처음에는 모든 게 신기했어요.",
+      "en": "At first everything amazed me.",
+      "audio": "audio/x-61b9e437d6.mp3",
+      "en_audio": "audio/e-4d29bc3fdf.mp3"
+     },
+     "audio": "audio/v24.mp3",
+     "en_audio": "audio/e-275d3a1a18.mp3"
+    },
+    {
+     "ko": "익숙하다",
+     "en": "to be used to",
+     "img": "img/w-used-to.svg",
+     "ex": {
+      "ko": "이제 한국 생활에 익숙해요.",
+      "en": "Now I'm used to life in Korea.",
+      "audio": "audio/x-ed1b79f39a.mp3",
+      "en_audio": "audio/e-d3a8f6128a.mp3"
+     },
+     "audio": "audio/v25.mp3",
+     "en_audio": "audio/e-7f0892b12f.mp3"
+    }
+   ]
+  }
+ ],
+ "full_title": "하루 순서 · One evening, start to finish",
+ "full": [
+  {
+   "title": "만남 · Meeting people",
+   "ko": "한국 사람들은 인사할 때, 고마울 때, 미안할 때 고개를 숙여요. 회사에서는 이름 대신 '팀장님', '부장님'처럼 직급으로 불러요. 윗사람에게 물건을 줄 때는 두 손으로 드려요.",
+   "en": "Koreans bow their heads to say hello, thank you and sorry. At work, people are called by their title, like team leader or department head, not by name. You give things to an older person with two hands."
+  },
+  {
+   "title": "식사 · At the table",
+   "ko": "식당에서는 반찬을 다 같이 나눠 먹어요. 김치찌개도 한 냄비에서 같이 떠먹어요. 한국 사람들은 밥을 빨리 먹는 편이에요. 라면을 후루룩 소리 내서 먹어도 괜찮아요. 한국에서는 나무젓가락보다 쇠젓가락을 많이 써요.",
+   "en": "At a restaurant, everyone shares the side dishes. Even kimchi stew is eaten together from one pot. Koreans tend to eat fast. It's fine to slurp your ramyeon out loud. In Korea, people use metal chopsticks more than wooden ones."
+  },
+  {
+   "title": "계산 · Paying",
+   "ko": "'오늘은 제가 살게요. 다음에 사 주세요.' 이렇게 돌아가면서 사요.",
+   "en": "'I'll pay today. You get it next time.' People take turns paying."
+  },
+  {
+   "title": "대화 · How people talk",
+   "ko": "'내 엄마' 대신 '우리 엄마', '우리 회사'라고 말해요. 한국 나이로는 태어나면 한 살이고, 1월 1일에 모두 한 살을 더 먹어요. 가족이 아니어도 나이가 많은 친구를 '언니', '오빠', '누나', '형'이라고 불러요.",
+   "en": "People say 'our mom' and 'our company' instead of 'my'. In Korean age you are one at birth, and everyone turns a year older on January 1. Even outside the family, older friends are called 언니, 오빠, 누나 or 형."
+  },
+  {
+   "title": "노래방 · After dinner",
+   "ko": "밥을 먹고 나서 같이 노래방에 자주 가요.",
+   "en": "After eating, people often go to a karaoke room together."
+  }
+ ],
+ "published": "2026-11-23",
+ "station_en": "Thirteen Korean customs, from bowing to noraebang, to talk about in an interview."
+}
