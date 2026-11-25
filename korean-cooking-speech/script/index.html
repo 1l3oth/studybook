@@ -100,7 +100,9 @@
 .sheet .i { font-size: 12px; width: 32px; }
 .sheet .ln > div:last-child { flex: 1; min-width: 0; }
 .sheet .dl { display: inline-block; margin: 0 0 12px; font-size: 14px; color: #374151; }
-@media (max-width: 800px) { .sheet { margin: 0 0 40px; border-radius: 0; } }
+body { padding-bottom: env(safe-area-inset-bottom); }
+.usign { position: relative; }
+@media (max-width: 800px) { .sheet { margin: 0 0 40px; border-radius: 0; } .usign .utitle p { font-size: 12px; } }
 @media print { .usign, .sheet .dl { display: none; } .sheet { margin: 0; padding: 0; } }
 </style>
 </head>
