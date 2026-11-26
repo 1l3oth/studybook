@@ -99,11 +99,13 @@
 .sheet .ph { font-size: 20px; color: #1f2937; } .sheet .pe { font-size: 13px; }
 .sheet .i { font-size: 12px; width: 32px; }
 .sheet .ln > div:last-child { flex: 1; min-width: 0; }
-.sheet .dl { display: inline-block; margin: 0 0 12px; font-size: 14px; color: #374151; }
+.sheet .dl { display: inline-block; margin: 0; font-size: 14px; color: #374151; }
+.sheet .voicebar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 16px; }
+.sheet .voicebar audio { flex: 1 1 260px; max-width: 100%; height: 40px; }
 body { padding-bottom: env(safe-area-inset-bottom); }
 .usign { position: relative; }
 @media (max-width: 800px) { .sheet { margin: 0 0 40px; border-radius: 0; } .usign .utitle p { font-size: 12px; } }
-@media print { .usign, .sheet .dl { display: none; } .sheet { margin: 0; padding: 0; } }
+@media print { .usign, .sheet .voicebar { display: none; } .sheet { margin: 0; padding: 0; } }
 </style>
 </head>
 <body data-unit="korean-cooking-speech">
@@ -114,7 +116,7 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   </div>
   <div class="stripe" aria-hidden="true"></div>
 </header>
-<main class="sheet"><a class="dl" href="../speech-script.pdf">PDF로 받기 · Download PDF</a>
+<main class="sheet"><div class="voicebar"><audio controls preload="metadata" src="../audio/k-speech-script.mp3" aria-label="발표 전체 듣기 · Listen to full script"></audio><a class="dl" href="../speech-script.pdf">PDF로 받기 · Download PDF</a></div>
 <section class="page"><h1>요리 발표 대본 <span>6 parts, 36 lines. Learn one part, cover it, recall it from the bold words.</span></h1><div class="part" style="border-top-color:#2563eb">
       <div class="ph"><span class="num" style="background:#2563eb">1</span> 시작 <span class="pe">Opening</span></div>
       <div class="hookbar" style="background:#2563eb14;color:#2563eb">Memory hook: Hello, name, team, topic: cooking</div>

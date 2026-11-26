@@ -336,6 +336,17 @@
    "kind": "qa",
    "items": [
     {
+     "group": "발표 · Overview",
+     "q": "발표 주제를 간단히 설명해 주시겠습니까?",
+     "qen": "Can you simply describe your topic?",
+     "a": "제가 발표에서 이야기하고 싶은 것은 한국에 온 후 새로 시작한 요리입니다. 한국에 오기 전에는 요리를 거의 하지 않았습니다. 하지만 한국에 와서 캄보디아 음식이 그리워졌고, 밖에서 음식을 사 먹는 비용도 아끼고 싶어서 요리를 시작했습니다. 그중에서 제가 가장 자주 만드는 음식은 캄보디아 음식인 차 스빼이입니다. 양배추와 고기를 볶아서 만들고, 제가 매운 음식을 좋아해서 고추도 꼭 넣습니다. 요리를 하면서 식비를 절약할 수 있게 되었고, 좋아하는 고향 음식도 직접 만들어 먹을 수 있어서 좋았습니다. 또 혼자 생활하면서 스스로 음식을 만드는 방법도 배우게 되었습니다. 앞으로는 한국 음식도 배워서 캄보디아에 돌아가면 부모님께 직접 만들어 드리고 싶습니다.",
+     "aen": "What I want to talk about in my presentation is cooking, which I started after coming to Korea. Before coming to Korea, I barely cooked. However, after coming to Korea I missed Cambodian food, and I also wanted to save on the cost of eating out, so I started cooking. Among the dishes I make, the one I make most often is a Cambodian dish called cha spey. I make it by stir-frying cabbage and meat, and because I like spicy food, I always add chili. By cooking, I was able to save on food expenses, and it was great to be able to make and eat my favorite hometown food myself. Also, while living alone, I learned how to make food on my own. In the future, I want to learn Korean food too, so when I return to Cambodia I can make it myself for my parents.",
+     "why": "Your 30-second summary of the whole talk, in your own words.",
+     "audio": "audio/k-topic-summary.mp3",
+     "aen_audio": "audio/e-208ea248ff.mp3",
+     "iaudio": "audio/i-0b36e0ea12.mp3"
+    },
+    {
      "group": "함정과 빈틈 · Traps first",
      "q": "언제부터 요리를 시작했습니까?",
      "qen": "When did you start cooking?",
